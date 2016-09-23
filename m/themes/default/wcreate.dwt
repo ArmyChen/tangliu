@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$page_title}</title>
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<link href="{$ectouch_themes}/images/touch-icon.png" rel="apple-touch-icon-precomposed" />
+<link href="{$ectouch_themes}/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="{$ectouch_themes}/ectouch.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+
+
+<div class="head_title">
+	<a class="ret_btn ret_btn2" href="{$site_url}mobile/codecenter.php"></a>
+	<h2>我二维码      <a href="#" onclick="location.href='codecenter.php?act=wlist'" style="color:#fff;" >【推广二维码管理】</a></h2>
+         
+	
+	
+</div>
+<ol class="main-flow">
+	<li class="ts_flow"><a href="#">推广步骤:</a></li>
+	<li ><a href="{$site_url}mobile/codecenter.php?act=weitui">1:选择推广产品</a></li>
+	<li class="first-current"><a href="#">2:点制作二维码按钮</a></li>
+	<li class="last"><a href="{$site_url}mobile/codecenter.php?act=wlist">3:点分享到朋友圈按钮</a></li>
+</ol>
+
+
+
+<div class="qrcode_box">
+	   <form  action="wcreate.php" method="post" enctype="multipart/form-data" name="theForm" onsubmit="return validate();">
+	<h3 class="qrcode_tit">制作你需要二维码</h3>
+	<input type="hidden" class="tg_formTxt" value="14293" name="goods_id" style="width:85%">
+	<dl class="tg_form qrcode_group">
+		<dt>链接地址：</dt>
+		<dd>
+			<input type="text" class="tg_formTxt" value="{$url}" name="jumurl" placeholder="请输入链接地址" style="width:85%">
+		</dd>
+	</dl>
+	
+	<dl class="tg_form qrcode_group">
+		<dt>我的手机：</dt>
+		<dd>
+			<input type="text" class="tg_formTxt" value="{$phone}" name="phone" placeholder="请输入手机号码" style="width:85%">
+		</dd>
+	</dl>
+	
+	<dl class="tg_form qrcode_group">
+		<dt>姓  名：</dt>
+		<dd>
+			<input type="text" class="tg_formTxt" value="{$name}" name="name" placeholder="请输入您的姓名" style="width:85%">
+		</dd>
+	</dl>
+
+<dl class="tg_form qrcode_group">
+		<dt>心得：</dt>
+		<dd>
+			<textarea name="content" class="tg_formTxt"  id="description" style="width:85%" rows="2" placeholder="刚试用了，很不错的东西，分享一下" >{$content}</textarea>
+		</dd>
+	</dl>
+
+
+
+      <input type="hidden" name="gid" value="{$gid}"/>
+	
+	
+	 <input type="submit" value="生成二维码" class="sz_btn"  />
+	<p class="tr pad10 red mt10"></p>
+	<br>
+	</form>
+</div>
+
+
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+   
+</body>
+</html>

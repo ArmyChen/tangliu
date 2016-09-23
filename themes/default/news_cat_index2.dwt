@@ -1,0 +1,264 @@
+ <?php
+$GLOBALS['smarty']->assign('article_categories_news',   article_categories_tree(9)); //文章分类树
+$GLOBALS['smarty']->assign('article_cat_lar_news',   get_feileiwz(9)); //文章分类树
+
+$GLOBALS['smarty']->assign('index_ad_news',index_ad_sy_diy(119));  
+?>
+<!DOCTYPE >
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<title>{$page_title}</title>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<link href="{$ecsolve_path}/news/style/css.css" rel="stylesheet" type="text/css">
+<link href="{$ecsolve_path}/news/style/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{$ecsolve_path}/news/js/jquery1112.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/news/js/school_swiper.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/news/js/content.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <div class="head-top"> <a class="logo" href="http://www.xinyijiapin.com/qqyjy"></a>
+    <div class="Search">
+      <div class="seach-input">
+ <form id="searchForm" name="searchForm" method="get" action="{$weburl}/search.php" onSubmit="return checkSearchForm()">
+        <input class="seach-txt" name="keywords" id="keyword"  value="搜索你喜欢的" type="text">
+        <input class="seach-btn" value="" type="submit">
+        </form>
+      </div>
+ <!--  
+ {foreach from=$searchkeywords item=val name=val}
+ {if $smarty.foreach.val.iteration<6}
+   <a href="{$weburl}/k-{$val|escape:url}.html" >{$val}</a>
+   {/if}
+   {/foreach}
+-->
+	</div>
+  </div>
+  <div class="nav">
+    <div> 
+	  
+	 
+
+
+ <!--{foreach from=$article_categories_news item=cat}-->
+    <a class="on" href="{$cat.url}">{$cat.name|escape:html}</a>
+
+      <!--{foreach from=$cat.children item=child}-->
+      <a href="{$child.url}" >{$child.name|escape:html}</a>
+      <!--{/foreach}-->
+    <!--{/foreach}-->
+
+
+
+
+    </div>
+  </div>
+</div>
+<!--页头 end--> 
+
+
+
+<!--分类 start-->
+<div class="pclassify">
+  <!--<div class="FL_box">
+  <!--{foreach from=$categories item=cat}-->
+    <dl class="b-0">
+      <dt>{$cat.name|escape:html}</dt>
+      <dd>
+        <!--{foreach from=$cat.cat_id item=child}-->
+            <a href="{$child.url}" >{$child.name|escape:html}</a>      <!--{/foreach}-->
+      </dd>
+    </dl>
+
+
+
+
+
+
+     
+
+
+    <!--{/foreach}-->
+
+
+
+
+
+
+   
+  </div>-->
+</div>
+<!--分类 end--> 
+
+<!-- 幻灯片广告开始-->  
+<link href="{$ecsolve_path}/common/hdp/style/index.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/lrtk.js"></script>
+
+
+<!-- banner -->
+<!-- indexCon start -->
+<div class="indexCon">
+    <div class="flashBanner">
+       <div style="" class="mark1"> <div style=" margin:0 auto; text-align: center; overflow: hidden;  max-width:100%;height:300px; "  class="mark2"> <a href=""><div class="bigImg"    /></div></a></div></div>
+        <div class="mask">
+   <!--{foreach from=$index_ad_news item=ad  name=index_ads key=key }-->	  
+<div class="smalldiv" src="data/afficheimg/{$ad.file_url}" uri="background: url(data/afficheimg/{$ad.file_url}) no-repeat scroll center center ; height:300px; " link="{$ad.url}"  bgcolor="background:{$ad.adbgcolor};" text="{$ad.title}"  /></div>
+ <!--{/foreach}-->     
+ </div>
+</div>
+</div>
+<!-- indexCon end -->
+ <!-- banner end -->
+<!-- 幻灯片广告开始结束--> 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+   
+
+
+
+
+
+   
+
+
+
+
+
+
+   
+
+
+
+
+
+
+<div id="content">
+  <div class="Y_left"> 
+    
+     <!--{foreach from=$article_cat_lar_news item=cat}-->
+
+
+      <!--{foreach from=$cat.cat_fenlei_cat item=child name=child}-->
+   
+
+    <div class="title">{$child.cat_name|escape:html}<a href="{$child.cat_url}" target="_blank">more>></a></div>
+<div class="IN_TAB">
+<ul>
+<li  class="on"><a href="{$child.cat_url}" target="_blank">全部  </a></li>
+<!--{foreach from=$child.cat_fenlei_cat item=childs name=childs}-->
+<li ><a href="{$childs.cat_url}" target="_blank">{$childs.cat_name|escape:html}</a></li>
+<!--{/foreach}-->
+</ul>
+      
+
+
+<div style="display: block;" >
+<dl>
+<!--{foreach from=$child.fenlei_arlist item=article name=article}-->
+{if $smarty.foreach.article.iteration <=7 }
+ <dd  {if $smarty.foreach.article.first}class="on"{/if}><a href="{$article.url}" target="_blank"><img style="opacity: 1;" src="{$article.pic}" alt="" title=""><span>{$article.title}</span></a></dd>
+{/if}
+ <!--{/foreach}--> 
+ </dl>
+
+<dl>
+<!--{foreach from=$child.fenlei_arlist item=article name=article}-->
+
+{if $smarty.foreach.article.iteration >= 8 and  $smarty.foreach.article.iteration <=15 }
+                  <dd  {if $smarty.foreach.article.iteration eq 8}class="on"{/if}><a href="{$article.url}" target="_blank"><img style="opacity: 1;" src="{$article.pic}" alt="" title=""><span>{$article.title}</span></a></dd>
+		  {/if}
+		  <!--{/foreach}--> 
+ </dl>
+
+
+<dl>
+<!--{foreach from=$child.fenlei_arlist item=article name=article}-->
+
+{if $smarty.foreach.article.iteration >= 16 and  $smarty.foreach.article.iteration <=23 }
+                <dd  {if $smarty.foreach.article.iteration eq 16}class="on"{/if}><a href="{$article.url}" target="_blank"><img style="opacity: 1;" src="{$article.pic}" alt="" title=""><span>{$article.title}</span></a></dd>
+		  {/if}
+		  <!--{/foreach}--> 
+</dl>
+
+</div>
+
+
+
+
+<!--{foreach from=$child.cat_fenlei_cat item=childs name=childs}-->
+<div style="display: none;">
+<dl>
+<!--{foreach from=$childs.cat_fenlei item=article name=article}-->
+
+{if $smarty.foreach.article.iteration <=7 }
+                  <dd  {if $smarty.foreach.article.first}class="on"{/if}><a href="{$article.url}" target="_blank"><img style="opacity: 1;" src="{$article.pic}" alt="" title=""><span>{$article.title}</span></a></dd>
+		  {/if}
+		  <!--{/foreach}-->
+ </dl>
+
+<dl>
+                   <!--{foreach from=$childs.cat_fenlei item=article name=article}-->
+
+{if $smarty.foreach.article.iteration >= 8 and  $smarty.foreach.article.iteration <=15 }
+                  <dd  {if $smarty.foreach.article.iteration eq 8}class="on"{/if}><a href="{$article.url}" target="_blank"><img style="opacity: 1;" src="{$article.pic}" alt="" title=""><span>{$article.title}</span></a></dd>
+		  {/if}
+		  <!--{/foreach}-->
+
+</dl>
+
+<dl>
+
+                <!--{foreach from=$childs.cat_fenlei item=article name=article}-->
+
+{if $smarty.foreach.article.iteration >= 16 and  $smarty.foreach.article.iteration <=23 }
+                <dd  {if $smarty.foreach.article.iteration eq 16}class="on"{/if}><a href="{$article.url}" target="_blank"><img style="opacity: 1;" src="{$article.pic}" alt="" title=""><span>{$article.title}</span></a></dd>
+		  {/if}
+		  <!--{/foreach}-->
+
+		
+</dl>
+      </div>
+      
+       <!--{/foreach}-->
+     
+      
+    </div>
+    <!--达人评测 end--> 
+    
+        <!--{/foreach}-->
+
+   <!--{/foreach}-->
+
+
+
+
+
+
+  </div>
+  
+  <div class="clear"></div>
+</div>
+<!--页脚 start-->
+<div class="footer">
+  <div class="copyright">版权所有：{$shop_name}&nbsp;.&nbsp;经营许可证编号：粤ICP备14019780号</div>
+</div>
+<!--页脚 start-->
+
+
+</body></html>

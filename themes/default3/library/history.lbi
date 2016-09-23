@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="leftgoods tmar10">
+      <dl>
+        <dt> <strong class="left">最近浏览</strong> <span class="right"><a href="javascript:clear_history()">清空</a></span> </dt>
+        
+		<dd>
+		
+         <ul id="history_list" class="historydlist" style="padding-top:10px; text-align:center">
+		 <!--{foreach from=get_history() item=item name=historys}-->
+                <li><a target="_blank"href="{$item.url}" title="{$item.short_name}"><img src="{$item.goods_thumb}"width="55"height="55"/></a><span class="redd9">{$item.shop_price}</span></li><!--{/foreach}-->
+		</ul>
+              
+        </dd>
+		 
+      </dl>
+      <div class="bottomleft6 corner"></div>
+      <div class="bottomright6 corner"></div>
+    </div>
+	<script type="text/javascript">
+
+function clear_history()
+{
+Ajax.call('user.php', 'act=clear_history',clear_history_Response, 'GET', 'TEXT',1,1);
+}
+function clear_history_Response(res)
+{
+document.getElementById('history_list').innerHTML = '{$lang.no_history}';
+}
+</script>

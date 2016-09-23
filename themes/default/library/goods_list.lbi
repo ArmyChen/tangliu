@@ -1,0 +1,168 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="sorting" {if !$goods_list}style="margin-top:0px"{/if}>
+  <div style="position:absolute; top:0px; left:0px;">
+    <ul>
+      <li 
+      <!-- {if $pager.sort == 'goods_id'} -->
+      class='selected'
+      <!-- {/if} -->
+      ><a  href="{$weburl}/{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=<!-- {if $pager.sort == 'click_count' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list">默认</a>
+      </li>
+      <li 
+      <!-- {if $pager.sort == 'shop_price'} -->
+      class='selected'
+      <!-- {/if} -->
+      ><a  href="{$weburl}/{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=<!-- {if $pager.sort == 'shop_price' && $pager.order == 'ASC'} -->DESC<!-- {else} -->ASC<!-- {/if} -->#goods_list">价格</a>
+      </li>
+      <li 
+      <!-- {if $pager.sort == 'last_update'} -->
+      class='selected'
+      <!-- {/if} -->
+      ><a  href="{$weburl}/{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=<!-- {if $pager.sort == 'last_update' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list">更新</a>
+      </li>
+
+
+
+
+<li  {if $pager.sort == 'salesnum'}class='selected'  {/if} >	
+<a href="{$weburl}/{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=salesnum&order=<!-- {if $pager.sort == 'salesnum' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list">销量</a>	
+</li>
+
+
+
+
+    </ul>
+  </div>
+  <div class="right marrig10">
+    <p class="col999 left marrig10" style=" height:37px; line-height:37px;">{$pager.page}/{$pager.page_count}</p>
+    <div class="pageleft">
+      <!-- {if $pager.page_prev} -->
+      <a class="prev" href="{$pager.page_prev}"></a>
+      <!-- {/if} -->
+    </div>
+    <div class="pageright">
+      <!-- {if $pager.page_next} -->
+      <a class="next" href="{$pager.page_next}"></a>
+      <!-- {/if} -->
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="sortingcontent">
+  <ul>
+    
+    <!--{foreach from=$goods_list item=goods}-->
+    <!-- {if $goods.goods_id} -->
+	<!-- {if $goods.watermark_img eq 'watermark_promote_small'} -->
+	<li>
+      <div class="img_b">
+	   <!--{foreach from=get_goods_ex($GLOBALS['smarty']->_var['goods']['goods_id']) item=goods_data name=get_goods_ex}-->
+			<!-- {if $smarty.foreach.get_goods_ex.iteration eq 1}-->
+        <div class="lijian" 
+style="font-weight:bold;background:url(images/saleico.png);
+display:block;width:56px;height:32px;padding-top:20px;background-position:-72px 0;
+background-repeat:no-repeat;position:absolute;z-index:5;right:15px;top:10px;
+text-align:center;font-size:18px;line-height:20px;color:#fff;">{$goods_data.promote_price}</div>
+<!-- {/if} -->
+			<!--{/foreach}-->
+        <a title="{$goods.goods_name}" target="_blank" href="{$goods.url}"><img title="{$goods.goods_name}" alt="{$goods.goods_name}" src="{$goods.goods_thumb}" width="270" height="270" /></a> </div>
+      <p class="title_b" ><a target="_blank" title="{$goods.goods_name}" href="{$goods.url}">{$goods.goods_name}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <style>
+p.trait_label a{padding: 0 10px;border-right: 1px solid #999999;color: #999999;}
+</style>
+      
+      <div class="price_b">
+        <p class="Tahoma colfff font24 left"><span class="font14 Arial"></span>{$goods.promote_price}</p>
+        <div class="buybutton"><a href="{$goods.url}"></a></div>
+      </div>
+      <div class="clear"></div>
+      <div class="bottominfo">
+        <div class="left"> <span style="float:left; margin: 8px 3px 0px 0px;"><img src="images/timeleft.jpg" width="14" height="15" /></span>
+          <p class="left Tahoma" id="leftTime{$goods.goods_id}"></p>
+		  <!--{foreach from=get_goods_ex($GLOBALS['smarty']->_var['goods']['goods_id']) item=goods_data name=get_goods_ex}-->
+			<!-- {if $smarty.foreach.get_goods_ex.iteration eq 1}-->
+          <div id="lmin{$goods.goods_id}" style="display:none;">{$goods_data.promote_end_date}</div>
+		  <!-- {/if} -->
+			<!--{/foreach}-->
+          <script type="text/javascript">
+var updateTime = function(){
+var time = document.getElementById("lmin{$goods.goods_id}").innerHTML; time -= 1; 
+document.getElementById("lmin{$goods.goods_id}").innerHTML = time; 
+ltime=time;
+var lhour=parseInt(ltime/3600);
+var lmin=parseInt((ltime-lhour*3600)/60);
+var lsec=(ltime-lhour*3600-lmin*60);	
+document.getElementById("leftTime{$goods.goods_id}").innerHTML = lhour+"<span class='colccl'>时</span>"+lmin+"<span class='colccl'>分</span>"+lsec+"<span class='colccl'>秒</span>"; 	
+}
+window.setInterval(updateTime, 1000);
+</script>
+          <div class="clear"></div>
+        </div>
+      
+      </div>
+
+
+
+<div class="martop8">
+        <div class="shopcar"><a id="button_buy"  href="javascript:addToCartcat({$goods.goods_id})">加入购物车</a></div>
+        <div class="collect"><a  href="javascript:collect({$goods.goods_id});" >加入收藏</a></div>
+      </div>
+
+
+    </li>
+	<!--{else}-->
+    <li class="normal "  onmouseout="this.className='normal'" onmousemove="this.className='normal hover'">
+      <div class="img_b"> <a title="{$goods.goods_name}" target="_blank" href="{$goods.url}"><img title="{$goods.goods_name}" alt="{$goods.goods_name}" src="{$goods.goods_thumb}" width="270" height="270" /></a> </div>
+      <p class="title_b" ><a target="_blank" title="{$goods.goods_name}" href="{$goods.url}">{$goods.goods_name}</a></p>
+      <style>
+p.trait_label a{padding: 0 10px;border-right: 1px solid #999999;color: #999999;}
+</style>
+      
+      <p class="price_c"><span class="font14"></span>
+        <!--{if $goods.promote_price neq "" } -->
+        {$goods.promote_price}
+        <!--{else}-->
+        {$goods.shop_price}
+        <!--{/if}-->
+        <span class="col999 font12 marleft3" style="text-decoration: line-through">({$goods.market_price})</span></p>
+     
+      <div class="martop8">
+        <div class="shopcar"><a id="button_buy"  href="javascript:addToCartcat({$goods.goods_id})">加入购物车</a></div>
+        <div class="collect"><a  href="javascript:collect({$goods.goods_id});" >加入收藏</a></div>
+      </div>
+      <div class="clear"></div>
+    </li>
+	<!--{/if}-->
+    <!--{/if}-->
+    <!--{/foreach}-->
+   
+  </ul>
+</div>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+<script type="text/javascript">
+window.onload = function()
+{
+  
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>

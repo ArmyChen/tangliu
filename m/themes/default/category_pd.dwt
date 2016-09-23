@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>{$page_title}</title>
+<meta name="Keywords" content="{$Keywords}">
+<meta name="Description" content="{$Description}">
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css">
+
+<style>
+.wa3{width:33.333%;float:left;display:block;border-left:2px solid #fff;margin-left:-2px;}
+.wa3 img{width:100%;min-height:134px;}
+.r_tg{max-width:7.4rem;overflow:hidden;float:right;font-weight:normal;text-overflow:ellipsis;white-space:nowrap;margin-left:5px;padding-right:8px;background:url(http://s.qw.cc/mobile/css/ydo.png) right 50% no-repeat;background-size:0.3rem 0.3rem;}
+.ma{width:25%;background-color:#fff;float:left;display:block;line-height:4rem;text-align:center;color:#333;font-weight:700;}
+#catc{padding:0.5rem 0;}
+.dam{height:3.6rem;width:3.6rem;}
+.da{margin-bottom:0.2rem;}
+.t{line-height:3.8rem;height:3.8rem;}
+.more{height:3.8rem;}
+.bigm{padding:0 6px;}
+</style>
+</head>
+<body>
+<div id="top">
+<div class="header hfix">
+<a href="javascript:;" onclick="goback()" class="b_l"></a>
+<h1 class="ldt" onclick="gtns()">男性用品</h1>
+<a href="javascript:;" onclick="gtns()" id="gdor" class="b_r">更多</a>
+</div>
+</div>
+
+
+
+
+
+<div class="gtn" id="gtn">
+<div class="bgw">
+<a href="#man/feijibei/" class="ca">自慰飞机杯</a>
+<a href="#man/daomo/" class="ca">女优名器</a>
+<a href="#man/meitun/" class="ca">臀胸倒模</a>
+<a href="#man/nangen/" class="ca">助勃增大</a>
+<a href="#man/ggys/" class="ca">延时喷剂</a>
+<a href="#man/gdian/" class="ca">前列腺刺激</a>
+<a href="#man/cqww/" class="ca">充气娃娃</a>
+<a href="#man/yanshi/" class="ca">锁精套环</a>
+<a href="#man/wawa/" class="ca">实体玩偶</a>
+</div>
+<ul class="gt_a">
+<li><a href="#fenlei.html" class="gta">所有商品分类</a></li>
+<li><a href="#car.php" class="gta">购物车</a></li>
+<li><a href="#history.php" class="gta">浏览历史</a></li>
+<li><a href="" class="gta">回首页</a></li>
+<li><a href="#chat.php" class="gta">在线客服咨询</a></li>
+</ul>
+</div>
+<div class="page load" id="lazy">
+
+
+
+<div class="slider" id="slider">
+<ul style="width: 3840px; height: 200px; transform: translate3d(-2560px, 0px, 0px); transition-duration: 300ms;" class="sul">
+<!--{foreach from=$adlist item=ad name=ad}-->
+	  <li ><a href="{$ad.url}"><img lazy="{$weburl}/{$ad.ad_code}" src="{$weburl}/{$ad.ad_code}" width="100%"></a></li>
+	   <!--{/foreach}-->
+</ul>
+<!--<div class="btn alC" id="btn"><i class=""></i><i class=""></i><i class=""></i><i class="on"></i></div>-->
+</div>
+
+
+<!--
+
+<div class="bgw" id="catc">
+
+
+ <!--{foreach from=$categoriespd item=cat name=cat_tree}-->                        
+ 
+ <a href="{$cat.url}" class="da"><img src="cats_files/3.jpg" class="dam"><p>{$cat.name|escape:html}</p></a>
+ <!--{/foreach}-->  
+
+
+
+<div class="clear"></div>
+</div>
+
+-->
+
+
+
+
+
+
+
+
+
+<!--{foreach from=$categoriespd item=cat name=cat_tree}-->
+<div class="bgw mt10">
+<h2 class="t"><a href="{$cat.url}" class="brl">{$cat.name|escape:html}</a>
+<a href="{$cat.url}" class="more right"></a>
+
+
+<!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+ <a href="{$child.url}" class="r_tg">{$child.name|escape:html}</a>
+ 
+ <!--{/foreach}-->
+
+
+
+</h2>
+<div class="gd bigm">
+<!--{foreach from=$cat.catgoodslist item=goods name=goods}-->
+<a href="{$goods.url}" class="ga"><div class="pm"><img src="{$goods.goods_img}" class="gm"><h3 class="gt">{$goods.name|escape:html}</h3><p class="lp"><em class="xj">{$goods.shop_price}</em>
+<!--<em class="s_s">月销: 21823</em>--></p></div></a>
+{/foreach}
+</div>
+</div>
+ {/foreach}
+
+
+
+
+
+</div>
+
+
+<!--
+<div style="position:fixed;left:0;bottom:0;width:100%;height:4.2rem;padding-top:0.4rem;z-index:90;border-top:1px solid #e0e0e0;background-color:#fcfcfc;color:#000;line-height:1.8rem;" id="weix">
+<div class="page" style="position:relative;">
+<img src="cats_files/hwx3.png" style="width:4rem;height:4rem;float:left;margin:0 0.6rem 0 1rem;">
+<p>您的专属私密情趣顾问（尊享1对1服务）</p>
+<p>婷婷微信：<em style="background-color:#d80d0d;color:#fff;padding:0 5px;">aaagcd</em> ←长按可以复制</p>
+<a href="javascript:;" onclick="document.getElementById('weix').className='hid'" style="position:absolute;color:#fff;width:2rem;background-color:#999;border-radius:100%;height:2rem;display:block;right:0.3rem;top:-0.2rem;text-align:center;line-height:2rem">X</a>
+</div></div>
+-->
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+<script type="text/javascript" src="cats_files/app.js"></script><script type="text/javascript" src="cats_files/vganswip.js"></script>
+<script>
+$("#slider").vganswiper({bi:0.3125});
+lazyload({defObj:"#lazy"});
+function gtns(){
+$("#gtn").toggle();
+}
+$("#gtn").bind("click",function(){
+$(this).hide();
+});
+</script>
+
+</body></html>

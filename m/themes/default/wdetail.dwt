@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta charset="utf-8" />
+<title>{$goods_name}	</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<link href="{$ectouch_themes}/images/touch-icon.png" rel="apple-touch-icon-precomposed" />
+<link href="{$ectouch_themes}/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="{$ectouch_themes}/ectouch.css?id=12" rel="stylesheet" type="text/css" />
+
+<!--甜心新增---> 
+<style>
+.user_top_goods {
+height: 5rem;
+overflow: hidden; 
+background:#ffbf6b;
+position:relative
+
+}
+.user_top_goods dt {
+float: left;
+margin: 0.8rem 0.8rem 0;
+text-align: center;
+position: relative;
+width: 3.7rem;
+height: 3.7rem;
+border-radius: 3.7rem;
+padding:0.15rem; background:#FFFFFF
+}
+.user_top_goods dt img {
+width: 3.7rem;
+height:3.7rem;
+border-radius: 3.7rem;
+}
+.guanzhu {
+background-color: #ffbf6b;
+}
+
+.guanzhu {
+color: #fff;
+border: 0;
+height: 2.5rem;
+line-height: 2.5rem;
+width: 100%;
+-webkit-box-flex: 1;
+display: block;
+-webkit-user-select: none;
+font-size: 0.9rem;
+}
+#cover2 {
+    background-color: #333333;
+    display: none;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+}
+#share_weixin, #share_qq {
+    right: 10px;
+    top: 2px;
+    width: 260px;
+}
+#share_weixin, #share_qq, #share_qr {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+}
+#share_weixin img, #share_qq img {
+    height: 165px;
+    width: 260px;
+}
+
+		.button_3 {
+    background-color: #EEEEEE;
+    border: 1px solid #666666;
+    color: #666666;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 10px 0;
+    text-align: center;
+}
+#share_weixin button, #share_qq button {
+    margin-top: 25px;
+    width: 100%;
+}
+</style>
+<!--甜心新增  ---> 
+<script type="text/javascript" src="{$ectouch_themes}/js/TouchSlide.js"></script>
+{insert_scripts files='common.js'}
+<script type="text/javascript" src="{$ectouch_themes}/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript">
+// 筛选商品属性
+jQuery(function($) {
+	$(".info").click(function(){
+		$('.goodsBuy .fields').slideToggle("fast");
+	});
+})
+
+function changenum(diff) {
+	var num = parseInt(document.getElementById('goods_number').value);
+	var goods_number = num + Number(diff);
+	if( goods_number >= 1){
+		document.getElementById('goods_number').value = goods_number;//更新数量
+		changePrice();
+	}
+}
+
+
+</script>
+</head>
+<body>
+<div class="head_title">
+	<a class="ret_btn ret_btn2" href="{$site_url}mobile/codecenter.php"></a>
+	<h2>{if $name}来自于"{$name}"的分享 {/if}{$content}</h2>
+	
+</div>
+<div class="qrcode_list">
+<div  onclick="document.getElementById('sharemcover').style.display='';" id="sharemcover"><img src="{$ectouch_themes}/images/MgnnofmleM.png"></div>
+
+
+<div class="qrcode_box">
+
+	
+
+	<dl class="tg_form qrcode_group">
+	    <dt>产品图：</dt>
+		<dd>
+			<img width="120" height="120" src="{$site_url}{$goods_thumb}" alt="" id="">
+		</dd>
+	</dl>
+ 
+	<dl class="tg_form qrcode_group">
+	    <dt>二维码：</dt>
+		<dd>
+			<img width="120" height="120" src="{$site_url}mobile/images/pdcode/{$wximg}" alt="二维码" id="">
+		</dd>
+	</dl>
+	<dl class="tg_form qrcode_group">
+	    <dt></dt>
+		 <dd>
+			长按图片，识别二维码！
+		</dd>
+	</dl>
+
+	<dl class="tg_form qrcode_group">
+	    <dt>名称：</dt>
+		<dd>
+			 {$goods_name}		</dd>
+	</dl>
+
+	<dl class="tg_form qrcode_group">
+	    <dt>价格：</dt>
+		<dd>
+			 {$shop_price}			</dd>
+	</dl>
+
+	 
+	<div class="clear"></div>
+		<a  onclick="document.getElementById('sharemcover').style.display='block';"  class="sz_btn" >分享到朋友圈</a>
+	 
+ 
+	<p class="tr pad10 red mt10"></p>
+	
+	
+</div>
+</div>
+   <script type="text/javascript">
+$(document).ready(function(){
+    $(".sz_btn").click(function(event) {
+        $.get($(this).attr('rel'), function(res) {
+            if(res.status){
+                $("#imgUrl").val(res.imgUrl);
+                $("#lineLink").val(res.lineLink);
+                $("#descContent").val(res.descContent);
+                $("#shareTitle").val("扫我注册,终身赚佣金!");
+
+                $("#sharemcover").show();
+            }else{
+                layer.open({content: res.msg, time: 3});
+            }
+        },'json');
+    });
+
+    $("#sharemcover").click(function(event) {
+        $(this).hide();
+    });
+
+	 
+});
+</script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+<!-- {/literal} -->
+  wx.config({
+    debug: false,
+    appId: '{$signPackage.appId}',
+    timestamp: {$signPackage.timestamp},
+    nonceStr: '{$signPackage.nonceStr}',
+    signature: '{$signPackage.signature}',
+    jsApiList: [
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage' 
+    ]
+  });
+ wx.ready(function () {
+	//甜心100监听“分享给朋友”
+    wx.onMenuShareAppMessage({
+      title: '{$goods_name}',
+      desc: '{$goods_name}',
+      link: '{$url}',
+      imgUrl: '{$site_url}{$goods_thumb}',
+      trigger: function (res) {
+		
+		{if $url}
+        alert('恭喜！分享可以获取提成哦！');
+		{else}
+		alert('糟糕，需要分销商登录才能获得提成哦！');
+		{/if}
+		
+      },
+      success: function (res) {
+		{if $dourl }
+        window.location.href="{$dourl}&type=1"; 
+		{/if}
+      },
+      cancel: function (res) {
+        alert('很遗憾，您已取消分享');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+
+	//分享到朋友圈甜心100
+    wx.onMenuShareTimeline({
+      title: '{$goods_name}',
+      link: '{$url}',
+      imgUrl: '{$site_url}{$goods_thumb}',
+      trigger: function (res) {
+			
+        {if $url}
+			alert('恭喜！分享可以获取提成哦！');
+		{else}
+			alert('糟糕，需要分销商登录才能获得提成哦！');
+		{/if}
+      },
+      success: function (res) {
+       	{if $dourl }
+        window.location.href="{$dourl}&type=2"; 
+		{/if}
+      },
+      cancel: function (res) {
+         alert('很遗憾，您已取消分享');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+
+
+});
+<!-- {literal} -->
+</script>
+{insert_scripts files='transport.js,utils.js'}
+
+</body>
+</html>

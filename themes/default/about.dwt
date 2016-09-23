@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/gtcommon.css">
+<link href="{$ecsolve_path}/style/help.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css">
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/left.css">
+
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$article.title}</title>
+</head>
+<body>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
+
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div style="height:0px; overflow:hidden;"></div>
+<div id="content">
+<div class="main_route">
+<div class="route">
+
+<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  </div>
+  </div>
+ </div>
+<div id="forhelp">
+
+
+ <div class="r_c_l">
+  
+
+
+
+
+<div style="border-bottom:1px solid #ddd;" class="content_left left">      
+
+<div class="maintitle font14 colccl bold">帮助中心</div>
+ <!-- {foreach from=get_shop_help() item=help_cat name=shop_help} -->
+        		  <div class="maincontent font14 bold" onclick="shut_top_cat();">{$help_cat.cat_name}<span class="font14 col999 boldnone"></span>
+            <div class="button_off"><img width="16" height="16" src="themes/xyjp/images/button_off.jpg" id="top_cat_img"></div>
+          </div>
+
+
+          <div id="top_cat_child" class="classify">
+            <ul><!-- {foreach from=$help_cat.article item=item} -->
+                            <li><a href="{$item.url}" rel="nofollow">{$item.short_title}<span class="col999"></span></a></li>
+              <!-- {/foreach} -->
+                          </ul>
+          </div>
+	   		
+          
+           <!-- {/foreach} -->  
+	   	
+           
+ </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <div class="r_c_r">
+    <div class="AreaR" style="width:100%">
+    <div class="box">
+	
+     <div class="box_1">
+      <div style="border:1px solid #ddd; background-color:#fff; padding:20px 15px;">
+
+      
+
+
+      
+         <!-- {if $article.content } -->
+          {$article.content}
+         <!-- {/if} -->
+         {if $article.open_type eq 2 or $article.open_type eq 1}<br />
+         <div><a href="{$article.file_url}" target="_blank">{$lang.relative_file}</a></div>
+          {/if}
+            
+	        {if $prev_article}
+            {$lang.prev_article}:<a href="{$prev_article.url}" class="f6">{$prev_article.title}</a>
+          {/if}
+ <!-- 上一篇文章 -->
+          {if $next_article}
+            {$lang.next_article}:<a href="{$next_article.url}" class="f6">{$next_article.title}</a><br /><br />
+          {/if}
+          <!-- 下一篇文章 --> 
+
+       
+         </div>  
+      </div>
+    </div>
+  </div>
+  <div class="blank"></div>
+ 
+
+  </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="scroll_div" onclick="$(window).scrollTop(0)" class="scroll_div"></div>
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--尾文件，加载分屏代码-->
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+	var $imgOriginal = $("img[original]");
+	//360图片不显示问题
+	if($.browser.msie){
+		$imgOriginal.each(function(){
+			$(this).attr('src',$(this).attr('original'));
+		});
+	}else{
+		$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
+	}
+});
+</script>
+</body>
+</html>

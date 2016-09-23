@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="themes/aizhigu/style/gtcommon.css" rel="stylesheet" type="text/css" />
+<link href="themes/aizhigu/style/list.css" rel="stylesheet" type="text/css" />
+<link href="themes/aizhigu/style/jifenduihuan.css" rel="stylesheet" type="text/css" />
+<link href="themes/aizhigu/style/jf.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" src="themes/aizhigu/js/jquery.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/hd_cache.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/index_com.js"></script>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div style="height:10px;"></div>
+<div class="zt_jifeng_main">
+  <div class="m_left">
+    <div>
+
+
+
+
+
+
+
+<div class="main">
+        
+
+
+
+
+
+
+        <div class="earn-juandou">
+            <div class="earn-text"><h3>积分任务</h3></div>
+            <div class="earn-list">
+                <div class="earn-show">
+                    <div class="earn-img">
+                                                    <a class="icon icon-user" target="_blank" href="#"></a>
+                                            </div>
+                    <div class="behavior">
+                        <h3>
+                                                            网站签到
+                                                    </h3>
+                        <span class="includep">
+                                                      <span class="includep">
+                       <p class="special">点击签到，获得<strong class="strcolor">5-40</strong>积分
+                   每日在九块邮&amp;卷皮签到可得积分。第一天签到领取<strong class="strcolor">5</strong>积分，连续签到每天增加5积分，连续七天以上签到可获得<strong class="strcolor">40</strong>积分。如果中</p>
+                        断领取，又会从5积分开始。</p>
+                       </span>
+
+                      </span>
+                        <div class="behavior-img">
+                            <p class="juandou-show"><em class="emcolor">100</em>积分</p>
+                                                            <a href="user.php?act=register" target="_blank">立即参与&gt;&gt;</a>
+                                                    </div>
+                    </div>
+                </div>
+                <div class="earn-show">
+                    <div class="earn-img"><a class="icon icon-download" target="_blank" href="user.php?act=register"></a></div>
+                    <div class="behavior">
+                        <h3>新用户手机注册</h3>
+                       <span class="includep">
+                          <p>新用户使用手机注册即可获得<strong class="strcolor">100</strong>积分。</p>
+                                                    <p>（等同于认证手机号码任务，不重复发放）</p>
+                     </span>
+                        <div class="behavior-img">
+                            <p class="juandou-show"><strong class="strcolor">100</strong>积分</p>
+                                                            <a href="user.php?act=register" target="_blank">立即参与&gt;&gt;</a>
+                                                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="earn-list">
+                <div class="earn-show">
+                          <div class="earn-img"><a class="icon icon-iphone" target="_blank" href="user.php?act=affiliate"></a></div>
+                    <div class="behavior">
+                             <h3>认证手机号码</h3>
+                       <span class="includep">
+                       <p>首次认证手机号码可获得<strong class="strcolor">100</strong>积分。使用手机注册不可重复获得。</p>
+                     </span>
+                        <div class="behavior-img">
+                            <p class="juandou-show"><em class="emcolor">100</em>积分</p>
+                                                            <a href="user.php?act=affiliate" target="_blank">立即参与&gt;&gt;</a>
+                                                    </div>
+                    </div>
+                </div>
+                <div class="earn-show">
+                    <div class="earn-img"><a class="icon icon-weixin" target="_blank" href="#"></a></div>
+                    <div class="behavior">
+                        <h3>关注微信</h3>
+                      <span class="includep">
+                       <p>用户首次关注卷皮官方微信可获得<strong class="strcolor">100</strong>积分</p>
+                     </span>
+                        <div class="behavior-img">
+                            <p class="juandou-show"><strong class="strcolor">100</strong>积分</p>
+                                                            <a href="#" target="_blank">立即参与&gt;&gt;</a>
+                                                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="earn-list">
+                <div class="earn-show">
+                    <div class="earn-img"><a class="icon icon-annount" target="_blank" href="user.php"></a></div>
+                    <div class="behavior">
+                        <h3>认证电子邮箱</h3>
+                       <span class="includep">
+                       <p>认证邮箱后即可获得<strong class="strcolor">50</strong>积分。</p>
+                        </span>
+                        <div class="behavior-img">
+                            <p class="juandou-show"><em class="emcolor">50</em>积分</p>
+                                                            <a href="user.php" target="_blank">立即参与&gt;&gt;</a>
+                                                    </div>
+                    </div>
+                </div>
+                <div class="earn-show">
+                <div class="earn-img"><a class="icon icon-visited" target="_blank" href="user.php?act=affiliate"></a></div>
+                    <div class="behavior">
+                      <h3>邀请好友</h3>
+                       <span class="includep">
+                        <p>通过您的专属邀请链接邀请好友访问，并使用手机成功注册</p>
+                        <p>卷皮。您将获得<strong class="strcolor">100</strong>积分，您每个月最多可以获得<strong class="strcolor">1000</strong>个</p>
+                        <p>积分！</p>
+                       </span>
+                        <div class="behavior-img">
+                            <p class="juandou-show"><strong class="strcolor">100</strong>积分</p>
+                                                            <a href="user.php?act=affiliate" target="_blank">立即参与&gt;&gt;</a>
+                                                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="earn-list">
+                <div class="package-box">
+                    <em class="icon-gift"></em>
+                    <span>完成所有新手任务，再送神秘大礼包一份！</span>
+                                            <a class="btn" id="tasklist" href="javascript:void(0)">点击领取</a>
+                                    </div>
+            </div>
+        </div>
+        
+
+           
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    
+    <div class="biaoti"><img src="images/jifen_2_biaoti.jpg" alt="" /></div>
+    <div class="lipin">
+      <dl>
+	  <!--{foreach from=$goods_list item=goods}-->
+          <!-- {if $goods.goods_id} -->
+        <dd class="none" style="margin-left:5px;"> <span><a href="{$goods.url}" title="{$goods.goods_name}"><img src="{$goods.goods_thumb}" style="width:185px; height:193px" title="{$goods.goods_name}" /></a></span>
+          <p><span class="col999">&nbsp;</span></p>
+          <p style="height:35px"><a href="{$goods.url}" title="{$goods.goods_name}" target="_blank"><span class="col333">{$goods.goods_name}</span></a></p>
+          <p><span class="col999"></span></p>
+          <p><span class="col999">{$lang.exchange_integral}</span><span class="colc00">{$goods.exchange_integral}</span></p>
+          <p style=" text-align:center;"><a href="{$goods.url}" target="_blank"><img src="images/anniu.jpg"  /></a></p>
+        </dd>
+       <!--{/if}-->
+        <!--{/foreach}-->
+      </dl>
+    </div>
+    <div class="pages">
+      <!-- #BeginLibraryItem "/library/pages2.lbi" --><!-- #EndLibraryItem -->
+    </div>
+  </div>
+  <div class="m_right">
+    <div class="jifenk">
+      <div class="top"></div>
+      <div class="main">
+        <p class="jifen">看看您已有多少分了？</p>
+        <p><a href="user.php" target="_blank"><span class="colc50000">[登录]</span></a></p>
+      </div>
+      <div class="jifen_bottom"></div>
+    </div>
+    
+    <div class="l_paihang">
+      <div class="columns list_bg" style="margin-top:10px;"><b class="font14">热门排行</b></div>
+      <div class="c_rx">
+        <ul>
+		<!--{foreach from=get_cat_hot_goods_10(0) item=goods_item name=get_cat_hot_goods}-->
+          <li><span class="numhover"><a>{$smarty.foreach.get_cat_hot_goods.iteration}</a></span><a title="{$goods_item.name|escape:html}" target="_blank" href="{$goods_item.url}"><img src="{$goods_item.thumb}" style="width:58px"></a><small class="font12"><a title="{$goods_item.name|escape:html}" target="_blank" href="{$goods_item.url}">{$goods_item.short_name|escape:html}</a></small><span class="gray" style="color:#FF0000"><!-- {if $goods_item.promote_price neq ""} -->{$goods_item.promote_price}<!-- {else}-->{$goods_item.shop_price}<!--{/if}--> </span></li>
+        <!--{/foreach}-->  
+        </ul>
+      </div>
+      <div class="bottomleft6 corner"></div>
+      <div class="bottomright6 corner"></div>
+      <div class="clear"></div>
+    </div>
+	<div class="l_paihang">
+      <div class="columns list_bg" style="margin-top:10px;"><b class="font14">新品上市</b></div>
+      <div class="c_rx">
+        <ul>
+          <!--{foreach from=get_cat_new_goods_10(0) item=goods_item name=get_cat_hot_goods}-->
+          <li><a title="{$goods_item.name|escape:html}" target="_blank" href="{$goods_item.url}"><img src="{$goods_item.thumb}" style="width:58px"></a><small class="font12"><a title="{$goods_item.name|escape:html}" target="_blank" href="{$goods_item.url}">{$goods_item.short_name|escape:html}</a></small><span class="gray" style="color:#FF0000"><!-- {if $goods_item.promote_price neq ""} -->{$goods_item.promote_price}<!-- {else}-->{$goods_item.shop_price}<!--{/if}--> </span></li>
+        <!--{/foreach}-->  
+          
+        </ul>
+      </div>
+      <div class="bottomleft6 corner"></div>
+      <div class="bottomright6 corner"></div>
+      <div class="clear"></div>
+    </div>
+   
+  </div>
+  <div class="clear"></div>
+</div>
+<!--尾文件结束-->
+<div style="height:10px;"></div>
+
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--尾文件，加载分屏代码-->
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+	var $imgOriginal = $("img[original]");
+	//360图片不显示问题
+	if($.browser.msie){
+		$imgOriginal.each(function(){
+			$(this).attr('src',$(this).attr('original'));
+		});
+	}else{
+		$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
+	}
+});
+</script>
+
+</body>
+</html>

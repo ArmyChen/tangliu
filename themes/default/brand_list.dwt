@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="themes/aizhigu/css/common.css" rel="stylesheet" type="text/css" />
+<link href="themes/aizhigu/css/brandList_new.css" rel="stylesheet" type="text/css" />
+<style>
+.brandbanner{ width:100%; margin:0px auto; height:326px; background:#570068 url(themes/aizhigu/images/b_03.jpg) top center no-repeat}
+.brandbanner h1{ font-family:"微软雅黑"; color:#ffffff; line-height:24px; font-size:22px; padding-top:198px; margin:0px auto; width:1000px;  text-align:center}
+.brandbanner h2{color:#000000; line-height:24px; font-size:12px; padding-top:10px; width:1000px; margin:0px auto;text-align:center; font-weight:normal}
+.newbrand{ width:1000px; margin:0px auto; padding-top:10px; background:#ffffff; padding-bottom:10px;border-top:2px dashed #ADD8E6;}
+.newbrand ul{ width:1000px; padding-bottom:10px;}
+.newbrand ul li{float:left; width:249px; _height:208px; margin-top:10px; padding-bottom:10px;}
+.newbrand ul li img{ margin-bottom:10px}
+.newbrand ul li p{ text-align:center;}
+.newbrand ul li p a{ color:#666666; }
+
+
+.tab-style{ width:1000px; padding-top:20px; margin:0px auto;}
+.tab-style ul.tab-style-1 { width:980px; height:38px;background: url(themes/aizhigu/images/tab_style_1.jpg) 0 0 repeat-x; line-height:25px; padding-left:20px;}
+.tab-style ul.tab-style-1 li.sel{background:url(themes/aizhigu/images/tab_style_1.jpg) no-repeat scroll 0 -93px transparent;color: #E52906;height: 27px;}
+.tab-style ul.tab-style-1 li {background: url(themes/aizhigu/images/tab_style_1.jpg) no-repeat scroll 0 -44px transparent;color: #555;cursor: pointer;display: inline;float: left;font-size: 14px;font-weight: bold;height: 26px;margin-right: 10px;padding-top: 11px;text-align: center;width: 120px;}
+
+</style>
+</head>
+<body>
+<script type="text/javascript" src="themes/aizhigu/js/jquery.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/hd_cache.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/index_com.js"></script>
+<link rel="stylesheet" type="text/css" href="themes/aizhigu/css/common_index.css">
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="brandbanner">
+  <h1 style="clear:both;">中国最大进口性爱情趣用品网站</h1>
+  <h2 style="clear:both;">我们的使命：让情趣玩具走进每个家庭，性福众生！</h2>
+  <div class="clear"></div>
+</div>
+<script type="text/javascript">
+function SetTabb(id){
+	$("#cat_list li:eq("+id+")").addClass("sel");
+	$("#cat_list li:eq("+id+")").siblings().removeClass();
+}
+
+//浮动菜单js效果
+var isIE6=false;
+if(window.navigator.userAgent.indexOf('MSIE 6')!=-1){isIE6=true;}
+window.onload=function (){
+var oHjjnav=document.getElementById('cat_list');
+var t = $('#cat_list').offset().top || oHjjnav.offsetTop;
+var ohjj_nav_b=document.getElementById('hjj_nav_b');
+window.onscroll=function (){
+var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+if(scrollTop>t){if(isIE6){oHjjnav.style.position='absolute';}else{oHjjnav.style.position='fixed';oHjjnav.style.top='0px';}ohjj_nav_b.style.display='block';}
+else{oHjjnav.style.position='';ohjj_nav_b.style.display='none';}
+if(isIE6){oHjjnav.style.top=scrollTop+'px';}
+};	
+};
+
+</script>
+<div class="tab-style">
+  <ul class="tab-style-1" id="cat_list">
+  <!--{foreach from=get_categories_tree() item=cat name=get_categories_tree}-->
+    <li {if $smarty.foreach.get_categories_tree.iteration eq 1}class="sel"{/if} onclick="SetTabb({$smarty.foreach.get_categories_tree.index})"><a href="#cat_{$smarty.foreach.get_categories_tree.index}">{$cat.name|escape:html}</a></li>
+  <!--{/foreach}--> 
+  </ul>
+  <ul id="hjj_nav_b" style="display: block; height: 38px;">
+  </ul>
+  <div class="clear"></div>
+</div>
+
+
+<!--{foreach from=get_categories_tree() item=cat name=get_categories_tree}-->
+<div class="newbrand" style="border-top:0px;"> <a name="cat_{$smarty.foreach.get_categories_tree.index}" style="height:10px;">&nbsp;&nbsp;&nbsp;</a>
+  <div style=" width:1000px; height:35px; text-align:left; text-indent:15px; font-size:16px; font-weight:bold; color:#333333; line-height:35px; border-bottom:#f85151 2px solid;
+   margin-bottom:10px;">{$cat.name|escape:html}</div>
+  <ul>
+  <!--{foreach from=get_cat_brands($this->_var['cat']['id']) item=brandCat name=get_cat_brands}-->
+    <li><a href="brand.php?id={$brandCat.id}" target="_blank" title="{$brandCat.name}"><img src="data/brandlogo/{$brandCat.logo}" class="nal" alt="{$brandCat.name}" /></a>
+      <p><a href="brand.php?id={$brandCat.id}" target="_blank" title="{$brandCat.name}">{$brandCat.name}</a></p>
+    </li>
+  <!--{/foreach}-->  
+	
+  </ul>
+  <div class="clear"></div>
+</div>
+<!--{/foreach}--> 
+<div class="scroll_div" onclick="$(window).scrollTop(0)" id="scroll_div" style="left: 1331px; display: block;"></div>
+<script>//滚动的回顶部
+var is_ie6 = ( $.browser.msie &&　$.browser.version　< 7 )?true:false;</script>
+<div style="height:10px;"></div>
+
+
+<div class="clear"></div>
+<div style=" height:15px; width:980px; margin:0px auto;"></div>
+<!--底部-->
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--尾文件，加载分屏代码-->
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+	var $imgOriginal = $("img[original]");
+	//360图片不显示问题
+	if($.browser.msie){
+		$imgOriginal.each(function(){
+			$(this).attr('src',$(this).attr('original'));
+		});
+	}else{
+		$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
+	}
+});
+</script>
+
+</body>
+</html>

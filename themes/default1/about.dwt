@@ -1,0 +1,182 @@
+<?php
+$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(1)); 
+$GLOBALS['smarty']->assign('article_cat_gywm',     get_article_cat(4));   //分类链接标识_关于我们  
+$GLOBALS['smarty']->assign('article_list_gywm',     index_get_all_cat_articles(4));   //文章列表_关于我们  
+$GLOBALS['smarty']->assign('article_list_zxkf',     index_get_all_cat_articles(67));   //文章列表_关于我们  
+$GLOBALS['smarty']->assign('article_cat_zxkf',     get_article_cat(67));   //文章列表_关于我们  
+ ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title}</title>
+
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css" />
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/common.js"></script>
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css" />
+<script type="text/javascript" src="{$ecsolve_path}/js/wycms/jquery.js"></script>
+<link href="{$ecsolve_path}/common/hdp/style/index.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/lrtk.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/gundong.js"></script>
+</head>
+
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+
+
+<div class="content">
+ <!-- {foreach from=$ad_gywm item=ad name=ad} -->
+ <div style="background:url({$ad.ad_code}) no-repeat center;" class="child_banner"> </div>
+ {/foreach}
+
+  <div class="child_content">
+    <div id="child_menu" class="child_menu">
+    <!-- {foreach from=$articlecatsabout item=da_cat name=da_cat} -->
+      <div class="child_menuTitle"> <span>{$da_cat.cat_name}</span> </div>
+          <!-- {/foreach} --> 
+      <div>
+        <div>
+	     <span class="childpopup"></span>
+        </div>
+        <ul class="menuLeft_ul">
+  
+	 
+
+
+<!-- {foreach from=$articlecatsabout item=da_cat name=da_cat} -->
+	  <!-- {foreach from=$da_cat.cat_fenlei_cat  item=cat} -->
+        <li ><a href="{$cat.cat_url}" {if $cat.id  eq  $nowid } class="menuLeft_li menuLeft_selected" {else} class="menuLeft_li" {/if}  >{$cat.cat_name}</a></li>
+	      <!-- {/foreach} --> 
+
+
+ <!-- {foreach from=$da_cat.cat_fenlei  item=article} -->
+        <li ><a href="{$article.url}"  {if $article.id  eq  $nowid } class="menuLeft_li menuLeft_selected" {else}  class="menuLeft_li"{/if} >{$article.title}</a></li>
+	      <!-- {/foreach} --> 
+
+
+
+
+    <!-- {/foreach} --> 
+
+	 
+	 </ul>
+	 
+      </div>
+    </div>
+    <div class="child_detail">
+      <div>
+       <style>
+/*======中间部分内======*/
+a{ text-decoration:none;}
+/*分页*/
+.endPageNum{ clear:both; font-size:12px; text-align:center;line-height:1em;}
+.endPageNum table{ margin:auto;}
+.endPageNum .s1{*+width:52px;}
+.endPageNum .s2{background:#1f3a87; border:1px solid #ccc; color:#fff; font-weight:bold;}
+.endPageNum a.s2:visited {color:#fff;}
+.endPageNum a{padding:2px 5px;margin:5px 4px 0 0; color:#1F3A87;background:#fff; display:inline-table; border:1px solid #ccc; float:left;}
+.endPageNum a:visited{color:#1f3a87;} 
+.endPageNum a:hover{color:#fff; background:#1f3a87; border:1px solid #1f3a87;float:left; text-decoration:underline;}
+.endPageNum .s3{cursor:default;padding:2px 5px;margin:5px 4px 0 0; color:#ccc;background:#fff; display:inline-table; border:1px solid #ccc; float:left;}
+.clear{ clear:both;}
+.editor{ float:left; font-size:12px; margin:11px 0; width:545px; text-align:right;}
+#newscontent{margin:0 auto; padding:10px;}
+#newsconttitle .urpart{text-align:right;}
+#newsconttitle{text-align:center;}
+#newsconttitle a:hover{ color:#09F;}
+#newsconttitle h1{ font-size:16px; color:#010a09; padding:0; margin:0;text-align: center;text-indent: 10px; line-height:50px;}
+.nytitbg{ height:3px; background:url(../images/nytitbg.png)  no-repeat; width:730px;}
+.nytitborder{ height:1px; background:#ddd; width:710px;}
+
+#newsconttitle p{ width:100%; height:20px; line-height:20px;  padding:15px 0; margin:0; color:#666; border-bottom:1px #ddd dashed; }
+#newsconttitle p a{ max-width:310px;height:20px; overflow:hidden;  color:#4b555c;word-wrap: break-word;word-break: normal; }	
+#newsummary{margin: 10px 0px 0px;padding: 12px 5px 6px;width:98%; background:#FFF;border: 1px solid #DCDDDD; }
+#newsummary h2{text-indent: 2em;font-size: 14px;line-height: 20px;color:#666; font-weight:500;}
+#newcontent{ line-height:22px; color:#666; margin:10px 5px 0 5px;  display:inline;}
+#newcontent p{ padding:0; margin:0;}
+#newcontent p a:hover{ color:#04d;}
+#newsleft .ad{ margin:10px 0; float:left;}
+#newsright{ float:left; width:350px; margin-left:10px; display:inline;}
+#articeBottom {font-size: 14px; margin: 6px 0 10px; padding-top: 10px; text-align: right; }
+#articeBottom span{ float:left;}
+#articeBottom span a{ font-size:12px;}
+#articeBottom span a:hover{ color:#0099FF;}
+#articleHeader { margin:5px 0; padding:10px;background:#F5F5F5; }
+#articleHeader h4{font-size:12px; color:#333; height:20px;font-weight: normal;}
+#articleHeader h4 a{ font-size:12px; color:#333}
+.details h2{ background:#F8F8FF; border: 1px solid #DDD; line-height: 25px; margin-bottom: 15px;  padding: 10px; font-size:14px; text-indent:28px;}
+</style>
+<div id="newscontent">
+	<div id="newsconttitle">
+		<div class="urpart"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+	
+		<h1> {$article.title}</h1>
+
+	</div>
+	<div class="nytitborder"></div>
+	<!--<div class="nytitbg"></div>-->
+    <div class="clear"></div>
+    	<div id="newcontent" >
+		 {$article.content}	</div>
+	<div class="endPageNum">
+		<table align="center">
+			<tbody><tr>
+				<td>
+								<div class="clear"></div>
+				</td>
+			</tr>
+		</tbody></table>
+	</div>
+	
+</div>
+<div style="border:1px dashed #eee"></div>
+<div id="articleHeader">
+	<h4> <!-- 上一篇文章 -->
+          {if $next_article}
+            {$lang.next_article}:<a href="{$next_article.url}" class="f6">{$next_article.title}</a>
+          {/if}
+          <!-- 下一篇文章 -->
+          {if $prev_article}
+            {$lang.prev_article}:<a href="{$prev_article.url}" class="f6">{$prev_article.title}</a>
+          {/if}</h4>
+
+
+
+
+
+	</div>      </div>
+</div>
+  
+  </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="cl"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

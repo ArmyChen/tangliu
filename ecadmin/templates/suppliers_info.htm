@@ -1,0 +1,137 @@
+<!-- $Id: agency_info.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+{include file="pageheader.htm"}
+<script type="text/javascript" src="http://siteweb.gotoip3.com/mobile/js/common.js"></script>
+<script type="text/javascript" src="http://siteweb.gotoip3.com/mobile/js/shopping_flow.js"></script>
+<script type="text/javascript" src="http://siteweb.gotoip3.com/mobile/themes/mecsolve/js/transport.js"></script>
+<script type="text/javascript" src="http://siteweb.gotoip3.com/mobile/js/region.js"></script>
+<script type="text/javascript" src="http://siteweb.gotoip3.com/mobile/js/utils.js"></script> 
+
+
+<div class="main-div">
+<form method="post" action="suppliers.php" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">{$lang.label_suppliers_name}</td>
+    <td><input type="text" name="suppliers_name" maxlength="60" value="{$suppliers.suppliers_name}" />{$lang.require_field}</td>
+  </tr>
+   <tr>
+    <td class="label">坐标位置</td>
+    <td><input type="text" name="zuobiao" maxlength="60" value="{$suppliers.zuobiao}" />{$lang.require_field} <a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target=_blank>选择取地址</a></td>
+  </tr>
+  
+  
+  
+  
+  <tr><td class="label"><a href="javascript:showNotice('dizhi');" title="{$lang.form_notice}">
+        <img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>地址信息：</td>
+  <td>
+  
+  
+  
+  <select name="country" id="selCountries_{$sn}" onchange="region.changed(this, 1, 'selProvinces_{$sn}')">
+       <option value="0">-国家-</option>
+       <!-- {foreach from=$country_list item=country} -->
+       <option value="{$country.region_id}" {if $consignee.country eq $country.region_id}selected{/if}>{$country.region_name}</option>
+       <!-- {/foreach} -->
+   </select>
+               
+       <select name="province" id="selProvinces_{$sn}" onchange="region.changed(this, 2, 'selCities_{$sn}')">
+       <option value="0">-省份-</option>
+       <!-- {foreach from=$province_list.$sn item=province} -->
+       <option value="{$province.region_id}" {if $consignee.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+       <!-- {/foreach} -->
+       </select>
+       <select name="city" id="selCities_{$sn}" onchange="region.changed(this, 3, 'selDistricts_{$sn}')">
+       <option value="0">-城市-</option>
+       <!-- {foreach from=$city_list.$sn item=city} -->
+       <option value="{$city.region_id}" {if $consignee.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+       <!-- {/foreach} -->
+       </select>
+       <select name="district" id="selDistricts_{$sn}" {if !$district_list.$sn}style="display:none"{/if}>
+       <option value="0">-地区-</option>
+       <!-- {foreach from=$district_list.$sn item=district} -->
+       <option value="{$district.region_id}" {if $consignee.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+       <!-- {/foreach} -->
+       </select>
+	   <input type="text" name="address" maxlength="30" size="30" value="{$suppliers.address}" />
+	   
+	   <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="dizhi">
+    {if $suppliers.suppliers_logo eq ''}
+     请填写贷应商所在地!
+    {else}
+     目前供应商地址：{$province}-{$city}-{$district}-{$address}
+    {/if}
+    </span>
+	 
+	   </td>
+  </tr>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <tr>
+    <td class="label">{$lang.label_suppliers_desc}</td>
+    <td><textarea  name="suppliers_desc" cols="60" rows="4"  >{$suppliers.suppliers_desc}</textarea></td>
+  </tr>
+  
+  
+   <tr>
+    <td class="label">联系电话</td>
+    <td><input type="text" name="mobile" maxlength="60" value="{$suppliers.mobile}" />{$lang.require_field} </td>
+  </tr>
+  
+  
+  
+  
+  <tr style="display:none;">
+    <td class="label">
+    <a href="javascript:showNotice('noticeAdmins');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.label_admins}</td>
+    <td>{foreach from=$suppliers.admin_list item=admin}
+      <input type="checkbox" name="admins[]" value="{$admin.user_id}" {if $admin.type eq "this"}checked="checked"{/if} />
+      {$admin.user_name}{if $admin.type eq "other"}(*){/if}&nbsp;&nbsp;
+    {/foreach}<br />
+    <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeAdmins">{$lang.notice_admins}</span></td>
+  </tr>
+</table>
+
+<table align="center">
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$suppliers.suppliers_id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+<!--
+document.forms['theForm'].elements['suppliers_name'].focus();
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+    validator.required("suppliers_name",  no_suppliers_name);
+    return validator.passed();
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

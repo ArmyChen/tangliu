@@ -1,0 +1,459 @@
+
+<?php
+$GLOBALS['smarty']->assign('index_ad',get_flash_xml());   
+$GLOBALS['smarty']->assign('article_cat_cgal',     get_article_cat(24));   //分类链接标识_成功案例
+$GLOBALS['smarty']->assign('article_list_cgal',    index_get_all_cat_articles(24));  //文章列表_成功案例 
+$GLOBALS['smarty']->assign('anlicatlist',ge_arcle_catname_list(24));        //分类列表
+$GLOBALS['smarty']->assign('article_cat_zzrz',     get_article_cat(25));   //分类链接标识_荣誉资质              
+$GLOBALS['smarty']->assign('article_list_zzrz',    index_get_all_cat_articles(25));  //文章列表_荣誉资质 
+$GLOBALS['smarty']->assign('article_cat_qyxw',     get_article_cat(55));   //分类链接标识_企业新闻              
+$GLOBALS['smarty']->assign('article_list_qyxw',    index_get_all_cat_articles(55));  //文章列表_企业新闻 
+
+$GLOBALS['smarty']->assign('article_cat_hyxw',     get_article_cat(12));   //分类链接标识_行业新闻              
+$GLOBALS['smarty']->assign('article_list_hyxw',    index_get_all_cat_articles(12));  //文章列表_行业新闻
+
+$GLOBALS['smarty']->assign('article_cat_cjwt',     get_article_cat(10));   //分类链接标识_常见问题              
+$GLOBALS['smarty']->assign('article_list_cjwt',    index_get_all_cat_articles(10));  //文章列表_常见问题  
+
+$GLOBALS['smarty']->assign('article_cat_khjz',     get_article_cat(9));   //分类链接标识_客户见证              
+$GLOBALS['smarty']->assign('article_list_khjz',    index_get_all_cat_articles(9));  //文章列表_客户见证  
+
+$GLOBALS['smarty']->assign('article_cat_gywm',     get_article_cat(11));   //分类链接标识_关于我们  
+$GLOBALS['smarty']->assign('article_list_gywm',     index_get_all_cat_articles(11));   //文章列表_关于我们              
+
+$GLOBALS['smarty']->assign('article_gswh',     get_article(1988));   //分类链接标识_公司文化 
+
+$GLOBALS['smarty']->assign('article_lxwm',     get_article(62));   //分类链接标识_联系我们 
+$GLOBALS['smarty']->assign('article_cat_cgal_brand',     get_article_cat(24));   //分类链接标识_成功案例_品牌              
+$GLOBALS['smarty']->assign('article_cat_cgal_list',     get_cat_articlesok(24,1));   //分类链接标识_成功案例_品牌  
+
+$GLOBALS['smarty']->assign('ad_hengfu1',   index_ad_sy_diy(11));
+$GLOBALS['smarty']->assign('ad_hengfu2',   index_ad_sy_diy(12));
+$GLOBALS['smarty']->assign('ad_hengfu3',   index_ad_sy_diy(13));
+
+$GLOBALS['smarty']->assign('best_goods',      get_recommend_goods('best')); //商品推荐
+
+$GLOBALS['smarty']->assign('product_cattree',    get_product_catree(8));  //商品分类树_产品分类  
+
+ ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <title> {$page_title} </title>
+    <meta name="keywords" content="{$keywords}"/>
+    <meta name="description" content="{$description}"/>
+
+    <link href="{$ecsolve_path}/css/Common.css" rel="stylesheet" type="text/css">
+    <link href="{$ecsolve_path}/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="{$ecsolve_path}/css/Style.css" rel="stylesheet" type="text/css">
+    <link href="{$ecsolve_path}/css/temp.css" rel="stylesheet" type="text/css">
+	    <link rel="stylesheet" rev="stylesheet" href="{$ecsolve_path}/css/pshow2.css" type="text/css">
+    <link rel="stylesheet" rev="stylesheet" href="{$ecsolve_path}/css/jqzoom.css" type="text/css">
+    <link rel="stylesheet" rev="stylesheet" href="{$ecsolve_path}/css/base_v4.css" type="text/css">
+
+<script type="text/javascript" src="{$ecsolve_path}/js/mzp-packed-me.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/action.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/common.js"></script>
+
+    
+	
+
+</head>
+<body>
+<!--Header:Start-->
+
+
+
+ 
+
+
+
+<!--头部开始-->
+<div class="header">
+    <div class="hd_Top">
+        <div class="fl">
+            {$indexinfo}
+        </div>
+        <div class="hd_Top_rt fr">
+            <q
+                id="commonHeaderGuest"><A class="icon" href=javascript:void(0); onclick=window.external.AddFavorite(location.href,document.title);>收藏本站</A>| 
+		<!--{if $navigator_list.top}-->
+		<!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+			    <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+			    <!-- {if !$smarty.foreach.nav_top_list.last} -->| <!-- {/if} -->
+		    <!-- {/foreach} -->
+		<!-- {/if} -->
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="hd_Mid">
+        <div class="fl hd_Mid_lf">
+            <a href="/">
+                <img src="{$ecsolve_path}/img/logo.gif" alt="logo" alt="{$shop_name}" title="{$shop_name}" class="logo">
+            </a>
+
+            <div class="logo_wd">
+                <img src="{$ecsolve_path}/img/t_pic01.gif" alt="{$shop_name}口号" title="{$shop_name}口号" width=450>
+            </div>
+        </div>
+        <div class="frDiv fr">
+            全国咨询电话：<span>{$service_phone}</span>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="h_nav">
+        <ul>
+           <li {if $navigator_list.config.index eq 1} class="cur" {/if}>
+		<a href="{$weburl}"><span>{$lang.home}</span></a></li>
+		  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+		 <li   > <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}  title="{$nav.name}"><span>{$nav.name}</span></a></li>
+		 <!--  {/foreach} -->
+        </ul>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="search">
+        <div class="fr">
+            <form id="searchForm" name="searchForm" method="get" action="article_search.php" onSubmit="return checkSearchForm()">
+            <input type="text"  name="article_keywords" class="shInput" value="请输入关键字" id="seachkeywords" onfocus="this.value=''"/><input
+                type="image" class="shBtn" src="{$ecsolve_path}/img/sch_btn.gif"
+                onclick="SearchObjectByGet('seachkeywords,kwd','/search/index.aspx?objtype=product')"/>
+		</form>
+        </div>
+        <b>热门关键词 ：</b><span id="commonHeaderkeywords">{if $searchkeywords}
+   
+   {foreach from=$searchkeywords item=val}
+   <a href="{$ecsolve_root}/article_search.php?article_keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}</span>
+
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    initCommonHeader();
+    var MARK = "news";
+    initCommonHeaderKeywords(MARK);
+
+    $(function () {
+        $(".search #seachkeywords").keypress(function (e) {
+            key = e.keyCode || e.which;
+            if (key == 13) {
+                SearchObjectByGet('seachkeywords,kwd', '/search/index.aspx?objtype=product');
+            }
+        });
+    });
+</script>
+<!--Header:End-->
+
+<!--Content:Start-->
+<div class="content">
+<div class="topadcs">
+    {insert name='ads' id=15 num=1}
+</div>
+<div class="proright">
+    <div class="lf_nav">
+        <div class="lf_nav_top"><h2><a title="三叶产品分类" href="/">三叶产品分类</a></h2><span>PRODUCT CATEGORIES</span>
+        </div>
+        <div class="lf_nav_ct">
+
+	{foreach from=$product_cattree item=cat name=cat}
+	    <h3 sid="0001,0007"><a href="{$cat.url}">{$cat.cat_name|escape:html}</a></h3>
+	{/foreach}
+           
+        </div>
+        <div class="lf_nav_btm"></div>
+    </div>
+
+    <h4 class="t05">
+        知名{$article_cat_cgal.cat_name}</h4>
+
+    <div class="lxnr">
+        <div class="t05_con">
+                        
+	       <!--{foreach from=$article_cat_cgal_list item=article name=article item=article}-->
+  {if $smarty.foreach.article.iteration <4}
+			<dl class="t05_con_dl">
+			    <dt><a target="_blank" href="{$article.url}"><img alt="{$article.title}" src="{$article.brand_url}"></a>
+			    </dt>
+			    <dd><a target="_blank" href="{$article.url}">{$article.title}</a></dd>
+			</dl>
+			{/if}
+		{/foreach}
+
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <h4 class="t05">
+        联系我们</h4>
+
+    <div class="lxnr">
+        <div class="lxnrs">
+            <div class="lximgs">
+                <img alt="联系三叶工程" src="{$ecsolve_path}/img/CatactUs.jpg">
+            </div>
+            {$other1}
+        </div>
+    </div>
+</div>
+<div class="proleft">
+<div class="pro_curmbs">
+    <span>  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></span>
+</div>
+<div class="righttop">
+</div>
+<div class="pro_main">
+<div id="printableview">
+<div class="pleft">
+    <div class="mainbox">
+        <div class="maincont">
+            <!-- prodetailsinfo -->
+            <div class="prodetailsinfo">
+
+
+
+
+
+<!-- 左边商品图片开始 -->
+	  <div class="proviewbox">
+		  <div id="focuscont">
+		 
+     <!-- {if $pictures}-->
+<a style=" border:1px solid #d2d0d0; width:350px; height:350px; display:block; padding:0;" href="{$goods.goods_img}" id="zoom1" class="MagicZoom MagicThumb" title="{$goods.goods_name|escape:html}">
+      <img src="{$goods.goods_img}" alt="{$goods.goods_name|escape:html}" width="350px" height="350px" style="margin:0px;"/>
+      
+     </a>
+         <!-- {else} -->
+         <img src="{$goods.goods_img}" alt="{$goods.goods_name|escape:html}" width="350px" height="350px"/>
+         <!-- {/if}-->
+		 
+	   </div>
+
+<!-- {if $pictures}-->
+
+<div class="picture" id="imglist">
+		
+
+        <!-- {foreach from=$pictures item=picture name=picture}-->
+        <a  href="{$picture.img_url}" rel="zoom1" rev="{$picture.img_url}" title="">
+        <img src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="" {if $smarty.foreach.picture.iteration==1 }class="onbg"{else}class="autobg"{/if} /></a>
+        <!--{/foreach}-->
+
+                        
+</div>  
+		  
+<script type="text/javascript">
+	mypicBg();
+</script>
+<!-- {/if}-->
+		</div>
+
+    <!-- 左边商品图片结束 -->
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- prodbaseinfo_a -->
+                <div class="prodbaseinfo_a" id="protop">
+                    <h2 class="h2_prodtitle">{$goods.goods_name}</h2>
+                    <ul class="ul_prodinfo">
+                        <li class="li_normalprice"><span class="span_title">产品分类：</span><b class="b_proprice">{$goods.goods_name}</b>
+                        </li>
+                        <li class="li_normalprice"><span class="span_title">产品简介：</span><span class="info">{$goods.goods_brief}</span>
+                        </li>
+                        <li class="li_normalprice"><span class="span_title">订购热线：</span><span class="spanPhone">{$service_phone}</span>
+                        </li>                                              
+                       
+                        <li class="li_weight">
+                            <div class="propar">
+                                <div style="text-align: center">
+                                    <a href="#caigou">
+                                        <img alt="" src="{$ecsolve_path}/img/buynowsmalls.gif"
+                                             style="border: 0"></a></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="clear">
+</div>
+<div class="fenlei">
+    <div class="tit">
+        <a class="cur"><span>产品详情</span></a>
+
+        <div class="clear">
+        </div>
+    </div>
+</div>
+
+<div class="pro_key">
+   {$article.keywords}</div>
+<div class="cp">
+    <div class="cptab">
+        <a class="cr" href="javascript:void(0)">跟此产品相关的产品</a>
+
+        <div class="clear">
+        </div>
+    </div>
+    <div id="Div1">
+        <div id="Div2">
+	{foreach from=$best_goods item=goods name=index_goods}
+            <dl>
+                <dt><a title="{$goods.name}" href="{$goods.url}" target="_blank"><img
+                        title="{$goods.name}" alt="{$goods.name}"
+                        src="{$goods.thumb}"></a></dt>
+                <dd class="t1"><a title="{$goods.name}" href="{$goods.url}"
+                                  target="_blank">{$goods.name}</a></dd>
+            </dl>
+        {/foreach}  
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+
+<div class="comments">
+    <h4>
+        共有<span id="spCommentCount">0</span>条评论<a href="#aPostComment">【我要评论】</a></h4>
+
+    <div class="ml10 mt10" id="divComments">暂无评论</div>
+    <div class="info_pl">
+        <a href="#/tools/comment.aspx?oid=73&amp;mark=product" target="_blank">查看全部评论</a></div>
+</div>
+<div class="info_fb">
+    <table width="100%" border="0" id="tbCmt">
+        <tbody>
+        <tr>
+            <td width="12%" class="td_b tr">
+                我要评论:
+            </td>
+            <td width="88%">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="tr vat">
+                内 容：
+            </td>
+            <td>
+                <textarea rows="5" cols="80" id="txtCmtContent"></textarea><br>
+                （内容最多500个汉字，1000个字符）
+            </td>
+        </tr>
+        <tr>
+            <td class="tr vat">
+                验证码：
+            </td>
+            <td>
+                <input type="text"
+                       onfocus="showVerifyCode('spCmtVerCode','spCmtVerCodeMsg','imgCmtVerCode','spCmtChgVerCode')"
+                       id="txtCmtVerCode" size="30">
+                <cite><span id="spCmtVerCode"></span><span class="hd" id="spCmtVerCodeMsg"></span><a
+                        onclick="changeVerCode('imgCmtVerCode','spCmtVerCodeMsg')" href="###" class="p hd"
+                        id="spCmtChgVerCode">
+                    看不清？！</a></cite>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <input type="button" onclick="postComment(this,73,'product')" value="发 表" class="b13">
+                <input type="button" value="重 填" class="b13" onclick="emptyText('tbCmt')">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<div class="rightbot">
+</div>
+</div>
+<div class="clear">
+</div>
+</div>
+<!--Content:End-->
+<!--Footer:Start-->
+<script type="text/javascript">
+    if (SID == "0001,0025,0029") {
+        $(".news_con").find("dl").removeClass("dl_2");
+        $(".news_con").find("dl").addClass("dl_2h");
+    }
+    if (SID == "0001,0025,0028") {
+        $(".news_con").find("dl").removeClass("dl_2");
+        $(".news_con").find("dl").addClass("dl_2hw");
+    }
+</script>
+<div class="footer">
+    <div class="ft_nav">
+      <!-- {if $navigator_list.bottom} -->
+   <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+        <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+        <!-- {if !$smarty.foreach.nav_bottom_list.last} -->
+           -
+        <!-- {/if} -->
+      <!-- {/foreach} -->
+  <!-- {/if} -->
+    </div>
+    <div class="copys">
+        <ul>
+            <li>{$copyright} <span></span></li>
+	    <li>电话：{$service_phone}
+            <li>地址：{$shop_address} </li>
+            
+            </li>
+        </ul>
+        <p>
+            <img src="{$ecsolve_path}/img/red_icon.gif" alt=""/>
+            <img src="{$ecsolve_path}/img/wnaan.gif" alt=""/><br/>
+            </p>
+    </div>
+</div>
+<div style="display: none;" id="roll">
+    <div id="roll_top" title="回到顶部">
+    </div>
+</div>
+
+<!--Footer:End-->
+
+</body>
+</html>

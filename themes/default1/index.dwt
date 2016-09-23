@@ -1,0 +1,202 @@
+<?php
+$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(118)); 
+
+$GLOBALS['smarty']->assign('article_cat_qyzx', get_article_cat(49)); //获取企业新闻链接标识
+$GLOBALS['smarty']->assign('article_list_qyzx', index_get_all_cat_articles(49)); //获取企业列表  
+  
+$GLOBALS['smarty']->assign('article_company',     get_article(28776));  
+$GLOBALS['smarty']->assign('article_lxwm',     get_article(28851));  
+$GLOBALS['smarty']->assign('article_list_yewu',     index_get_all_cat_articles(58));  
+$GLOBALS['smarty']->assign('article_cat_yewu',     get_article_cat(58)); 
+$GLOBALS['smarty']->assign('article_list_anli',     index_get_all_cat_articles(51));  
+$GLOBALS['smarty']->assign('article_cat_anli',     get_article_cat(51));
+$GLOBALS['smarty']->assign('product_cat_chanpin',get_product_cat(52));//获取产品中心标识
+ ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title}</title>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<script type="text/javascript" src="{$ecsolve_path}/jsct/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/common.js"></script>
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css" />
+
+<link href="{$ecsolve_path}/common/hdp/style/index.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/lrtk.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/gundong.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 幻灯片广告开始--> 
+
+<!-- banner -->
+<!-- indexCon start -->
+<div class="indexCon" >
+    <div class="flashBanner"  >
+       <div style="" class="mark1"> <div style=" margin:0 auto; text-align: center; overflow: hidden;  max-width:100%;height:450px; "  class="mark2"> <a href=""><div class="bigImg"    /></div></a></div></div>
+        <div class="mask">
+   <!--{foreach from=$index_ad item=ad  name=index_ads key=key }-->	  
+<div class="smalldiv" src="{$ad.file_url}" uri="background: url({$ad.file_url}) no-repeat scroll center top ; height:450px; " link="{$ad.url}{$turl}"  bgcolor="background:{$ad.adbgcolor};" text="{$ad.title}"  /></div>
+ <!--{/foreach}-->     
+ </div>
+</div>
+</div>
+<!-- banner end -->
+<!-- 幻灯片广告结束--> 
+
+
+
+
+
+
+
+
+
+<div class="cl"></div>
+
+
+
+
+
+<div class="contentcn">
+
+<div class="yewu">
+<div class="title">
+<div class="tit">产品分类</div>
+<div class="tit2">PRODUTR CLASSIFICATION</div>
+
+<div class="moree"><a  href="{$product_cat_chanpin.url}">MORE+</a></div>
+
+
+</div>
+<div class="feilei">
+<ul>
+{foreach from=$categories item=cat}
+<!--{foreach from=$cat.cat_id item=child  name=child}-->
+{if $smarty.foreach.child.iteration <7}
+<li><a  href="{$cat.url}">{$child.name|escape:html}</a></li>
+{/if}
+{/foreach}
+{/foreach}
+</ul>
+</div>
+</div>
+<div class="contentall"><div class="leftico" id="LeftID2"></div>
+<div class="contentlist"  > 
+<ul  style="margin-left:10px;" id="ScollName2">
+<!--{foreach from=$goods_com  item=goods  name=goods_com}--> 
+<li><a target="_blank" title="{$goods.name|escape:html}" href="{$goods.url}"><img src="{$goods.thumb}"  height="180" width="180" alt="{$goods.name|escape:html}" title="{$goods.name|escape:html}"/></a>
+
+<div class="title">{$goods.name|escape:html}</div>
+</li>
+<!-- {/foreach} -->
+</ul>
+</div>
+<div class="rightico" id="RightID2"></div>
+</div>
+
+
+</div>
+
+
+
+
+<script language="javascript" type="text/javascript">
+
+    var ads2 = new ScrollPicleft();
+    ads2.scrollContId = "ScollName2"; // 内容容器ID""
+    ads2.arrLeftId = "LeftID2"; //左箭头ID
+    ads2.arrRightId = "RightID2"; //右箭头ID
+
+    ads2.frameWidth = 580; //显示框宽度
+
+    ads2.pageWidth = 195; //翻页宽度
+
+    ads2.speed = 10; //移动速度(单位毫秒，越小越快)
+    ads2.space = 10; //每次移动像素(单位px，越大越快)
+    ads2.autoPlay = true; //自动播放
+    ads2.autoPlayTime = 3; //自动播放间隔时间(秒)
+
+    ads2.initialize(); //初始化							
+		
+</script>
+
+
+
+
+
+<div class="cl"></div>
+
+
+
+
+
+
+
+
+
+
+<div id="center">
+
+    <div class="c_down">
+       <div class="cd_nr">
+          <div class="about">
+   
+
+
+<div class="title">
+<div class="tit">{$article_company.title}</div>
+<div class="tit2">ABOUT US</div>
+</div>
+            <div class="about_p">
+				<p style="line-height:26px;" class="p0"><span style="color: rgb(0, 0, 0);"><span style="font-size: 20pt; font-family: 微软雅黑;"><img style="padding-top: 20px;padding-right:28px; width:262px; height:183px;" src="{$article_company.file_url}" alt="" align="left"></span></span><span style="mso-spacerun:'yes'; font-size:26.0000pt; font-family:'微软雅黑'; "><o:p></o:p></span></p>
+<p style="padding-top:8px;line-height:26px;" class="p0"><span style="color: rgb(0, 0, 0);"><span style="font-size: 14pt; font-family: 微软雅黑;"></span></span><span style="mso-spacerun:'yes'; font-size:14.0000pt; font-family:'微软雅黑'; "><o:p></o:p></span></p>
+<p style="padding-top:14px;line-height:26px;" class="p0"><span style="color: rgb(0, 0, 0);"><span style="letter-spacing: 0pt; font-size: 10pt; font-family: 微软雅黑;">
+{$article_company.spcdesc|truncate:120:"...":true}<br><a href="{$article_company.url}"><span style="color:#ffa247;" >更多</span></a></span></span></p>            </div>
+          </div>
+          <div class="pro">
+           <div class="title">
+<div class="tit">{$article_lxwm.title}</div>
+<div class="tit2"> CONTACT US</div>
+</div>
+            <div class="pro_p"><p><span style="color: rgb(0,0,0)"><span style="line-height: 30px; font-family: 微软雅黑; font-size: 13px">&nbsp; &nbsp;&nbsp;</span><strong><span style="line-height: 30px; font-family: 微软雅黑; font-size: 15px">{$shop_name} </span></strong><br style="line-height: 30px; font-family: 微软雅黑; font-size: 13px">
+<span style="line-height: 30px; font-family: 微软雅黑; font-size: 13px">&nbsp; &nbsp; 地址：{$shop_address}&nbsp;</span><br style="line-height: 30px; font-family: 微软雅黑; font-size: 13px">
+<span style="line-height: 30px; font-family: 微软雅黑; font-size: 13px">&nbsp; &nbsp; 电话：{$service_phone}&nbsp;</span><br style="line-height: 27px; font-family: 微软雅黑; font-size: 13px">
+<span style="line-height: 30px; font-family: 微软雅黑; font-size: 13px">&nbsp;&nbsp;&nbsp; 传真：{$service_phone}&nbsp;</span><br style="line-height: 27px; font-family: 微软雅黑; font-size: 13px">
+<span style="line-height: 30px; font-family: 微软雅黑; font-size: 13px">&nbsp; &nbsp; 商务邮箱：{$service_email}</span><br style="line-height: 27px; font-family: 微软雅黑; font-size: 13px">
+<br style="line-height: 27px; font-family: 微软雅黑; font-size: 13px">
+<span style="line-height: 26px; font-family: 微软雅黑; font-size: 13px">&nbsp;&nbsp;&nbsp;</span></span></p></div>
+          </div>
+       </div>
+    </div>
+  </div>
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

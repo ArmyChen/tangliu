@@ -1,0 +1,67 @@
+﻿.mc {border: 1px solid #ffbc91;background-color: #fff8f2;padding: 10px;width:98%;}
+.list-bank{overflow: hidden;}
+.list-bank li{
+      border: 1px solid #DDD;
+      background-color: #FFF;
+      float: left;
+      padding: 6px;
+      width: 202px;
+      height: 30px;
+      line-height: 30px;
+      margin-right: 2px;
+      margin-bottom: 10px;
+      cursor: pointer;
+
+	}
+.list-bank li input { vertical-align:50%; }
+.xuanze {padding:10px;}
+.bank-list{overflow:hidden;margin-top:5px;}
+.bank-list li{float:left;width:153px;margin-bottom:5px;}
+.icon-info{background-color: #D2EEF7;border-style: solid solid solid none;border-width: 1px 1px 1px medium;font-weight: normal;height: 30px;line-height: 15px;padding: 0 3px;top: -1px;font: 12px/1.5 tahoma,arial,宋体;}
+.icon{background-image: url(images/bankicon.png);display:inline-block;height: 30px;width:120px;background-repeat: no-repeat;}
+.ICBCB2C{background-position: 0 -40px;}
+.CMB {background-position: 0 -80px;}
+.CCB{background-position: 0 -320px;}
+.BOCB2C{background-position: 0 -520px;}
+.ABC{background-position: 0 -480px;}
+.COMM{background-position: 0 -600px;}
+.PSBC_DEBIT {background-position: 0 -400px;}
+.CEBBANK {background-position: 0 -440px;}
+.SPDB {background-position: 0 -360px;}
+.GDB {background-position: 0 -280px;}
+.CITIC {background-position: 0 -200px;}
+.CIB {background-position: 0 -3365px;}
+.SDB {background-position: 0 -240px;}
+.CMBC {background-position: 0 -120px;}
+.HZCBB2C {background-position: 0 -760px;}
+.SHBANK {background-position: 0 -840px;}
+.BJRCB {background-position: 0 -2640px;}
+.SPABANK {background-position: 0 -1880px;}
+.FDB {background-position: 0 -1320px;}
+.NBBANK {background-position: 0 -1240px;}
+.BJBANK {background-position: 0 -3240px;}
+.WZCBB2C_DEBIT {background-position: 0 -1720px;}
+/*.cod {background-position: 0 -1720px;}*/
+.ICBCBTB{background-image: url(images/ENV_ICBC_OUT.gif);}
+.CCBBTB{background-image: url(images/ENV_CCB_OUT.gif);}
+.ABCBTB{background-image: url(images/ENV_ABC_OUT.gif);}
+.SPDBB2B{background-image: url(images/ENV_SPDB_OUT.gif);}
+
+
+<!-- -->
+.cashier-nav {font-size: 14px;margin: 15px 0 10px; text-align: left;height:30px;border-bottom:solid 2px #CFD2D7;}
+.cashier-nav ol li {float: left;}
+.cashier-nav li.current {color: #AB4400;font-weight: bold;}
+.cashier-nav li.last {clear:right;}
+.alipay_link {text-align:right}
+.alipay_link a:link{text-decoration:none;color:#8D8D8D;}
+.alipay_link a:visited{text-decoration:none;color:#8D8D8D;}
+.directPay{background-image: url(images/alipay.jpg); width:120px;height:30px;}
+.wx_new_qrcode{background-image: url(images/wx_new_qrcode.jpg); width:120px;height:30px;}
+.alipay{background-image: url(images/alipay.jpg); width:120px;height:30px;}
+.kuaiqian{background-image: url(images/99bill.gif); width:120px;height:30px;}
+.tenpay{background-image: url(images/tenpay.png); width:120px;height:30px;}
+.chinabank{background-image: url(images/chinabank.jpg); width:120px;height:30px;}
+.cod{background-image: url(images/hdfk.jpg);  width:120px;height:30px;}
+.balance{background-image: url(images/ye.jpg);  width:120px;height:30px;}
+.bank{background-image: url(images/bank.jpg);  width:120px;height:30px;}

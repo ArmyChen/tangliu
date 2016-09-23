@@ -1,0 +1,173 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<SCRIPT language=javascript>
+<!--
+window.onerror=function(){return true;}
+// -->
+</SCRIPT> 
+ 
+<style type="text/css">
+<!--
+.weixin{background:url("{$ecsolve_path}/images/top_icon_wechat.png") no-repeat; display:inline-block; width:160px; height:20px;  position:relative; margin-top:5px; z-index:999999999}
+.weixin img{display:none}
+.weixin:hover img{display: block; position:absolute; left:0; top:20px;}
+-->
+.addcss2{margin-top:-108px !important;}
+.addcss3{margin-top: -164px !important;}
+.addcss4{margin-top: -220px !important;}
+.addcss5{margin-top: -276px !important;}
+.addcss6{margin-top: -332px !important;}
+.addcss7{margin-top: -388px !important;}
+.addcss8{margin-top: -444px !important;}
+</style>
+<script type="text/javascript" src="{$ecsolve_path}/js/suggest.js"></script>
+<link href="{$ecsolve_path}/style/css.css" rel="stylesheet" type="text/css">
+<div class="topbrief">
+  
+  <div class="topbrief_mid">
+    <p class="sitenav_mobile">
+    欢迎来到{$shop_name}！ 
+   </p>
+   
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+    <p class="sitenav_point"><a href="{$nav.url}" 
+      <!-- {if $nav.opennew eq 1} -->
+      target="_blank"
+      <!-- {/if} -->
+      >{$nav.name}</a></p>
+    <!-- {/foreach} -->
+   
+ {insert name='member_info'}
+
+
+
+
+
+
+  </div>
+</div>
+
+<div class="topcenterpart" >
+<div class="topcenterpartcon" >
+
+
+<div class="logo_con" > <a href="{$weburl}" title="{$shop_name}"><img src="{$ecsolve_path}/images/logo.jpg" class="logo" alt="{$shop_name}"/></a><img src="images/top_center1.jpg" class="kogo">
+</div>
+  <div class="safe_pic">
+
+
+  <form id="searchForm" name="searchForm" method="get" action="{$weburl}/search.php" onSubmit="return checkSearchForm()">
+    <div class="search"><div class="search-panel"><div class="search-in"><div attr="new" id="js_search_type" class="search-type search-triggers" style="overflow: hidden;">
+      <div id="search_suggest" style="display:none;" onmouseover='javascript:_over();' onmouseout='javascript:_out();'></div>
+    <div class="arrow"></div></div><div class="txt"><input type="text" value="" name="keywords" id="keyword"  class="search-text s_keyword"  nkeypress="if(event.keyCode == 13){checkSearchForm();}"><div class="search-suggest" style="visibility:hidden;"></div></div></div></div><div class="search-btn"><input type="submit"  class="submit-btn" value=''></div>
+    
+    <ul class="search-hots"><li>  {if $searchkeywords}
+   {$lang.hot_search} ：
+   {foreach from=$searchkeywords item=val}
+   <a href="{$weburl}/k-{$val|escape:url}.html" >{$val}</a>
+   
+   {/foreach}
+   {/if}</li></ul>
+    
+   </form>
+
+
+
+   
+
+
+
+
+    </div>
+
+
+  </div>
+<script>
+/*css*/
+if (window.screen.width > 1280)
+{	
+	
+}
+
+</script>
+  <div id="settleup">
+    <dl class="" id="dl_settleup">
+      <dt class="ld"> <s class="shopping"><span id="shopping-amount">{insert name='cart_count'}</span></s> <a href="{$weburl}/flow.php" rel="nofollow">去购物车结算</a> <b></b> </dt>
+      {insert name='cart_data'}
+    </dl>
+  </div>
+</div>
+</div></div>
+<div class="azg_menu">
+  <div class="azg_menu_main">
+    <div {if $menushow eq 1}class="menuleftindex"{else}class="menuleft"{/if}>
+      <div class="menuleft_top alC"><a href="{$weburl}/catalog.html" title="全部商品分类">全部分类</div>
+      <div class="menuleft_bottom" {if $menushow eq 1}style="display:block"{else}style="display:none"{/if} data="">
+        <ul>
+          
+          <!--{foreach from=get_categories_tree() item=cat name=cat_tree}-->
+          <li class="{if $smarty.foreach.cat_tree.iteration % 2 eq 0}gray_li{/if} {if $smarty.foreach.cat_tree.iteration eq 1}woman{/if}{if $smarty.foreach.cat_tree.iteration eq 2}man{/if}{if $smarty.foreach.cat_tree.iteration eq 3}cuiyu{/if}{if $smarty.foreach.cat_tree.iteration eq 4}neiyi{/if}{if $smarty.foreach.cat_tree.iteration eq 5}shuangren{/if}{if $smarty.foreach.cat_tree.iteration eq 6}runhua{/if}{if $smarty.foreach.cat_tree.iteration eq 7}anquantao{/if} " {if $smarty.foreach.cat_tree.iteration eq 7}style=" margin-right:0px"{/if}>
+            <h2  class="white_arew"><s></s><a href="{$cat.url}" target="_blank" title="{$cat.name|escape:html}"  style=" color:#333333; font-size:12px;">{$cat.name|escape:html}</a></h2>
+            <div class="cloums">
+              <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+              {if $smarty.foreach.cat_cat_id.iteration < 3} <a href="{$child.url}" target="_blank" title="{$child.name|escape:html}">
+              <h3>{$child.name|escape:html}</h3>
+              </a> {/if}
+              <!--{/foreach}-->
+            </div>
+            <div class="subItem_hd {if $smarty.foreach.cat_tree.iteration >1}addcss{$smarty.foreach.cat_tree.iteration}{/if}" style=" display:none;" >
+              <p class="tc"></p>
+              <span class="import">
+              <p class="left"><a href="{$cat.url}" target="_blank" style=" color:#000000; " title="{$cat.name|escape:html}">
+	      {$cat.name|escape:html}
+	      馆</a></p>
+              <p class="rightname"></p>
+              </span>
+              <div class="leimu">
+                <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+                <a href="{$child.url}" title="{$child.name|escape:html}">
+                <h3>{$child.name|escape:html}</h3>
+                </a>
+                <!--{/foreach}-->
+              </div>
+              <div class="clear"></div>
+              
+          
+              
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <ul class="Nav_main">
+      <li ><a href="/" title="首页">首页</a></li>
+      <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+      <li  class="{if $nav.active eq 1}curChn{/if} {if $smarty.foreach.nav_middle_list.last}Nav_last{/if}" ><a href="{$nav.url}" title="{$nav.name}">
+        <h2>{$nav.name}</h2>
+        </a></li>
+      <!-- {/foreach} -->
+    </ul>
+    <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+ 
+  </div>
+</div>

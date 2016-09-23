@@ -1,0 +1,65 @@
+@charset "utf-8";
+/*==================分类====================*/
+.pclassify{ width:990px; margin:0 auto; position:relative; overflow:visible;}
+.pclassify .FL_box{ width:194px; background:#fff; position:absolute; top:0; left:0; border:#dcdcdc 1px solid; z-index:10}
+.pclassify .FL_box dl{ width:150px; margin: auto; padding-bottom:1px; border-top:#dcdcdc 1px dashed;}
+.pclassify .FL_box dl dt{ margin-top:8px; font:normal bold 16px/22px 'microsoft yahei'; color:#ff006e;}
+.pclassify .FL_box dl dd{ margin-top:6px; font:normal normal 14px/20px 'microsoft yahei'}
+.pclassify .FL_box dl dd a{ display:inline-block; margin-right:10px;}
+/*轮播公共样式*/
+.bannerWrap {width:100%; height:300px; overflow:hidden;}
+.swiper-container {	margin: 0 auto;	position: relative;	overflow: hidden; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden;-ms-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden;/* Fix of Webkit flickering */ z-index: 1;}
+.swiper-wrapper { position: relative; width: 100%; -webkit-transition-property: -webkit-transform, left, top; -webkit-transition-duration: 0s; -webkit-transform: translate3d(0px, 0, 0); -webkit-transition-timing-function: ease; -moz-transition-property: -moz-transform, left, top; 	-moz-transition-duration: 0s; -moz-transform: translate3d(0px, 0, 0); -moz-transition-timing-function: ease; -o-transition-property: -o-transform, left, top; -o-transition-duration: 0s; -o-transform: translate3d(0px, 0, 0); -o-transition-timing-function: ease; -o-transform: translate(0px, 0px);	-ms-transition-property: -ms-transform, left, top; -ms-transition-duration: 0s;	-ms-transform: translate3d(0px, 0, 0); -ms-transition-timing-function: ease; transition-property: transform, left, top;	transition-duration: 0s; transform: translate3d(0px, 0, 0);	transition-timing-function: ease; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box;}
+.swiper-free-mode > .swiper-wrapper { -webkit-transition-timing-function: ease-out;	-moz-transition-timing-function: ease-out; -ms-transition-timing-function: ease-out;	-o-transition-timing-function: ease-out; transition-timing-function: ease-out; margin: 0 auto;}
+.swiper-slide {	float: left; -webkit-box-sizing: content-box; -moz-box-sizing: content-box;	box-sizing: content-box;}
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal { -ms-touch-action: pan-y;}
+.swiper-wp8-vertical { -ms-touch-action: pan-x;}
+/*轮播公共样式*/
+/*==================首页轮播样式====================*/
+.device { width: 1920px; margin-left: 50%; left: -960px; height: 300px;	position: relative;	z-index: 1;}
+.device img{filter:alpha(opacity=100);opacity:1}
+.device .arrow-left,.device .arrow-right{width: 68px; height: 130px; position: absolute;top: 90px;z-index: 2; background-image:url(../../../img/qqyjy/btn.png); background-repeat:no-repeat;}
+.device .arrow-left {background-position:0 0;  margin-left: 40%; left: -400px; }
+.device .arrow-right {background-position:-125px 0;	margin-right: 40%; right: -400px;}
+.swiper-container {	height: 400px; width: 100%;}
+.pagination { position: absolute; left: 0; text-align: center; bottom: 25px;	width: 100%; z-index: 2;}
+.swiper-pagination-switch { display: inline-block; width: 8px;	height: 8px; border-radius: 8px;	-moz-border-radius: 8px; -webkit-border-radius: 8px; background:#fff; border: 1px #fff solid; margin: 0 5px; cursor: pointer;}
+.swiper-active-switch {	border: 1px #ed0581 solid; background: #ed0581;}
+
+/*==================热门推荐====================*/
+.HOT_Recdat{}
+
+/*---------------首页小轮播---------------*/
+#slideshow_wrapper {position: relative; background-color: #121212; width: 360px; height: 210px; float:left;}
+#slideshow_wrapper img{filter:alpha(opacity=100);opacity:1}
+#slideshow_footbar { z-index: 5; position: absolute; width: 65%; bottom: 0px; height: 20px}
+#slideshow_photo { position: absolute; width: 100%; height: 100%; cursor: pointer}
+#slideshow_photo A {z-index: 1; position: absolute;	 display: block; 0px; TOP: 0px;  left: 0px}
+
+#slideshow_footbar .slideshow-bt { background-color: #f6f6f6; margin:0 10px 0 0; width: 8px; border-radius:8px; display: inline; float: right; height: 8px; font-size: 0px}
+#slideshow_footbar .bt-on { background-color: #ff008a}
+
+/*---------------热门推荐切换---------------*/
+.tj_Tab{ width:276px; float:right; _display:inline; margin-right:10px;}
+.tj_Tab dl{ height:31px; border-bottom:#eeeeee 1px solid;}
+.tj_Tab dl dt{ height:31px; float:left; padding:0 12px; font:normal normal 15px/26px 'microsoft yahei'; position:relative; left:-12px; bottom:-1px; cursor:default}
+.tj_Tab dl dt.on{ color:#ff006e; background:url(../../../img/qqyjy/icon.png) no-repeat center -179px;}
+
+.tj_Tab ul{ margin-top:4px;}
+.tj_Tab ul li{ height:25px; font:normal normal 13px/25px 'microsoft yahei';}
+
+/*==================首页做部内容切换公共样式====================*/
+.IN_TAB{ height:315px; position:relative;}
+.IN_TAB ul,.IN_TAB div{ position:absolute; top:0;}
+.IN_TAB ul{ width:100px; height:315px; border-right:#f7f7f7 2px solid; left:0;}
+.IN_TAB ul li{ height:35px; margin-top:6px; display:block; font:normal normal 15px/37px 'microsoft yahei'; text-indent:10px; cursor:default;}
+.IN_TAB ul li.on{ color:#ff006e; margin-right:-2px; background:url(../../../img/qqyjy/icon.png) no-repeat 44px -226px;}
+.IN_TAB div{ width:912px; height:315px; right:0;}
+.IN_TAB div dl{ width:296px; float:left; margin-left:8px; _display:inline;}
+.IN_TAB div dl dd img{ width:0; height:0; border:#f7f7f7 1px solid; filter:alpha(opacity=0);opacity:0}
+.IN_TAB div dl dd{ font:normal normal 13px/26px 'microsoft yahei';overflow:hidden; position:relative;}
+.IN_TAB div dl dd.on{width:296px; height:155px; margin-bottom:5px; }
+.IN_TAB div dl dd.on img{ width:294px; height:153px; border:#f7f7f7 1px solid; filter:alpha(opacity=100);opacity:1}
+
+.IN_TAB div dl dd.on span{ width:98%; height:26px; overflow:hidden; display:block; font:normal normal 13px/26px 'microsoft yahei'; position:absolute; left:1.2%; top:117px; text-indent:10px; color:#000; opacity:0.8; filter:alpha(opacity=80); background:#fff;}

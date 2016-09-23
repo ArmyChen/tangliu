@@ -1,0 +1,39 @@
+﻿@charset "utf-8";
+body { background-color: #fff; }
+.w1100 { margin: 0 auto; width: 1100px; }
+.w100 { width:153px;}
+.w200 { width:167px;}
+.w240 { width:240px;}
+.w270 { width:208px;}
+/*右边*/
+.order_tab { }
+.my_f_list { border: 1px solid #dbdbdb;  border-bottom: none; }
+.order_tab_ul { width: 100%; height: 45px; line-height: 45px; background-color: #f6f6f6; overflow: hidden; }
+.order_tab_ul li { float: left; width: 93px; text-align: center; border-right: 1px solid #ededed; height: 44px; }
+.order_tab_ul li a { font-size: 16px; color: #333333; }
+.order_tab_ul .on { border-top: 2px solid #94193f; height: 43px; }
+.order_tab_ul .on a { color: #94193f; }
+.order_table { width: 100%; }
+.thead { border-bottom: 1px solid #ccc; padding: 20px 0; }
+.thead tr td { color: #3a3a3a; background-color: #f2f2f2; height: 30px; line-height: 20px; padding: 0; text-align:center; }
+.s_state { font-size:12px;}
+.order_table tr .padding_40 { padding-left: 40px; text-align: left; }
+.tr_top td { border-bottom: 1px dotted #ccc; padding: 20px 0 15px 0; color: #000; }
+.number { padding-left: 40px; }
+.tr-line td {background-color:#fff; padding: 4px 0; height: 30px; color: #8e8e8e; text-align: center; border-bottom: 1px solid #ccc;  }
+.p-img { float: left; padding-left: 40px; }
+.p-img img { border: 1px solid #e7e7e7; }
+.p-msg { float: left; margin-left: 10px; text-align: left; width: 210px; }
+.p-msg a { color: #585858; }
+.tr-line .td_rule { text-align: left; padding: 20px 0 37px 25px;color:#3a3a3a; line-height:25px;}
+.td_94193f { color: #005ea7;padding-left:0px; }
+
+.order_tab { padding: 6px 0 3px 5px; height: 23px; line-height: 23px; }
+.order_tab span{color:#94193f;font-size:13px;padding-right:3px;}
+.sl_status { width:80px;}
+.gz_l { float:left;width:500px;}
+.gz_r { float:right;height:18px;line-height:18px;}
+.gz_r i { background:url("../images/user_center/uc_icon_list.png") no-repeat scroll -282px -335px;float:left;display:block;width:18px;height:18px;padding-right:6px;}
+.gz_r a {color:#8c8c8c;}
+.gz_r a:hover {color:#c41f3a;}
+/*右边 end*/

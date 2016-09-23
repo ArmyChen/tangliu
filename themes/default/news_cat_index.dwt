@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="{$ecsolve_path}/style/gtcommon.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="{$ecsolve_path}/style/left.css" />
+<link rel="stylesheet" type="text/css" href={$ecsolve_path}/style/style.css">
+
+</head>
+<body>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+
+
+
+
+<div id="content">
+
+<div class="main_route">
+<div class="route">
+
+ <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  </div>
+  </div>
+
+  <div class="Y_left">
+    <div class="title">全部文章</div>
+    <!--达人评测 start-->
+    <ul class="daren_list">
+    	<!-- {foreach from=$artciles_list item=article} -->
+	<li> 
+	{if $article.url}
+		<a target="_blank" href="{$article.url}"><img src="{$article.pic}" style="border:1px solid #ddd;"></a>
+		{/if}
+        <div>
+          <p>作者：{$shop_name}</p>
+          <dl>
+            <dt><a target="_blank" href="{$article.url}">{$article.title|escape:html}</a></dt>
+            <dd><!--【{$article.add_time}】-->  {$article.description}</dd>
+          </dl>
+        </div>
+        <span class="Y_liul">浏览{$article.click_count}次</span> <a target="_blank" href="{$article.url}" class="Y_movet">阅读全文&gt;&gt;</a> 
+	</li>
+
+      <!-- {/foreach} -->
+
+
+
+	    
+        
+        
+    </ul>
+    <!--达人评测 start--> 
+    
+<div style="  display:inline-block; margin-bottom:20px;">
+     <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+</div>
+    <!--分页 end--> 
+  </div>
+ 
+  <div class="clear"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="scroll_div" onclick="$(window).scrollTop(0)" id="scroll_div" style="left: 1331px; display: block;"></div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+var $imgOriginal = $("img[original]");
+//360图片不显示问题
+if($.browser.msie){
+$imgOriginal.each(function(){
+$(this).attr('src',$(this).attr('original'));
+});
+}else{
+$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
+}
+});
+</script>
+</body>
+</html>

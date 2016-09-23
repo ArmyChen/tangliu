@@ -1,0 +1,72 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+
+#myjd .mt h2{float:left;background:none;padding-top:0;height:auto;line-height:32px}
+#myjd .mt a{color:#fff;}
+#myjd .mt .extra{cursor:pointer;color:#ffcccc;float:right}
+#myjd .mc{border:solid #E6E6E6;border-width:0 1px 1px;overflow:hidden;}
+#myjd dl dt{position:relative;margin-bottom:-1px;height:27px;padding:0 12px;border:solid #E6E6E6;border-width:1px 0;background:#ac096d ;font-weight:bold;line-height:27px;cursor:pointer; color:#fff;}
+#myjd dl dt b{display:block;position:absolute;top:0;right:5px;width:19px;height:27px;background:url(images/bg_jdleft.jpg) no-repeat 0 -150px;}
+#myjd dl dt:hover{background-position:0 0;}
+#myjd dl dt:hover b{background-position:0 -90px;}
+#myjd dl.close dt b{background-position:0 -120px;}
+#myjd dl.close dt:hover b{background-position:0 -60px;}
+#myjd dl.close dd{display:none;}
+#myjd dd{padding:4px 0 5px;}
+#myjd dd .item{padding:2px 0 2px 24px; line-height:25px;}
+#myjd dd .curr{font-weight:bold;}
+</style>
+<div id="myjd">
+  <div class="mc">
+    <dl>
+      <dt>订单中心</dt>
+      <dd>
+        <div class="item"><a rel="nofollow" href="user.php?act=order_list"  {if $action eq 'order_list'} style="color:#ff0000; font-weight:bold;"{/if}>{$lang.label_order}</a></div>
+        <div class="item"><a href="user.php?act=address_list"} {if $action eq 'address_list'} style="color:#ff0000; font-weight:bold;"{/if}>{$lang.label_address}</a></div>
+        <div class="item"><a href="user.php?act=track_packages" {if $action eq 'track_packages'} style="color:#ff0000; font-weight:bold;"{/if}>{$lang.label_track_packages}</a></div>
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>会员信息</dt>
+      <dd>
+        <div class="item {if $action eq 'message_list'} curr{/if}"><a href="user.php?act=message_list">{$lang.label_message}</a></div>
+        <div class="item {if $action eq 'tag_list'} curr{/if}"><a href="user.php?act=tag_list">{$lang.label_tag}</a></div>
+
+
+
+
+
+
+
+
+        
+        <!--{if $show_transform_points}-->
+        <div class="item {if $action eq 'transform_points'} curr{/if}"><a href="user.php?act=transform_points">{$lang.label_transform_points}</a></div>
+        <!--{/if}-->
+        <div class="item {if $action eq 'bonus'} curr{/if}"><a href="user.php?act=bonus">{$lang.label_bonus}</a></div>
+      
+		<div class="item{if $action eq 'collection_list'} curr{/if}"><a href="user.php?act=collection_list">{$lang.label_collection}</a></div>
+        <div class="item{if $action eq 'comment_list'} curr{/if}"><a href="user.php?act=comment_list">{$lang.label_comment}</a></div>
+        <div class="item{if $action eq 'booking_list'} curr{/if}"><a href="user.php?act=booking_list">{$lang.label_booking}</a></div>
+		<div class="item {if $action eq 'account_log'} curr{/if}"><a href="user.php?act=account_log">{$lang.label_user_surplus}</a></div>
+
+	<div class="item {if $affiliate.on eq 1} curr{/if}"><a href="user.php?act=affiliate">{$lang.label_affiliate}</a></div>
+
+
+
+
+      </dd>
+    </dl>
+    <dl>
+      <dt>帐户中心</dt>
+      <dd>
+        <div class="item {if $action eq 'default'} curr{/if}"><a href="user.php?act=default">{$lang.label_welcome}</a></div>
+        <div class="item {if $action eq 'profile'} curr{/if}"><a href="user.php?act=profile">{$lang.label_profile}</a></div>
+		<div class="item"><a href="user.php?act=logout" style="color:#a60201">安全退出</a></div>
+      </dd>
+    </dl>
+  </div>
+</div>
+<div class="blank"></div>
+

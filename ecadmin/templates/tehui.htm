@@ -1,0 +1,52 @@
+{include file="pageheader_bd.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,validator.js"}
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+
+<style>
+.list-div td div{padding:5px 0;}
+.scfx span{margin:5px;white-space: nowrap;display:block;width:100px;float:left;}
+.scfx span img{vertical-align:middle;margin-right:3px;}
+.kfsrk{line-height:20px;height:25px;border:#CCC solid 1px;padding:0 5px;}
+.skinimg a{padding:3px;border:#CCC solid 1px;display:block;float:left;margin:0 3px;}
+.skinimg img{border:0;}
+.yborder{background:#FF0000;}
+.wborder{background:none;}
+.ysxz img{vertical-align:middle;}
+</style>
+<div class="list-div">
+<form method="post" action="tehui.php" name="theForm" onsubmit="return validate()" >
+<table cellpadding='3' cellspacing='1'>
+<tr>
+  <th colspan="2">{$lang.kefu}</th>
+</tr>
+<tr style="display:none">
+  <td>
+  <strong>是否显示</strong><br />
+  </td>
+  <td width="89%"><input type="radio" name="tshow" value="1" {if $tshow eq 1}  checked{/if} />是<input type="radio"  name="tshow" value="0"  {if $tshow eq 0}  checked{/if} />否</td>
+</tr>
+<tr>
+  <td>
+  <strong>折扣</strong><br />
+  </td>
+  <td><input class="zhekou" type="text" name="zhekou" value="{$zhekou}" />折
+  </td>
+</tr>
+<tr>
+  <td>
+  <strong>特惠时间</strong><br />
+  </td>
+  <td><input name="add_time" type="text" id="add_time" size="20" value='{$add_time}' readonly="readonly" /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('add_time', '%Y-%m-%d', '24', false, 'selbtn1');" value="{$lang.btn_select}" class="button"/>
+  </td>
+</tr>
+
+
+
+<tr>
+  <td colspan="2" align="center"><input type="hidden" name="act" value="save_config" /><input type="submit" value="保存设置" class="button" /></td>
+</tr>
+</table>
+</form>
+</div>
+{include file="pagefooter.htm"}

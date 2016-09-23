@@ -1,0 +1,546 @@
+<?php
+$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(118));  
+$GLOBALS['smarty']->assign('time_list',     get_time_list()); 
+$GLOBALS['smarty']->assign('index_ad_sm',index_ad_sy_diy(122));  
+$GLOBALS['smarty']->assign('index_ad_dsm',index_ad_sy_diy(123));  
+$GLOBALS['smarty']->assign('index_news_list',index_get_all_cat_articles(114));  
+$GLOBALS['smarty']->assign('index_news_cat',get_article_cat(114));  
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta property="qc:admins" content="423516203760161121101663757" />
+<title>{$page_title}</title>
+<script>	
+document.write("<link rel='stylesheet' type='text/css' href='{$ecsolve_path}/style/index.css'>");
+document.write("<link rel='stylesheet' type='text/css' href='{$ecsolve_path}/style/gtcommon.css'>");
+</script>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/catcommon.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/head_js.js"></script>
+<script type="text/javascript">
+window.onload = function()
+{
+  
+}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+
+</head>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+<!-- 幻灯片广告开始-->  
+<link href="{$ecsolve_path}/common/hdp/style/index.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/lrtk.js"></script>
+
+
+<!-- banner -->
+<!-- indexCon start -->
+<div class="indexCon" style="height:450px;">
+    <div class="flashBanner">
+       <div style="" class="mark1"> <div style=" margin:0 auto; text-align: center; overflow: hidden;  max-width:100%;height:450px; "  class="mark2"> <a href=""><div class="bigImg"    /></div></a></div></div>
+        <div class="mask">
+   <!--{foreach from=$index_ad item=ad  name=index_ads key=key }-->	  
+<div class="smalldiv" src="{$ad.file_url}" uri="background: url({$ad.file_url}) no-repeat scroll center center ; height:450px; " link="{$ad.url}"  bgcolor="background:{$ad.adbgcolor};" text="{$ad.title}"  /></div>
+ <!--{/foreach}-->     
+ </div>
+</div>
+</div>
+<!-- indexCon end -->
+ <!-- banner end -->
+<!-- 幻灯片广告开始结束--> 
+
+
+
+
+
+
+
+
+<div class="clear"></div>
+
+
+
+<!-- 精品推荐开始结束--> 
+<div class="w1200 ClearFix">
+
+
+ <div class="ppsx_box ClearFix">
+    <div class="vedio_title">
+        <div class="v_h2">
+            <p class="h2_top">精品推荐</p>
+            <p class="h2_bottom">
+                每日精品 增添生活每分精彩
+            </p>
+        </div>
+    </div>
+    <ul class="ppsx_ul">
+                           
+			    
+			    
+			    
+		
+			    
+			 <!--{foreach from=$index_ad_sm item=ad  name=index_ads key=key }-->
+                                        <li  {if $smarty.foreach.index_ads.iteration eq 2} class="secli" {/if}>
+            <a href="{$ad.url}" target="_blank" >
+                <img src="{$ad.file_url}" >
+            </a>
+                        
+                    </li> <!--{/foreach}-->  
+
+
+
+                        </ul>
+</div>
+
+
+</div>
+<!-- 精品推荐开始结束--> 
+
+
+<!-- 限时抢购开始结束--> 
+<div class="w1200 ClearFix">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="qiang_box ClearFix">
+        <div class="vedio_title">
+            <div class="v_h2">
+                <p class="h2_top">限时抢购</p>
+                <p class="h2_bottom">
+                    天天特价 早10点强势上新
+                </p>
+            </div>
+        </div>
+      
+<div class="index">
+<div class="w1200 ClearFix">
+ <div class="ppsx_box ClearFix">
+	<div id="biKan" class="biKan u_1000 teMai">
+	<h3></h3>
+<ul class="clearfix">
+
+ <!--{foreach from=$promotion_goods key=key item=goods name="promotion_foreach"}-->
+<li class="teMaiTime qg" style="{if $smarty.foreach.promotion_foreach.iteration % 5 == 0} margin-right:0px !important;{/if}">
+            	<a href="{$goods.url}" class="listBox " target="_blank">
+         
+                 
+		   <img original="{$goods.thumb}" src="{$goods.thumb}" alt="{$goods.name|escape:html}" title="{$goods.name|escape:html}" width=220 height=220>
+                   
+
+
+                    <h4>{$goods.name}</h4>
+                    <div class="pricepart">
+                       <span class="jiaGe02 cf0189d">{$goods.shop_price}</span>&nbsp;<del class="jiaGe03">{$goods.market_price}</del>&nbsp;
+                       
+                       
+			
+
+ <!--{if $goods.is_new == 1}
+			<img src="{$ecsolve_path}/images/jiaobiao_temai_03.png" class="jiaoBiao">
+			{/if}-->
+ </div>
+                   
+                </a>
+                <div class="bikanCHe "><span onclick="javascript:addToCartcat({$goods.id})"  href="javascript:;"  ><img     src="{$ecsolve_path}/images/car.jpg"></span></div>
+            </li>
+
+
+
+
+{/foreach}
+
+
+
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="clear"></div>
+
+<!-- 限时抢购开始结束--> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{foreach from=get_categories_tree_index() item=cat name=cat_tree}-->
+
+<div class="index">
+<div class="w1200 ClearFix">
+ <div class="ppsx_box ClearFix">
+<div class="index_title">
+                <div class="v_h2">
+                    <p class="h2_top">{$cat.name|escape:html}</p>
+                    <p class="h2_bottom">
+                   
+
+ <!--{foreach from=$cat.adlist item=ad name=ad}-->{$ad.link_man}<!--{/foreach}-->
+</p>
+                </div>
+            </div>
+
+
+<div id="biKan" class="biKan u_1000 teMai">
+<h3><!--<span> {foreach from=$cat.cat_id item=child name=cat_cat_id} <a href="{$child.url}">{$child.name|escape:html}</a> | {/foreach}   <a href="{$cat.url}">更多>></a></span>--></h3>
+<ul class="clearfix">
+
+<li class="add">
+<div class=" ClearFix">
+<p class="catlink"><a href="{$child.url}">{$cat.name|escape:html}</a></p>
+<!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+ <a href="{$child.url}">{$child.name|escape:html}</a>
+ 
+ <!--{/foreach}-->
+ </div>
+<div class=" ClearFix">
+ <!--{foreach from=$cat.adlist item=ad name=ad}--><a href="{$ad.url}"><img src="{$ad.ad_code}" width=185 height=280></a> <!--{/foreach}-->
+</div>
+
+</li>
+
+<li  class="adl" >
+<div class=" ClearFix" style="margin-bottom:10px;">
+ <!--{foreach from=$cat.adlist2 item=ad name=ad}--><a href="{$ad.url}"><img src="{$ad.ad_code}" width=360 height=280></a> <!--{/foreach}-->
+ </div>
+ <div class=" ClearFix">
+ <!--{foreach from=$cat.adlist3 item=ad name=ad}--><a href="{$ad.url}"><img src="{$ad.ad_code}" width=360 height=280></a> <!--{/foreach}-->
+ </div>
+</li>
+
+
+
+ <!--{foreach from=$cat.catgoodslist item=goods name=goods}-->
+
+
+
+
+
+
+<li class="teMaiTime" style="{if $smarty.foreach.goods.iteration % 3 == 0} margin-right:0px;{/if}">
+            	<a href="{$goods.url}" class="listBox " target="_blank">
+         
+                 
+		   <img original="{$goods.thumb}" src="{$goods.thumb}" alt="{$goods.name|escape:html}" title="{$goods.name|escape:html}" width=200>
+                   
+
+
+                    <h4>{$goods.name}</h4>
+                    <div class="pricepart">
+                       <span class="jiaGe02 cf0189d">{$goods.shop_price}</span>&nbsp;<del class="jiaGe03">{$goods.market_price}</del>&nbsp;
+                       
+                       
+			
+
+{if $goods.is_new == 1}
+			<img src="{$ecsolve_path}/images/jiaobiao_temai_03.png" class="jiaoBiao">
+			{/if}
+ </div>
+                   
+                </a>
+                <div class="bikanCHe "><span onclick="javascript:addToCartcat({$goods.id})"  href="javascript:;"  ><img   src="{$ecsolve_path}/images/car.jpg"></span></div>
+            </li>
+
+
+
+
+{/foreach}
+
+
+
+
+</ul>
+</div>
+</div>
+<!--属性-->
+
+</div></div>
+<div class="clear"></div>
+
+
+ <!--{/foreach}-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="w1200 ClearFix">
+
+<div class="h_df over">
+<div class="z3 mr10">
+<div class="bl_red fB alR"><strong class="left">订单查询</strong><a target="_blank" class="fN gray f12" rel="nofollow" href="user.php">会员登录查看&gt;</a></div>
+<p class="pl10 pt10 alC"><img width="314"    src="{$ecsolve_path}/images/weima.jpg"></p>
+</div>
+<div class="z3 mr10">
+<h3 class="bl_red alR"><strong class="left">{$index_news_cat.cat_name}</strong><a rel="nofollow" class="fN gray" target="_blank" href="{$index_news_cat.url}">more&gt;</a></h3>
+<ul class="h_zx">
+
+<!--{foreach from=$index_news_list item=article name=article}-->
+<li><a target="_blank" href="{$article.url}">{$article.title}</a></li>
+<!--{/foreach}-->
+</ul>
+</div>
+<div class="z3">
+<h3 class="bl_red alR"><strong class="left">情趣品牌</strong><!--<a rel="nofollow" class="fN gray" target="_blank" href="brand.php">more&gt;</a>--></h3>
+
+<!-- {foreach from=$brand_list item=brand name="brand_foreach"} -->
+{if $smarty.foreach.brand_foreach.index <= 9}
+<a target="_blank" title="{$brand.brand_name|escape:html}" class="h_brd" href="{$brand.url}"><img width="90" height="40" src="data/brandlogo/{$brand.brand_logo}"></a>
+{/if}
+ <!-- {/foreach} -->
+</div>
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$(".freshlist ul li").hover(function(){
+$(this).children("a").children(".defaultdis").hide();
+$(this).children("a").children(".layerdiv").show();
+},function(){
+$(this).children("a").children(".defaultdis").show();
+$(this).children("a").children(".layerdiv").hide();
+});
+/*
+var ii=setInterval('autoscroll()',3000);
+function autoscroll(){	new_baby("right");	}
+$(".fresh_slide_left").hover(function(){	clearInterval(ii);	new_baby("left");	},function(){var ii=setInterval('autoscroll()',3000);});
+$(".fresh_slide_right").hover(function(){	clearInterval(ii);	new_baby("right");	},function(){var ii=setInterval('autoscroll()',3000);});
+*/
+$(".fresh_slide_left").click(function(){	new_baby("left");	});
+$(".fresh_slide_right").click(function(){	new_baby("right");	});
+function new_baby(type){
+var now_show=parseInt($(".new_baby").val());
+var len=$(".freshlist").length;
+var len=parseInt(parseInt(len)-1);
+if(type=="left"){	now_show-=1;	}
+if(type=="right"){	now_show+=1;	}
+if(now_show>len){now_show=0;}
+if(now_show<0){now_show=len;}
+var fall=parseInt(now_show);
+$(".new_baby").val(fall);
+$(".freshlist").eq(now_show).show().siblings(".freshlist").hide();	
+}
+</script>
+
+
+<script>
+
+if(window.screen.width<=1280){$(".showin1230").hide();}
+if(window.screen.width<=1280){$(".showin1235").hide();}
+if(window.screen.width<=1280){$("li.showin1230").css("display","none");}
+$(".florhov").hover(function(){
+$(this).children("a").removeClass("fenlei");$(this).children("a").addClass("hover");	$(this).children("div.hover_layer").show();
+},function(){
+$(this).children("a").removeClass("hover");$(this).children("a").addClass("fenlei");	$(this).children("div.hover_layer").hide();
+});
+$(".floor_con .floor_conl .maskitem").hover(function(){
+$(this).addClass("hover").siblings().removeClass("hover");$(this).children(".layout").children(".koubei").show();
+},function(){
+$(this).removeClass("hover");$(this).children(".layout").children(".koubei").hide();
+});
+$(".focus_mainr .focus_mainr_head a").hover(function(){
+$(this).addClass("hover").siblings().removeClass("hover");
+$(".focus_mainr_bot").eq($(this).index()).show().siblings(".focus_mainr_bot").hide();
+});
+$(".focus_mainr_bot ul li").hover(function(){
+$(this).children(".option2").show();
+$(this).children(".option1").hide();
+$(this).siblings(".focus_mainr_bot ul li").children(".option1").show();
+$(this).siblings(".focus_mainr_bot ul li").children(".option2").hide();
+});
+</script>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+ 
+ <div class="clear"></div>
+ 
+ 
+ <!--{if $img_links  or $txt_links }-->
+ <div style="width:1000px; margin:0 atuo; ">
+
+
+
+友情链接：
+    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+    <a href="{$link.url}" target="_blank" title="{$link.name}">
+    <img src="/mobile/{$link.logo}" alt="{$link.name}" border="0" height=30 /></a>
+    <!--结束图片类型的友情链接{/foreach}-->
+    <!-- {if $txt_links} -->
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+    <a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>
+    <!--结束文字类型的友情链接{/foreach}-->
+    <!-- {/if} -->
+
+
+
+
+
+
+</div>
+<!--{/if}-->
+
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+var $imgOriginal = $("img[original]");
+//360图片不显示问题
+if($.browser.msie){
+$imgOriginal.each(function(){
+$(this).attr('src',$(this).attr('original'));
+});
+}else{
+$imgOriginal.lazyload({threshold:600,effect: lazyload_effect});
+}
+});
+</script>
+
+
+
+
+
+<div class="popupbox popupbox_addcart" id="popupbox_addcart" style="height:auto; ">
+  <div class="popupbox_t">
+    <div class="popupbox_con popupboxbg">
+      <p style=" line-height:22px;"> <span class="green b" id="ShopcartMessage"></span><br>
+        购物车共 <span class="red b" id="popupbox_addcart_totalcount">0</span> 件商品 合计：<span class="red b"><span id="popupbox_addcart_subtotal">0.00</span> </span> 元<br>
+      </p>
+      <p style="margin-top: 15px;">
+      <input type="button" onclick="javascript: BoxAddcartClose();" value="继续选购" class="addtocart_product_button" name="button">
+        <input type="button" name="button" class="addtocart_product_button" value="去购物车结算" onclick="window.location.href='flow.php'">
+       </p>
+      <a href="javascript:void(0);" id="close" class="close closelink1" rel="nofollow">&nbsp;</a> </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{$ecsolve_path}/js/m.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/aizhigu_goods.js" charset="utf-8"></script>
+<script src="{$ecsolve_path}/js/bfd.js" type="text/javascript"></script>
+<script src="{$ecsolve_path}/js/blockUI.js" type="text/javascript"></script>
+<script src="{$ecsolve_path}/js/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.query.js"></script>
+
+</body>
+</html>

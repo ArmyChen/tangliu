@@ -1,0 +1,62 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{ margin:0 auto; color:#3E3E3E; font-size:12px; font-family:"宋体";  background-color:#FFF; padding:0; text-align:center;}
+*{ padding:0px; margin:0px; border:0;}
+ul,li{ list-style:none}
+img{ border:0px;}
+a{text-decoration:none; color:#666;}
+a:hover{color:#D90000;text-decoration:underline;}
+a:active{color:#3E3E3E; text-decoration:none;}
+
+/* 公用样式 */
+.clear{ clear:both;  }
+.left{ float:left}
+.right{ float:right}
+.container{ width:980px; margin:0px auto;}
+.tmar5{margin-top:5px;}.tmar2{margin-top:2px;}
+.tmar10{ margin-top:10px;}.tmar20{ margin-top:20px;}
+.tmar7{margin-top:7px;}.tmar8{margin-top:8px;} .tmar6{margin-top:6px;}
+.lpad70{ padding-left:70px;}.lpad60{ padding-left:60px;}
+.lmar10{margin-left:10px;}.lmar5{margin-left:5px;}.lmar13{margin-left:13px;}.lmar20{margin-left:20px;}
+.rmar10{margin-right:10px;}.rmar5{margin-right:5px;}.rmar40{margin-right:40px;}
+.rmar3{margin-right:3px;}.rmar15{ margin-right:15px; _margin-right:7px;}
+.font12{ font-size: 12px; }
+.font14{ font-size: 14px; }.font16{font-size: 16px; }
+.font24{ font-size:24px;}
+.arial{font-family:Arial,Helvetica,sans-serif}
+.relative{position:relative;}
+.cursor{ cursor:pointer}
+.black{color: #000000;}/*黑*/
+.red{color: #FF0000;}/*红*/
+.green{color: #009900;}/*绿*/
+.blue{ color:#1d3b71;}/*蓝*/
+.col666{ color:#666666;}/*灰*/
+.D90000{ color:#D90000;}/*深红*/
+.ff5700{ color:#ff5700}/*橙色*/
+.line-through{ text-decoration:line-through}
+
+/
+
+/* 顶部弹出层样式 */
+.all {padding: 0 5px; cursor:pointer}
+.all:hover {text-decoration: none;}
+.all span {color: #666666 !important;display: block;float: left;}
+.all i {background: url("../images/index_new/topR.png") no-repeat scroll 0 0;display: block;float: left;height: 4px;margin-left: 4px;margin-top: 12px;overflow: hidden;width: 8px;}
+.allBox {background: none repeat scroll 0 0 #645454;display: none;position: absolute;top: 23px; width: 100%;z-index: 99999; float:left; text-align:left; left:0px}
+.allBox .inner {margin: 0 auto;padding-top: 14px;position: relative;width: 1189px;}
+.allBox .inner dl {float: left;height: 95px;line-height: 20px;margin-right: 24px;width: 371px;}
+.allBox .inner dl dt {border-bottom: 1px dotted #9C9091;height: 22px;margin-bottom: 4px;}
+.allBox .inner dl dt a {color: #FFFFFF;font-weight: bold;}
+.allBox .inner dl dd span a {color: #C0B6B5;padding: 0 6px 0 2px;}
+.allBox .inner dl dd span {color: #726665;display: inline-block;}
+.allBox .inner .top {background: none repeat scroll 0 0 #6F6060;color: #FFFFFF;cursor: pointer;height: 20px;
+line-height: 20px;overflow: hidden;padding-left: 5px;position: absolute;right:-16px;text-align: center;top: -18px;width: 89px;}
+.allBox .inner .top span {display: block;float: left;}
+.allBox .inner .top i {background: url("../images/index_new/topR.png") no-repeat scroll 0 -6px ;display: block;float: left;height: 4px;margin-left: 4px;margin-top: 7px;overflow: hidden;width: 8px;}
+.allBox .inner .logoP {height: 60px;margin-bottom: 12px;width: 100%;}
+.allBox .inner .logoP a {background: url("../images/index_new/homegelogo.png") no-repeat scroll 0 0;display: block;height: 70px;width: 182px;}
+.allBox .inner .logoP a:hover {}
+
+#hotsearch {	float:right;	position:relative;	z-index:99;	width:196px;height:20px; margin-top:10px; text-align:left; }
+#hotsearch h3{ font-size:12px; font-weight:normal; display:inline}
+.right0{margin-right:0px}

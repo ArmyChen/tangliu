@@ -1,0 +1,105 @@
+
+
+
+<div class="fot">
+<ul class="nav">
+<li>
+<a href="index.php" class="na">首页</a>
+<a href="cat_all.php" class="na">分类</a>
+<a href="car.php" class="na">购物车<em class="cnum" id="cnumb">{insert name='cart_info_number'}</em></a>
+<a href="index.php?intro=hot" class="na">热销</a>
+</li>
+<li>
+<a href="javascript:;" onclick="goback()" class="na">上一页</a>
+<a href="user.php" class="na">登录/注册</a><a href="user.php?act=order_list" class="na">查订单</a><a href="javascript:;" onclick="gotop()" class="na">回顶部</a>
+</li>
+<li>
+<a href="tel:{$service_phone}" class="fbtn">{$service_phone}<p class="f12">点击电话订购</p></a>
+<a href="sms:{$service_tel}" class="fbtn">点击短信订购<p class="f12">姓名+货号+数量+地址</p></a>
+</li>
+</ul>
+<div class="lh25 mt10">
+<!-- <a href="#/article.php?act=detail&amp;a_id=617">帮助</a> | <a href="#/faq.php">反馈</a> | <a href="#/about.php">关于我们</a>-->
+<p class="gray f12">您的专属情趣专家，关注微信：<em class="h">aaagcd</em></p>
+<p class="gray f12"></p>
+<p class="gray f12">渝ICP备14000671号</p>
+</div>
+</div><div class="hid">
+<script src="{$ecsolve_path}/js/qa-min.js" defer="defer" async="" type="text/javascript"></script>
+
+<script type="text/javascript">var _paq = _paq || [];</script><script type="text/javascript">
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+
+    (function() {
+        var u="//log.a.hongju.cc/";
+        _paq.push(['setTrackerUrl', u+'web/v1/']);
+        _paq.push(['setSiteId', 10002]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'qa-min.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script></div>
+
+
+<style>
+.footer { width:32rem; }
+.footer p { padding:0 3%; line-height:3rem; color:#666; font-size:1.3rem; text-align:center;}
+.footer p:first-child {border-bottom:1px #b6b6b6 dashed; }
+.footer a { display:inline-block; padding:0 2%; color:#666; font-size:1.3rem; }
+.footer .xuan a { width:6rem; font-size:1.4rem; text-align:center; color:#b6b6b6;}
+.footer .xuan .current { color:#333;}
+.footer .icp { font-size:1.1rem; text-align:center; line-height:2rem; padding-bottom:1rem;}
+
+.bottomFixCar { position:fixed; margin-left:50%; left:-15rem; bottom:2.5rem; width:3.5rem; }
+.bototmFixTop { position:fixed;  margin-right:50%; right:-15rem; bottom:2.5rem; width:3.5rem;}
+
+
+
+</style>
+
+
+<div class="footer" >
+
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css">
+<script src="{$ecsolve_path}/jsct/analytics.js" async=""></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/common.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/public.js"></script>
+
+
+<script type="text/javascript">
+
+//顶部固定
+$(window).scroll(function(){
+	var tuwengao = $('.navHeight').offset().top;
+	var tuwenscrollt =  $(window).scrollTop();
+	//var tuwenshow =  tuwenscrollt - tuwengao;
+	if ( tuwenscrollt >= tuwengao ) { 
+		$('.navHeightWap').addClass('navWrapHide');
+	}else{
+		$('.navHeightWap').removeClass('navWrapHide');
+		}
+});
+
+$('.jhxx').click(function(){
+	$('.jhdown').hide();
+	});
+
+
+//搜索框显隐
+$('.headerClose').click(function(){
+	$('.header .search').hide();
+});
+$('.headerOpen').click(function(){
+	$('.header .search').show();
+	$('.header .search .text').focus();
+});
+
+
+
+</script>
+
+
+</div>

@@ -1,0 +1,105 @@
+<?php
+$GLOBALS['smarty']->assign('article_cat_gywm',     get_article_cat(4));   //分类链接标识_关于我们  
+$GLOBALS['smarty']->assign('article_list_gywm',     index_get_all_cat_articles(4));   //文章列表_关于我们  
+$GLOBALS['smarty']->assign('article_list_zxkf',     index_get_all_cat_articles(67));   //文章列表_关于我们  
+$GLOBALS['smarty']->assign('article_cat_zxkf',     get_article_cat(67));   //文章列表_关于我们  
+ ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/common.js"></script>
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css" />
+<script type="text/javascript" src="{$ecsolve_path}/js/wycms/jquery.js"></script>
+    <link href="{$ecsolve_path}/common/hdp/style/index.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/lrtk.js"></script>
+</head>
+
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+<div class="content">
+
+
+ <!-- {foreach from=$ad_gywm item=ad name=ad} -->
+ <div style="background:url({$ad.ad_code}) no-repeat center;" class="child_banner"> </div>
+ {/foreach}
+
+
+
+
+
+
+
+  <div class="child_content">
+    <!-- #BeginLibraryItem "/library/leftpart.lbi" --><!-- #EndLibraryItem -->
+
+    <div class="child_detail">
+      <div>
+       <style type="text/css">
+*{ margin:0; padding:0;}
+ul,li{ list-style:none;}
+a{ text-decoration:none;}
+#newlist{ width:99%; float:left;}
+#newlist li{ line-height:35px; border-bottom:#eee 1px dashed; list-style:none; padding-right:10px;}
+#newlist li span{ float:right;}
+#newlist li a{ background:url({$ecsolve_path}/images/list_a.gif) 6px 5px no-repeat; color:#4b555c; padding:0 0 0 25px;}
+#newlist li a:hover{ background:url({$ecsolve_path}/images/list_l.gif) 6px 5px no-repeat; color:#3a9acc;}
+#articeBottom { font-size: 14px; margin: 6px 0 10px; padding-top: 10px; text-align: right; width: 97%;}
+
+
+
+#imglist{ padding:15px 10px;}
+#imglist li{ float:left; display:inline; text-align:center;margin-right: 15px;}
+#imglist li a.img{ font-size:0px; display:block;}
+#imglist li a.img img{ margin:auto;  border:1px solid #ccc; }
+#imglist li h3{ padding:5px 0px 10px; font-weight:normal; line-height:1.5;}
+
+</style>
+<div id="imglist" class="active">
+			<ul class="list-none metlist">
+
+
+			<!-- {foreach from=$artciles_list item=article} -->
+			
+			<li  class="list"><a class="img" target="_self" title="{$article.title}" href="{$article.url}"><img width="223" height="180" title="{$article.title}" alt="{$article.title}" src="{$article.file_url}"></a><h3><a target="_self" title="{$article.title}" href="{$article.url}">{$article.title}</a></h3></li>
+			
+		
+			{/foreach}</ul>
+	<div class="clear"></div>
+	<div id="articeBottom"></div>
+</div>   
+ <div class="page"> <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --> </div>
+
+</div>
+</div>
+  
+  </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="cl"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

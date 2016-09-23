@@ -1,0 +1,404 @@
+<?php
+$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(118));  
+$GLOBALS['smarty']->assign('time_list',     get_time_list()); 
+$GLOBALS['smarty']->assign('index_ad_sm',index_ad_sy_diy(122));  
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><script src="{$ecsolve_path}/js/v.htm" charset="utf-8"></script><script data-owner="criteo-tag" src="{$ecsolve_path}/js/event.js" type="text/javascript" async="true"></script><script src="{$ecsolve_path}/js/push.js"></script><script src="{$ecsolve_path}/js/hm.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta property="qc:admins" content="423516203760161121101663757" />
+<title>{$page_title}</title>
+<link href="{$ecsolve_path}/css/header.css" rel="stylesheet">
+<link href="{$ecsolve_path}/css/footer.css" rel="stylesheet">
+    
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsshop/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsshop/index_com.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsshop/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsshop/catcommon.js"></script>
+<script type="text/javascript">
+window.onload = function()
+{
+  
+}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+
+
+
+ <script src="{$ecsolve_path}/js/gs.js" async="" type="text/javascript"></script>
+    <script src="{$ecsolve_path}/js/jquery-1.js" type="text/javascript"></script>
+    <script src="{$ecsolve_path}/js/hg_common.js" type="text/javascript"></script>
+    <script src="{$ecsolve_path}/js/lazyload_js.js" type="text/javascript"></script>
+    <script src="{$ecsolve_path}/js/head_js.js"></script>
+    <script>
+        var COOKIE_PRE = 'C4F3_';
+        var _CHARSET = 'utf-8';
+        var SITEURL = 'http://www.happigo.com/shop';
+        var SHOP_SITE_URL = 'http://www.happigo.com/shop';
+        var RESOURCE_SITE_URL = 'http://ecimg.happigo.com/resource';
+        var SHOP_TEMPLATES_URL = 'http://www.happigo.com/shop/templates/default';
+        var SHOP_LOGIN_URL = 'http://www.happigo.com/login/';
+    var WEB_UID = '';
+    var WEB_CUST_NO = '';
+    </script>
+    <script src="{$ecsolve_path}/js/dialog.js" id="dialog_js" charset="utf-8"></script><link href="{$ecsolve_path}/css/dialog.css" rel="stylesheet" type="text/css"><link href="{$ecsolve_path}/css/dialog.css" rel="stylesheet" type="text/css">
+    <!--[if IE 6]>
+    <script src="http://ecimg.happigo.com/resource/webjs/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>
+        DD_belatedPNG.fix('img,.tel_icon,.b_down,.icon_car,.today_zb_icon,.yestoday_icon,.time_icon,.groUlOut li .x,.car_num,.ewm_img,.online_cus,.retrun_top,.ppsx_tc_xx,.q_r_ul_addsc b,.prev_img,.next_img,.btn span，.ppsx_tc');
+    </script>
+    <![endif]-->
+    <script src="{$ecsolve_path}/js/jquery_004.js"></script>
+	<script src="{$ecsolve_path}/js/jquery_005.js"></script>
+	<script src="{$ecsolve_path}/js/jquery_003.js"></script>
+	<script src="{$ecsolve_path}/js/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript">
+        (function () {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = (location.protocol == 'https:' ? 'https://ssl.' : 'http://static.') + 'gridsumdissector.com/js/Clients/GWD-002610-711F71/gs.js';
+            var    firstScript = document.getElementsByTagName('script')[0];
+            firstScript.parentNode.insertBefore(s, firstScript);
+        })();
+    </script>
+
+
+
+
+
+
+
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+<link href="{$ecsolve_path}/css/index.css" rel="stylesheet">
+<script type="application/javascript" src="{$ecsolve_path}/js/jquery_002.js"></script>
+<script type="application/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="images/parabola.js"></script>
+<script type="application/javascript" src="{$ecsolve_path}/js/index.js"></script>
+<script src="{$ecsolve_path}/js/disableScroll.js"></script>
+<!--[if IE 6]>
+<script src="http://ecimg.happigo.com/resource/webjs/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+    DD_belatedPNG.fix('img,.tel_icon,.b_down,.icon_car,.today_zb_icon,.yestoday_icon,.time_icon,.groUlOut li .x,.car_num,.ewm_img,.online_cus,.retrun_top,.ppsx_tc_xx,.q_r_ul_addsc b,.prev_img,.next_img,.btn span，.ppsx_tc,.nav_type_list b');
+</script>
+<![endif]-->
+<div class="full_big_eye">
+        <div class="index_type">
+
+
+
+
+
+
+
+
+        <ul class="index_type_ul">
+                     
+<!--{foreach from=get_categories_tree() item=cat name=cat_tree}-->
+<li class="li_has_down">
+                <a href="{$cat.url}" target="_blank">
+                    {$cat.name|escape:html}                </a>
+                                <div class="nav_type_list" data="1" style="display: none;">
+                    <b></b>
+                    <ul>
+		    <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+                                                <li><a href="{$child.url}" target="_blank">{$child.name|escape:html}</a></li>
+                     <!--{/foreach}-->
+                                            </ul>
+                </div>
+            </li>
+              <!--{/foreach}-->                                                               
+                                                                                    </ul>
+    </div>
+        <div class="full_eye">
+        
+	   <!-- 幻灯片广告开始-->  
+	  
+<link href="{$ecsolve_path}/common/hdp/style/index.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/lrtk.js"></script>
+
+
+<!-- banner -->
+<!-- indexCon start -->
+<div class="indexCon">
+    <div class="flashBanner">
+       <div style="" class="mark1"> <div style=" margin:0 auto; text-align: center; overflow: hidden;  max-width:100%;height:380px; "  class="mark2"> <a href=""><div class="bigImg"    /></div></a></div></div>
+        <div class="mask">
+   <!--{foreach from=$index_ad item=ad  name=index_ads key=key }-->	  
+<div class="smalldiv" src="{$ad.file_url}" uri="background: url({$ad.file_url}) no-repeat scroll center center ; height:380px; " link="{$ad.url}"  bgcolor="background:{$ad.adbgcolor};" text="{$ad.title}"  /></div>
+ <!--{/foreach}-->     
+ </div>
+</div>
+</div>
+<!-- indexCon end -->
+ <!-- banner end -->
+<!-- 幻灯片广告开始结束--> 
+	   
+	   
+	   </div>
+</div>
+<div class="w1200 ClearFix">
+    <div class="pro_hot ClearFix">
+        <div class="pro_hot_title">
+            <ul class="pro_menu">
+                <li class="pro_li c_today0"><i class="today_zb_icon"></i>新品<i class="zb_icon_down"></i></li>
+                <li class="pro_li current"><i class="yestoday_icon"></i>热销<i class="zb_icon_down"></i></li>
+                <li class="vedio_gg"></li>
+                <li class="gn_fw"><img style="" src="images/zb_gn_bg.png"></li>
+            </ul>
+        </div>
+        <div style="display: none;" class="pro_con" id="zhibo_0">
+            <div class="P_left groCon">
+                <div class="groDiv">
+                    <div class="tempWrap"><ul  class="groUlOut" id="tv_zhiobo_ul">
+                       
+
+ 
+
+ <!--{foreach from=$goods_new key=key item=goods name=name}-->
+                       
+
+
+
+ 
+ <li >
+                           <!-- <div class="x"><i class="time_icon"></i>00:00</div>-->
+                            <a class="pro" title="{$goods.name|escape:html}" target="_blank">
+                                <img style="" src="{$goods.thumb}" alt="{$goods.name|escape:html}">
+                            </a>
+                            <p class="box_glay">
+                                <a class="pro_text" title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">
+                                    <span>{$goods.name|escape:html}</span>
+                                </a>
+                            </p>
+                            <p class="p_num">No.9201795</p>
+                            <div class="now_price">
+                                <div class="price_l">
+                                    <span class="bigfont"><span class="f_14"></span><span>{$goods.shop_price}</span></span>
+                                    <span><del>{$goods.market_price}</del></span>                                </div>
+                                <div class="zk">6.0折</div>                            </div>
+                        </li>
+
+{/foreach}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                    </ul></div>
+                </div>
+                <!--<div class="hd">
+                    <a class="prev">
+                        <span class="page_count"><span class="pageState"><span>2</span>/9</span></span>
+                        <i class="prev_img"></i>
+                    </a>
+                    <ul></ul>
+                    <a class="next">
+                        <span class="page_count"><span class="pageState"><span>2</span>/9</span></span>
+                        <i class="next_img"></i>
+                    </a>
+                </div>-->
+            </div>
+        </div>
+        <div class="pro_con hidden" id="zhibo_1" style="display: block;">
+            <div class="P_left groCon">
+                <div class="groDiv">
+                    <div class="tempWrap" ><ul  class="groUlOut" id="yes_fq_ul">
+                                                                        
+
+
+ <!--{foreach from=$goods_new key=key item=goods name=name}-->
+                       
+
+
+
+ 
+ <li >
+                           <!-- div class="fg_x">1</div>-->
+                            <a class="pro" title="{$goods.name|escape:html}" target="_blank">
+                                <img style="" src="{$goods.thumb}" alt="{$goods.name|escape:html}">
+                            </a>
+                            <p class="box_glay">
+                                <a class="pro_text" title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">
+                                    <span>{$goods.name|escape:html}</span>
+                                </a>
+                            </p>
+                            <p class="p_num">No.9201795</p>
+                            <div class="now_price">
+                                <div class="price_l">
+                                    <span class="bigfont"><span class="f_14"></span><span>{$goods.shop_price}</span></span>
+                                    <span><del>{$goods.market_price}</del></span>                                </div>
+                                <div class="zk">6.0折</div>                            </div>
+                        </li>
+
+{/foreach}
+
+
+
+
+
+
+
+                                               
+                                                                    </ul></div>
+                </div>
+
+               <!-- <div class="hd">
+                    <a class="prev">
+                        <span class="page_count"><span class="pageState"><span>3</span>/6</span></span>
+                        <i class="prev_img"></i>
+                    </a>
+                    <ul></ul>
+                    <a class="next">
+                        <span class="page_count"><span class="pageState"><span>3</span>/6</span></span>
+                        <i class="next_img"></i>
+                    </a>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="vedio_box ClearFix">
+    <ul class="vedio_ul ClearFix">
+            </ul>
+</div>        <div class="qiang_box ClearFix">
+        <div class="vedio_title">
+            <div class="v_h2">
+                <p class="h2_top">限时抢购</p>
+                <p class="h2_bottom">
+                    天天特价 早10点强势上新
+                </p>
+            </div>
+        </div>
+        <div class="qiang_cons">
+            <ul class="qiang_ul">
+                                <li>
+                                   <a class="qiang_ul_l" href="#" target="_blank">
+                        <img src="images/os1.jpg" height="315" width="595">
+                    </a>
+                </li>
+                                <li class="nomargin">
+                                      <a class="qiang_ul_l" href="#" target="_blank">
+                        <img src="images/os2.jpg" height="315" width="595">
+                    </a>
+                </li>
+                                <li>
+                                       <a class="qiang_ul_l" href="#" target="_blank">
+                        <img src="images/os3.jpg" height="315" width="595">
+                    </a>
+                </li>
+                                <li class="nomargin">
+                                     <a class="qiang_ul_l" href="#" target="_blank">
+                        <img src="images/os4.jpg" height="315" width="595">
+                    </a>
+                </li>
+                            </ul>
+        </div>
+    </div>
+        <div class="ppsx_box ClearFix">
+    <div class="vedio_title">
+        <div class="v_h2">
+            <p class="h2_top">品类精选</p>
+            <p class="h2_bottom">
+                品类齐全 轻松购物
+            </p>
+        </div>
+    </div>
+    <ul class="ppsx_ul">
+                           
+			    
+			    
+			    
+		
+			    
+			 <!--{foreach from=$index_ad_sm item=ad  name=index_ads key=key }-->
+                                        <li class="secli">
+            <a href="{$ad.url}" target="_blank" >
+                <img src="{$ad.file_url}" >
+            </a>
+                        
+                    </li> <!--{/foreach}-->  
+
+
+
+                        </ul>
+</div>
+            <div class="mryh_box ClearFix">
+            <div class="vedio_title">
+                <div class="v_h2">
+                    <p class="h2_top">今日发现</p>
+                    <p class="h2_bottom">
+                        精致好物 更快乐的生活
+                    </p>
+                </div>
+            </div>
+            <ul class="mryh_goods ClearFix">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{foreach from=$goods_new key=key item=goods name=name}-->
+                                <li {if $smarty.foreach.name.iteration % 4 == 0} class="nomargin"{/if}>
+                                        <a class="a_con4_list" href="{$goods.url}" target="_blank">
+                        <p class="p_img">
+                            <img style="display: inline;" id="goods_image_178130" original="{$goods.thumb}" src="{$goods.thumb}">
+                        </p>
+                    </a>
+                    <p class="p_title"><span>{$goods.name|escape:html}</p>
+                    <p class="p_p">
+                        <span class="price1"><span>{$goods.shop_price}</span></span><span class="price2"><del>{$goods.market_price}</del></span>                        <a class="mryh_add_car" onclick="javascript:addToCartcat({$goods.id})"  href="javascript:;" ></a>
+                    </p>
+                </li>
+
+{/foreach}
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+        </div>
+    </div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body></html>

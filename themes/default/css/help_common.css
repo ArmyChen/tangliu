@@ -1,0 +1,70 @@
+﻿@charset "utf-8";
+/**********************帮助中心页面******************************/
+#forhelp						{ margin:0 auto; width:1000px; margin-top:10px; position:relative; background:#FFF; color:#333333; text-align:left; }
+
+#forhelp .r_c_l			{ width:165px; float:left; margin:0; padding:0; *text-align:left;}
+#forhelp .r_c_l i	{ display:block; background:url(../images/fhelp.gif) no-repeat; width:125px; height:30px; line-height:30px; color:#FFF; padding:0 0 0 40px; font-size:14px; font-weight:bold; margin:0 0 5px 0; font-style:normal;}
+#forhelp .r_c_l i a{ color:#FFF; display:block;}
+#forhelp .r_c_l ul,#forhelp .r_c_l ul.hottel{ margin:0; padding:0px; width:163px; border-left:1px solid #CECECE; border-right:1px solid #CECECE; }
+
+#forhelp .r_c_l ul li.selected	{ display:block; background:url(../images/e_bga.gif) 25px -273px no-repeat; width:119px; height:20px; line-height:20px;}
+
+#forhelp .r_c_l ul li	{ width:119px;  clear:both; margin-left:20px;}
+#forhelp .r_c_l ul li a	{ display:block;  width:119px; color:#555555;  line-height:32px; _line-height:30px; *line-height:30px; height:27px;  text-indent:28px;}
+#forhelp .r_c_l ul li a:hover	{ text-decoration:underline; background:url(../images/e_bga.gif) 0 -273px no-repeat; text-indent:28px;}
+#forhelp .r_c_l ul li small{ background:url(../images/e_bga.gif) 0 -273px no-repeat; display:block; font-size:12px;}
+
+#forhelp_strong	{ display:block; background:url(../images/coulomn.jpg) 0 -91px no-repeat; width:165px; height:27px; line-height:27px; text-align:center;}
+#forhelp .r_c_l b		{ display:block; background:url(../images/coulomn.jpg) 0 -121px no-repeat; width:165px; height:5px; margin:0 0 5px 0 !important;margin:0px;}
+#forhelp .r_c_l em		{ color:red; font-style:normal;}
+#forhelp .r_c_r			{ width:825px; float:left; margin:0 0 0 10px; *text-align:left;}
+#forhelp .r_c_r_cl{   height:22px; line-height:22px; padding:5px 0; }
+#forhelp .r_c_r .bt_cb{width:200px; padding:0 0 0 10px; font-size:16px; color:#c04800; font-weight:bold;}
+#forhelp .r_c_r .r_c_r_cxx{background:url(../images/forhelp_1_5.gif) no-repeat; height:31px; line-height:31px;  padding:0 0 0 20px;}
+/* #forhelp .r_c_r .r_c_r_cxx{ background:url(../images/forhelp_1_5.gif) no-repeat; height:31px; line-height:31px;  padding:0 0 0 20px;} */
+#forhelp .r_c_l ul.hottel{ padding-top:8px;}
+#forhelp .r_c_l ul.hottel li{  font-weight:bold; width:140px; line-height:25px; height:25px; }
+#forhelp .r_c_l ul.hottel li.kfonline{ height:46px; line-height:46px; margin:0; padding:0;}
+#forhelp .r_c_l ul.hottel li.kfonline a{ margin:0; padding:0; text-indent:10px;}
+#forhelp .r_c_l ul.hottel li.kfonline a:hover{ text-decoration:none; background:none;}
+
+/**********************帮助中心页面-右侧内容样式******************************/
+#forhelp .r_c_r .forhelp_l_2{ line-height:24px; padding:10px 10px 30px 10px;  border-left:1px solid #d5d5d5; border-right:1px solid #d5d5d5; font-size:14px;  }
+#forhelp .r_c_r .forhelp_l_2 a,#forhelp .r_c_r .forhelp_l_2 a:visited{ color:#0066ff;}
+#forhelp .r_c_r .forhelp_l_2 a:hover{ color:#0066ff; text-decoration:underline;}
+#forhelp .r_c_r .forhelp_l_33{background:url(../images/forhelp_1_7.gif)  no-repeat; height:17px; }
+#forhelp .r_c_r  a{ text-decoration:none;}
+#forhelp .r_c_r  a:hover{ text-decoration:none;}
+#forhelp .r_c_r .forhelp_l_2 span{ }
+#forhelp .r_c_r .forhelp_l_2 span a{ text-decoration:underline;}
+#forhelp .r_c_r .forhelp_l_2 span a:hover{ text-decoration:underline;}
+#forhelp .r_c_r .forhelp_l_2 strong{margin-top:25px;display:block;}
+#forhelp .r_c_r .forhelp_l_2 .help_tab1{ background-color:#d6d6d6; text-align:center;width:100%;margin-top:20px;}
+#forhelp .r_c_r .forhelp_l_2 .help_tab1 td{ background-color:#FFF;}
+#forhelp .r_c_r .forhelp_l_2 .help_tab2{ background-color:#d6d6d6; text-align:center;width:600px;}
+#forhelp .r_c_r .forhelp_l_2 .help_tab2 td{ background-color:#FFF;}
+#forhelp .r_c_r .forhelp_l_2 big{ font-size:14px; font-weight:bold; padding:2px 0; display:block; color:#333333; }
+#forhelp .r_c_r .forhelp_l_2 big a,#forhelp .r_c_r .forhelp_l_2 big a:visited{ text-decoration:none; display:block; float:left; font-size:12px; width:71px; background:url(../images/bg_two.gif) 0  -24px  no-repeat; text-align:center;}
+#forhelp .r_c_r .forhelp_l_2 big i{ display:block;  background:url(../images/bg_two.gif)  no-repeat; color:#FFF; width:71px;  font-style:normal;} 
+#forhelp .r_c_r .forhelp_l_2 big a:hover{ background:url(../images/bg_two.gif)  no-repeat; color:#FFF;}
+
+#forhelp .r_c_r .forhelp_l_2 small{ font-weight:bold; font-size:12px;}
+#forhelp .r_c_r .forhelp_l_2 p{ color:#666666;}
+#forhelp .r_c_r .forhelp_l_2 ul li{  border-bottom:1px dotted #cccccc;}
+#forhelp .r_c_r .forhelp_l_2 ul li a{ text-decoration:none; color:#333333;}
+#forhelp .r_c_r .forhelp_l_2 ul li a:hover{ text-decoration:underline; color:#333333; }
+#forhelp .r_c_r .forhelp_l_2 ul li a:visited{color:#006ed9;}
+
+table tr td.huikuanbx{ border-bottom:1px solid #CCC; border-right:1px solid #CCC; color:#333333;}
+input.zstj{ background:url(../images/forhelp_1_4.gif) no-repeat; height:26px; width:80px; border:0; cursor:pointer; margin-top:5px;}
+input.email_tx{ border:1px solid #999999; width:160px; height:18px; background:#f6f6f6;}
+textarea.email_ct{ border:1px solid #999999; width:400px; height:78px; background:#f6f6f6;}
+input.input_email_ct{ border:1px solid #999999; width:400px; height:20px; background:#f6f6f6;}
+a.tijiaojh{ display:inline-block; background:url(../images/forhelp_1_4.gif) no-repeat; height:26px; width:80px; border:0; cursor::pointer; margin-top:5px; }
+a:hover.tijiaojh{ display:inline-block; background:url(../images/forhelp_1_4.gif) 0 -29px no-repeat; height:26px; width:80px; border:0; cursor::pointer; margin-top:5px; }
+
+
+.bankaccount{background:#E1E1E1;margin-left:27px; display:inline; }
+.bankaccount tr{ background:#ffffff}
+.bankaccount td{ text-align:left; padding-left:14px;}.bankaccount .txt{ line-height:20px; padding:10px 14px}
+.tt14{margin-top:14px;}

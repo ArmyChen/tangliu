@@ -1,0 +1,349 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta property="qc:admins" content="423516203760161121101663757" />
+<title>{$page_title}</title>
+<script>	
+document.write("<link rel='stylesheet' type='text/css' href='{$ecsolve_path}/style/index.css'>");
+document.write("<link rel='stylesheet' type='text/css' href='{$ecsolve_path}/style/gtcommon.css'>");
+</script>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/catcommon.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/head_js.js"></script>
+<script type="text/javascript">
+window.onload = function()
+{
+  
+}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+
+
+
+
+
+<!--专题部分-->
+
+
+
+
+
+<style>
+/*all by vganchou*/
+.wq{width:1000px;margin:0 auto;}
+.focus{width:100%;height:650px;overflow:hidden;position:relative;z-index:0;background-color:#18233c;}
+.f_ul{position:relative;width:100%;overflow:hidden;height:650px;}
+.f_ul li{width:100%;height:650px;text-align:center;position:absolute;display:none;background-repeat:no-repeat;background-position:50% 0;}
+.btn{position:absolute;text-align:center;left:0;bottom:10px;width:100%;}
+.btn span{cursor:pointer;display:inline-block;width:20px;height:20px;margin:0 3px;color:#fff;line-height:18px;background-color:#000;border-radius:10px;}
+.btn span.on{background-color:#c40000;}
+.h_pre,.h_nxt,.h_pres,.h_nxts{background-color:#000;filter:alpha(opacity=50);opacity:0.6;display:none;height:80px;color:#fff;text-align:center;position:absolute;top:260px;width:36px;font:400 30px/80px simsun;}
+.h_pre{left:10%}
+.h_nxt{right:10%;}
+.h_pre:hover,.h_nxt:hover,.h_pres:hover,.h_nxts:hover{background-color:#000;filter:alpha(opacity=100);opacity:1;text-decoration:none;}
+.f_one,.f_nav{height:200px;background:#18233c url({$ecsolve_path}/topic/fbg.png);}
+.n_alink{width:20%;height:130px;text-align:center;line-height:20px;float:left;position:relative;margin-top:38px;}
+.n_tit{color:#998e4d;font-size:15px;margin-top:4px;}
+.n_en{color:#666;}
+.n_img{-webkit-transition:transform .5s;transition:transform .5s;}
+.n_alink:hover .n_img{-webkit-transform:rotateY(180deg);transform:rotateY(180deg);}
+.n_alink:hover{text-decoration:none;}
+.n_alink:hover .n_tit,.n_alink:hover .n_en{color:#fff;}
+.fix_ztnav{position:fixed;z-index:10;top:0;left:0;width:100%;height:50px;}
+.fix_ztnav .n_alink{margin:4px 0 0 0;height:45px;}
+.fix_ztnav .n_img{width:40px;height:40px; float:left;}
+.zt_tt{background:url({$ecsolve_path}/topic/tit.png) 50% 0 no-repeat;width:100%; height:66px;color:#998e4d;text-align:center;font-size:20px; letter-spacing:6px;line-height:70px;overflow:hidden;font-family:"Microsoft Yahei";}
+.floora,.floorb,.floorc,.floord,.floore{background:#061127 url({$ecsolve_path}/topic/bg1.jpg) 50% 0 no-repeat;height:638px;padding-top:60px;}
+.floorb{background-image:url({$ecsolve_path}/topic/bg2.jpg);height:990px;}
+.floorc{background-image:url({$ecsolve_path}/topic/bg3.jpg);height:990px;}
+.floord{background-image:url({$ecsolve_path}/topic/bg4.jpg);height:990px;}
+.floore{background-image:url({$ecsolve_path}/topic/bg5.jpg);height:auto;}
+.floorf{background:url({$ecsolve_path}/topic/bg6.jpg) 50% bottom no-repeat;padding-bottom:530px;}
+.fd_img{margin:60px 0 2px 0; display:block;position:relative;width:1000px;height:400px;overflow:hidden;}
+.fd_img::before{content: "";position: absolute;width:120px;height:400px;top:0;left:-200px;overflow: hidden;background:-moz-linear-gradient(left,rgba(255,255,255,0)0,rgba(255,255,255,.2)50%,rgba(255,255,255,0)100%);background:-webkit-gradient(linear,left top,right top,color-stop(0%,rgba(255,255,255,0)),color-stop(50%,rgba(255,255,255,.2)),color-stop(100%,rgba(255,255,255,0)));background:-webkit-linear-gradient(left,rgba(255,255,255,0)0,rgba(255,255,255,.2)50%,rgba(255,255,255,0)100%);-webkit-transform:skewX(-25deg);-moz-transform:skewX(-25deg);}
+.fd_img:hover::before{left:1200px;-webkit-transition:left .8s;-moz-transition:left .8s;transition:left .8s;}
+.focuf{position:relative;width:1000px;height:414px;overflow:hidden;margin-top:50px;}
+.focuf ul{position:absolute;left:0;top:0;}
+.focuf li{float:left;}
+.fol{width:378px;height:277px; position:absolute;left:8px;top:58px; overflow:hidden;z-index:1; background-color:#000;}
+.fom{width:530px;height:390px; position:absolute;left:235px;top:12px; overflow:hidden;z-index:6;}
+.for{width:378px;height:277px; position:absolute;right:8px;top:58px; overflow:hidden;z-index:1;background-color:#000;}
+.fol li,.for li{width:378px;}
+.fom li{width:530px;}
+.fol ul,.for ul{filter:alpha(opacity=40);opacity:0.4;}
+.fo_l,.fo_r{width:222px;height:295px;position:absolute;background-color:#000;filter:alpha(opacity=40);opacity:0.4;top:50px;z-index:3;text-align:center;color:#fff;font:400 60px/290px simsun;}
+.fo_l{left:0;}
+.fo_r{right:0;}
+.fo_l p,.fo_r p{width:60px;height:90px;background:url({$ecsolve_path}/topic/cot.png) 0 0 no-repeat;position:absolute;top:96px;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-o-transition:all 0.3s;-ms-transition:all 0.3s;transition:all 0.3s;}
+.fo_l p{left:-90px;}
+.fo_r p{background-position:0 -92px;right:-90px;}
+.fo_l:hover,.fo_r:hover{text-decoration:none;}
+.fo_on .fo_l p{left:90px;}
+.fo_on .fo_r p{right:90px;}
+.hua1,.hua2,.hua3{position:absolute;left:0;top:50px;}
+.hua2{left:222px;top:0;z-index:5;}
+.hua3{left:604px;}
+.g_cp{overflow:hidden;zoom:1;}
+.cp_a{width:228px;height:330px;padding:10px;background-color:#fff;overflow:hidden; display:inline; float:left; position:relative;line-height:20px;text-align:center;margin:0 0 2px 2px;}
+.cp_a .ximg{margin-bottom:3px;}
+.cp_a p{white-space:nowrap;width:230px; overflow:hidden; text-overflow:ellipsis; cursor:pointer;}
+.cp_a .amsk{width:250px;height:350px;background-color:#000;filter:alpha(opacity=40);opacity:0.4;position:absolute;left:0;top:0;-webkit-transition:all 0.5s;-moz-transition:all 0.5s;-o-transition:all 0.5s;-ms-transition:all 0.5s;transition:all 0.5s}
+.cp_a .cp_jg{color:#c40000; font-weight:bold; font-size:15px;margin-top:10px;}
+.cp_a:hover{text-decoration:none;}
+.cp_a:hover .amsk{_display:none;filter:alpha(opacity=0);opacity:0;}
+#gotop{width:70px;height:70px;display:none;position:fixed;bottom:10px;right:10px;z-index:10;}
+</style>
+
+
+
+
+
+
+
+
+<div class="floorb" id="f2">
+<h2 class="zt_tt">女用高端</h2>
+<div class="wq">
+<a href="http://link.xinyijiapin.com/goods-5076.html" target="_blank" class="fd_img"><img src="{$ecsolve_path}/topic/l1.jpg" height="400" width="1000"></a>
+<div class="g_cp">
+<a href="http://link.xinyijiapin.com/goods-5520.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/nv1.jpg" class="ximg" height="230" width="230">
+<p><b>奇乐圆Q-LUV-U</b></p>
+<p>无线遥控自动抽插电动仿真阳具</p>
+<p class="gray">脉冲抽插设计，模拟真人性爱动作</p>
+<p class="cp_jg">￥329.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-4971.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/nv2.jpg" class="ximg" height="230" width="230">
+<p><b>兆邦NMC</b></p>
+<p>凯撒爱的摇篮充气式性爱床</p>
+<p class="gray">和老公3P不是梦</p>
+<p class="cp_jg">￥2280.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-3626.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/nv3.jpg" class="ximg" height="230" width="230">
+<p><b>乐透LECO</b></p>
+<p>遥控版性爱魔球</p>
+<p class="gray">省心、省力，你身边的性爱专家</p>
+<p class="cp_jg">￥1998.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-5289.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/nv41.jpg" class="ximg" height="230" width="230">
+<p><b>ZINI</b></p>
+<p>悦己露爱G点振动棒</p>
+<p class="gray">让最懂你的“他”陪伴在你身边</p>
+<p class="cp_jg">￥1080.00</p><p class="amsk"></p>
+</a>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+<div class="floorc" id="f3">
+<h2 class="zt_tt">男用高端</h2>
+<div class="wq">
+<a href="http://link.xinyijiapin.com/goods-5529.html" target="_blank" class="fd_img"><img src="{$ecsolve_path}/topic/l2.jpg" height="400" width="1000"></a>
+
+<div class="g_cp">
+<a href="http://link.xinyijiapin.com/goods-6197.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/n1.jpg" class="ximg" height="230" width="230">
+<p><b>RENDS</b></p>
+<p> DIY编程智能旋转自慰飞机杯</p>
+<p class="gray">电脑联机，代码修改，超低噪音，金刚材质</p>
+<p class="cp_jg">￥2599.00</p><p class="amsk"></p>
+</a>
+
+<a href="http://link.xinyijiapin.com/goods-5103.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/n2.jpg" class="ximg" height="230" width="230">
+<p><b>香港UTOO</b></p>
+<p>处女姬Princess Virgin阴臀倒模</p>
+<p class="gray">三段式收缩设计 享受极致高潮快感</p>
+<p class="cp_jg">￥999.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-460.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/n3x.jpg" class="ximg" height="230" width="230">
+<p><b>爱 侣</b></p>
+<p>3D浑圆臀部倒模</p>
+<p class="gray">1;1真人尺寸+超立体3D效果+真人发声</p>
+<p class="cp_jg">￥1189.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-268.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/Q3204.jpg" class="ximg" height="230" width="230">
+<p><b>瑞典LELO</b></p>
+<p>男士G点按摩大师前列腺刺激</p>
+<p class="gray">线条流畅 直达G点</p>
+<p class="cp_jg">￥880.00</p><p class="amsk"></p>
+</a>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="floord" id="f4">
+<h2 class="zt_tt">情侣高端</h2>
+<div class="wq">
+<a href="http://link.xinyijiapin.com/goods-5088.html" target="_blank" class="fd_img"><img src="{$ecsolve_path}/topic/l3.jpg" height="400" width="1000"></a>
+
+<div class="g_cp">
+<a href="http://link.xinyijiapin.com/goods-5627.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/q1.jpg" class="ximg" height="230" width="230">
+<p><b>法国乐慕</b></p>
+<p>派乐茉松石绿欢愉套装</p>
+<p class="gray">情侣共享器、延时震环、情趣跳蛋套装</p>
+<p class="cp_jg">￥1380.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-1427.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/q2.jpg" class="ximg" height="230" width="230">
+<p><b>瑞典LELO</b></p>
+<p>Alia阿莉娅私处震动器</p>
+<p class="gray">防水设计 6种震动模式 铂金镀层</p>
+<p class="cp_jg">￥780.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-5187.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/q3.jpg" class="ximg" height="230" width="230">
+<p><b>LELO 伊达IDA</b></p>
+<p>玫瑰红旋转尾翼遥控情侣共振按摩器</p>
+<p class="gray">360°旋转，8频振动，体感互动，摇摆舞动，性感魅惑！</p>
+<p class="cp_jg">￥1580.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-5483.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/Q8536.jpg" class="ximg" height="230" width="230">
+<p><b>We-Vibe4 plus维依四代</b></p>
+<p>APP远程遥控夫妻共振器自慰器</p>
+<p class="gray">同时振动男性阴茎  女性阴蒂和G点</p>
+<p class="cp_jg">￥1580.00</p><p class="amsk"></p>
+</a>
+</div>
+
+
+</div>
+</div>
+
+
+<div class="floore" id="f5">
+<div class="floorf">
+<h2 class="zt_tt">热门推荐</h2>
+<div class="wq">
+<a href="http://link.xinyijiapin.com/goods-9371.html" target="_blank" class="fd_img"><img src="{$ecsolve_path}/topic/Q9555gaoduan.jpg" height="400" width="1000"></a>
+
+<div class="g_cp">
+<a href="http://link.xinyijiapin.com/goods-7577.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o1.jpg" class="ximg" height="230" width="230">
+<p><b>UNIMAT</b></p>
+<p>电动夹吸飞机杯式阴茎增大器</p>
+<p class="gray">阴茎训练器与飞机杯结合，全新4D通道</p>
+<p class="cp_jg">￥459.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-5415.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o2.jpg" class="ximg" height="230" width="230">
+<p><b>藏帝</b></p>
+<p>无依赖不麻木植物延时喷剂15ml</p>
+<p class="gray">全国销量领先 无副作用 起效快</p>
+<p class="cp_jg">￥198.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-8806.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o3.jpg" class="ximg" height="230" width="230">
+<p><b>COC</b></p>
+<p>罗马大帝超仿真阳具</p>
+<p class="gray">趣网最畅销逼真男根，众多女性共同的选择</p>
+<p class="cp_jg">￥198.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-8052.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o4.jpg" class="ximg" height="230" width="230">
+<p><b>简爱</b></p>
+<p>安格斯全自动抽插性爱机器</p>
+<p class="gray">深度抽插，多种快感，五档变速，强大吸盘</p>
+<p class="cp_jg">￥499.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-1426.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o5.jpg" class="ximg" height="230" width="230">
+<p><b>瑞典LELO</b></p>
+<p>Isla 依姿拉G点挑逗震动棒</p>
+<p class="gray">铂金品质 优雅生活</p>
+<p class="cp_jg">￥1080.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-6002.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o6.jpg" class="ximg" height="230" width="230">
+<p><b>香港简爱</b></p>
+<p>定海神针智能恒温高潮冲击棒</p>
+<p class="gray">有温度的高潮才叫真正的高潮</p>
+<p class="cp_jg">￥338.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-3541.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o7.jpg" class="ximg" height="230" width="230">
+<p><b>瑞典LELO-Soraya</b></p>
+<p>索瑞娅 全防水铂金涂层 双重震动 玫红色</p>
+<p class="gray">双重功能振动器,为你带来奢华的愉悦享受</p>
+<p class="cp_jg">￥1480.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-5503.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/230x230.jpg" class="ximg" height="230" width="230">
+<p><b>琦莎HAPPY</b></p>
+<p>两用口阴互换舌震免提飞机杯</p>
+<p class="gray">吸附力超强 舌震免提飞机杯</p>
+<p class="cp_jg">￥199.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-7212.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o9.jpg" class="ximg" height="230" width="230">
+<p><b>angel&amp;coco </b></p>
+<p>女性私处修复保护紧致滋养排毒套装</p>
+<p class="gray">滋润、紧致、排毒，呵护女性健康，让女人更自信！</p>
+<p class="cp_jg">￥499.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-9371.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/Q9555gdxt.jpg" class="ximg" height="230" width="230">
+<p><b>L-AMOUROSE</b></p>
+<p>爱雅抽插加热阳具可震动性爱机器</p>
+<p class="gray">震动摇摆 一键加热 变频抽插</p>
+<p class="cp_jg">￥599.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-8456.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/o11.jpg" class="ximg" height="230" width="230">
+<p><b>Dicate</b></p>
+<p>印第安雄根大号高端女性用品仿真震动阳具</p>
+<p class="gray">市场上找不出比这个还大的第二根阳具了</p>
+<p class="cp_jg">￥1680.00</p><p class="amsk"></p>
+</a>
+<a href="http://link.xinyijiapin.com/goods-7677.html" target="_blank" class="cp_a"><img src="{$ecsolve_path}/topic/Q9204.jpg" class="ximg" height="230" width="230">
+<p><b>诺兰</b></p>
+<p>美人鱼蓝牙互动夹吸深喉口交飞机杯</p>
+<p class="gray">蓝牙互动 深喉口交 7大频震动频率</p>
+<p class="cp_jg">￥699.00</p><p class="amsk"></p>
+</a>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--专题部分-->
+
+
+
+
+
+
+
+
+
+
+
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

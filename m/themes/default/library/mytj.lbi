@@ -1,0 +1,144 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script >
+
+var Tday = new Array();
+
+var daysms = 24 * 60 * 60 * 1000
+
+var hoursms = 60 * 60 * 1000
+
+var Secondms = 60 * 1000
+
+var microsecond = 1000
+
+var DifferHour = -1
+
+var DifferMinute = -1
+
+var DifferSecond = -1
+
+function clock(key)
+
+  {
+
+   var time = new Date()
+
+   var hour = time.getHours()
+
+   var minute = time.getMinutes()
+
+   var second = time.getSeconds()
+
+   var timevalue = ""+((hour > 12) ? hour-12:hour)
+
+   timevalue +=((minute < 10) ? ":0":":")+minute
+
+   timevalue +=((second < 10) ? ":0":":")+second
+
+   timevalue +=((hour >12 ) ? " PM":" AM")
+
+   var convertHour = DifferHour
+
+   var convertMinute = DifferMinute
+
+   var convertSecond = DifferSecond
+
+   var Diffms = Tday[key].getTime() - time.getTime()
+
+   DifferHour = Math.floor(Diffms / daysms)
+
+   Diffms -= DifferHour * daysms
+
+   DifferMinute = Math.floor(Diffms / hoursms)
+
+   Diffms -= DifferMinute * hoursms
+
+   DifferSecond = Math.floor(Diffms / Secondms)
+
+   Diffms -= DifferSecond * Secondms
+
+   var dSecs = Math.floor(Diffms / microsecond)
+
+   
+
+   if(convertHour != DifferHour) a="<span style='color:#fff;'>"+DifferHour+"天";
+
+   if(convertMinute != DifferMinute) b=""+DifferMinute+"时";
+
+   if(convertSecond != DifferSecond) c=""+DifferSecond+"分"
+
+     d=""+dSecs+"秒</span>"
+
+     if (DifferHour>0) {a=a} 
+
+     else {a=''}
+
+   document.getElementById("leftTime"+key).innerHTML = a + b + c + d; //显示倒计时信息
+
+  
+
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{foreach from=$promotion_goods key=key item=goods name=name}-->
+ {if $smarty.foreach.name.iteration < 13 }
+
+ 
+        <li {if $smarty.foreach.name.iteration % 2 == 0} style="float: right;"{/if}>
+            
+                <dl>
+                    <dt>  <a class="aimg" href="{$goods.url}"><img style="display: block;" original="{$goods.thumb}" src="{$goods.thumb}"></a></dt>
+                    <dd>
+                        <p class="tittle">  <a class="teMaiTime" href="{$goods.url}">{$goods.name|escape:html}</a></p>
+                       <p class="selling"> 
+				 <span>{$goods.shop_price}</span>    <span href="javascript:;" onclick="javascript:addToCartcat({$goods.id})" class="fR caranniu current">加入购物车</span>
+                </p>
+                   
+                    </dd>
+                </dl>
+
+
+<div class="teTime spickTime" id="leftTime{$key}">{$lang.please_waiting}</div>
+			
+<script>
+
+Tday[{$key}] = new Date("{$goods.gmt_end_time}");   
+
+window.setInterval(function()     
+
+{clock({$key});}, 1000);     
+
+</script>
+
+
+		
+          <div id="lmin{$goods.id}" style="display:block;">
+	     </div>
+
+           
+        </li>
+
+
+{/if}
+
+
+
+
+
+{/foreach}
+
+
+

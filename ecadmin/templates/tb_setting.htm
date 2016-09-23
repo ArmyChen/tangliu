@@ -1,0 +1,171 @@
+<!-- $Id: goods_info.htm 17126 2010-04-23 10:30:26Z liuhui $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,colorselector.js"}
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+<style>
+input, select{height: 23px;padding: 0 4px;vertical-align: middle;}
+
+</style>
+<!-- start goods form -->
+ <div class="tab-div" style="width: 1030px;">
+
+  <div id="tabbody-div" style="background: #FFFDEA;">
+ <form method='post' id="form" name="form" action="shops.php?act=tb_update">
+  <table cellpadding="4" cellspacing="0" border="0" class="table-form">
+    <tr >
+      <td colspan=3><div align="left" style="font-weight:bold; border-bottom:#000000 1px dashed">插件信息</div></td>
+    </tr>
+    <tr >
+      <td><div align="left" style="margin-left:10px">插件更新日期：</div></td>
+      <td>{$user_data.f_time}
+        <div style="display:inline; "><a style="color: #FF0000" target="_blank" href="http://ectbk.com/"><span>&nbsp;&nbsp;查看最新版本</span></a></div></td>
+    </tr>
+    <tr>
+      <th><div align="left" style="margin-left:10px">授权码：</div></th>
+      <td><input type="text" value="{$vo.content.session_key}" class="textinput" name="almmname" size="65">
+        
+              <input type="button" value="验证授权" onclick="VeriUser(this.parentNode)"  />
+
+        </td>
+    </tr>
+    <tr >
+      <td colspan=3><div align="left" style="font-weight:bold;border-bottom: #000 1px dashed">淘宝客设置</div></td>
+    </tr>
+      <th><div align="left" style="margin-left:10px"></div></th>
+	  <td>&nbsp;</td>
+    </tr>
+<tr>
+		  <th width="150"><div align="left">App key：</div></th>
+          <td><input type="text" value="{$user_data.app_key}" class="textinput" name="app_key" size="12">
+            <span>&nbsp;<a href="http://media.alimama.com/" target="_blank"><font color="#FF0000">申请App key</font></a></td>
+        </tr>
+        <tr>
+		  <th><div align="left">App Secret：</div></th>
+          <td><input type="text" value="{$user_data.app_secret}" class="textinput" name="app_secret" size="40"></td>
+        </tr>	
+<tr>
+      <th><div align="left" style="margin-left:10px">淘点金PID：</div></th>
+      <td>	  <input type="text" value="{$user_data.code_tdj}" class="textinput" name="code_tdj" size="36">
+        </td>
+    </tr>	
+    <tr {$dpy_fy}>
+      <td colspan=3><div align="left" style="font-weight:bold;border-bottom:#000000 1px dashed">翻译设置</div></td>
+    </tr>
+    <tr {$dpy_fy}>
+      <th><div align="left" style="margin-left:10px">微软PID：</div></th>
+      <td><input type="text" value="{$vo.ms_appid}" class="textinput" name="ms_appid" size="46">
+        <span>&nbsp;(填写你在微软申请到的PID，没有PID？<a href="http://cn.bing.com/developers" target="_blank"><font color="#FF0000">点击申请</font></a>)</span> </td>
+    </tr>
+    <tr {$dpy_fy}>
+      <th><div align="left" style="margin-left:10px">选择语言：</div></th>
+      <td><select name="lang">
+          <option value="">选择语言 </option>
+          <option value="en" {if $vo.lang == 'en'}selected{/if}>英语</option>
+          <option value="de-de" {if $vo.lang == 'de-de'}selected{/if}>德语</option>
+          <option value="fr-fr" {if $vo.lang == 'fr-fr'}selected{/if}>法语</option>
+          <option value="ru-ru" {if $vo.lang == 'ru-ru'}selected{/if}>俄语 </option>
+          <option value="es-es" {if $vo.lang == 'es-es'}selected{/if}>西班牙语</option>
+          <option value="nl-nl" {if $vo.lang == 'nl-nl'}selected{/if}>荷兰语</option>
+          <option value="pt-pt" {if $vo.lang == 'pt-pt'}selected{/if}>葡萄牙语</option>
+          <option value="fi-fi" {if $vo.lang == 'fi-fi'}selected{/if}>芬兰语</option>
+          <option value="da-dk" {if $vo.lang == 'da-dk'}selected{/if}>丹麦语</option>
+          <option value="he-il" {if $vo.lang == 'he-il'}selected{/if}>以色列</option>
+          <option value="ko-kr" {if $vo.lang == 'ko-kr'}selected{/if}>韩文</option>
+          <option value="ja-jp" {if $vo.lang == 'ja-jp'}selected{/if}>日语</option>
+          <option value="zh-tw" {if $vo.lang == 'zh-tw'}selected{/if}>台湾繁体 </option>
+          <option value="it-it" {if $vo.lang == 'it-it'}selected{/if}>意大利语</option>
+          <option value="el-gr" {if $vo.lang == 'el-gr'}selected{/if}>希腊语</option>
+          <option value="no-no" {if $vo.lang == 'no-no'}selected{/if}>挪威语</option>
+          <option value="hu-hu" {if $vo.lang == 'hu-hu'}selected{/if}>匈牙利语</option>
+          <option value="tr-tr" {if $vo.lang == 'tr-tr'}selected{/if}>土耳其语</option>
+          <option value="cs-cz" {if $vo.lang == 'cs-cz'}selected{/if}>捷克语</option>
+          <option value="sl-sl" {if $vo.lang == 'sl-sl'}selected{/if}>斯洛文尼亚语</option>
+          <option value="pl-pl" {if $vo.lang == 'pl-pl'}selected{/if}>波兰语</option>
+          <option value="sv-se" {if $vo.lang == 'sv-se'}selected{/if}>瑞典语</option>
+        </select>
+        {if ($vo.lang)}
+        当前语言：{$vo.lang_zh}
+        {else}
+        当前语言：简体中文
+        {/if} </td>
+    </tr>
+    <tr >
+      <th><div align="left" style="margin-left:10px"></div></th>
+    </tr>
+    <tr >
+      <td colspan=3><div align="left" style="font-weight:bold;border-bottom:#000000 1px dashed">其他设置</div></td>
+    </tr>
+    <tr>
+      <th><div align="left" style="margin-left:10px">价格变动：</div></th>
+      <td><input type="text" value="{$user_data.price_change}" class="textinput" name="price_change" size="10">
+        <span> (在数字前面写[ + - * / ]表示算法，如原价调高1.2倍写成*1.2)</span> </td>
+    </tr>
+    <tr>
+      <th><div align="left" style="margin-left:10px">默认下架：</div></th>
+      <td><input type="checkbox" value="1" class="textinput" name="not_sale" size="10" {if $user_data.not_sale} checked="checked" {/if}>
+        下架 <span>&nbsp;&nbsp;&nbsp;(勾选后采集的商品为下架状态)</span> </td>
+    </tr>
+    <tr>
+      <th><div align="left" style="margin-left:10px">商品详情：</div></th>
+      <td><input type="checkbox" value="1" class="textinput" name="only_img" size="10" {if $user_data.only_img} checked="checked" {/if}>
+        只采集图片 <span>&nbsp;&nbsp;&nbsp;(勾选后不采集描述详情的文字内容)</span> </td>
+    </tr>
+    <tr>
+      <th><div align="left" style="margin-left:10px">商品品牌：</div></th>
+      <td><input type="checkbox" value="1" class="textinput" name="not_brand" size="10" {if $user_data.not_brand} checked="checked" {/if}>
+        不采集品牌 <span>&nbsp;&nbsp;&nbsp;(勾选后不采集商品的品牌)</span> </td>
+    </tr>
+     <tr>
+      <th><div align="left" style="margin-left:10px">评论生成订单：</div></th>
+      <td><input type="checkbox" value="1" class="textinput" name="is_order" size="10" {if $user_data.is_order} checked="checked" {/if}>
+        生成订单 <span>&nbsp;&nbsp;&nbsp;(勾选后采集评论同时生成订单和购买的用户（购买记录）)</span> </td>
+    </tr>
+   <tr style="display:none">
+      <th><div align="left" style="margin-left:10px">淘宝客商品：</div></th>
+      <td><input type="checkbox" value="1" class="textinput" name="only_tbk" size="10" {if $user_data.only_tbk} checked="checked" {/if}>
+        只采集淘宝客 <span>&nbsp;&nbsp;&nbsp;(勾选后只采集淘宝客商品)</span> </td>
+    </tr>
+        <tr>
+		  <th width="150"><div align="left" style="margin-left:10px">cookies：&nbsp;&nbsp;&nbsp;</div></th>
+          <td>
+		  <textarea name="cookiereal" cols="80" rows="4" wrap="VIRTUAL"></textarea>
+            </td>
+    </tr>
+    <tr >
+      <td colspan=3><div align="left" style="font-weight:bold">————————————————————————————————————————————————————————————————————</div></td>
+    </tr>
+    <tr class="act">
+      <th>&nbsp;</th>
+      <td><input type="hidden" name="id" value="{$vo.id}" />
+        <input type="submit" class="submit_btn" value="保存设置" />
+        &nbsp;&nbsp; </td>
+    </tr>
+  </table>
+</form>
+
+</div>
+</div>
+<!-- end goods form -->
+{insert_scripts files="validator.js,tab.js"}
+
+<script language="JavaScript">
+  /**
+   * 添加扩展分类
+   */
+  {literal}
+  function VeriUser()
+  {
+    Ajax.call('shops.php?is_ajax=1&act=yanzheng', "", VeriUserResponse, "GET", "JSON");
+  }
+
+  function VeriUserResponse(result)
+  {
+      if (result.error == 0)
+      {
+          alert(result.content);
+      }
+  }
+  {/literal}
+</script>
+{include file="pagefooter.htm"}

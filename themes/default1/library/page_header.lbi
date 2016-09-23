@@ -1,0 +1,243 @@
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+	$("#menu_yhm ul li").hover(
+	function(){
+		$(this).children("ul").show();
+		$(this).addClass("li01");
+		
+	},
+	function(){
+		$(this).children("ul").hide();
+		$(this).removeClass("li01");
+	});
+});
+</script><div class="header">
+<div class="headercon">
+<div class="logo"> <img src="{$logo}" width=220 ></div>
+<!--<div class="kouhao" > <img src="{$ecsolve_path}/images/kouhao.png"  ></div>-->
+
+
+
+
+<div class="navright">
+<div class="headrighttop">
+
+
+
+<div class="tel"><p>服务热线：</p><p class="num">{$service_phone}</p></div>
+
+
+</div>
+
+
+
+</div></div></div>
+
+
+<div class="headernav">
+<div class="headernavcon">
+
+<div class="nav">
+  <div class="w1006">
+    <ul class="navcon">
+
+    <li >
+        <a href="{$weburl}{$turl}" {if $navigator_list.config.index eq 1} class="curindex" {/if}>首页</a>
+      </li>
+     <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav key=key name=nav} -->
+
+<li >
+       
+{if $nav.durl}  <a  href="{$nav.durl}{$turl}"  {if $nav.active eq 1} class="cur"{/if} >{$nav.name}</a>
+{else}
+<a  href="{$nav.url}{$turl}" {if $nav.active eq 1} class="cur"{/if}>{$nav.name}</a>{/if}
+	
+	
+
+
+{if $nav.ifxiala eq 1}
+       
+	<div class="nav{$smarty.foreach.nav.iteration}" >
+
+	
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          <div class="nav1r">
+           
+            <ul>
+
+
+
+
+ <?php
+     $subcates_article_cat = get_article_cat_urlok($GLOBALS['smarty']->_var['nav']['url']);
+     if($subcates_article_cat!=false)
+     {
+     if(count($subcates_article_cat)>0)
+     {                            
+     if($subcates_article_cat)
+     {                        
+     $i = 1;
+
+     foreach($subcates_article_cat as $catearticlecat) 
+     {
+     if($i % 2 == 0)
+     {
+
+     }
+     else
+     {
+     }
+    echo "<li><a href='".$catearticlecat['url']."'>".$catearticlecat['name']."</a></li>";
+  
+     } 
+     } 
+     }
+     }
+     ?>  
+
+
+
+
+  
+
+
+ <?php
+     $subcates = get_subcate_byurl($GLOBALS['smarty']->_var['nav']['url']);
+     if($subcates!=false)
+     {
+     if(count($subcates)>0)
+     {                            
+     if($subcates)
+     {                        
+     $i = 1;
+     echo "";
+     foreach($subcates as $cate) 
+     {
+     if($i % 2 == 0)
+     {
+
+     }
+     else
+     {
+     }
+//以下显示二级分类开始
+echo "<li>";
+
+     echo "<a href='".$cate['url']."' title='".$cate['name']."' >".$cate['name']."</a>";
+
+  echo "</li>";                    
+     }
+//以上显示二级分类开始
+     } 
+     }
+     }
+     ?>
+
+
+
+
+
+
+
+
+<?php
+     $subcates_article = get_article_urlok($GLOBALS['smarty']->_var['nav']['url']);
+     if($subcates_article!=false)
+     {
+     if(count($subcates_article)>0)
+     {                            
+     if($subcates_article)
+     {                        
+     $i = 1;
+     echo "";
+     foreach($subcates_article as $catearticle) 
+     {
+     if($i % 2 == 0)
+     {
+
+     }
+     else
+     {
+     }
+
+  if($catearticle['children'])
+     {
+     foreach($catearticle['children'] as $subcatearticle)
+     {
+    if($subcatearticle['name'])
+     {
+        echo "<li><a href='".$subcatearticle['url']."'>".$subcatearticle['name']."</a></li>";
+	}
+     }
+     }
+     } } 
+     }
+     }
+     ?>
+         
+
+
+
+            </ul>
+          </div>
+
+        </div>
+	{/if}
+      </li>
+     
+
+
+
+
+
+
+
+
+
+
+
+   
+      {/foreach}
+     
+    </ul>
+  </div>
+ </div>
+ </div>
+
+ </div>
+
+<div style="clear:both;"></div>
+<!--nav end-->
+
+
+
+
+
+

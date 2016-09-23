@@ -1,0 +1,44 @@
+{include file="pageheader.htm"}
+
+
+<!-- start goods form -->
+<div class="tab-div">
+<!-- tab bar -->
+<div id="tabbar-div">
+    <p>
+        <span class="tab-front" id="general-tab">设置</span>
+    </p>
+</div>
+
+<!-- tab body -->
+<div id="tabbody-div">
+<form action="" method="post" name="form1" >
+<!-- 通用信息 -->
+<table width="90%" id="general-table" align="center">
+    <tr>
+        <td class="label">选择红包类型：</td>
+        <td>
+            <select name="bonus">
+                <option {if $type_id eq 0}selected{/if}>请选择...</option>
+                {foreach from=$w_data item=bonus}
+                <option name="type_id" value="{$bonus.type_id}" {if $type_id eq $bonus.type_id}selected{/if}>{$bonus.type_name}=>金额：{$bonus.type_money}</option>
+                {/foreach}
+            </select>
+        </td>
+    </tr>
+</table>
+
+
+
+<div class="button-div">
+    <input type="submit" value="{$lang.button_submit}" class="button" />
+    <input type="reset" value="{$lang.button_reset}" class="button" />
+</div>
+<input type="hidden" name="act" value="{$form_act}" />
+</form>
+</div>
+</div>
+<!-- end goods form -->
+{insert_scripts files="./js/validator.js,./js/tab.js"}
+
+{include file="wxch_pagefooter.htm"}

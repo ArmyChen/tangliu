@@ -1,0 +1,19 @@
+﻿
+
+.brandbanner{ width:100%; margin:0px auto; height:326px; background:#570068 url(../images/brandlist/b_03.jpg) top center no-repeat}
+.brandbanner h1{ font-family:"微软雅黑"; color:#ffffff; line-height:24px; font-size:22px; padding-top:198px; margin:0px auto; width:1000px;  text-align:center}
+.brandbanner h2{color:#000000; line-height:24px; font-size:12px; padding-top:10px; width:1000px; margin:0px auto;text-align:center; font-weight:normal}
+.newbrand{ width:1000px; margin:0px auto; padding-top:10px; background:#ffffff; padding-bottom:10px}
+.newbrand ul{ width:1000px; float:left}
+.newbrand ul li{float:left; width:249px; _height:208px; margin-top:10px; padding-bottom:10px;}
+.newbrand ul li img{ margin-bottom:10px}
+
+
+.newbrand ul li p{ text-align:center;}
+.newbrand ul li p a{ color:#666666; }
+
+
+.tab-style{ width:1000px; padding-top:20px; margin:0px auto;}
+.tab-style ul.tab-style-1 { width:980px; height:38px;background: url(../images/brand/tab_style_1.jpg) 0 0 repeat-x; line-height:25px; padding-left:20px;}
+.tab-style ul.tab-style-1 li.sel{background:url(../images/brand/tab_style_1.jpg) no-repeat scroll 0 -93px transparent;color: #E52906;height: 27px;}
+.tab-style ul.tab-style-1 li {background: url(../images/brand/tab_style_1.jpg) no-repeat scroll 0 -44px transparent;color: #555;cursor: pointer;display: inline;float: left;font-size: 14px;font-weight: bold;height: 26px;margin-right: 10px;padding-top: 11px;text-align: center;width: 120px;}

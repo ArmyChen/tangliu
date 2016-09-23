@@ -1,0 +1,99 @@
+﻿
+@charset "utf-8";
+
+.w1100 { margin: 0 auto; width: 1100px; }
+.w1000 { margin: 0 auto; width: 1000px; }
+
+/*位置*/
+
+.uc_location { padding-top: 40px; line-height: 17px; margin: 0px; padding-left: 10px; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+
+.uc_location a { color: #333; font-size: 16px; }
+.uc_location a.a_cur { color: #93193e; }
+.uc_location span { padding: 0 5px; font-size: 16px; color: #333; }
+.uc_location .line_2px { width: 2px; height: 17px; line-height: 17px; background-color: #931940; padding: 0; display: block; float: left; margin-right: 12px; }
+
+/*位置*/
+
+/*反馈分类列表*/
+.q_list { border: 1px solid #dbdbdb; margin-top: 20px; overflow: hidden; padding-bottom: 20px; }
+.q_tab { border-bottom: 1px solid #dbdbdb; height: 55px; overflow: hidden; width: 100%; }
+.q_tab li { float: left; height: 53px; line-height: 53px; margin: 0 15px; position: relative; text-align: center; width: 119px; z-index: 2; }
+.q_tab li a { color: #494949; font-size: 16px;float:left;width:118px;text-align:center; }
+.q_tab li .line {position:absolute;right:-10px; height: 20px; margin-top: 18px; }
+.q_tab .on { border-bottom: 2px solid #94193f; }
+.q_tab .on a { color: #94193f; }
+.q_type_tab { margin: 20px 0; overflow: hidden; width: 100%; }
+.q_type_tab li { border-radius: 3px; background-color: #ef7085; float: left; height: 107px; margin-left: 25px; text-align: center; width: 137px; }
+.q_type_tab .q_type_2 { background-color: #868185; }
+.q_type_tab .q_type_3 { background-color: #e87759; }
+.q_type_tab .q_type_4 { background-color: #b1a68c; }
+.q_type_tab .q_type_5 { background-color: #86a9b6; }
+.q_type_tab .q_type_6 { background-color: #8b878c; }
+/*反馈分类列表*/
+
+/*问题列表*/
+.q_type_tab li .a_type_q { cursor: pointer; color: #fff; display: block; font-size: 18px; padding-top: 15px; }
+.q_type_tab li a b { background: rgba(0, 0, 0, 0) url("../images/cjwt_icon.png") repeat scroll 0 0; display: inline-block; height: 53px; width: 50px; }
+.q_type_tab li a .b_t_1 { }
+.q_type_tab li a .b_t_2 { background-position: 0 -60px; }
+.q_type_tab li a .b_t_3 { background-position: 0 -111px; }
+.q_type_tab li a .b_t_4 { background-position: 0 -165px; }
+.q_type_tab li a .b_t_5 { background-position: 0 -225px; }
+.q_type_tab li a .b_t_6 { background-position: 0 -288px; }
+.ques_list { overflow: hidden; width: 100%; margin-top: 20px; }
+.ques_list ul { padding: 0 20px; }
+.ques_list ul li { margin-bottom: 30px; }
+.p_title { border-bottom: 1px solid #c5c5c5; color: #94193f; font-size: 16px; height: 20px; line-height: 20px; padding-bottom: 10px; }
+.sp_t { background-color: #94193f; display: block; float: left; height: 14px; margin-right: 10px; margin-top: 3px; width: 3px; }
+.sp_t { }
+.c_info { line-height: 60px; padding-top: 20px; }
+.c_info_img { display: block; float: left; }
+.c_info_name { color: #767676; font-size: 14px; padding: 0 10px; }
+.c_info_time { color: #333; font-size: 14px; padding-left: 110px; }
+.sp_red { color: #94193f; font-size: 16px; }
+.p_question { border-bottom: 1px dashed #c5c5c5; color: #333; padding-bottom: 15px; padding-top: 12px; }
+.p_question span { font-size: 14px; padding-right: 8px; }
+
+.p_service_d { padding-top: 10px; height: 40px; overflow: hidden; line-height: 40px; }
+.p_service_d .an_tit { color: #4d7fc4; float: left; padding-left: 10px; font-size: 14px; }
+.an_img { display: block; float: left; }
+.an_img img { width: 40px; border-radius: 50%; }
+
+.p_service_d .an_time { float: right; color: #333333; }
+.p_a { padding-top: 20px; font-size: 14px; color: #4d7fc4; }
+
+/*问题列表*/
+/*页码*/
+.page_list { width: 100%; overflow: hidden; margin-top: 20px; }
+.float_r { float: right; padding-right: 20px; }
+
+/*没有反馈*/
+.my_q_list_no { padding: 50px 0; text-align: center; }
+.my_q_list_no img { }
+.no_tips { display: inline-block; *display: inline; *zoom: 1; vertical-align: top; padding-top: 100px; font-size: 18px; }
+.no_tips a { color: #c31f3a; font-size: 18px; }
+
+
+/*我要反馈*/
+
+
+.err_box { height: 23px; line-height: 23px; margin-bottom: 3px; padding-left: 14%; width: 86%; overflow: hidden; }
+.inputbox { width: 588px; height: 340px; float: left; padding: 5px; border: 1px solid #dbdbdb; color: #b4b4b4; }
+.r_div { float: left; width: 598px; position: relative; height: 352px; }
+.txt_count { position: absolute; right: 25px; bottom: 5px; font-size: 14px; color: #333333; }
+.txt_count span { color: #94193f; font-size: 14px; padding: 0 5px; }
+.item { width: 100%; overflow: hidden; margin-bottom: 10px;position:relative; }
+.label_reg { float: left; width: 100px; text-align: right; font-size: 14px; padding-top: 9px; }
+.sp_blue { font-size: 16px; color: #667f9e; }
+.r_txt { font-size: 16px;padding-left:7px; }
+.s_radio { padding: 0 10px; }
+.w700 { width: 700px; margin: 0 auto; overflow: hidden; padding-top: 30px; }
+.p_center { text-align: center; font-size: 16px; padding-top: 30px; }
+
+
+.item .itxt { float: left; }
+.verify-code { float: left; margin-left: 10px; }
+.item_yz a { padding-left: 5px; height: 38px; line-height: 38px; display: block; float: left; color: #005ea7; }
+
+.a_sure { display: block; width: 150px; height: 38px; line-height: 38px; background-color: #c31f3a; color: #fff; text-align: center; margin-left: 100px; font-size: 14px; }

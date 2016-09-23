@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/gtcommon.css">
+<link type="text/css" rel="stylesheet" href="{$ecsolve_path}/style/list_page.css" />
+
+</head>
+<body>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/catcommon.js"></script>
+<script type="text/javascript">
+$(function() {
+window.__Object_toJSONString = Object.prototype.toJSONString;
+delete Object.prototype.toJSONString;
+});
+</script>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<div class="main_content">
+  <div class="main_list"> <a name="toppp" id="toppp"></a>
+    <div class="main_route">
+      <div class="route">
+        <div class="left" style="width:700px;"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+        <div class="right" style=> 共<span class="colccl bold Tahoma">{$pager.record_count}</span>件相关商品</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="content">
+      
+      <div class="content_right left">
+        
+        <div class="condition">
+
+          <div class="brand">
+<div class="brandtitle left bold">分类：</div>
+            <div class="brandcontent left">
+              <ul>
+               <!--{foreach from=$categoriesauto item=cat name=cat}-->
+			
+                <li><a 
+                  {if $cat.id eq $category}
+                  class='col999 selected'
+                  <!-- {/if} -->
+                  href="{$cat.url}">{$cat.name|escape:html}</a></li>
+              
+		<!--{/foreach}-->
+              </ul>
+            </div>
+	    <div class="clear"></div>
+          </div>
+
+           <!--{if $tagkey}-->
+<div class="brand">
+ <div class="brandtitle left bold">参数：</div>
+     <div class="brandcontent left" style="width:670px;">
+              <ul>  
+      <!--{foreach from=$tagkey item=tag name=tag}-->  <li>
+<a href="{$tag.url}">{$tag.key_name}{$cat.cat_name}</a>
+ </li>
+ <!--{/foreach}-->
+  </ul> 
+ </div>
+            <div class="clear"></div>
+          </div>
+ <!--{/if}-->
+ <div class="brand">
+<div class="brandtitle left bold">{$lang.brand}：</div>
+            <div class="brandcontent left">
+              <ul>
+               <!--{foreach from=$brands item=brand}-->
+					
+                <li><a 
+                  <!-- {if $brand.selected} -->
+                  class='col999 selected'
+                  <!-- {/if} -->
+                  href="{$brand.url}">{$brand.brand_name}</a></li>
+                <!--{/foreach}-->
+              </ul>
+            </div>
+	    <div class="clear"></div>
+          </div>
+          <!--{if $price_grade.1}-->
+          <div class="brand">
+
+            <div class="brandtitle left bold">价格：</div>
+            <div class="brandcontent left">
+              <ul>
+                <!--{foreach from=$price_grade item=grade}-->
+                <li><a 
+                  <!-- {if $grade.selected} -->
+                  class='col999 selected'
+                  <!-- {/if} -->
+                  href="{$grade.url}">{$grade.price_range}</a></li>
+                <!--{/foreach}-->
+              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!--{/if}-->
+          <!--{foreach from=$filter_attr_list item=filter_attr}-->
+          <div class="brand">
+            <div class="brandtitle left bold">{$filter_attr.filter_attr_name|escape:html}：</div>
+            <div class="brandcontent left">
+              <ul>
+                <!--{foreach from=$filter_attr.attr_list item=attr}-->
+                <li><a 
+                  <!-- {if $attr.selected} -->
+                  class='col999 selected'
+                  <!-- {/if} -->
+                  href="{$attr.url}">{$attr.attr_value}</a></li>
+                <!--{/foreach}-->
+              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!--{/foreach}-->
+        </div>
+     
+        <!-- #BeginLibraryItem "/library/goods_list.lbi" --><!-- #EndLibraryItem --> <!-- #BeginLibraryItem "/library/pages2.lbi" --><!-- #EndLibraryItem -->
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <!-- #BeginLibraryItem "/library/goods_guess.lbi" --><!-- #EndLibraryItem -->
+    <div class="clear"></div>
+    <div style=" height:15px; width:980px;"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="scroll_div" onclick="$(window).scrollTop(0)" id="scroll_div" style="left: 1331px; display: block;"></div>
+<script type="text/javascript" src="{$ecsolve_path}/js/m.js"></script>
+<script type="text/javascript">
+</script>
+<script type="text/javascript" src="{$ecsolve_path}/js/bfd-jsapi-3.0.min.js" charset="utf-8"></script>
+<script src="{$ecsolve_path}/js/bfd.js" type="text/javascript"></script>
+<script src="{$ecsolve_path}/js/blockUI.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.query.js"></script>
+<script type="text/javascript">
+
+function guess_prev(){
+var guess1=$("#guess1").css("display");
+var guess2=$("#guess2").css("display");
+var guess3=$("#guess3").css("display");
+if(guess1=="block"){
+$("#guess1").hide();
+$("#guess2").hide();
+$("#guess3").show();
+}
+if(guess2=="block"){
+$("#guess3").hide();
+$("#guess2").hide();
+$("#guess1").show();
+}	
+if(guess3=="block"){
+$("#guess3").hide();
+$("#guess1").hide();
+$("#guess2").show();
+}		
+}
+function guess_next(){
+var guess1=$("#guess1").css("display");
+var guess2=$("#guess2").css("display");
+var guess3=$("#guess3").css("display");
+if(guess1=="block"){
+$("#guess1").hide();
+$("#guess3").hide();
+$("#guess2").show();
+}
+if(guess2=="block"){
+$("#guess2").hide();
+$("#guess1").hide();
+$("#guess3").show();
+}	
+if(guess3=="block"){
+$("#guess3").hide();
+$("#guess2").hide();
+$("#guess1").show();
+}		
+}
+
+
+
+</script>
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+var $imgOriginal = $("img[original]");
+//360图片不显示问题
+if($.browser.msie){
+$imgOriginal.each(function(){
+$(this).attr('src',$(this).attr('original'));
+});
+}else{
+$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
+}
+});
+</script>
+<script type="text/javascript">
+
+<!-- {/literal} -->
+</script>
+</body>
+</html>

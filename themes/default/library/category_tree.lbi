@@ -1,0 +1,58 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="lefttop">
+          <div class="maintitle font14 colccl bold">所有类目</div>
+<script language="javascript">
+function shut_top_cat(){
+	var icon=$("#top_cat_img").attr("src"); 
+	var icon_on="themes/aizhigu/images/button_on.jpg";
+	var icon_off="themes/aizhigu/images/button_off.jpg";
+	if(icon==icon_on){
+		$("#top_cat_img").attr("src",icon_off);
+		$("#top_cat_child").show();
+	}
+	if(icon==icon_off){
+		$("#top_cat_img").attr("src",icon_on);
+		$("#top_cat_child").hide();
+	}	
+}
+function shut_other_cat(key){
+	var icon=$("#other_cat_img_"+key).attr("src");
+	var icon_on="themes/aizhigu/images/button_on.jpg";
+	var icon_off="themes/aizhigu/images/button_off.jpg";
+	if(icon==icon_on){
+		$("#other_cat_img_"+key).attr("src",icon_off);
+		$("#other_cat_child_"+key).show();
+	}
+	if(icon==icon_off){
+		$("#other_cat_img_"+key).attr("src",icon_on);
+		$("#other_cat_child_"+key).hide();
+	}	
+}				
+</script>
+
+          <!--{foreach from=get_categories_tree() item=cat name=get_categories_tree}-->
+          {if $smarty.foreach.get_categories_tree.iteration eq 1}
+		  <div onclick="shut_top_cat();" class="maincontent font14 bold"><a href="{$cat.url}">{$cat.name|escape:html}</a><span class="font14 col999 boldnone"></span>
+            <div class="button_off"><img  id="top_cat_img"  src="images/button_off.jpg" width="16" height="16" /></div>
+          </div>
+          <div class="classify" id="top_cat_child">
+            <ul>
+              <!--{foreach from=$cat.cat_id item=child}-->
+              <li><a {if $child.id eq $category}class='selected'{/if}  href="{$child.url}">{$child.name|escape:html}<span class="col999"></span></a></li>
+              <!--{/foreach}-->
+            </ul>
+          </div>
+		  {else}
+          <div onclick="shut_other_cat({$cat.id});" class="maincontent font14 bold"><a href="{$cat.url}">{$cat.name|escape:html}</a><span class="font14 col999 boldnone"></span>
+            <div class="button_off"><img id="other_cat_img_{$cat.id}"  src="images/button_on.jpg" width="16" height="16" /></div>
+          </div>
+          <div class="classify" id="other_cat_child_{$cat.id}" style="display:none;">
+            <ul>
+              <!--{foreach from=$cat.cat_id item=child}-->
+              <li><a {if $child.id eq $category}class='selected'{/if}  href="{$child.url}">{$child.name|escape:html}<span class="col999"></span></a></li>
+              <!--{/foreach}-->
+            </ul>
+          </div>
+          {/if}
+          <!--{/foreach}-->
+        </div>

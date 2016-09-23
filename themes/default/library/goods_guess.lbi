@@ -1,0 +1,65 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="guess">
+      <div class="guess_title bold">猜您喜欢</div>
+      <div class="guess_content">
+        <div style=" width:935px; overflow:hidden;">
+          <ul style="display:block;" id="guess1">
+            <!--{foreach from=get_cat_best_goods($GLOBALS['smarty']->_var['parent_cat_id']) item=goods_item name=get_cat_hot_goods}-->
+            {if $smarty.foreach.get_cat_hot_goods.iteration < 7}
+            <li class="guess_app1">
+              <div class="g_img"><a target="_blank" href="{$goods_item.url}"><img src="{$goods_item.thumb}" width="127" height="128" /></a></div>
+              <p class="g_title"><a target="_blank" href="{$goods_item.url}">{$goods_item.short_name|escape:html}</a></p>
+              <p class="g_comment"></p>
+              <p class="g_price bold">
+                <!-- {if $goods_item.promote_price neq ""} -->
+                {$goods_item.promote_price}
+                <!-- {else}-->
+                {$goods_item.shop_price}
+                <!--{/if}-->
+              </p>
+            </li>
+            {/if}
+            <!--{/foreach}-->
+          </ul>
+          <ul style="display:none;" id="guess2">
+            <!--{foreach from=get_cat_best_goods($GLOBALS['smarty']->_var['parent_cat_id']) item=goods_item name=get_cat_hot_goods}-->
+            {if $smarty.foreach.get_cat_hot_goods.iteration > 6 && $smarty.foreach.get_cat_hot_goods.iteration < 12}
+            <li class="guess_app1">
+              <div class="g_img"><a target="_blank" href="{$goods_item.url}"><img src="{$goods_item.thumb}" width="127" height="128" /></a></div>
+              <p class="g_title"><a target="_blank" href="{$goods_item.url}">{$goods_item.short_name|escape:html}</a></p>
+              <p class="g_comment"></p>
+              <p class="g_price bold">
+                <!-- {if $goods_item.promote_price neq ""} -->
+                {$goods_item.promote_price}
+                <!-- {else}-->
+                {$goods_item.shop_price}
+                <!--{/if}-->
+              </p>
+            </li>
+            {/if}
+            <!--{/foreach}-->
+          </ul>
+          <ul style="display:none;" id="guess3">
+            <!--{foreach from=get_cat_best_goods($GLOBALS['smarty']->_var['parent_cat_id']) item=goods_item name=get_cat_hot_goods}-->
+            {if $smarty.foreach.get_cat_hot_goods.iteration > 12}
+            <li class="guess_app1">
+              <div class="g_img"><a target="_blank" href="{$goods_item.url}"><img src="{$goods_item.thumb}" width="127" height="128" /></a></div>
+              <p class="g_title"><a target="_blank" href="{$goods_item.url}">{$goods_item.short_name|escape:html}</a></p>
+              <p class="g_comment"></p>
+              <p class="g_price bold">
+                <!-- {if $goods_item.promote_price neq ""} -->
+                {$goods_item.promote_price}
+                <!-- {else}-->
+                {$goods_item.shop_price}
+                <!--{/if}-->
+              </p>
+            </li>
+            {/if}
+            <!--{/foreach}-->
+          </ul>
+        </div>
+        <div class="g_buttonleft" onclick="guess_prev();"><span onclick="guess_prev();"></span></div>
+        <div class="g_buttonright" onclick="guess_next();"><span onclick="guess_next();"></span></div>
+      </div>
+    </div>

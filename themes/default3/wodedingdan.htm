@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html><head><script src="js/v.htm" charset="utf-8"></script><script src="js/hm.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>快乐购商城</title>
+<meta name="keywords" content="快乐购商城">
+<meta name="description" content="快乐购商城">
+<style type="text/css">
+body {
+_behavior: url(http://www.happigo.com/shop/templates/default/css/csshover.htc);
+}
+</style>
+
+<script src="js/jquery-1.js"></script>
+<script src="js/placeholderfriend.js"></script>
+<link href="css/header.css" rel="stylesheet">
+<link href="css/footer.css" rel="stylesheet">
+<link href="css/uc_pub.css" rel="stylesheet">
+<script src="js/head_js.js"></script>
+<!-- ie6 透明背景兼容js -->
+    <!--[if IE 6]> 
+    <script src="js/DD_belatedPNG_0.0.8a-min.js"></script> 
+    <script> 
+     DD_belatedPNG.fix('img,.tel_icon,.b_down,.icon_car,.today_zb_icon,.yestoday_icon,.time_icon,.groUlOut li .x,.car_num,.ewm_img,.online_cus,.retrun_top,.ppsx_tc_xx,.q_r_ul_addsc b,.prev_img,.next_img,.btn span，.ppsx_tc'); 
+    </script> 
+<![endif]-->
+    
+<script>
+var COOKIE_PRE = 'C4F3_';
+var _CHARSET = 'utf-8';
+var SITEURL = 'http://www.happigo.com/shop';
+var SHOP_SITE_URL = 'http://www.happigo.com/shop';
+var RESOURCE_SITE_URL = 'http://ecimg.happigo.com/resource';
+var SHOP_TEMPLATES_URL = 'http://www.happigo.com/shop/templates/default';
+var WEB_UID = '34764272';
+var WEB_CUST_NO = '1602911693';
+</script>
+<script src="js/dialog.js" id="dialog_js" charset="utf-8"></script><link href="css/dialog.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="append_parent"></div>
+<!--头部-->
+<div class="header">
+    <!--登录 注册条-->
+<div class="header_top">
+    <div class="w1200 ClearFix" style="display: block;">
+        <div class="h_t_l">
+                     <div class="login_2">欢迎您，
+                <a href="http://www.happigo.com/shop/index.php?act=member&amp;op=home">QQ_8630446afd</a><a href="http://www.happigo.com/shop/index.php?act=login&amp;op=logout">[退出]</a>
+            </div>
+                 </div>
+        <div class="h_t_r">
+            <ul>
+                <li><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index">订单查询</a><span class="line"></span></li>
+                <li><a href="http://www.happigo.com/shop/index.php?act=member&amp;op=home">我的快乐购</a><span class="line"></span></li>
+                <li><i class="tel_icon"></i><span class="sp_tel">400-705-1111</span><span class="line"></span></li>
+                <li class="d_l_hgp"><a href="javascript:void(0);">下载快乐购app</a><span class="line"></span>
+                    <div class="down_load_hpg" style="display: none;">
+                        <div class="down_load_border">
+                            <b class="icon_top"></b>
+                            <img src="images/down_load_20160411.png">
+                            <p>快乐生活 快乐购</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="cus_c_box"><a href="#">客服中心<b class="b_down"></b></a>
+                    <div class="cus_center" style="display: none;">
+                        <a href="http://www.happigo.com/news-43.html">帮助中心</a>
+                        <a href="http://www.happigo.com/shop/index.php?act=member_feedback&amp;op=feedback_all">会员反馈</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><!--登录 注册条 end-->
+<!--搜索-->
+<div class="full_sc">
+    <div class="w1200 header_center ClearFix">
+        <div class="h_c_logo">
+            <a href="http://www.happigo.com/">
+                <img src="images/logo.jpg">
+            </a>
+        </div>
+        <div class="h_c_bz">
+            <img src="images/top_center1.jpg">
+        </div>
+        <div class="h_c_search">
+
+            <div class="search_input">
+                <!--<div class="search_type">
+                    <div class="cur_select"><span>搜商城</span><i class="i_search_icon"></i></div>
+                    <ul class="s_type_list" style="display: none;">
+                        <li class="on" op="index" data-s-name="搜商城" >商城</li>
+                        <li data-s-name="搜全球购" op="go_mall">全球购</li>
+                    </ul>
+                </div>-->
+                <form id="form1" action="">
+                    <input value="search" id="search_act1" name="act" type="hidden">
+                    <input value="index" id="search_act" name="op" type="hidden">
+                    <input autocomplete="off" hc="达芙妮" placeholder="达芙妮" id="keyword" class="txt_searchbox" name="keyword" type="text">
+                    <input class="btn_search" value="搜索" type="button">
+                </form>
+                <div class="search_his_list" style="display: none;"><ul></ul></div>
+            </div>
+            <div class="search_key">
+                <ul>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-%E5%BE%B7%E4%BA%9A%E9%85%B8%E7%89%9B%E5%A5%B6/">德亚酸牛奶</a></li>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-%E8%9A%95%E4%B8%9D%E9%9D%A2%E8%86%9C/">蚕丝面膜</a></li>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-BB%E9%9C%9C/">BB霜</a></li>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-%E4%B9%B3%E8%83%B6%E6%9E%95/">乳胶枕</a></li>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-%E9%A3%8E%E6%89%87/">风扇</a></li>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-%E6%9E%9C%E6%B1%81%E6%9C%BA/">果汁机</a></li>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-%E5%86%85%E8%A1%A3/">内衣</a></li>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-%E5%87%80%E6%B0%B4%E5%99%A8/">净水器</a></li>
+                                            <li style="float: left;"><a href="http://www.happigo.com/list-0-%E8%BF%9E%E8%A1%A3%E8%A3%99/">连衣裙</a></li>
+                                    </ul>
+            </div>
+        </div>
+        <div class="h_c_right">
+            <a href="http://www.happigo.com/shop/index.php?act=cart&amp;op=index" class="h_c_r_car"><b class="b_car1"></b><span>我的购物车</span><b class="b_car2"></b> <!--<i class="i_car_num"></i>--></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	(function() {
+		$(function() {
+		    //搜索建议
+			$('#keyword').keyup(function(e) {
+			    var _container = $('.search_his_list ul');
+			    var _lis = _container.find('li');
+			    var _keyword = $('#keyword');
+			    var len = $(".search_his_list ul").find('li').length;
+			    var index = 0;
+                var new_index = 0;
+                var keyword = '';
+                
+                if (e.keyCode != 40 && e.keyCode != 38) {
+                    search_keyword = _keyword.val();
+                }
+			    
+			    if (e.keyCode == 40) {
+			        //向下键		        
+			        if ($('.choose').length > 0) {
+			            index = $('.choose').attr('index');
+			            
+			            if (index != (len - 1)) {
+			                new_index = parseInt(index) + 1;   
+			            } else {
+			                new_index = index;
+			            }
+			            
+			            keyword = _lis.eq(new_index).find('a').text();
+			            if (keyword == '在全球购下搜索') {
+			                $('#search_act').val('go_mall');
+			                keyword = search_keyword;
+			            } else {
+			                $('#search_act').val('index');
+			            }
+			            _keyword.val(keyword);
+			            _lis.eq(new_index).addClass('choose').siblings().removeClass('choose');
+			        } else {
+			            keyword = search_keyword;
+                        _keyword.val(keyword);
+			            _lis.eq(0).addClass('choose');
+			        }		        
+			    } else if (e.keyCode == 38) {
+			        //向上键
+			        if ($('.choose').length > 0) {
+                        index = $('.choose').attr('index');
+                        
+                        if (index != 0) {
+                            new_index = parseInt(index) - 1;   
+                        } else {
+                            new_index = index;
+                        }
+                        
+                        keyword = _lis.eq(new_index).find('a').text();
+                        if (keyword == '在全球购下搜索') {
+                            $('#search_act').val('go_mall');
+                            keyword = search_keyword;
+                        } else {
+                            $("#search_act").val('index');
+                        }
+                        _keyword.val(keyword);
+                        _lis.eq(new_index).addClass('choose').siblings().removeClass('choose');
+                    } else {
+                        keyword = search_keyword;
+                        _keyword.val(keyword);
+                        _lis.eq(0).addClass('choose');
+                    }               
+			    } else {
+			        var keyword = $(this).val();
+			        
+                    $.ajax({
+                        type:"post",
+                        url:"/index.php?act=search&op=search_suggest",
+                        async:true,
+                        data:{"keyword":keyword},
+                        dataType:"json"
+                    }).done(function(data) {
+                        if (data) {
+                            var str = '';
+                            
+                            if (data.mall_sum > 0) {
+                                str += '<li index="0" class="mall_key"><a class="s_h_a_key2" href="#">在<b class="important">全球购</b>下搜索</a><span class="s_h_span_count">约' + data.mall_sum + '个结果</span></li>';
+                                str += '<hr style="height: 1px;border: none;border-top: 1px solid #ccc;margin: 0" />';
+                            }
+                            
+                            if (data.ec_data != '') {
+                                for (var i in data.ec_data) {
+                                	if (data.mall_sum > 0) {
+                                	    j = parseInt(i) + 1;
+                                	} else {
+                                	    j = i;
+                                	}
+                                	
+                                	str += '<li index="' + j +'" class="ec_key"><a class="s_h_a_key" href="#">' + data.ec_data[i]['keyword'] + '</a><span class="s_h_span_count">约' + data.ec_data[i]['object_count'] + '个结果</span></li>';
+                                }
+                            }
+    
+                            _container.html('');
+                            _container.append(str);
+                            $('.search_his_list').css('display', 'block');
+                        }
+                    });    
+			    }
+			});
+			
+		    //填充搜索框	
+			$(".search_his_list ul").on("click", ".ec_key", function() {
+			    var text = $(this).find('a').text();
+			    $('#keyword').val(text);
+			    $('#search_act').val('index');
+			    $('.btn_search').click();
+			});
+			
+			//在全球购下搜索
+			$(".search_his_list ul").on("click", ".mall_key", function() {
+//			   var text = $(this).closest('ul').find('a').eq(0).text();
+               var text = search_keyword;
+               $('#keyword').val(text);
+			   $('#search_act').val('go_mall');
+			   $('.btn_search').click();
+			});
+			
+			//滑动
+            $('.search_his_list ul').on("hover", "li", function() {
+                $(this).addClass('choose').siblings().removeClass('choose');
+            });
+		});
+	})();
+</script>
+<script type="text/javascript">
+    $(function(){
+        //搜索
+        $(".search_type").hover(function () {
+            $(".s_type_list").show();
+            $(".search_his_list").hide();
+        }, function () {
+            $(".s_type_list").hide();
+        });
+
+        $(".s_type_list li").click(function () {
+            $('#search_act').attr("value",$(this).attr("op"));
+            var s_name = $(this).attr("data-s-name");
+            $(".s_type_list li").removeClass("on");
+            $(this).addClass("on");
+            $(".cur_select span").html(s_name);
+            $(".s_type_list").hide();
+        });
+
+        $(".txt_searchbox").focusout(function () { $(".search_his_list").hide('slow'); });
+
+        var strstr = $('#keyword').attr('placeholder');
+        $('#keyword').focus(function(){
+            $(this).css({'color':'#666'});
+            if($(this).val()==strstr){
+                $(this).val('');
+            }
+        }).blur(function(){
+            if($(this).val()==''){
+                $(this).val(strstr);
+            }
+        });
+
+        //防止用户输入空搜索词
+        $('.btn_search').click(function(){
+            if($('#keyword').val()==''&&$('#keyword').attr('placeholder')==''){
+                var keyword = $('#keyword').val();
+                if(keyword.replace(/\s/g,"")==''){
+                    alert('输入内容不能为空');
+                    return false;
+                }
+            }
+            var de_word = $('#keyword').attr('hc');
+            if($('#keyword').val()==''){
+                $('#keyword').val(de_word);
+            }else{
+                var reg =/(^\s+)|(\s+$)/g;
+                var re = reg.test($('#keyword').val());
+                if(re){
+                    if(de_word&&$('#keyword').val()==''){
+                        $('#keyword').val(de_word);
+                    }else if($('#keyword').val()==''){
+                        alert('输入内容不能位空!');
+                        return false;
+                    }else{
+                        if($('#keyword').val().replace(/(^\s*)|(\s*$)/g,"")==''){
+                            alert('输入内容不能为空!');
+                            return false;
+                        }
+                    }
+                }
+            }
+            $('#form1').submit();
+})
+
+$(document).keypress(function(e) {
+    if (e.which == 13) {
+        var text = '';
+        if ($('.mall_key.choose').length > 0) {
+            $('#search_act').val('go_mall');
+            text = search_keyword;
+        } else if ($('.choose').length > 0) {
+            $('#search_act').val('index');
+            text = $('.choose').find('a').text();
+        } else {
+            text = $('#keyword').val() || $('.txt_f_sb').val();
+        }
+        $('#keyword').val(text);
+        $('.btn_search').click();
+
+        return false;
+    }
+});
+        
+        
+    });
+    $(".hc").children('ul').children('li').click(function(){
+        $(this).parent().children('li').removeClass("on");
+        $(this).addClass("on");
+        $('#search_act').attr("value",$(this).attr("op"));
+        $('#keyword').attr("placeholder",$(this).attr("title"));
+    });
+    $("#keyword").blur();
+</script><!--搜索 end-->
+<!--导航条-->
+<div class="full_nav">
+    <div class="w1200">
+        <ul class="nav">
+            <li class="li_all_type"><a href="http://www.happigo.com/">全部分类<b class="b_down"></b></a></li>
+            <li class="home "><a href="http://www.happigo.com/">首页</a></li>
+            <li class=""><a href="http://www.happigo.com/tv5/">TV直播</a></li>
+                                                                        
+                                                                        
+                                                            <li><a href="http://www.happigo.com/zt/2-1568.html" target="_blank">全球购</a></li>
+                                                            <li class=""><a href="http://www.happigo.com/brand_zt/">品牌馆</a></li>
+        </ul>
+    </div>
+</div><!--导航条 end-->
+</div>
+<!--头部 end--><div class="w1000 ClearFix margint20">
+        <div class="uc_left ClearFix">
+                    <div class="uc_l_slide">
+                <a href="http://www.happigo.com/shop/index.php?act=member&amp;op=home"><h2 class="slide_h2"><b></b>我的快乐购</h2></a>
+                                                <ul class="slide_list">
+                                        <li class="on"><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index">我的订单</a></li>
+                                        <li><a href="http://www.happigo.com/shop/index.php?act=member_return&amp;op=index">申请退货</a></li>
+                                        <li><a href="http://www.happigo.com/shop/index.php?act=member_favorites&amp;op=fglist">我的收藏</a></li>
+                                        <li><a href="http://www.happigo.com/shop/index.php?act=member_voucher&amp;op=index&amp;select_detail_state=1">我的优惠券</a></li>
+                                        <li><a href="http://www.happigo.com/shop/index.php?act=member_points&amp;op=index">我的积分</a></li>
+                                    </ul>
+                            </div>
+                <div class="uc_l_slide">
+                                <h2 class="slide_h2"><b></b>个人信息</h2>
+                                                <ul class="slide_list">
+                                        <li><a href="http://www.happigo.com/shop/index.php?act=member_information&amp;op=member">个人资料</a></li>
+                                        <li><a href="http://www.happigo.com/shop/index.php?act=member_security&amp;op=index">账户安全</a></li>
+                                        <li><a href="http://www.happigo.com/shop/index.php?act=member_address&amp;op=address">地址管理</a></li>
+                                    </ul>
+                            </div>
+        </div>
+        <div class="uc_right ClearFix">
+        <div class="uc_location">
+                <a href="http://www.happigo.com/shop/index.php?act=member&amp;op=home">我的快乐购</a>
+        <span>&gt;</span>
+                    <a class="a_cur">我的订单</a>
+        </div>
+  
+        <link href="css/uc_my_orderlist.css" rel="stylesheet">
+  <div>
+    <div class="my_f_list">
+      <div class="order_tab">
+        <ul class="order_tab_ul">
+          <li class="on"><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index">全部订单</a></li>
+          <li class=""><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index&amp;state_type=state_new">待付款</a></li>
+          <li class=""><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index&amp;state_type=state_pay">待发货</a></li>
+          <li class=""><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index&amp;state_type=state_send">待收货</a></li>
+          <li class=""><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index&amp;state_type=state_noeval">待评价</a></li>
+        </ul>
+        <div class="more_rk"><a href="http://www.happigo.com/shop/index.php?act=member_orderhistory&amp;op=index" class="more_order">查看历史订单</a><a href="http://mall.happigo.com/index.php?act=member&amp;op=order_list" class="more_qqg_order">查看全球购订单&gt;&gt;</a></div>
+      </div>
+      <table class="order_table">
+        <thead class="thead">
+        <tr>
+          <td class="padding_40" colspan="3">
+            <div class="select_div">
+              <div class="select_h2"><span>
+                  近三月的订单                </span><b></b></div>
+              <div class="select_list" style="display: none;">
+                <ul>
+                  <li data-name="近三月的订单" class="cur"><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index&amp;state_type="><b></b>近三月的订单</a></li>
+                  <li data-name="近半年的订单" class=""><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index&amp;state_type=&amp;order_date=6"><b></b>半年的订单</a></li>
+                  <li data-name="最近一年的订单" class=""><a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=index&amp;state_type=&amp;order_date=12"><b></b>最近一年的订单</a></li>
+                </ul>
+              </div>
+            </div>
+            <span>订单详情</span>
+          </td>
+          <td>订单金额</td>
+          <td>交易状态</td>
+          <td>交易操作</td>
+        </tr>
+        </thead>
+
+                                <!--一个订单-->
+        <tbody>
+        <!--    订单号 下单时间-->
+        <tr class="tr_top">
+          <td colspan="6">
+            <span class="number">订单号：<a target="_blank" href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=show_order&amp;order_id=928169">490523190722489426</a></span>
+            <span class="dealtime" title="下单时间">下单时间：2016-07-30 10:45:21</span>
+          </td>
+        </tr>
+        <!--    订单号 下单时间-->
+
+        <!--订单商品-->
+                        <tr class="tr_bd">
+          <td class="goods-item">
+            <div class="p-img">
+              <a href="http://www.happigo.com/item-0-178962.html" target="_blank">
+                <img class="" src="images/1_05230439753043357_60.jpg" title="" height="60" width="60">
+              </a>
+            </div>
+            <div class="p-msg">
+              <div class="p-name"><a href="http://www.happigo.com/item-0-178962.html" class="a-link" target="_blank" title="">【瑞典·温柔污垢杀手】FOREO斐珞尔 露娜mini一代硅胶美容仪电动洁面仪毛孔清洁器洗脸刷 粉红色</a></div>
+            </div>
+          </td>
+          <td>
+            <div class="goods_price">￥999.00</div>
+          </td>
+          <td>
+            <div class="goods-number">x1</div>
+          </td>
+                    <td rowspan="1">
+            <div class="amount">
+              <span>￥930.00</span>
+              <br>
+                              （免运费）
+                            <br>
+              在线支付            </div>
+          </td>
+          <td rowspan="1">
+            <div class="status">
+              <span class="order-status ftx-03"><span style="color:#787878">待付款</span></span>
+              <br>
+              <a href="http://www.happigo.com/shop/index.php?act=member_order&amp;op=show_order&amp;order_id=928169" target="_blank">订单详情</a>
+                          </div>
+          </td>
+          <td rowspan="1">
+            <div class="operate">
+                              <a href="http://www.happigo.com/shop/index.php?act=buy&amp;op=pay&amp;pay_sn=490523190722489426" target="_blank"><i class="icon-ban-circle"></i> 立即支付</a><p></p>
+                                            <a href="javascript:void(0)" class="btn-canle" onclick="order_chanle('928169')"><i class="icon-ban-circle"></i> 取消订单</a><p></p>
+              
+              
+              
+                          </div>
+          </td>
+                  </tr>
+                        <!--订单商品 end-->
+                <!--下面的线 最后一个订单不需要加这个-->
+        <tr class="b_line">
+          <td colspan="6"></td>
+        </tr>
+        <!--下面的线 end-->
+        </tbody>
+                      </table>
+    </div>
+      <div class="page_list ClearFix">
+        <div class="float_r">
+          <ul><li class="pre a_btn un"><span><b></b>上一页</span></li><li class="a_p_num"><span>1</span></li><li class="next a_btn un"><span>下一页<b></b></span></li></ul>        </div>
+      </div>
+  </div>
+<script>
+function order_chanle(order_id){
+		//$("#firstName.val()")
+		$.post("index.php?act=member_order&op=change_state&state_type=order_cancel&order_id="+order_id,{},function(data){
+//		 alert(data);
+		 $("body").append(data);
+		});
+	}
+  $(function () {
+  	
+    $(".select_div").hover(function () {
+      $(this).addClass("select_div_on");
+      $(".select_list").show();
+
+    }, function () {
+      $(".select_list").hide();
+      $(this).removeClass("select_div_on");
+
+    });
+
+    $(".select_list ul li").click(function () {
+      $(".select_list ul li").removeClass("cur");
+      $(this).addClass("cur");
+      $(".select_h2 span").html($(this).attr("data-name"));
+      $(".select_list").hide();
+    });
+
+
+    $(".btn-sure_sh").on("click", function () { $("#tc_shouhuo").show(); });
+    $(".btn-canle").on("click",
+        function () {
+          $("#tc_del_order").show();
+        }
+    );
+    $(".dialog_close_button").on("click", function () {
+      $(".tc_bg").hide();
+    })
+  })
+</script>
+    </div>
+</div>
+    
+<!--底部-->
+<div class="footer Clearfix">
+    <div class="footer0 w1200">
+        <img src="images/foot_img1.jpg">
+    </div>
+    <div class="footer_help w1200 ClearFix">
+        <div class="footer1_l">
+                                                        <dl class="helpDL">
+                <dt>
+                    <h5>使用帮助</h5>
+                </dt>
+                                                <dd><a href="http://www.happigo.com/news-58.html" title="税费收取规则"> 税费收取规则 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-43.html" title="新手指南"> 新手指南 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-7.html" title="用户协议"> 用户协议 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-6.html" title="常见问题"> 常见问题 </a></dd>
+                                             </dl>
+                                                     <dl class="helpDL">
+                <dt>
+                    <h5>会员服务</h5>
+                </dt>
+                                                <dd><a href="http://www.happigo.com/news-49.html" title="积分政策"> 积分政策 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-12.html" title="会员权益"> 会员权益 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-11.html" title="会员等级"> 会员等级 </a></dd>
+                                             </dl>
+                                                     <dl class="helpDL">
+                <dt>
+                    <h5>支付方式</h5>
+                </dt>
+                                                <dd><a href="http://www.happigo.com/news-44.html" title="积分支付"> 积分支付 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-28.html" title="货到付款"> 货到付款 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-17.html" title="在线支付"> 在线支付 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-45.html" title="优惠券支付"> 优惠券支付 </a></dd>
+                                             </dl>
+                                                     <dl class="helpDL">
+                <dt>
+                    <h5>配送方式</h5>
+                </dt>
+                                                <dd><a href="http://www.happigo.com/news-26.html" title="包邮政策"> 包邮政策 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-32.html" title="费用说明"> 费用说明 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-31.html" title="配送说明"> 配送说明 </a></dd>
+                                             </dl>
+                                                     <dl class="helpDL">
+                <dt>
+                    <h5>售后服务</h5>
+                </dt>
+                                                <dd><a href="http://www.happigo.com/news-59.html" title="电子发票"> 电子发票 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-18.html" title="售后咨询"> 售后咨询 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-20.html" title="退货办理"> 退货办理 </a></dd>
+                                 <dd><a href="http://www.happigo.com/news-19.html" title="退货政策"> 退货政策 </a></dd>
+                                             </dl>
+                                      
+        </div>
+        <div class="footer1_r">
+            <ul>
+                <li>
+                    <h2>手机快乐购</h2>
+                    <img src="images/footer_ewm_01.png">
+                    <p>下载移动客户端</p>
+                </li>
+                <li>
+                    <h2>快乐购微信</h2>
+                    <img src="images/footer_ewm_02.png">
+                    <p>快乐购官方微信</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer_nav">
+        <div class="w720 ClearFix">
+            <ul>
+                <p><!--<li><a href="http://www.happigo.com/shop">首页</a><span class="line"></span></li>-->
+                                                                                </p><li><a href="http://www.happigo.com/shop/index.php?act=article&amp;op=show&amp;article_id=22">关于快乐购</a>
+                                                <span class="line"></span>
+                                                </li>
+                                                                                <li><a href="http://www.happigo.com/shop/index.php?act=stock">投资者关系</a>
+                                                <span class="line"></span>
+                                                </li>
+                                                                                <li><a target="_blank" href="https://hbp1.happigo.com/csm/index.php?s=/Index">商家入驻</a>
+                                                <span class="line"></span>
+                                                </li>
+                                                                                <li><a href="http://www.happigo.com/shop/index.php?act=article&amp;op=show&amp;article_id=23">联系我们</a>
+                                                </li>
+                                                                                                                      <p></p>
+            </ul>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="w1200">
+            <p>
+                <span class="font_arial">Copyright© 2006-2016 happigo. All Rights Reserved </span>
+                免费服务热线: 400-705-1111 | 固话也可拨打: 800-705-1111
+                <span class="font_arial">E-Mail: service@happigo.com</span><br>
+                湘ICP备12000157号 信息网络传播视听节目许可证号：1810530
+            </p>
+            <p class="footer_p">
+             <a href="http://www.itrust.org.cn/home/index/itrust_certifi/wm/2782875193.html" target="_blank">
+                <img src="images/foot_img3.png"></a>
+             <a href="https://search.szfw.org/cert/l/CX20150428007576007720" target="_blank">
+                <img src="images/foot_img4.png"></a>
+            </p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="UTF-8" src="js/trace.js"></script>
+<script type="text/javascript">
+var VL = false;
+$(function(){
+var sp = "OrderList";
+var sv = "index";
+trace_main(sp, sv);
+var _hmt = _hmt || [];
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?9298c88929ec361a06c5344ab1e2ea65";
+var s = document.getElementsByTagName("script")[0]; 
+s.parentNode.insertBefore(hm, s);
+});
+</script>
+    <!--底部 end--></body></html>

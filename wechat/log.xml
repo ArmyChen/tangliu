@@ -1,0 +1,45 @@
+17:20:58 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wU09FD_32kNVSR9NWD4IAGY]]></FromUserName>
+<CreateTime>1473067259</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></EventKey>
+<MenuId>795615461</MenuId>
+</xml>
+17:20:58 T <xml>
+<ToUserName><![CDATA[oW5b6wU09FD_32kNVSR9NWD4IAGY]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1473067258</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></Content>
+</xml>
+17:24:52 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></FromUserName>
+<CreateTime>1473067493</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=13]]></EventKey>
+<MenuId>795615461</MenuId>
+</xml>
+17:24:52 T <xml>
+<ToUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1473067492</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=13]]></Content>
+</xml>
+17:25:16 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></FromUserName>
+<CreateTime>1473067517</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></EventKey>
+<MenuId>795615461</MenuId>
+</xml>
+17:25:16 T <xml>
+<ToUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1473067516</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></Content>
+</xml>

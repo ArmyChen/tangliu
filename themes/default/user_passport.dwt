@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<link href="{$ecsolve_path}/style/style.css" rel="stylesheet" type="text/css" />
+<link href="{$ecsolve_path}/style/gtcommon.css" rel="stylesheet" type="text/css" />
+<link href="{$ecsolve_path}/style/register.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$weburl}/js/common.js"></script>
+<script type="text/javascript" src="{$weburl}/js/user.js"></script>
+<script type="text/javascript" src="{$weburl}/js/transport.js"></script>
+<script type="text/javascript" src="{$weburl}/js/utils.js"></script>
+
+
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- {if $action eq 'login'} -->
+<div class="login_container2 relative">
+  <div class="left_tu"><img src="{$ecsolve_path}/images/login_bg1.jpg" width="600" height="350" /></div>
+  <div class="login_box">
+    <div class="login_box_top">
+      <div class="box_top"></div>
+      <div class="box_mid">
+        <div class="login_tit"><span class="login_tittu"></span><strong class="font14 lmar10 left">会员登录</strong></div>
+        <div class="login_mid">
+          <form name="formLogin" action="{$weburl}/user.php" method="post" onSubmit="return userLogin()">
+            <table cellpadding="0" cellspacing="0" border="0" width="340px;">
+              <tr>
+                <td class="font14 lo_t1" >账户名/邮箱：</td>
+                <td align="left"><input name="username" type="text" class="input180" id="username" maxlength="40" value="" /></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="font14 lo_t1" >密码：</td>
+                <td align="left"><input name="password" type="password" class="input180" id="password" maxlength="40" value="" /></td>
+                <td style="padding-left:5px;" class="blue"></td>
+              </tr>
+              <!-- 判断是否启用验证码{if $enabled_captcha} -->
+              <tr>
+                <td class="font14 lo_t1" >{$lang.comment_captcha}：</td>
+                <td align="left"><input type="text" size="8" name="captcha" class="input180" style="width:60px" />
+                  <img src="{$weburl}/captcha.php?is_login=1&{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer;" onClick="this.src='{$weburl}/captcha.php?is_login=1&'+Math.random()" /></td>
+                <td style="padding-left:5px;" class="blue"></td>
+              </tr>
+              <!--{/if}-->
+            </table>
+            <div class="login_down">
+              <ul>
+                <input type="hidden" name="act" value="act_login" />
+                <input type="hidden" name="back_act" value="{$back_act}" />
+                <li class="left" style="padding-left:30px">
+                  <input type="submit" tabindex="4"  value="" class="login_btn2" id="btn_submit" onclick="javascript:return form_submit();" />
+                </li>
+                <li class="cor999 font14 lmar10 left tmar8"><a href="{$weburl}/user.php?act=get_password">找回密码</a></li>
+                <div class="clear"></div>
+              </ul>
+            </div>
+            <div class="register_btn font14">还没有开通你的商城账号？<span class="blue"><a href="{$weburl}/user.php?act=register">立即注册</a></span></div>
+          </form>
+        </div>
+      </div>
+      <div class="box_down"></div>
+    </div>
+    <div class="xz_ggw_right tmar5 " id="scrollDiv" style="height:50px">
+    <div class="font12 ">
+      <div>
+        <table width="360" border="0" cellpadding="0" cellspacing="0" style="margin-left:10px">
+                <tbody><tr>
+                  <td height="30" colspan="4">
+		  
+		  
+		  
+		
+		  
+		  
+		  
+		  
+		  <!--
+		  使用合作网站账号登录：<a href="{$weburl}/user.php?act=oath&type=qq"><img src="{$ecsolve_path}/images/qq_login.gif"/></a>-->
+</td>
+                                   <td>
+</td>                  <td>
+</td><td>
+</td>
+                </tr>
+              </tbody></table>
+		
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+
+  </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--{/if}-->
+<!--{if $action eq 'register'}-->
+<div class="login_container2 relative">
+  <div class="left_tu"><img src="{$ecsolve_path}/images/login_bg1.jpg" width="600" height="350" /></div>
+  <div class="login_box">
+    <div class="login_box_top">
+      <div class="box_top"></div>
+      <div class="box_mid">
+        <div class="login_tit"><span class="login_tittu"></span><strong class="font14 lmar10 left">会员注册</strong></div>
+        <div class="login_mid">
+             <form action="{$weburl}/user.php" method="post" name="formUser" onsubmit="return register();">
+            <table cellpadding="0" cellspacing="0" border="0" width="340px;">
+              <tr>
+                <td class="font14 lo_t1" >账户名：</td>
+                <td align="left"><input type="text" class="input202" maxlength="30"  onblur="is_registered(this.value);" tabindex="1" name="username" id="username">
+                <div id="UserName_Info_Check" class="tishi3"><span id="username_notice" style="color:#FF0000"> *</span></div></td>
+                <td></td>
+              </tr>
+	      <tr>
+          <td class="font14 lo_t1">{$lang.label_email}：</td>
+          <td align="left">
+          <input name="email" type="text" size="25" id="email" onblur="checkEmail(this.value);"  class="input202"/>
+            <span id="email_notice" style="color:#FF0000"> *</span>
+          </td>
+        </tr>
+              <tr>
+                <td class="font14 lo_t1" >密码：</td>
+                <td align="left"><input type="password" maxlength="20"  onblur="check_password(this.value);" class="input202" tabindex="2" onpaste="return false" name="password" id="password1">
+                <div id="PassWord_Info_Check"><span style="color:#FF0000" id="password_notice"> *</span></div></td>
+                <td style="padding-left:5px;" class="blue"></td>
+              </tr>
+ <tr>
+                <td class="font14 lo_t1" >密码：</td>
+                <td align="left"><input type="password"  onblur="check_conform_password(this.value);" maxlength="20" class="input202" tabindex="3" onpaste="return false" name="confirm_password" id="conform_password">
+                <div id="AffirmPassWord_Info_Check"><span style="color:#FF0000" id="conform_password_notice"> *</span></div></td>
+                <td style="padding-left:5px;" class="blue"></td>
+              </tr>
+
+
+ <!-- {foreach from=$extend_info_list item=field} -->
+             <!-- {if $field.reg_field_name=='手机'} -->
+
+            <!-- {else} -->
+            <tr>
+              <td align="right" 
+              <!-- {if $field.is_need} -->
+              id="extend_field{$field.id}i"
+              <!--{/if}-->
+              > {$field.reg_field_name}
+              </td>
+              <td><input type="text" class="input202" maxlength="30"  tabindex="1" name="extend_field{$field.id}">
+                <div id="UserEmail_Info_Check" class="tishi3">
+                  <!-- {if $field.is_need} -->
+                  <span style="color:#FF0000"> *</span>
+                  <!-- {/if} -->
+                </div></td>
+            </tr>
+            <!-- {/if} -->
+            <!-- {/foreach} -->
+          
+
+
+
+
+
+
+              <!-- 判断是否启用验证码{if $enabled_captcha} -->
+              <tr>
+                <td class="font14 lo_t1" >{$lang.comment_captcha}：</td>
+                <td align="left"><input type="text" class="input202" maxlength="30" tabindex="1" name="captcha" style="width:93px">
+                <img src="{$weburl}/captcha.php?{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer;" onClick="this.src='{$weburl}/captcha.php?'+Math.random()" />
+                <div id="UserEmail_Info_Check" class="tishi3"><span style="color:#FF0000"> *</span></div></td>
+                <td style="padding-left:5px;" class="blue"></td>
+              </tr>
+
+  <tr>
+                <td class="font14 lo_t1" > <input name="agreement" type="checkbox" value="1" checked="checked" /></td>
+                <td align="left">{$lang.agreement}</td>
+                <td style="padding-left:5px;" class="blue"></td>
+              </tr>
+
+
+            <tr>
+                <td class="font14 lo_t1" ></td>
+                <td align="left">
+<input name="act" type="hidden" value="act_register" >
+                <input type="hidden" name="back_act" value="{$back_act}" />
+        <input type="submit" tabindex="4" value="" class="register_button" id="btnSubmit" name="Submit" >
+</td>
+                <td style="padding-left:5px;" class="blue"></td>
+              </tr>      
+
+
+
+
+
+              <!--{/if}-->
+
+            </table>
+
+          </form>
+
+        </div>
+      </div>
+      <div class="box_down"></div>
+    </div>
+    <div class="xz_ggw_right tmar5 " id="scrollDiv" style="height:50px">
+    <div class="font12 ">
+      <div>
+        <table width="360" border="0" cellpadding="0" cellspacing="0" style="margin-left:10px">
+                <tbody><tr>
+                  <td height="30" colspan="4">已经商城账号？<span class="blue"><a href="{$weburl}/user.php?act=login">立即登录</a></span> 
+		  <!--<br>使用合作网站账号登录：<a href="{$weburl}/user.php?act=oath&type=qq"><img src="{$ecsolve_path}/images/qq_login.gif"/></a>-->
+		
+</td>
+                                   <td>
+</td>                  <td>
+</td><td>
+</td>
+                </tr>
+              </tbody></table>
+		
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+
+  </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{/if}-->
+<!--{if $action eq 'get_password'} -->
+{insert_scripts files='utils.js'}
+<script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+<div class="reg_container2 tmar10">
+  <dl>
+    <dt><strong class="font14">找回密码</strong> </dt>
+    <dd style="padding-top:15px">
+      <form action="{$webrul}/user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
+        <br />
+        <table width="100%" border="0" align="center">
+          <tr>
+            <td colspan="2" align="center"><strong style="text-align:center;padding-bottom:20px;display: block;font-size:17px">{$lang.username_and_email}</strong></td>
+          </tr>
+          <tr>
+            <td width="29%" align="right"> <p style="height:30px;font-size:16px;line-height:30px;text-align:center;margin-bottom:20px;">{$lang.username}</p></td>
+            <td width="61%"><input name="user_name" type="text" size="30" class="inputBg" style="height: 35px;width: 315px;margin-bottom:20px;"/></td>
+          </tr>
+          <tr>
+            <td align="right"> <p style="height:30px;font-size:16px;line-height:30px;text-align:center;">{$lang.email}</p></td>
+            <td><input name="email" type="text" size="30" class="inputBg" style="height: 35px;width: 315px;"/></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="hidden" name="act" value="send_pwd_email" />
+              <input type="submit" name="submit" value="{$lang.submit}" class="bnt_blue" />
+              <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" class="bnt_blue_1" />
+	    </td>
+          </tr>
+        </table>
+        <br />
+      </form>
+    </dd>
+  </dl>
+</div>	
+
+
+<!--{/if}-->
+<!-- {if $action eq 'reset_password'} -->
+<script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+	<div class="reg_container2 tmar10">
+  <dl>
+    <dt><strong class="font14">重设密码</strong> </dt>
+    <dd style="padding-top:15px">
+      <form action="user.php" method="post" name="getPassword2" onSubmit="return submitPwd()">
+      <br />
+      <table width="100%" border="0" align="center">
+        <tr>
+          <td align="right"  width="40%">{$lang.new_password}</td>
+          <td><input name="new_password" type="password" size="25" class="inputBg" /></td>
+        </tr>
+        <tr>
+          <td align="right">{$lang.confirm_password}:</td>
+          <td><input name="confirm_password" type="password" size="25"  class="inputBg"/></td>
+        </tr>
+        <tr>
+		<td align="right"></td>
+          <td><input type="hidden" name="act" value="act_edit_password" />
+            <input type="hidden" name="uid" value="{$uid}" />
+            <input type="hidden" name="code" value="{$code}" />
+            <input type="submit" name="submit" value="{$lang.confirm_submit}" /></td>
+       
+        </tr>
+      </table>
+      <br />
+    </form>
+    </dd>
+  </dl>
+</div>
+<!--{/if}-->
+<!--底部开始-->
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+{foreach from=$lang.passport_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var username_exist = "{$lang.username_exist}";
+</script>
+</body>
+</html>

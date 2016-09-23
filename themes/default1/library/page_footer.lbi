@@ -1,0 +1,115 @@
+
+
+
+<div class="footer">
+
+
+
+<div class="dibu">
+
+
+  
+<div class="part">
+
+Copyright ©  {$shop_name}  版权所有 2016   All rights reserved.<br>
+
+
+  <!-- {if $txt_links} -->
+<p>友情链接：
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+
+    <a href="{$link.url}" target="_blank" title="{$link.name}" style="color:#aebac5;">{$link.name}</a> | 
+
+    <!--结束文字类型的友情链接{/foreach}-->
+</p> 
+    <!-- {/if} -->
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	$(".navcon li").hover(function(){
+		$(this).find(".nav1").show();	
+	},function(){
+		$(this).find(".nav1").hide();
+	});
+	$(".navcon li").hover(function(){
+		$(this).find(".nav2").show();	
+	},function(){
+		$(this).find(".nav2").hide();
+	});
+	$(".navcon li").hover(function(){
+		$(this).find(".nav3").show();	
+	},function(){
+		$(this).find(".nav3").hide();
+	});
+	$(".navcon li").hover(function(){
+		$(this).find(".nav4").show();	
+	},function(){
+		$(this).find(".nav4").hide();
+	});
+	$(".navcon li").hover(function(){
+		$(this).find(".nav5").show();	
+	},function(){
+		$(this).find(".nav5").hide();
+	});
+	$(".navcon li").hover(function(){
+		$(this).find(".nav6").show();	
+	},function(){
+		$(this).find(".nav6").hide();
+	});
+	$(".navcon li").hover(function(){
+		$(this).find(".nav7").show();	
+	},function(){
+		$(this).find(".nav7").hide();
+	});
+	$(".navcon li").hover(function(){
+		$(this).find(".nav8").show();	
+	},function(){
+		$(this).find(".nav8").hide();
+	});
+	$(".navcon li").hover(function(){
+		$(this).find(".nav9").show();	
+	},function(){
+		$(this).find(".nav9").hide();
+	});
+</script>
+
+
+
+
+<!--浮动留言表框--->
+<script type="text/javascript" src="{$ecsolve_path}/jsct/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/common.js"></script>
+<div class="footerhover">
+<div id="bottomBar">
+<div style="width:1000px;margin:0 auto;">	   
+<div id="bottombm">	
+<center>{insert name='indexcomments' type=$type id=$id}</center>
+<div id="bottomkf"><a href="tencent://message/?uin=4918684"><img width="210"  border="0" align="right" src="{$ecsolve_path}/images/liuyuan/kefu.png">ss</a></div>
+</div>	 
+</div>
+</div>
+</div>
+<!--浮动留言表框--->
+
+
+
+
+
+
+
+
+{insert name='kefushow'}

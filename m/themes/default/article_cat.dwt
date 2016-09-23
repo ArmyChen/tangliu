@@ -1,0 +1,146 @@
+<?php
+$GLOBALS['smarty']->assign('article_cat_cnv',    get_article_cat(9)); 
+?>
+<!DOCTYPE html>
+<html style="font-size: 20px;"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>{$page_title}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="favicon.ico">
+<link href="{$ectouch_themes}/style/public.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+/*不同头部不可移动*/
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+.header>img { height:4rem; width:100%;}
+.header a  {background:url({$ectouch_themes}/images/indextopleft02.png) no-repeat 0 0; background-size:contain;}
+.header .right { background:url({$ectouch_themes}/images/chunSearch02.png) no-repeat center; background-size:contain;}
+.header .search { display:none; position:absolute; padding-left:5%;  width:95%; height:4rem; z-index:2; background:url({$ectouch_themes}/images/allwaplist.jpg) no-repeat center; background-size:contain;  }
+.header .search input.text { padding-left:1rem; margin-top:0.35rem; width:19rem; height:3.3rem; font-size:1.2rem; color:#aaa; vertical-align:bottom;}
+.header .search input.submit { width:4.4rem; height:3.3rem; background:url({$ectouch_themes}/images/indexheadtopinput.png) no-repeat center; background-size:contain;vertical-align:bottom;}
+.header .headerClose { right:0; background:url({$ectouch_themes}/images/chunclsed.png) no-repeat 0 0;   background-size:contain;}
+.header h2 { line-height:4rem; }
+
+.navHeight { height:7.3rem; }
+.navWrapHide { width:32rem; position:fixed; top:0; z-index:10;}
+.nav { height:3.2rem; background:white; border-bottom:0.1rem #c7c7c7 solid;  }
+.nav li { width:6.9rem; margin:0 1.7rem; height:3.1rem;font-size:1.3rem; line-height:3.1rem; text-align:center; color:#333; }
+.nav .navShang { margin-left:2rem;}
+.nav li a { display:block;}
+.nav .current { color:#fd19af;}
+.nav li hr { width:6.9rem; border:none; border-top:0.2rem #fd19af solid; }
+/*特卖头部专用样式*/
+
+/*研究院*/
+.chunschool { background:#f5f5f5;}
+.chunschool .main { padding-top:0.5rem; }
+.chunschool .sPing a { display:block; background:white;}
+.chunschool .sPing .current dl { background:#e7e7e7;}
+.chunschool .sPing dt { width:5.7rem; padding:0.9rem; }
+.chunschool .sPing dd { width:19rem; padding:0.5rem; font-size:1.2rem; color:#666;}
+.chunschool .sPing dd p { min-height:3rem; padding-top:1.5rem;}
+.chunschool .sPing dd span { font-size:1.1rem; color:#9c9c9c;}
+.chunschool .sPing dd .fR{ margin-right:7.1rem;}
+.chunschool .pNum img{ width:1rem; display:inline; }
+.chunschool .sOpen a { display:block;}
+.chunschool .sOpen { text-align:center; font-size:1.3rem; line-height:3rem; color:#d7d7d7;}
+.chunschool .sOpen img { display:inline; width:1.3rem; }
+.chunschool .pc-btn{ height:0; position:relative; margin-bottom:0.1rem;}
+.chunschool .pc-btn a{ border:1px #d5ccd1 solid; height:1.5rem; width:6rem; float:right; margin-right:0.9rem; margin-top:-2.35rem; text-align:center; font:normal normal 1rem/1.5rem 'microsoft yahei'; color:#f0189d;  -moz-border-radius: 0.3rem;      -webkit-border-radius: 0.3rem;  border-radius:0.3rem;}
+.bottomFixCar { display:none;}
+.bototmFixTop { display:none;}
+
+</style>
+
+</head>
+<body style="padding: 0px; margin: 0px auto;">
+<div class="navHeight">	
+    <div class="navHeightWap navWrapHide">	
+        <div class="header">
+            <div class="search">
+                 <form method="post" action="search.php" name="searchForm" id="searchForm_id">
+                        <input placeholder="请输入商品名称" name="keywords" class="text"   type="text"><input class="submit" value="" type="submit">
+                    </form>
+                <a class="headerClose"></a>
+            </div>
+            <img original="{$ectouch_themes}/images/allwaplist.jpg" src="{$ectouch_themes}/images/allwaplist.jpg">
+            <h2>成人学堂<a href="../user.php" class="indexNavOpen"></a>
+                        
+            </h2>
+           
+            <a class="right headerOpen"></a>
+        </div>
+
+        <ul class="nav clearfix" id="nav">
+            <li class="fL"> <a href="index.php">特卖专区</a>
+                          
+            </li>
+            <li class="fL navShang"><a href="cat_all.php">情趣商城</a></li>
+            <li class="fR current"><a href="{$article_cat_cnv.url}">成人学堂</a><hr></li>
+        </ul>
+    </div>
+</div>
+
+<div class="chunschool">
+	<ul class="card">
+    	<li>
+            <div class="main">  
+                <div class="clearfix sPing" id="container">
+                	 
+		
+
+
+
+
+
+    <!-- {foreach from=$artciles_list item=article name="artciles_list"} --> 
+
+
+					<a href="{$article.url}">
+                         <dl class="clearfix">
+                            <dt class="fL"><img original="{$site_url}{$article.file_url}" src="{$site_url}{$article.file_url}"></dt>
+                            <dd class="fL">
+                                <p>{$article.short_title}</p>
+                                <div><span class="pName">{$article.author}</span><span class="pNum fR"><img original="{$ectouch_themes}/images/school_huo.png" src="{$ectouch_themes}/images/school_huo.png">&nbsp;{$article.click_count}</span></div>
+                            </dd>
+                        </dl>
+                    </a>
+                    <div class="pc-btn"><a href="{$article.cat.cat_url}">{$article.cat.cat_name}</a> </div>
+
+
+
+
+
+  
+    <!-- {/foreach} --> 
+
+
+
+
+
+                    
+                    
+       				                   
+                </div>
+
+
+				  <div id="J_PageNavWrap" class="pagenav-wrapper" style="">
+<div class="pagenav-content">
+				    <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div></div>
+				    <!--
+                  <p class="sOpen" onclick="data();"><img original="{$ectouch_themes}/images/wuliu_open.png" src="{$ectouch_themes}/images/wuliu_open.png">点击显示更多</p>
+				  <div class="nodata" style="text-align:center;"></div>-->
+				  
+
+            </div>
+        </li> 
+    	
+    </ul>
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body></html>

@@ -1,0 +1,11 @@
+
+			
+			<table width="100%"  cellpadding="0" cellspacing="0"  style="border:0px solid #FFFFFF">
+                <!-- {foreach from=$shipping_list name=shipping_list item=shipping} 循环配送方式 -->
+                <tr>
+                  <td width="15%" height=25  style=" font-weight:bold"><input name="shipping" type="radio" value="{$shipping.shipping_id}"  supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" />
+                    {$shipping.shipping_name}</td>
+                  <td style="color: #999999">({$shipping.shipping_desc})</td>
+                </tr>
+                <!-- {/foreach} 循环配送方式 -->
+              </table>

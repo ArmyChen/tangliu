@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{if $name neq ''}{$name}{else}{$page_title}{/if} </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<link href="{$ectouch_themes}/images/touch-icon.png" rel="apple-touch-icon-precomposed" />
+<link href="{$ectouch_themes}/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="{$ectouch_themes}/ectouch.css?v=2014" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$ectouch_themes}/js/TouchSlide.js"></script>
+</head>
+<body>
+
+
+
+
+<!--头部s-->
+<div id="page">
+<header id="header" >
+<a href="#" class="logo abs"><img src="images/logo.png" alt="" width="151"  height="36" ></a>
+  <h1>&nbsp;</h1>
+ <div class="header_r header_search"> <a class="ico_03"  onClick="showSearch()"> 搜索 </a> </div>
+  <div id="search_box">
+    <div class="search_box">
+      <form method="post" action="search.php" name="searchForm" id="searchForm_id">
+        <input placeholder="请输入商品名称" name="keywords" type="text" id="keywordBox" />
+        <button class="ico_07" type="submit" onclick="return check('keywordBox')"> </button>
+      </form>
+    </div>
+    <a class="ico_08" onClick="closeSearch()"></a> </div>
+<script type="text/javascript" src="{$ectouch_themes}/js/zepto.min.js"></script> 
+    <script type="text/javascript">
+/*头部搜索点击关闭或者弹出搜索框*/  
+function showSearch( ){
+	document.getElementById("search_box").style.display="block";
+}
+function closeSearch(){
+	document.getElementById("search_box").style.display="none";
+}
+</script>
+<a  href="flow.php" class="car abs"><img src="images/car.png" alt="" width="41"  height="39" ></a>
+</header>
+</div>
+<!--头部e-->
+
+
+
+
+
+
+
+
+<!--播放器广告-->
+<div id="focus" class="focus region">
+  <div class="hd">
+    <ul>
+    </ul>
+  </div>
+  <div class="bd">
+    <!-- TemplateBeginEditable name="touch首页广告区域" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+  </div>
+</div>
+<script type="text/javascript">
+TouchSlide({ 
+	slideCell:"#focus",
+	titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+	mainCell:".bd ul", 
+	effect:"leftLoop", 
+	autoPlay:true,//自动播放
+	autoPage:true //自动分页
+});
+</script>
+<!--播放器广告-->
+
+
+
+
+<!--content-->
+<!--类目-->
+<div id=content class="wrap">
+<div class="item_lm">
+<ul>
+ <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+
+<li> <a href="{$nav.url}"{if $nav.opennew eq 1} target="_blank"{/if} title="{$nav.name}"><img src="{$nav.pic}" /></a>
+<span>{$nav.name} </span>
+</li>
+ <!-- {/foreach} -->
+</ul>
+</div>
+</div>
+
+
+
+
+   
+
+
+
+
+
+
+<!--类目-->
+
+
+<div class="item_ad">
+
+<ul>
+
+
+
+	  
+
+   <!--{foreach from=$index_ad_lm item=ad  name=index_ads key=key }-->
+<li style="background: url(data/afficheimg/{$ad.file_url}) no-repeat scroll center ;">
+<a href="{$ad.url}">
+<span class="fontone" >{$ad.link_man}</span>
+<span class="fonttwo">{$ad.link_email}</span>
+</a>
+</li>
+ <!--{/foreach}-->  
+
+</ul>
+    </div>
+
+
+
+<div id=content class="wrap">
+  
+
+
+
+<!--循环品牌下商品 begin-->
+
+
+<!--循环分类下商品end-->
+
+<!-- {if $best_goods} -->
+
+<div class="blank2"></div>
+
+<div class="lmt">
+<header>
+        <span>
+            精品推荐        </span>
+        <a class="ico_04 more" href="brand.php?id=71">
+        </a>
+    </header>
+    </div>
+<div class="item_show_box2 box1 region" style="overflow:hidden">
+
+
+
+
+
+
+
+    <div  class="lmtt">
+        <div class="hd">
+            <ul></ul>
+        </div>
+        <div class="bd1">
+            <ul>
+                <!--{foreach from=$best_goods item=goods name=best_goods}-->
+                <li {if $smarty.foreach.best_goods.iteration%2 eq 0} style="background:none;" {/if}><a href="{$goods.url}"><img src="{$site_url}{$goods.thumb}" /></a>
+            
+
+		<span class="fontone">{$goods.name|escape:html|truncate:12}</span>
+			<span class="fonttwo">{$goods.brief}</span>
+
+<span class="fonttree">
+			 <!-- {if $goods.promote_price neq ""} --> 
+				{$goods.promote_price} 
+                <!-- {else}--> 
+				 {$goods.shop_price} 
+                <!--{/if}-->
+              </span>
+               
+                <!--{/foreach}-->
+        </div>
+    </div>
+
+   
+   
+
+
+
+
+
+
+<!-- {/if} -->
+ 
+
+</div>
+
+
+
+
+
+
+
+<!--{foreach from=$index_ad_cpcx item=ad  name=index_ads key=key }-->
+<div class="daadone">
+<a href="{$ad.url}"><img src="data/afficheimg/{$ad.file_url}"></a>
+</div>
+ <!--{/foreach}-->  
+
+
+
+
+
+
+
+<div class="daadmore">
+<span class="fontone">
+更多惊喜</span>
+</div>
+
+
+
+
+      
+               
+            
+
+
+
+
+
+<!--{foreach from=$best_goods item=goods name=best_goods}-->
+<div class="daadpd">
+<a href="{$goods.url}"><img src="{$site_url}data/tuijie_img/{$goods.tuijie_img}" /></a>
+<p>{$goods.name|escape:html|truncate:12}
+<span class="fontone"><!-- {if $goods.promote_price neq ""} --> 
+				{$goods.promote_price} 
+                <!-- {else}--> 
+				 {$goods.shop_price} 
+                <!--{/if}--></span></p>
+<a href="{$goods.url}"><em class="nowbuy"></em></a>
+</div>
+
+    <!--{/foreach}-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+
+</body>
+</html>

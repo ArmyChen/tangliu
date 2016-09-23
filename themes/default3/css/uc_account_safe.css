@@ -1,0 +1,51 @@
+﻿
+@charset "utf-8";
+
+body { background-color: #fff; }
+
+.w1100 { margin: 0 auto; width: 1100px; }
+
+
+
+
+/*右边*/
+.w720 { margin: 0 auto; padding-top: 26px; width: 720px; }
+
+.safe_step { border-bottom: 1px dashed #ccc; }
+.safe_pro { }
+.safe_pro .s_step { float: left; text-align: left; padding-left: 57px; font-family: 宋体; font-size: 14px; }
+.safe_pro .s_step span { color: #c41f3a; padding: 0 15px; font-family: 宋体; font-size: 14px; }
+.pro_box { float: left; width: 459px; height: 25px; background-color: #e3e3e3; border-radius: 25px; position: relative; margin-left: 22px; }
+.pro_box span { position: absolute; top: 6px; left: 6px; width: 33%; height: 13px; background-color: #f86a81; border-radius: 13px; }
+
+.safe_step p { float: left; width: 100%; overflow: hidden; text-align: center; padding-bottom: 20px; padding-top: 15px; color:#7d7d7d;font-size:14px;}
+
+
+
+.safe_con { border: 1px solid #dbdbdb; margin: 20px 0 0; }
+.item { height: 36px; line-height: 36px; overflow: hidden; padding: 25px 0 25px 57px; }
+
+.icon_noyz { background: url("../images/user_center/uc_icon_list.png") no-repeat scroll 0 -221px; float: left; height: 36px; width: 36px; }
+.icon_yz { background-position: -66px -221px; }
+
+.item_phone .icon_noyz { background-position: -135px -221px; }
+.item_phone .icon_yz { background-position: -193px -221px; }
+
+.item_email .icon_noyz { background-position: -66px -167px; }
+.item_email .icon_yz { background-position: -135px -167px; }
+
+
+.item_setpwd .icon_noyz { background-position: -189px -167px; }
+.item_setpwd .icon_yz { background-position: -248px -167px; }
+
+
+.yz_info { float: left; width:470px;}
+.yz_info h2 { float: left; font-family: 宋体; font-size: 14px; padding: 0 15px; color: #000; }
+.yz_info_txt { display: table; float: left; height: 36px; padding-right: 16px; text-align: left; width: 357px; }
+.yz_info_txt p { display: table-cell; font-family: 宋体;line-height: 17px; vertical-align: middle; color: #7d7d7d; }
+.btn_edit { border: 1px solid #c41f3a; background-color: #c41f3a; color: #666666; display: block; float: left; height: 28px; line-height: 28px; width: 82px; color: #fff; }
+.btn_yz_edit { border: 1px solid #ff8da0; background-color: #fbedef; color: #c41f3a; }
+.item_setpwd { border: none; }
+
+/*右边 end*/
+

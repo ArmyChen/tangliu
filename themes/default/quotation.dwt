@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="themes/aizhigu/css/common.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="themes/aizhigu/css/left.css" />
+<link rel="stylesheet" type="text/css" href="themes/aizhigu/css/common_index.css">
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<script type="text/javascript" src="themes/aizhigu/js/jquery.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/hd_cache.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/index_com.js"></script>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="main_content block">
+  <div class="main_list"> <a name="toppp" id="toppp"></a>
+    <div class="main_route">
+      <div class="route">
+        <div class="left" style="width:700px;"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+        
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="content">
+      <div class="blank"></div>
+<div class="block">
+  <div class="flowBox">
+    <h6><span>{$lang.print_quotation}</span></h6>
+    <form action="quotation.php" method="post" name="searchForm" target="_blank" class="quotation">
+      <!-- 分类 -->
+      <select name="cat_id"  style="border:1px solid #CCCCCC; height:22px"><option value="0">{$lang.all_category}</option>{$cat_list}</select>
+      <!-- 品牌 -->
+      <select name="brand_id" style="border:1px solid #CCCCCC; height:22px"><option value="0">{$lang.all_brand}</option>{html_options options=$brand_list}</select>
+      <!-- 关键字 -->
+      {$lang.keywords} <input type="text" name="keyword" class="inputBg" style="border:1px solid #CCCCCC; height:16px"/>
+      <!-- 搜索 -->
+      <input name="act" type="hidden" value="print_quotation" />
+      <input type="submit" name="print_quotation" id="print_quotation" value="{$lang.print_quotation}" style="vertical-align:middle;" class="bnt_blue_1" />
+    </form>
+  </div>  
+  
+</div>
+<div class="blank5"></div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+    <div style=" height:15px; width:980px;"></div>
+  </div>
+</div>
+
+<div class="scroll_div" onclick="$(window).scrollTop(0)" id="scroll_div" style="left: 1331px; display: block;"></div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+var $imgOriginal = $("img[original]");
+//360图片不显示问题
+if($.browser.msie){
+$imgOriginal.each(function(){
+$(this).attr('src',$(this).attr('original'));
+});
+}else{
+$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
+}
+});
+</script>
+</body>
+</html>

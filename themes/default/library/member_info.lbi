@@ -1,0 +1,39 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- 微信登录新增样式与JS start -->
+
+{if $user_info}
+    <div class="brief_logins" style="width:495px">
+<span class="col666 left" style=" margin-right:5px;">{$lang.hello}，<font class="f4_b">{$user_info.username}</font>, {$lang.welcome_return}！</span>
+<span class="left" style=" margin-right:5px;"><a href="{$weburl}/user.php?act=logout" style=" color:#666; margin-left:5px;">退出</a> | <a href="{$weburl}/user.php">会员中心</a> | 
+</span>
+ </div>
+
+{else}
+
+    <div class="brief_logins" style="width:495px">
+      <p style="float:right; margin-left:10px"><span class="hyzx"><a href="{$weburl}/user.php">我的账户</a></span></p>
+ <p class="registers"><a href="{$weburl}/user.php?act=register" target="_blank" title="">注册</a></p>
+      <p class="bord_gray"><img src="{$ecsolve_path}/images/bord_gray.jpg" /></p>
+      <p class="logins"><a href="{$weburl}/user.php" target="_blank" title="">登录</a></p>
+
+
+
+
+
+
+	<!--<p class="loginico"><a href="{$weburl}/user.php?act=oath&type=qq"><img src="{$ecsolve_path}/images/qq_logins_24.png" style="height:22px;margin-top:3px;" ></a></p>-->
+	  
+	  <table>
+	  <tr><td><p style="padding-top:2px"> </td>
+	
+<!--<td><a href="{$weburl}/user.php?act=oath&type=alipay"><img src="{$ecsolve_path}/images/alipay_login.png"/></a></td>
+<td><a href="{$weburl}/user.php?act=oath&type=taobao"><img src="{$ecsolve_path}/images/taobao_login.gif"/></a></td>-->
+	  </tr>
+	  </table>
+	  
+	   </div>
+
+{/if}
+
+

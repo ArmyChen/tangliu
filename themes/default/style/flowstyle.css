@@ -1,0 +1,42 @@
+
+
+.block{
+ margin: 0 auto;width: 1200px; height:auto;
+}
+.f_l{float:left;}
+.f_r{float:right;}
+
+
+
+#BottomNav { height:29px;
+background: #930101; border-top:1px solid #a9494a;
+z-index: 999999999;
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+_position: absolute;
+_top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight);
+overflow: visible;
+}
+
+.kefu{ float: left; position: relative  }
+.kefu img{ }
+.kefu_box{  display:none;width:122px; height:151px; background:  url(../images/kefu_box.gif) no-repeat; position:absolute; top:-161px; left:0; padding:0 10px; padding-top:10px; }
+.kefu_on .kefu_box{ display:block;}
+.kefu_box ul{ background:url(../images/line1.gif) repeat-x 0 bottom; color:#000000}
+.kefu_box ul p{ display:block; padding:1px 0 2px 0}
+.car_b a{ color:#FFFFFF}
+.car_b{ background:url(../images/biao18.gif) 0 center no-repeat; padding-left:10px;  }
+.car_b{ margin-top:3px;}
+.b_a{ float: left; color:#000; width:58px; text-align: center; height:21px; line-height:21px; background:#bd7374; border:1px solid #cf9999; margin:3px 0 0 10px;}
+
+
+
+
+
+
+
+
+
+

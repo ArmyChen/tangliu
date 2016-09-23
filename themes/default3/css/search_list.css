@@ -1,0 +1,132 @@
+﻿
+@charset "utf-8";
+
+body { background-color: #fff; }
+.sl_box a:hover { text-decoration: none; }
+
+/*当前位置*/
+.location { height: 57px; line-height: 57px; overflow: hidden; border-bottom: 1px solid #ccc; margin-bottom: 20px; }
+.location a { color: #666666; font-size: 14px; }
+.location a:hover { color: #94193f; text-decoration: none; }
+.location span { color: #666666; font-size: 14px; padding: 0 8px; }
+/*当前位置 end*/
+
+/*商品列表*/
+.sl_box { margin-top: 18px; width: 100%; }
+.sl_head { background-color: #fbfbfb; border: 1px solid #e4e4e4; height: 40px; line-height: 40px; }
+.sl_fixed { }
+.slh_label { color: #94193f; float: left; padding-right: 0px; text-align: center; width: 86px; border-right: 1px solid #e4e4e4; margin-right: 10px; background-color: #fff; }
+.sl_sort { float: left;padding-left:20px; }
+.sl_sort li { float: left; text-align: center;padding-right:30px; }
+.sl_sort li a { color: #999; }
+.sl_sort .on { }
+
+.tv_goods { float: left; overflow: hidden;  }
+.tv_goods a { display:block;}
+.r_txt { padding-left: 4px; padding-top: 0px; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; color:#94193f;}
+
+.icon_default { background: url("../images/icon_list.png") repeat scroll -89px -688px; display: inline-block; height: 11px; margin-left: 3px; vertical-align: middle; width: 11px; }
+.icon_price { background: url("../images/icon_list.png") repeat scroll -157px -652px; display: inline-block; height: 13px; margin-left: 4px; vertical-align: middle; width: 11px; }
+.on_price .icon_price { background-position: -156px -652px; }
+.asc .icon_price { background-position: -219px -652px; }
+.desc .icon_price { background-position: -287px -652px; }
+
+.on b { background: url("../images/icon_list.png") repeat scroll -90px -619px; }
+
+.icon_sales { background: url("../images/icon_list.png") repeat scroll -89px -688px; display: inline-block; height: 11px; margin-left: 3px; vertical-align: middle; width: 11px; }
+.icon_moods { background: url("../images/icon_list.png") repeat scroll -89px -688px; display: inline-block; height: 11px; margin-left: 3px; vertical-align: middle; width: 11px; }
+.head_pageInfo { color: #999999; float: left; padding-right: 38px; }
+.head_pagecount { float: left; padding-right: 10px; }
+.head_pagecount span { color: #c41f3a; padding: 0 2px; }
+.sp_red { color: #c41f3a; }
+.head_pagecount .s_line { color: #999; padding: 0 5px; }
+.head_pagebtn { float: right; padding-right: 10px; }
+.head_pagebtn a { color: #999; cursor: pointer; }
+.head_pagebtn a:hover { color: #94193f; }
+.head_pagebtn ul { float: left; }
+.head_pagebtn ul li { float: left; color: #999; cursor: pointer; margin-left: 10px; }
+.sl_list { margin-top: 20px; }
+.sl_list_ul { }
+.sl_list_ul li { transition: box-shadow 0.7s ease 0s; border: 1px solid #e4e4e4; float: left; margin: 5px 9px 18px 0px; padding: 0 0 15px; width: 291px; height: 360px; position: relative; }
+.qgg_zz { height: 113px; left: 0; position: absolute; text-align: center; top: 89px; width: 100%; }
+.sl_list_ul li:hover { box-shadow: 0 0 5px #e5e5e5; border: 1px solid #fff; }
+
+.ttxs_jb { position: absolute; top: 0; left: 0; background: url(../images/ttxs_jb.png) no-repeat;width:80px;height:80px;z-index:9; }
+
+
+.sl_list_ul li.noborder { margin-right: 0; }
+.sl_goods_img { display: table-cell; height: 291px; overflow: hidden; text-align: center; width: 291px; vertical-align: middle; }
+.sl_goods_img img { width: 100%; }
+.sl_s_img { display: none; }
+.sl_s_img_ul { height: 42px; margin-top: 25px; overflow: hidden; width: 237px; }
+.sl_s_img_ul div { cursor: pointer; float: left; height: 40px; margin: 0 5px 0 0; overflow: hidden; padding: 0; width: 40px; border: 1px solid #e4e4e4; }
+.sl_s_img_ul div img { width: 40px; }
+.sl_s_img_ul .on { border: 1px solid #c41f3a; }
+.sl_price { margin-top: 5px; overflow: hidden; }
+.sl_price1 { color: #94193f; font-family: 华文细黑; font-size: 18px; }
+.sl_price1 span { font-family: arial; font-size: 20px; font-weight: bold; }
+.sl_price2 { color: #969696; padding-left: 10px; }
+.sl_title { font-family: 宋体;line-height: 1.4em; overflow: hidden; display: block; color: #434343; }
+.sl_title span { color: #94193f; }
+.sl_sc_pl { color: #999; margin-top: 14px; overflow: hidden; }
+.sl_sc_pl span { padding: 0 2px; }
+
+.sl_goods_info { padding: 0 15px; }
+
+/*为您推荐*/
+.detail_lists { width: 100%; overflow: hidden; }
+.d_h2 { width: 100%; margin-top: 40px; height: 25px; line-height: 25px; }
+.d_h2 ul { border-bottom: 2px solid #cccccc; width: 100%; height: 25px; }
+.d_h2 ul li { float: left; width: 120px; text-align: center; height: 25px; font-size: 14px; position: relative; cursor: pointer; }
+.d_h2 ul li .line { background: #fff none repeat scroll 0 0; border-right: 1px dotted #cccccc; position: absolute; right: 0; top: 7px; }
+.d_h2 ul .on { color: #93193e; border-bottom: 2px solid #93193e; font-size: 12px; }
+
+.hd ul { display: none; }
+.detail_l_con4 { border: 1px solid #eeeeee; overflow: hidden; position: relative; margin-top: 20px; }
+.d_l_con4_list { margin-left: 52px; width: 1120px; padding-top: 20px; height: 260px; overflow: hidden; }
+.d_l_con4_list ul { }
+.d_l_con4_list ul li { float: left; width: 205px; margin-right: 15px; }
+
+.a_con4_list { cursor: pointer; display: block; }
+.a_con4_list p { color: #434343; float: left; width: 100%; }
+.a_con4_list .p_img { width: 190px; height: 190px; overflow: hidden; float: left; }
+.a_con4_list p img { width: 100%; }
+.p_title { height: 20px; overflow: hidden; margin-top: 10px; }
+.p_price { height: 38px; line-height: 38px; }
+.price1 { font-family: "华文细黑"; font-size: 22px; color: #94193f; float: left; }
+.price1 span { color: #94193f; font-family: Arial; font-weight: bold; font-size: 24px; }
+.price2 { float: left; color: #969696; font-size: 14px; padding-left: 10px; }
+
+
+.hd .prev { position: absolute; top: 80px; left: 0; background-color: #d7d7d7; width: 32px; height: 42px; display: block; text-align: center; line-height: 42px; color: #595959; font-size: 24px; cursor: pointer; }
+.hd .next { position: absolute; top: 80px; right: 0; background-color: #d7d7d7; width: 32px; height: 42px; display: block; text-align: center; line-height: 42px; color: #595959; font-size: 24px; cursor: pointer; }
+.hd a:hover { text-decoration: none; background-color: #000; opacity: 0.8; color: #fff; }
+
+
+/*页码*/
+.page_list { width: 100%; overflow: hidden; margin-top: 20px; text-align: center; }
+.float_r { display: inline-block; *display: inline; *zoom: 1; }
+.a_btn { background-color: #fff; color: #fff; display: block; float: left; font-size: 18px; height: 40px; line-height: 40px; margin-left: 10px; text-align: center; width: 80px; }
+.a_p_num { color: #93193e; display: block; float: left; margin-left: 10px; }
+.page_list ul li { float: left; cursor: pointer; margin-left: 10px; }
+.page_list ul li span b { vertical-align: middle; background: url("../images/user_center/uc_icon_list.png") no-repeat scroll -271px -254px; color: #6d6d6d; display: inline-block; height: 40px; width: 8px; }
+.page_list ul li:hover span b { background-position: -293px -254px; }
+.page_list ul .next span b { margin-left: 3px; background: url("../images/user_center/uc_icon_list.png") no-repeat scroll -271px -282px; }
+
+.page_list ul .next:hover span b { background-position: -294px -282px; }
+
+
+.page_list ul li a span { border: 1px solid #ccc; color: #262626; height: 40px; line-height: 40px; text-align: center; width: 40px; }
+.page_list ul .a_p_num span { border: 1px solid #fff; color: #94193f; height: 42px; line-height: 42px; text-align: center; width: 40px; }
+.a_btn span, .page_list ul .a_btn a span { color: #000; display: block; font-family: 宋体; font-size: 13px; height: 40px; line-height: 40px; width: 80px; }
+.page_list ul .cur a span { border: 1px solid #fff; color: #a54e64; }
+
+.page_list ul li span { display: block; height: 40px; line-height: 40px; text-align: center; border: 1px solid #cccccc; }
+.a_more { float: left; line-height: 40px; width: 30px; text-align: center; }
+
+.page_list ul .un span { color: #787878; }
+
+.uc_t_l a:hover { text-decoration: underline; }
+
+.page_list ul li span:hover, .page_list ul li a:hover span { color: #94193f; border: 1px solid #94193f; }
+.page_list ul li .more, .page_list ul li .more:hover { border: 1px solid #fff; }

@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 专题样式 */
+.zt_jifeng_main{ width:1200px; margin:0 auto; text-align:left;}
+.zt_jifeng_main .m_left{ width:780px; float:left;}
+.zt_jifeng_main .m_left .biaoti{ border-bottom:1px solid #000; padding:5px 20px;}
+.zt_jifeng_main .m_left .liquan{ padding:10px 0 0 0;}
+.zt_jifeng_main .m_left .liquan img{ margin-left:9px;}
+.zt_jifeng_main .m_left .liquan img.none{ margin-left:0;}
+
+.zt_jifeng_main .m_left .lipin{ padding:10px 0 0 0;}
+.zt_jifeng_main .m_left .lipin dl{}
+.zt_jifeng_main .m_left .lipin dl dd{ background:url(../images/zhuanti/jifenduihuan/lipin_bg.jpg) 0 190px repeat-x; width:185px;  border:1px solid #d8d8d8; line-height:20px; float:left; margin-left:9px; margin-bottom:10px; padding-bottom:10px; height:350px; position:relative;}
+.zt_jifeng_main .m_left .lipin dl dd.none{ margin-left:0; }
+.zt_jifeng_main .m_left .lipin dl dd span.img{ display:block;}
+.zt_jifeng_main .m_left .lipin dl dd span img{ width:185px; height:193px;}
+.zt_jifeng_main .m_left .lipin dl dd p{ padding-left:10px;}
+.zt_jifeng_main .m_left .lipin dl dd span.col999{ color:#999;}
+.zt_jifeng_main .m_left .lipin dl dd span.col333{ color:#333;}
+.zt_jifeng_main .m_left .lipin dl dd span.colc00{ color:#cc0000; font-size:14px; font-weight:bold;}
+.zt_jifeng_main .m_left .lipin dl dd span.colf60{ color:#ff6600;}
+
+.wym_anniu{ position:absolute; bottom:13px; left:35px;}
+
+
+.zt_jifeng_main .m_right{ width:210px; float:left; margin-left:10px;}
+.zt_jifeng_main .m_right .jifenk .top{ background:url(../images/zhuanti/jifenduihuan/t-top.jpg) no-repeat; width:210px; height:9px; overflow:hidden;}
+.zt_jifeng_main .m_right .jifenk .jifen_bottom{ background:url(../images/zhuanti/jifenduihuan/t-bottom.jpg) no-repeat; width:210px; height:9px; overflow:hidden;}
+.zt_jifeng_main .m_right .jifenk .main{ border-left:1px solid #d8d8d8;  border-right:1px solid #d8d8d8; width:168px; text-align:center; padding:10px 20px;}
+.zt_jifeng_main .m_right .jifenk .main p.jifen{ background:url(../images/zhuanti/jifenduihuan/money.jpg) no-repeat; height:40px; line-height:40px; text-align:right;}
+.zt_jifeng_main .m_right .jifenk .main p span.colc50000{ color:#c50000;}
+.zt_jifeng_main .m_right .jifenk .main p span.col3f90ff{ color:#3f90ff;}
+.zt_jifeng_main .m_right .jifenk .main p a:hover{ text-decoration:underline;}
+
+.l_rexiao			{ width:210px; position:relative;}
+.l_rexiao .columns	{ background:url(../images/zhuanti/jifenduihuan/ggj.gif) no-repeat; height:26px; line-height:26px; padding:0 0 0 10px;}
+.l_rexiao .c_rx		{ padding:0 10px; border:1px solid #dbdbdb;}
+.l_rexiao .c_rx ul li{ border-bottom:1px solid #dbdbdb; margin:10px 0 -1px 0; height:70px;}
+.l_rexiao .c_rx ul li img{ float:left; width:58px; height:58px; margin:0 10px 0 0; border:1px solid #d8d8d8;}
+.l_rexiao .c_rx ul li i{ background-position:-2px -36px; display:block; font-style:normal; float:left; width:14px; height:14px; line-height:14px; text-align:center; color:#FFF;}
+.l_rexiao .c_rx ul li p{ float:left; width:80px; line-height:16px;}
+.l_rexiao .c_rx ul li small{ font-size:12px; display:block; height:20px; line-height:16px; overflow:hidden;}
+.l_rexiao .c_rx ul li em{ font-style:normal; display:block; margin:3px 0;}
+.l_rexiao .c_rx ul li b{ display:block; background-position:-3px -102px; width:16px; height:10px; display:inline-block; margin-right:5px;}
+.l_rexiao .c_rx ul li span.colf60{ color:#ff6600;}
+
+
+.l_paihang			{ width:210px; position:relative;}
+.l_paihang .columns	{ background:url(../images/zhuanti/jifenduihuan/ggj.gif) no-repeat; height:26px; line-height:26px; padding:0 0 0 10px;}
+.l_paihang .c_rx		{ padding:0 10px; padding-bottom:10px; border:1px solid #dbdbdb;}
+.l_paihang .c_rx ul li{ border-bottom:1px solid #dbdbdb; margin:10px 0 -1px 0; height:70px;}
+.l_paihang .c_rx ul li img{ float:left; width:58px; height:58px; margin:0 10px 0 0; border:1px solid #d8d8d8;}
+.l_paihang .c_rx ul li i{ background-position:-2px -36px; display:block; font-style:normal; float:left; width:14px; height:14px; line-height:14px; text-align:center; color:#FFF;}
+.l_paihang .c_rx ul li p{ float:left; width:80px; line-height:16px;}
+.l_paihang .c_rx ul li small{ font-size:12px; display:block; height:18px; line-height:16px; overflow:hidden;}
+.l_paihang .c_rx ul li em{ font-style:normal; display:block; margin:3px 0;}
+.l_paihang .c_rx ul li b{ display:block; background-position:-3px -102px; width:16px; height:10px; display:inline-block; margin-right:5px;}
+.l_paihang .c_rx ul li span.colf60{ color:#ff6600;}
+.l_paihang .c_rx ul li.xiaxian{ border-bottom:1px dotted #d8d8d8; height:24px;}
+.l_paihang .c_rx ul li span.num a{ display:block; background:#888786; width:16px; height:16px; float:left; color:#FFF; line-height:16px; text-align:center; margin-top:20px; margin-right:10px;}
+.l_paihang .c_rx ul li span.numhover a{ display:block; background:#d80100; width:16px; height:16px; float:left; color:#FFF; line-height:16px; text-align:center; text-decoration:none; margin-top:20px; margin-right:10px;}
+
+.l_paihang .c_rx ul li span.num1 a{ display:block; background:#888786; width:16px; height:16px; float:left; color:#FFF; line-height:16px; text-align:center; margin-right:10px;}
+.l_paihang .c_rx ul li span.numhover1 a{ display:block; background:#d80100; width:16px; height:16px; float:left; color:#FFF; line-height:16px; text-align:center; text-decoration:none;margin-right:10px;}

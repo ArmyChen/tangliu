@@ -1,0 +1,105 @@
+10:42:53 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wTKx-LPWLF70Vr-fHmlEgtE]]></FromUserName>
+<CreateTime>1472784169</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></EventKey>
+<MenuId>795614552</MenuId>
+</xml>
+10:42:53 T <xml>
+<ToUserName><![CDATA[oW5b6wTKx-LPWLF70Vr-fHmlEgtE]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1472784173</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></Content>
+</xml>
+10:42:56 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wTKx-LPWLF70Vr-fHmlEgtE]]></FromUserName>
+<CreateTime>1472784172</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://link.xinyijiapin.com/wechat/oauth/wxch_oauth.php?oid=13]]></EventKey>
+<MenuId>795614552</MenuId>
+</xml>
+10:42:56 T <xml>
+<ToUserName><![CDATA[oW5b6wTKx-LPWLF70Vr-fHmlEgtE]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1472784176</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://link.xinyijiapin.com/wechat/oauth/wxch_oauth.php?oid=13]]></Content>
+</xml>
+10:42:59 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wTKx-LPWLF70Vr-fHmlEgtE]]></FromUserName>
+<CreateTime>1472784175</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://link.xinyijiapin.com/wechat/oauth/wxch_oauth.php?oid=14]]></EventKey>
+<MenuId>795614552</MenuId>
+</xml>
+10:42:59 T <xml>
+<ToUserName><![CDATA[oW5b6wTKx-LPWLF70Vr-fHmlEgtE]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1472784179</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://link.xinyijiapin.com/wechat/oauth/wxch_oauth.php?oid=14]]></Content>
+</xml>
+10:43:06 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wTKx-LPWLF70Vr-fHmlEgtE]]></FromUserName>
+<CreateTime>1472784182</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=16]]></EventKey>
+<MenuId>795614552</MenuId>
+</xml>
+10:43:06 T <xml>
+<ToUserName><![CDATA[oW5b6wTKx-LPWLF70Vr-fHmlEgtE]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1472784186</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=16]]></Content>
+</xml>
+10:43:45 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></FromUserName>
+<CreateTime>1472784221</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></EventKey>
+<MenuId>795614552</MenuId>
+</xml>
+10:43:45 T <xml>
+<ToUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1472784225</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></Content>
+</xml>
+10:45:26 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></FromUserName>
+<CreateTime>1472784322</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></EventKey>
+<MenuId>795614552</MenuId>
+</xml>
+10:45:26 T <xml>
+<ToUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1472784326</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></Content>
+</xml>
+10:46:52 R <xml><ToUserName><![CDATA[gh_e71aeb1e0bb4]]></ToUserName>
+<FromUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></FromUserName>
+<CreateTime>1472784409</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></EventKey>
+<MenuId>795614552</MenuId>
+</xml>
+10:46:52 T <xml>
+<ToUserName><![CDATA[oW5b6wZXZSAXaP6yRT8fHCjjvgKw]]></ToUserName>
+<FromUserName><![CDATA[gh_e71aeb1e0bb4]]></FromUserName>
+<CreateTime>1472784412</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[跳转链接 http://www.7wg.com/wechat/oauth/wxch_oauth.php?oid=1]]></Content>
+</xml>

@@ -1,0 +1,75 @@
+@charset "gb2312";
+/* CSS Document */
+
+/*搜索联想下拉框*/
+#search_suggest
+{
+  position:absolute;
+	background:#ffffff;
+  text-align:left;
+	border:2px solid #d90000;
+	width:416px;
+	top:79px;
+
+	z-index:100001;
+	padding:5px 0px 5px 0px;
+	margin: 0px;
+	clear:left;
+}
+#search_suggest ol{
+margin:0;
+padding:0;	
+display:block;
+}
+
+#search_suggest ol li{
+margin:0;
+clear:both;
+overflow:hidden;
+padding:0 5px;
+width:407px;
+display:list-item;
+height:23px;
+font: 12px/23px Arial,Verdana,"\5b8b\4f53";
+color: #666;
+
+}
+
+#search_suggest li.selected {
+background-color:#f00;
+color:white;
+cursor:default;
+}
+
+#search_suggest li.selected span {
+color:white;
+cursor:default;
+}
+
+#search_suggest li.selected span {
+color:white;
+cursor:pointer;
+}
+
+
+
+#search_suggest li {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+display:list-item;
+}
+
+
+.suggest-key {
+float:left;
+padding-left:5px;
+text-align:left;
+}
+
+.suggest-result{
+color:green;
+float:right;
+padding-right:5px;
+text-align:right;
+}

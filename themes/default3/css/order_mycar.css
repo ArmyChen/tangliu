@@ -1,0 +1,118 @@
+﻿
+@charset "utf-8";
+
+body { background-color: #fff; }
+
+
+.order_Status { background: url(../images/order_icon_list.png) no-repeat 0 0; height: 42px; margin-top: 40px; width: 415px; }
+
+.os_mycar { background-position: 0 0; }
+
+.order_status { border-bottom: 2px solid #e6e6e5; }
+.order_tips { color: #666; float: right; font-size: 12px; height: 24px; line-height: 24px; overflow: hidden; padding: 0 10px 0 0; }
+.order_tips i { background: url("../images/order_icon_list.png") no-repeat scroll -348px -674px; display: inline-block; height: 22px; vertical-align: top; width: 76px; margin-top: 1px; }
+.order_shop { }
+.shop_tit {margin-top:20px; border: 1px solid #dadada; background-color: #efefef; font-family: "宋体"; height: 35px; line-height: 35px; overflow: hidden; width: 100%; }
+.cart_checkbox { float: left; padding-left: 12px; width: 780px; }
+.cb_s_all { }
+.cart_checkbox span { color: #000; display: inline-block; font-family: "宋体"; font-size: 12px; line-height: 35px; padding-left: 4px; }
+.cart_checkbox .shop_s_name { padding-left: 100px; }
+.column { float: left; font-family: 宋体; text-align: center; }
+.t_price { width: 115px; text-align: left; }
+.t_quantity { width: 115px; }
+.t_sum { width: 115px; }
+.t_action { width: 65px; }
+.item_list {float:left; border-left: 1px solid #fdf4f7; border-right: 1px solid #fdf4f7; _float: left; _width: 1198px; }
+.item_form { border-bottom: 1px solid #fdf4f7; float:left; _float: left; width: 100%; }
+.cell { float: left; padding: 25px 0 15px; }
+.p_checkbox { padding-top: 40px; text-align: center; width: 40px; }
+.cb_s_goods { display: inline-block; vertical-align: middle; }
+.p_goods { width: 749px; }
+.goods_item { }
+.p_img { float: left; width: 62px; position: relative; height: 62px;}
+.item_msg { float: left; margin-left: 12px; width:600px;}
+.p_name { width: 100%;float:left;margin-bottom:5px; }
+.p_name a span { color: #93193e; }
+.p_name a { color: #585858; font-family: 宋体; }
+.p_prices { width: 105px; padding-left: 10px; }
+.p_prices1 { line-height: 0.9em; }
+.p_prices1 del { color: #969696; }
+.p_prices2 { line-height: 0.9em; }
+.p_quantity { padding-left: 13px; width: 100px; }
+.quantity_form { }
+.a_decrease { background-color: #f0f0f0; border-bottom: 1px solid #e5e5e4; border-left: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5; color: #000000; display: block; float: left; font-size: 20px; height: 23px; line-height: 21px; text-align: center; width: 21px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; }
+.itxt { background-color: #fff; border: 1px solid #e5e5e4; float: left; height: 23px; line-height: 23px; text-align: center; width: 40px; }
+.a_add { background-color: #f0f0f0; border-bottom: 1px solid #e5e5e4; border-right: 1px solid #e5e5e4; border-top: 1px solid #e5e5e4; color: #000; display: block; float: left; font-size: 16px; height: 23px; line-height: 23px; text-align: center; width: 21px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
+.p_sum { width: 115px; text-align: center; }
+.p_sum strong { color: #93193e; font-weight: normal; }
+.p_ops { width: 64px; text-align: center; _width: 60px; }
+.car_remove { display: inline-block; *display: inline; *zoom: 1; width: 20px; height: 20px; background: url("../images/order_icon_list.png") no-repeat scroll 0 -358px; }
+
+.shop_h2 { padding-top: 19px; border-bottom: 2px solid #b2b2b2; height: 26px; padding-left: 20px;width:1180px;float:left; }
+.shop_h2_zy { background-color: #e60012; padding: 2px 5px; border-radius: 5px; float: left; }
+.shop_h2_zy a, .shop_h2_zy a:link, .shop_h2_zy a:visited { color: #fff; text-decoration: none; }
+.shop_list { margin-bottom: 20px;float:left; }
+
+.order_sum { background-color: #fdf4f7; overflow: hidden; padding: 18px 0; }
+.del_all { float: left; height: 45px; line-height: 45px; padding-left: 14px; }
+.del_all span { display:inline-block;*display:inline;*zoom:1;vertical-align:middle;}
+.a_del_all { color: #000; float: left; height: 45px; line-height: 45px; padding-left: 20px; width: 560px;display:block;}
+.goods_num { float: left; height: 45px; line-height: 45px; width: 99px; }
+.goods_p { color: #6b6b6b; float: left; padding-right: 20px; text-align: right; width: 124px; line-height: 22px; }
+.goods_num span em { font-family: Arial; font-size: 18px; color: #94193f; }
+.goods_sum { color: #6b6b6b; float: left; width: 137px; }
+.btn_buy { float: left; }
+.a_btn_buy { background-color: #94193f; color: #fff; display: block; font-size: 20px; height: 45px; line-height: 45px; text-align: center; width: 143px; }
+.a_btn_buy:hover { color:#fff;background-color:#a82045;}
+.sum_price { color: #93193e; font-size: 14px; }
+.sum_price span em { font-family: Arial; font-size: 24px; color: #93193e; font-weight: bold; }
+.sum_price .p_yuan { font-size: 12px; }
+
+
+.item_qgg { background-color: #fdf4f7; }
+.qgg_zz { position: absolute; top: 11px; left: 11px; width: 39px; height: 39px; background: url(../images/order_icon_list.png) no-repeat -67px -319px; }
+
+.h81 { height: 81px; width: 100%; overflow: hidden; }
+.bgfixed { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 20; }
+
+/*赠品*/
+.zengping_dd { margin-bottom:3px;width:100%;text-align:left;float:left;}
+.zengping_dd div { display:inline-block;*display:inline;*zoom:1;margin-left:5px;height:22px;line-height:22px;}
+.discount_info {margin-top:5px; }
+.depreciate_box, .present_box {position: relative;  float:left; }
+.discount_info span  {cursor:pointer; float:left;margin-right:10px; width: 22px; height: 22px; background-color: #93193e; text-align:center;line-height:22px;display:block;font-family:"宋体";color:#fff;}
+
+.discount_box {text-align:center; position:absolute;top:20px;left:0;z-index:99;width:140px;padding-top:8px;}
+.discount_box b { display:block;width:10px;height:10px;position:absolute;top:3px;left:16px; background:url("../images/order_icon_list.png") no-repeat scroll -5px -692px}
+.discount_box ul { padding:8px 0 8px 5px;overflow:hidden;}
+.discount_box ul li { float:left;width:32px;height:42px;border:1px solid #eaeaea;border-radius:2px;margin-right:5px;margin-bottom:5px;}
+.discount_box ul li img { width:100%;}
+
+.discount_box div {overflow:hidden; border:1px solid #dbdbdb;background-color:#fff;border-radius:5px;padding: 5px;color:#666666;float:left;}
+/*为您推荐*/
+
+.d_h2 { width: 100%; margin-top: 40px; height: 25px; line-height: 25px; }
+.d_h2 ul { border-bottom: 2px solid #cccccc; width: 100%; height: 25px; }
+.d_h2 ul li { float: left; width: 120px; text-align: center; height: 25px; font-size: 14px; position: relative; cursor: pointer; }
+.d_h2 ul li .line { background: #fff none repeat scroll 0 0; border-right: 1px dotted #cccccc; position: absolute; right: 0; top: 7px; }
+.d_h2 ul .on { color: #93193e; border-bottom: 2px solid #93193e; font-size: 12px; }
+
+.hd ul { display: none; }
+.detail_l_con4 { border: 1px solid #eeeeee; overflow: hidden; position: relative; margin-top: 20px; }
+.d_l_con4_list { margin-left: 47px; width: 1120px; padding-top: 20px; height: 260px; overflow: hidden; }
+.d_l_con4_list ul { }
+.d_l_con4_list ul li { float: left; width: 205px; margin-right: 15px;}
+.a_con4_list { cursor: pointer; display: block; }
+.a_con4_list p { color: #434343; float: left; width: 100%; }
+.a_con4_list .p_img { width: 190px; height: 190px; overflow: hidden; float: left; }
+.a_con4_list p img { width: 100%; }
+.p_title { height: 20px; overflow: hidden;margin-top:10px; }
+.p_price { height: 38px; line-height: 38px; }
+.price1 { font-family: "华文细黑"; font-size: 22px; color: #94193f; float: left; }
+.price1 span { color: #94193f; font-family: Arial; font-weight: bold; font-size: 24px; }
+.price2 { float: left; color: #969696; font-size: 14px; padding-left: 10px; }
+
+
+.hd .prev { user-select: none; -webkit-user-select: none; -moz-user-select: none; position: absolute; top: 80px; left: 0; background-color: #d7d7d7; width: 32px; height: 42px; display: block; text-align: center; line-height: 42px; color: #595959; font-size: 24px; cursor: pointer; }
+.hd .next { user-select: none; -webkit-user-select: none; -moz-user-select: none; position: absolute; top: 80px; right: 0; background-color: #d7d7d7; width: 32px; height: 42px; display: block; text-align: center; line-height: 42px; color: #595959; font-size: 24px; cursor: pointer; }
+.hd a:hover { text-decoration: none; background-color:#000;opacity:0.8;color:#fff;}

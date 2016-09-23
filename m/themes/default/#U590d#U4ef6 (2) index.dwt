@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html style="font-size: 20px;"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>{if $name neq ''}{$name}{else}{$page_title}{/if}</title>
+<meta name="Keywords" content="{$Keywords}">
+<meta name="Description" content="{$Description}">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" href="favicon.ico">
+<link href="{$ectouch_themes}/style/public.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.jhdown { width:32rem; margin:0 auto; position:relative;}
+.jhdown img { width:100%;}
+.jhdown .jhdownbtm { display:block; position:absolute; bottom:20%; right:18%; width:25%;}
+.jhxx { display:block; position:absolute; top:0; right:0; z-index:999; width:10%; height:100%; }
+/*不同头部不可移动*/
+a {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+}
+
+.header>img { height:4rem; width:100%;}
+.header a  {background:url({$ectouch_themes}/images/indextopleft02.png) no-repeat 0 0; background-size:contain;}
+.header .right { background:url(http://static.chunshuitang.com/img/mob/chunSearch02.png) no-repeat center; background-size:contain;}
+.header .search { display:none; position:absolute; padding-left:5%;  width:95%; height:4rem; z-index:2; background:url(http://static.chunshuitang.com/img/mob/allwaplist.jpg) no-repeat center; background-size:contain;  }
+.header .search input.text { padding-left:1rem; margin-top:0.35rem; width:19rem; height:3.3rem; font-size:1.2rem; color:#aaa; vertical-align:bottom;}
+.header .search input.submit { width:4.4rem; height:3.3rem; background:url(http://static.chunshuitang.com/img/mob/indexheadtopinput.png) no-repeat center; background-size:contain;vertical-align:bottom;}
+.header .headerClose { right:0; background:url(http://static.chunshuitang.com/img/mob/chunclsed.png) no-repeat 0 0;   background-size:contain;}
+.header h2 { line-height:4rem; }
+
+.navHeight { height:7.3rem; }
+.navWrapHide { width:32rem; position:fixed; top:0; z-index:10;}
+.nav { height:3.2rem; background:white; border-bottom:0.1rem #c7c7c7 solid;  }
+.nav li { width:6.9rem; margin:0 1.7rem; height:3.1rem;font-size:1.3rem; line-height:3.1rem; text-align:center; color:#333; }
+.nav .navShang { margin-left:2rem;}
+.nav li a { display:block;}
+.nav .current { color:#fd19af;}
+.nav li hr { width:6.9rem; border:none; border-top:0.2rem #fd19af solid; }
+/*特卖头部专用样式*/
+
+/*轮播图尺寸*/
+#slider {
+    margin: 0;
+    width: 32rem;
+    height: 10rem;
+}
+.swipe #position { width:32rem; position:absolute; bottom:1.3rem; text-align:center;}
+.swipe #position { bottom:0.2rem; }
+.swipe #position ol { padding:0.1rem; }
+.swipe #position li {
+    margin: 0px 0.2rem;
+    padding: 0.2rem;
+    border: 0.1rem solid rgb(255, 255, 255);
+}
+
+.navHeight { height:8rem; }
+.navWrap { position:relative; width:32rem; height:3.6rem; overflow:hidden;}
+.navWrapHide {  position:fixed; top:0; z-index:10;}
+.navWrap .nav { position:absolute; left:0; top:0; width:70rem; height:3.5rem; background:white; border-bottom:0.1rem #c7c7c7 solid;  }
+.navWrap .gengDuo,.navWrap .shouHui  { position:absolute; display:block; right:0; top:0; width:2rem; height:3.3rem; line-height:3.3rem; font-size:2rem; color:#888; z-index:1; cursor:pointer;}
+.navWrap .shouHui { right:30rem;}
+.navWrap .shouHui { display:none;}
+.navWrap .nav li { float:left; width:7rem; height:3.3rem;font-size:1.3rem; line-height:3.3rem; text-align:center; color:#333; }
+.navWrap .nav li a { display:block;}
+.navWrap .nav .current { color:#fd19af;}
+.navWrap .nav li hr { width:7rem; border:none; border-top:0.2rem #fd19af solid; }
+/*特卖头部专用样式*/
+
+#shangXin,#meiRiBiKan,#xiaXian,#nvShen { padding:0 0.5rem;}
+#shangXin h3,#meiRiBiKan h3,#xiaXian h3,#nvShen h3 { padding:1.8rem 0 1.7rem 2rem; background:url(http://static.chunshuitang.com/img/mob/wap_qiang_01.png) no-repeat 0.5rem 1rem; background-size:2.3rem; font-weight:normal; font-size:1.5rem; line-height:1.5rem; color:#333; }
+#shangXin h3{ padding-top:2.3rem; background-position:0.5rem 1.3rem;}
+#meiRiBiKan h3 { background-image:url(http://static.chunshuitang.com/img/mob/wap_qiang_02.png);}
+#xiaXian h3 { background-image:url(http://static.chunshuitang.com/img/mob/wap_qiang_03.png);}
+#nvShen h3 { background-image:url(http://static.chunshuitang.com/img/mob/wap_qiang_04.png);}
+
+#shangXin h3 span,#meiRiBiKan h3 span,#xiaXian h3 span,#nvShen h3 span { display:inline-block; width:12rem; height:1.5rem; line-height:1.4rem; background:#fd19af; font-size:1.1rem; color:white; text-align:center; border-radius:0.2rem; }
+#nvShen h3 span{ width:16rem;}
+#shangXin a dt { width:31rem; height:13rem; overflow:hidden; }
+#shangXin a { position:relative; display:block; margin-bottom:0.5rem; height:19.5rem; background:white; border-bottom-left-radius:0.2rem; border-bottom-right-radius:0.2rem; overflow:hidden; }
+
+#shangXin dd { width:28.8rem; height:6.4rem; padding:0 1rem; border:0.1rem #E6E6E6 solid; border-bottom-left-radius:0.2rem; border-bottom-right-radius:0.2rem; border-top:none; }
+#shangXin dd img { width:31rem; height:13rem; }
+#shangXin h4{ padding:0.7rem 0 1rem; font-size:1.3rem; height:1.7rem; font-weight:normal; overflow:hidden; line-height:1.7rem; word-break:keep-all; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+#shangXin .teTime { position:absolute; left:0; top:10.7rem; width:28.5rem; padding-left:2.5rem; height:2.3rem; background:url(http://static.chunshuitang.com/img/mob/wap_daojishi_bg.png) no-repeat 0 -0.3rem; background-size:31rem; line-height:2.2rem; color:white; }
+#shangXin .liJi { position:absolute; width:8rem; height:2.5rem; right:1rem; bottom:0.8rem; font-size:14px; text-align:center; color:white; background:#fd19af; border-radius:0.2rem; }
+#shangXin .yuan{ padding-right:1rem; font-size:1.5rem; color:#fd19af; }
+#shangXin .old { padding-right:3rem; font-size:1.1rem; color:#999;}
+#shangXin .ren { font-size:1.1rem; color:#999;}
+#shangXin .teMaiTime .current .liJi{ background:#999; }
+
+#meiRiBiKan li { position:relative; float:left; margin-bottom:0.5rem; width:15.1rem; height:21.5rem; background:white; border:0.1rem #e5e5e5 solid; border-bottom-left-radius:0.2rem; border-bottom-right-radius:0.2rem; overflow:hidden; }
+#meiRiBiKan li a{ display:block;}
+#meiRiBiKan dd { padding:0.5rem; font-size:1.1rem; border-top:0.1rem white solid; color:#9c9c9c; }
+#meiRiBiKan dd h4{ height:1.7rem; margin-bottom:0.2rem; font-size:1.3rem; color:#333; font-weight:normal; line-height:1.7rem; word-break:keep-all; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#meiRiBiKan dt img { width:15.1rem; height:15.1rem;}
+#meiRiBiKan dd .yuan { font-size:1.4rem; color:#fd19af; }
+#meiRiBiKan .teTime { position:absolute; top:12.7rem; left:0; width:12.6rem; padding-left:2.5rem; height:2.3rem; background:url(http://static.chunshuitang.com/img/mob/wap_meiri_bg.png) no-repeat 0 -0.3rem; background-size:15.1rem; font-size:1.2rem; color:white; line-height:2.2rem; }
+#meiRiBiKan .guang { position:absolute; top:0; left:0;}
+
+#xiaXian li { position:relative; float:left; margin-bottom:0.5rem; width:15.1rem; height:22.3rem; background:white; border:0.1rem #e5e5e5 solid; border-bottom-left-radius:0.2rem; border-bottom-right-radius:0.2rem; overflow:hidden; }
+#xiaXian li a{ display:block;}
+#xiaXian dd { padding:0.5rem; font-size:1.1rem; border-top:0.1rem white solid; color:#9c9c9c; }
+#xiaXian dd h4{ height:1.7rem; margin-bottom:0.2rem; font-size:1.3rem; color:#333; font-weight:normal; line-height:1.7rem; word-break:keep-all; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#xiaXian dt img { width:15.1rem; height:15.1rem;}
+#xiaXian dd .yuan { font-size:1.4rem; color:#fd19af; }
+#xiaXian .teTime { position:absolute; top:12.8rem; left:0; width:12.6rem; padding-left:2.5rem; height:2.3rem; background:url(http://static.chunshuitang.com/img/mob/wap_meiri_bg.png) no-repeat 0 -0.3rem; background-size:15.1rem; font-size:1.2rem; color:white; line-height:2.2rem; }
+#xiaXian .guang { position:absolute; top:0; left:0;}
+
+#nvShen .bottom { display:block; position:relative; width:31rem; height:15rem; margin-bottom:0.5rem; }
+#nvShen .bottom img{ width:31rem; height:15rem; }
+#nvShen .bottom h4 { position:absolute; width:31rem; height:2.3rem; bottom:0; left:0; background:url(http://static.chunshuitang.com/img/mob/wap_last_bg.png); text-indent:0.5rem; color:white; line-height:2.3rem; font-weight:normal;word-break:keep-all; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } 
+
+
+.footer .icp{ line-height:2rem; padding-bottom:1rem;}
+@media only screen and (min-width: 480px){#shangXin .liJi{ font-size:16px;}}
+@media only screen and (min-width: 640px){#shangXin .liJi{ font-size:24px;}}
+
+
+</style>
+
+</head>
+<body style="padding: 0px; margin: 0px auto;">
+<div id="wrap">
+    <div class="jhdown">
+        <img original="{$ectouch_themes}/images/jhdownbg1.png" src="{$ectouch_themes}/images/jhdownbg1.png">
+        <a href="/" class="jhdownbtm"><img original="{$ectouch_themes}/images/jhdown.png" src="{$ectouch_themes}/images/jhdown.png"></a>
+        <a class="jhxx"></a>
+    </div>
+
+<div class="navHeight">	
+    <div class="navHeightWap">	
+        <div class="header">
+            <div class="search">
+              <form method="post" action="search.php" name="searchForm" id="searchForm_id">
+                    <input  placeholder="请输入商品名称" name="keywords" class="text"   type="text"><input class="submit" value="" type="submit">
+                </form>
+                <a class="headerClose"></a>
+            </div>
+            <img original="{$ectouch_themes}/images/allwaplist.jpg" src="{$ectouch_themes}/images/allwaplist.jpg">
+            <h2>{$shop_name}</h2>
+            <a href="../user.php" class="indexNavOpen"></a>
+            <a class="right headerOpen"></a>
+        </div>
+
+        <ul class="nav clearfix" id="nav">
+            <li class="fL current"> <a href="/">限时抢购</a><hr></li>
+            <li class="fL navShang"><a href="http://wap.chunshuitang.com/cates">情趣商城</a></li>
+            <li class="fR"><a href="http://wap.chunshuitang.com/qqyjy">春学院</a></li>
+        </ul>
+
+    </div>
+</div>
+
+<div id="wapTeMai">
+    <!--fouce start-->
+    <div style="visibility: visible;" id="slider" class="swipe">
+        <ul style="width: 1920px;" class="clearfix swipe-wrap">
+		             <li data-index="0" style="width: 640px; left: 0px; transition-duration: 300ms; transform: translateX(-640px);"><a href="http://wap.chunshuitang.com/topic/qqdbz3" target="_blank"><img original="http://image.chunshuitang.com/index/5e8bba7a11.jpg" src="index_files/5e8bba7a11.jpg" alt="4月情趣特卖 第三弹" title="4月情趣特卖 第三弹"></a></li>
+                     <li data-index="1" style="width: 640px; left: -640px; transition-duration: 300ms; transform: translateX(-640px);"><a href="http://wap.chunshuitang.com/goods/3646.html" target="_blank"><img original="http://image.chunshuitang.com/index/c174729050.jpg" src="index_files/c174729050.jpg" alt="男士倍挺凝胶" title="男士倍挺凝胶"></a></li>
+                     <li data-index="2" style="width: 640px; left: -1280px; transition-duration: 300ms; transform: translateX(0px);"><a href="" target="_blank"><img original="http://image.chunshuitang.com/index/78b3df77d1.jpg" src="index_files/78b3df77d1.jpg" alt="春水堂 B轮融资" title="春水堂 B轮融资"></a></li>
+                 </ul>
+<!--        <div  id="position">
+            <ol class="clearfix">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+-->    </div>
+    <!--fouce end-->    
+</div>
+
+ 
+<div id="shangXin">
+
+    <h3>今日上新&nbsp;<span>每天20点 新品特卖</span></h3>
+	     
+    <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3763.html">
+        <dl class="listBox ">
+            <dt><img original="http://image.chunshuitang.com/temai/98e3becf7c.jpg" src="index_files/98e3becf7c.jpg"></dt>
+            <dd>
+                    <h4>强震子弹头单频跳蛋 格林宝贝</h4>
+                    <div class="price"><span class="yuan">¥9.00</span><del class="old">¥39.00</del><span class="ren">484人购买</span></div>
+                    <input class="teMaiChe liJi" value="加入购物车" type="button">
+                    <div value="1430136000" class="teTime spickTime">4天07小时54分14秒</div>
+            </dd>
+        </dl>
+    </a>
+	 
+    <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3013.html">
+        <dl class="listBox ">
+            <dt><img style="display: block;" original="http://image.chunshuitang.com/temai/a792dc590b.jpg" src="index_files/a792dc590b.jpg"></dt>
+            <dd>
+                    <h4>10频G点兔子少女震动棒</h4>
+                    <div class="price"><span class="yuan">¥49.00</span><del class="old">¥94.80</del><span class="ren">748人购买</span></div>
+                    <input class="teMaiChe liJi" value="加入购物车" type="button">
+                    <div value="1430136000" class="teTime spickTime">4天07小时54分14秒</div>
+            </dd>
+        </dl>
+    </a>
+	 
+    <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/1328.html">
+        <dl class="listBox ">
+            <dt><img style="display: block;" original="http://image.chunshuitang.com/temai/ed61de03f9.jpg" src="index_files/ed61de03f9.jpg"></dt>
+            <dd>
+                    <h4>德国EROS伊露丝101延时喷雾液30ml</h4>
+                    <div class="price"><span class="yuan">¥89.00</span><del class="old">¥215.00</del><span class="ren">418人购买</span></div>
+                    <input class="teMaiChe liJi" value="加入购物车" type="button">
+                    <div value="1430136000" class="teTime spickTime">4天07小时54分14秒</div>
+            </dd>
+        </dl>
+    </a>
+	 
+    <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3038.html">
+        <dl class="listBox ">
+            <dt><img style="display: block;" original="http://image.chunshuitang.com/temai/2bc2677636.jpg" src="index_files/2bc2677636.jpg"></dt>
+            <dd>
+                    <h4>终结者Ⅱ仿真阳具</h4>
+                    <div class="price"><span class="yuan">¥139.00</span><del class="old">¥239.80</del><span class="ren">448人购买</span></div>
+                    <input class="teMaiChe liJi" value="加入购物车" type="button">
+                    <div value="1430136000" class="teTime spickTime">4天07小时54分14秒</div>
+            </dd>
+        </dl>
+    </a>
+	 
+    <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/1100.html">
+        <dl class="listBox ">
+            <dt><img style="display: block;" original="http://image.chunshuitang.com/temai/f00e5ae08f.jpg" src="index_files/f00e5ae08f.jpg"></dt>
+            <dd>
+                    <h4>塞米G点震动棒</h4>
+                    <div class="price"><span class="yuan">¥399.00</span><del class="old">¥569.00</del><span class="ren">385人购买</span></div>
+                    <input class="teMaiChe liJi" value="加入购物车" type="button">
+                    <div value="1430136000" class="teTime spickTime">4天07小时54分14秒</div>
+            </dd>
+        </dl>
+    </a>
+	 
+    <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3264.html">
+        <dl class="listBox ">
+            <dt><img style="display: block;" original="http://image.chunshuitang.com/temai/5590176a46.jpg" src="index_files/5590176a46.jpg"></dt>
+            <dd>
+                    <h4>波多野结衣 震动滚珠大名器</h4>
+                    <div class="price"><span class="yuan">¥399.00</span><del class="old">¥599.00</del><span class="ren">319人购买</span></div>
+                    <input class="teMaiChe liJi" value="加入购物车" type="button">
+                    <div value="1430136000" class="teTime spickTime">4天07小时54分14秒</div>
+            </dd>
+        </dl>
+    </a>
+	 
+    <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/254.html">
+        <dl class="listBox ">
+            <dt><img style="display: block;" original="http://image.chunshuitang.com/temai/7c59ae2ad2.jpg" src="index_files/7c59ae2ad2.jpg"></dt>
+            <dd>
+                    <h4>沙漠风暴口爱震动器FunFactory</h4>
+                    <div class="price"><span class="yuan">¥769.00</span><del class="old">¥1020.00</del><span class="ren">234人购买</span></div>
+                    <input class="teMaiChe liJi" value="加入购物车" type="button">
+                    <div value="1430136000" class="teTime spickTime">4天07小时54分14秒</div>
+            </dd>
+        </dl>
+    </a>
+	 
+    <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/1176.html">
+        <dl class="listBox ">
+            <dt><img style="display: block;" original="http://image.chunshuitang.com/temai/3a28e1e1b2.jpg" src="index_files/3a28e1e1b2.jpg"></dt>
+            <dd>
+                    <h4>激情魔球 乐透LECO</h4>
+                    <div class="price"><span class="yuan">¥1999.00</span><del class="old">¥2976.00</del><span class="ren">156人购买</span></div>
+                    <input class="teMaiChe liJi" value="加入购物车" type="button">
+                    <div value="1430136000" class="teTime spickTime">4天07小时54分14秒</div>
+            </dd>
+        </dl>
+    </a>
+	
+	
+</div>
+<div id="meiRiBiKan">
+    <h3>每日必看&nbsp;<span>多款爆款 特卖中</span></h3>
+    <ul class="clearfix">
+	
+	 
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3507.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/603603.jpg_waptmx" src="index_files/603603.jpeg"></dt>
+                    <dd>
+                        <h4>日本NPG首款素人风俗娘爱液之涩谷人体润滑液120ml</h4>
+                        <div class="price"><span class="yuan">¥9.00&nbsp;</span><del class="old">¥26.40</del><br><span class="ren">1156人购买</span></div>
+                        <div value="1430049600" class="teTime noTime spickTime">3天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3408.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/304730.jpg_waptmx" src="index_files/304730.jpeg"></dt>
+                    <dd>
+                        <h4>夜之魅惑精美睡裙</h4>
+                        <div class="price"><span class="yuan">¥19.00&nbsp;</span><del class="old">¥88.00</del><br><span class="ren">662人购买</span></div>
+                        <div value="1430049600" class="teTime noTime spickTime">3天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3197.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/810981.jpg_waptmx" src="index_files/810981.jpeg"></dt>
+                    <dd>
+                        <h4>渴欲少女震动自慰器 意大利lovemoment</h4>
+                        <div class="price"><span class="yuan">¥69.00&nbsp;</span><del class="old">¥141.00</del><br><span class="ren">402人购买</span></div>
+                        <div value="1430049600" class="teTime noTime spickTime">3天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3210.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/101520.jpg_waptmx" src="index_files/101520.jpeg"></dt>
+                    <dd>
+                        <h4>维她 震动棒</h4>
+                        <div class="price"><span class="yuan">¥199.00&nbsp;</span><del class="old">¥599.00</del><br><span class="ren">250人购买</span></div>
+                        <div value="1430049600" class="teTime noTime spickTime">3天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/1139.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/201501.jpg_waptmx" src="index_files/201501.jpeg"></dt>
+                    <dd>
+                        <h4>粉红日本按摩棒 日本荧屏经典</h4>
+                        <div class="price"><span class="yuan">¥159.00&nbsp;</span><del class="old">¥289.00</del><br><span class="ren">348人购买</span></div>
+                        <div value="1430049600" class="teTime noTime spickTime">3天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/2068.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/601591.jpg_waptmx" src="index_files/601591.jpeg"></dt>
+                    <dd>
+                        <h4>名器の证明3 大塚咲名器 NPG</h4>
+                        <div class="price"><span class="yuan">¥389.00&nbsp;</span><del class="old">¥599.00</del><br><span class="ren">190人购买</span></div>
+                        <div value="1430049600" class="teTime noTime spickTime">3天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3250.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/107517.jpg_waptmx" src="index_files/107517.jpeg"></dt>
+                    <dd>
+                        <h4>神鬼战士左鹰活塞震动棒</h4>
+                        <div class="price"><span class="yuan">¥1299.00&nbsp;</span><del class="old">¥1932.00</del><br><span class="ren">244人购买</span></div>
+                        <div value="1430049600" class="teTime noTime spickTime">3天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3654.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/405060.jpg_waptmx" src="index_files/405060.jpeg"></dt>
+                    <dd>
+                        <h4>女性快感增强凝露  春水堂</h4>
+                        <div class="price"><span class="yuan">¥89.00&nbsp;</span><del class="old">¥169.00</del><br><span class="ren">426人购买</span></div>
+                        <div value="1430049600" class="teTime noTime spickTime">3天07小时54分14秒</div>
+                        <img style="display: block;" original="http://static.chunshuitang.com/img/mob/wap_xian_guang.png" class="guang" src="index_files/wap_xian_guang.png">    
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3749.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/102602.jpg_waptmx" src="index_files/102602.jpeg"></dt>
+                    <dd>
+                        <h4>金玉米凸点快感抽插震动棒 格林宝贝</h4>
+                        <div class="price"><span class="yuan">¥29.00&nbsp;</span><del class="old">¥69.00</del><br><span class="ren">269人购买</span></div>
+                        <div value="1429963200" class="teTime noTime spickTime">2天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3646.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/401035.jpg_waptmx" src="index_files/401035.jpeg"></dt>
+                    <dd>
+                        <h4>男用倍挺助勃凝胶</h4>
+                        <div class="price"><span class="yuan">¥89.00&nbsp;</span><del class="old">¥169.00</del><br><span class="ren">861人购买</span></div>
+                        <div value="1429963200" class="teTime noTime spickTime">2天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/985.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/103523.jpg_waptmx" src="index_files/103523.jpeg"></dt>
+                    <dd>
+                        <h4>狼牙多点刺激震动棒</h4>
+                        <div class="price"><span class="yuan">¥169.00&nbsp;</span><del class="old">¥299.00</del><br><span class="ren">286人购买</span></div>
+                        <div value="1429963200" class="teTime noTime spickTime">2天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/2977.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/401023.jpg_waptmx" src="index_files/401023.jpeg"></dt>
+                    <dd>
+                        <h4>丸荣延时喷剂 倍力挺凝胶 组合套装 2H&amp;2D</h4>
+                        <div class="price"><span class="yuan">¥299.00&nbsp;</span><del class="old">¥459.00</del><br><span class="ren">393人购买</span></div>
+                        <div value="1429963200" class="teTime noTime spickTime">2天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3138.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/102570.jpg_waptmx" src="index_files/102570.jpeg"></dt>
+                    <dd>
+                        <h4>瑞典LELO依莉丝二代</h4>
+                        <div class="price"><span class="yuan">¥999.00&nbsp;</span><del class="old">¥1480.00</del><br><span class="ren">140人购买</span></div>
+                        <div value="1429963200" class="teTime noTime spickTime">2天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3432.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/800058.jpg_waptmx" src="index_files/800058.jpeg"></dt>
+                    <dd>
+                        <h4>杜蕾斯秘诱避孕套凸点酷诱超薄组合5只</h4>
+                        <div class="price"><span class="yuan">¥6.00&nbsp;</span><del class="old">¥21.59</del><br><span class="ren">1071人购买</span></div>
+                        <div value="1429876800" class="teTime noTime spickTime">1天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3255.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/104036.jpg_waptmx" src="index_files/104036.jpeg"></dt>
+                    <dd>
+                        <h4>海浪10频振动棒 阿芙拉</h4>
+                        <div class="price"><span class="yuan">¥59.00&nbsp;</span><del class="old">¥98.00</del><br><span class="ren">805人购买</span></div>
+                        <div value="1429876800" class="teTime noTime spickTime">1天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/2006.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/401006.jpg_waptmx" src="index_files/401006.jpeg"></dt>
+                    <dd>
+                        <h4>2H&amp;2D延时喷剂</h4>
+                        <div class="price"><span class="yuan">¥157.00&nbsp;</span><del class="old">¥248.00</del><br><span class="ren">3835人购买</span></div>
+                        <div value="1429876800" class="teTime noTime spickTime">1天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3710.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/800101.jpg_waptmx" src="index_files/800101.jpeg"></dt>
+                    <dd>
+                        <h4>情趣服饰·性感佳人5件套</h4>
+                        <div class="price"><span class="yuan">¥89.00&nbsp;</span><del class="old">¥299.00</del><br><span class="ren">377人购买</span></div>
+                        <div value="1429876800" class="teTime noTime spickTime">1天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3463.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/107524.jpg_waptmx" src="index_files/107524.jpeg"></dt>
+                    <dd>
+                        <h4>火枪手震动棒</h4>
+                        <div class="price"><span class="yuan">¥249.00&nbsp;</span><del class="old">¥568.00</del><br><span class="ren">679人购买</span></div>
+                        <div value="1429876800" class="teTime noTime spickTime">1天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/1350.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/510039.jpg_waptmx" src="index_files/510039.jpeg"></dt>
+                    <dd>
+                        <h4>美国Sliquid女用催欲凝胶</h4>
+                        <div class="price"><span class="yuan">¥129.00&nbsp;</span><del class="old">¥199.00</del><br><span class="ren">4283人购买</span></div>
+                        <div value="1429876800" class="teTime noTime spickTime">1天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3523.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/812020.jpg_waptmx" src="index_files/812020.jpeg"></dt>
+                    <dd>
+                        <h4>有村千佳 大回廊震动倒模</h4>
+                        <div class="price"><span class="yuan">¥159.00&nbsp;</span><del class="old">¥349.00</del><br><span class="ren">401人购买</span></div>
+                        <div value="1429876800" class="teTime noTime spickTime">1天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3676.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/815003.jpg_waptmx" src="index_files/815003.jpeg"></dt>
+                    <dd>
+                        <h4>实体娃娃安琪娜</h4>
+                        <div class="price"><span class="yuan">¥999.00&nbsp;</span><del class="old">¥1536.00</del><br><span class="ren">170人购买</span></div>
+                        <div value="1429876800" class="teTime noTime spickTime">1天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+     
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3582.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/811016.jpg_waptmx" src="index_files/811016.jpeg"></dt>
+                    <dd>
+                        <h4>缩阴包裹 自由夹紧自慰器【野战女郎系列】</h4>
+                        <div class="price"><span class="yuan">¥69.00&nbsp;</span><del class="old">¥138.00</del><br><span class="ren">371人购买</span></div>
+                        <div value="1429963200" class="teTime noTime spickTime">2天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+    		    
+    </ul>
+</div>   
+
+
+<div id="xiaXian">
+    <h3>最后疯抢&nbsp;<span>正品折扣 过时不候</span></h3>
+    <ul class="clearfix">
+	 
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3751.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/102604.jpg_waptmx" src="index_files/102604.jpeg"></dt>
+                    <dd>
+                        <h4>变频紫茄子震动按摩棒 格林宝贝</h4>
+                        <div class="price"><span class="yuan">¥39.00&nbsp;</span><del class="old">¥69.00</del><br><span class="ren">376人购买</span></div>
+                        <div value="1429790400" class="teTime noTime spickTime">0天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+	 
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3683.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/812025.jpg_waptmx" src="index_files/812025.jpeg"></dt>
+                    <dd>
+                        <h4>双飞姐妹花名器</h4>
+                        <div class="price"><span class="yuan">¥79.00&nbsp;</span><del class="old">¥159.00</del><br><span class="ren">796人购买</span></div>
+                        <div value="1429790400" class="teTime noTime spickTime">0天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+	 
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3082.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/401025.jpg_waptmx" src="index_files/401025.jpeg"></dt>
+                    <dd>
+                        <h4>德国EROS伊露丝 男性超强版延时喷雾二代30ML</h4>
+                        <div class="price"><span class="yuan">¥129.00&nbsp;</span><del class="old">¥288.00</del><br><span class="ren">1008人购买</span></div>
+                        <div value="1429790400" class="teTime noTime spickTime">0天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+	 
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3647.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/402016.jpg_waptmx" src="index_files/402016.jpeg"></dt>
+                    <dd>
+                        <h4>罗汉电动真空助勃器</h4>
+                        <div class="price"><span class="yuan">¥199.00&nbsp;</span><del class="old">¥321.60</del><br><span class="ren">360人购买</span></div>
+                        <div value="1429790400" class="teTime noTime spickTime">0天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+	 
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/3444.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/810985.jpg_waptmx" src="index_files/810985.jpeg"></dt>
+                    <dd>
+                        <h4>少女 发声呻吟 4D 震动自慰器</h4>
+                        <div class="price"><span class="yuan">¥299.00&nbsp;</span><del class="old">¥465.59</del><br><span class="ren">373人购买</span></div>
+                        <div value="1429790400" class="teTime noTime spickTime">0天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+	 
+        <li style="float: right;">
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/2087.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/107003.jpg_waptmx" src="index_files/107003.jpeg"></dt>
+                    <dd>
+                        <h4>波士II代（FUN第四代） 德国FunFactory</h4>
+                        <div class="price"><span class="yuan">¥499.00&nbsp;</span><del class="old">¥708.00</del><br><span class="ren">173人购买</span></div>
+                        <div value="1429790400" class="teTime noTime spickTime">0天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+	 
+        <li>
+            <a class="teMaiTime" href="http://wap.chunshuitang.com/goods/2836.html">
+                <dl>
+                    <dt><img style="display: block;" original="http://image.chunshuitang.com/goods/102022.jpg_waptmx" src="index_files/102022.jpeg"></dt>
+                    <dd>
+                        <h4>蒂阿妮遥控情侣共震按摩器设计版</h4>
+                        <div class="price"><span class="yuan">¥1180.00&nbsp;</span><del class="old">¥1580.00</del><br><span class="ren">209人购买</span></div>
+                        <div value="1429790400" class="teTime noTime spickTime">0天07小时54分14秒</div>
+                            
+                    </dd>
+                </dl>
+            </a>
+        </li>
+		
+
+
+       	 <li style="float: right;"><img style="display: block;" original="http://static.chunshuitang.com/img/mob/wap_xian_bg.png" src="index_files/wap_xian_bg.png"></li>    
+    </ul>
+</div> 
+
+<div id="nvShen">
+    <h3>女神导购&nbsp;<span>真人专业体验 还原真实效果</span></h3>
+	 
+	
+    <a href="http://wap.chunshuitang.com/qqyjy/" class="bottom">
+        <img style="display: block;" original="http://image.chunshuitang.com/index/b78add966d.jpg" src="index_files/b78add966d.jpg" alt="春水堂情趣研究院_专业情趣玩具领地_教你玩转情趣玩具房事更HIGH" title="情趣研究院  帮你找到合适的玩具">
+        <h4>情趣研究院  帮你找到合适的玩具</h4>
+    </a>
+	
+	 
+	
+    <a href="http://wap.chunshuitang.com/qqyjy/info/337.html" class="bottom">
+        <img style="display: block;" original="http://image.chunshuitang.com/index/3686ffb17d.jpg" src="index_files/3686ffb17d.jpg" alt="潮吹在很多人眼里可能一件高不可攀的事情，可只要男女双方掌握正确的技巧与方法，加上一定的锻炼，每个女生都可以做到，而每个男人也都能让女人得到！" title="妹子总结出的潮吹经验">
+        <h4>妹子总结出的潮吹经验</h4>
+    </a>
+	
+	 
+	
+    <a href="http://wap.chunshuitang.com/qqyjy/info/767.html" class="bottom">
+        <img style="display: block;" original="http://image.chunshuitang.com/index/06ff71650c.jpg" src="index_files/06ff71650c.jpg" alt="玩具是性爱极好的辅助，你不去尝试并不会损失什么，也许你冷感，也许你并不需要，但陶子希望大家都能体验到性爱的美好！" title="陶子的高潮开发历程">
+        <h4>陶子的高潮开发历程</h4>
+    </a>
+	
+	 
+	
+    <a href="http://wap.chunshuitang.com/qqyjy/info/637.html" class="bottom">
+        <img style="display: block;" original="http://image.chunshuitang.com/index/c0ff559f1d.jpg" src="index_files/c0ff559f1d.jpg" alt="你毋需找你根本不知道的角度，也毋需手动抽插（双手完全可以用来干其它更美好的事），只要像陶子这样有规律地往外顶，便能明显感受到G点区域" title="意外发现的G点高潮之法">
+        <h4>意外发现的G点高潮之法</h4>
+    </a>
+	
+	 
+	
+    <a href="http://wap.chunshuitang.com/qqyjy/info/345.html" class="bottom">
+        <img original="http://image.chunshuitang.com/index/c934fea97d.jpg" src="index_files/grey.htm" alt="教你如何玩转后庭刺激，体验后庭高潮" title="后庭刺激入门指南（下）">
+        <h4>后庭刺激入门指南（下）</h4>
+    </a>
+	
+	 
+	
+    <a href="http://wap.chunshuitang.com/qqyjy/info/691.html" class="bottom">
+        <img original="http://image.chunshuitang.com/index/9f80b1f08d.jpg" src="index_files/grey.htm" alt="情趣玩具组合一起用更爽" title="妹子实战总结出的情趣玩具组合技">
+        <h4>妹子实战总结出的情趣玩具组合技</h4>
+    </a>
+	
+	 
+</div>    
+
+<img original="" src="index_files/grey.htm" height="0" width="0">
+<div class="footer">
+    <p id="userinfo"><a href="http://wap.chunshuitang.com/login">登录</a>|<a href="http://wap.chunshuitang.com/register">注册</a></p>
+    <p class="xuan"><a href="http://wap.chunshuitang.com/">电脑版</a><a class="current" href="http://wap.chunshuitang.com/">触屏版</a><a href="http://app.chunshuitang.com/wap/cs">客户端</a></p>
+    <p class="icp">
+    	京ICP备12010356号-2 ©2003-2015 春水堂 <br>
+        北京春水堂商业连锁有限公司
+    </p>
+</div>
+
+
+<div class="bottomFixCar"><a href="http://wap.chunshuitang.com/car"><img original="http://static.chunshuitang.com/img/mob/bottomfixcar.png" src="index_files/bottomfixcar.png"></a></div>
+<div class="bototmFixTop"><a href="#"><img original="http://static.chunshuitang.com/img/mob/fixbottomtop.png" src="index_files/fixbottomtop.png"></a></div>
+
+<script src="index_files/v.htm" charset="utf-8"></script><script src="index_files/hm.htm"></script><script src="{$ectouch_themes}/jsct/analytics.js" async=""></script><script type="text/javascript" src="{$ectouch_themes}/jsct/common.js"></script>
+<script type="text/javascript" src="{$ectouch_themes}/jsct/public.js"></script>
+
+
+<script>
+$(function(){ 
+   $("#cuoWu").hide();
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('require', 'linker');
+ga('linker:autoLink', ['qinglvmao.com','haoyunmao.com','kuanghuancheng.com']);
+ga('create', 'UA-35059864-1', 'auto',{'allowLinker': true});
+
+  var aname = "";
+  var gname = "";
+  if(aname){
+	  ga('set', 'dimension2',aname);
+  }
+  if(gname){
+	  ga('set', 'dimension1',gname);
+  }	  
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+
+//顶部固定
+$(window).scroll(function(){
+	var tuwengao = $('.navHeight').offset().top;
+	var tuwenscrollt =  $(window).scrollTop();
+	//var tuwenshow =  tuwenscrollt - tuwengao;
+	if ( tuwenscrollt >= tuwengao ) { 
+		$('.navHeightWap').addClass('navWrapHide');
+	}else{
+		$('.navHeightWap').removeClass('navWrapHide');
+		}
+});
+
+$('.jhxx').click(function(){
+	$('.jhdown').hide();
+	});
+
+
+//搜索框显隐
+$('.headerClose').click(function(){
+	$('.header .search').hide();
+});
+$('.headerOpen').click(function(){
+	$('.header .search').show();
+	$('.header .search .text').focus();
+});
+
+$('#huanyipi').click(function(){
+	$.ajax({
+		type : 'GET',
+		url : 'http://wap.chunshuitang.com/home/sales',
+		async : false,
+		success : function(data) {
+			$('#indexsales').html(data);
+		}
+	}); 
+});
+
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f6fe51a7dbe8d9fd770e8fdde1086dc7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</div>
+
+</body></html>

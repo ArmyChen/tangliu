@@ -1,0 +1,1190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta property="qc:admins" content="423516203760161121101663757" />
+<title>{$page_title}</title>
+<script>	
+document.write("<link rel='stylesheet' type='text/css' href='{$ecsolve_path}/style/index.css'>");
+document.write("<link rel='stylesheet' type='text/css' href='{$ecsolve_path}/style/gtcommon.css'>");
+</script>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/catcommon.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/head_js.js"></script>
+<script type="text/javascript">
+window.onload = function()
+{
+  
+}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+<style>
+.alR{text-align:right;}
+.alL{text-align:left;}
+.alC{text-align:center;}
+del{text-decoration:line-through;color:#999;}
+
+a{color:#666;text-decoration:none;}
+a:hover{text-decoration:underline;}
+.red,a.red{color:#c40000;}
+.gray,.c9,a.gray{color:#999;}
+.c5,a.c5{color:#555;}
+.c3,a.c3{color:#333;}
+.c8{color:#888;}
+.cb,a.cb{color:#3388bb;}
+.tre{color:#9e8e82;}
+.org{color:#ff7700;}
+.blue{color:#4782c3;}
+.green{color:#38b512;}
+.xj{color:#c40000;font-size:14px;}
+.fB{font-weight:bold;}
+.fI{font-style:italic;}
+.fN{font-weight:normal;}
+.f12{font-size:12px;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+.f18{font-size:18px;}
+.f24{font-size:24px;}
+.lh16{line-height:16px;}
+.lh18{line-height:18px;}
+.lh20{line-height:20px;}
+.lh25{line-height:25px;}
+.lh30{line-height:30px;}
+.lh35{line-height:35px;}
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+.clearfix:after{content:" ";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{display:inline-block;}
+.hid{display:none;}
+input[type=submit]{-webkit-appearance:none;}
+.OverH{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ov{overflow:hidden;position:relative;}
+.over{overflow:hidden;zoom:1;}
+.mb5{margin-bottom:5px;}
+.ml5{margin-left:5px;}
+.mt5{margin-top:5px;}
+.mr5{margin-right:5px;}
+.pb5{padding-bottom:5px;}
+.pl5{padding-left:5px;}
+.pt5{padding-top:5px;}
+.pr5{padding-right:5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+.ml10{margin-left:10px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mr10{margin-right:10px;}
+.pb10{padding-bottom:10px;}
+.pl10{padding-left:10px;}
+.pt10{padding-top:10px;}
+.pr10{padding-right:10px;}
+@font-face{font-family:"vgan";src:url('css/f.eot');src:url('css/f.eot?#iefix') format('embedded-opentype'),url('css/f.woff') format('woff'),url('css/f.ttf') format('truetype'),url('css/f.svg#iconfont') format('svg');}
+.f{font-family:"vgan" !important;}
+.U,.U a{text-decoration:underline;}
+.hand{cursor:pointer;}
+.wb{word-wrap:break-word;}
+.wn{white-space:nowrap;}
+.vline{padding:0 5px;color:#cacaca;}
+.xline{text-decoration:line-through;}
+.yahei{font-family:"Microsoft Yahei";}
+.rel{position:relative;}
+.w{width:1190px;margin:0 auto;}
+.w9,.wp,.content{width:960px;margin:0 auto;}
+.w10{width:110%;}
+.dinl{display:inline;}
+#top{height:30px;line-height:30px;background-color:#f1f1f1;border-bottom:1px solid #e5e5e5;width:100%;color:#888;}
+.z_k,.z_kh{background-color:#cc4026;color:#fff;padding:0 5px;}
+.bgw{background-color:#fff;}
+.load img{background:#fff url(css/load.gif) 50% 50% no-repeat;}
+#top,#header,#footer,#l_nav{min-width:990px;}
+.tul li{float:left;position:relative;z-index:11;margin-left:5px;border-left:1px solid #f1f1f1;border-right:1px solid #f1f1f1;}
+.nbt{padding:0 15px 0 8px;}
+.rdop{right:2px;top:15px;width:0;height:0;border-width:3px;border-style:solid dashed dashed;border-color:#bbb transparent transparent;font-size:0;line-height:0;position: absolute;-webkit-transform .2s ease-in;-moz-transition:-moz-transform .2s ease-in;-o-transition:-o-transform .2s ease-in;transition:transform .2s ease-in;}
+.tul li.on{background-color:#fff;border-color:#e5e5e5;}
+.tul li.on .rdop{-moz-transform:rotate(180deg);-webkit-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg);-moz-transform-origin:50% 30% 0;-webkit-transform-origin:50% 30% 0;-o-transform-origin:50% 30% 0;transform-origin:50% 30% 0;}
+.tuln{display:none;position:absolute;border:1px solid #e5e5e5;padding:5px 0;border-top:none;background-color:#fff;top:30px;left:-1px;}
+.tul a{color:#999;}
+.tuln a{width:80px;display:block;padding:0 8px;color:#555;}
+.tul li.on .tuln{display:block;}
+.mt1{margin-right:4px;top:-1px;position:relative;}
+.t_v{width:14px;height:14px;background:url(css/i.png) 0 -806px;color:#fff;padding:0 2px 2px 2px;line-height:14px;font-size:10px;}
+#top a:hover{text-decoration:none;color:#c40000;}
+#header{background-color:#fff;padding-top:25px;height:78px;position:relative;z-index:6;}
+.logo{height:61px;width:140px;display:block;overflow:hidden;}
+.chead{position:absolute;left:150px;top:-10px;}
+.search{margin:0 30px;z-index:5;position:relative;}
+.shl{border:2px solid #bf3217;color:#c2c2c2;height:34px;line-height:34px;padding-left:5px;width:360px;display:inline;}
+.search .c3{color:#333;}
+.shr{width:65px;height:38px;background-color:#bf3217;line-height:36px;color:#fff;border:none;display:inline;cursor:pointer;}
+.hotw a{color:#999;line-height:30px;}
+.hotw a:hover{color:#c40000;text-decoration:none;}
+#s_box{position:absolute;left:0;top:37px;width:425px;background-color:#fff;border:1px solid #cc4026;line-height:26px;display:none;}
+#s_box a{padding:0 10px;display:block;height:26px;overflow:hidden;white-space:nowrap;}
+#s_box a:hover{background-color:#e5e5e5;text-decoration:none;}
+.tr_c{position:relative;z-index:5;width:136px;height:38px;}
+.t_c{display:block;position:relative;z-index:2;background:url(css/i.png) 10px -27px no-repeat;padding-left:40px;width:94px;line-height:36px;height:36px;border:1px solid #ddd;background-color:#f9f9f9;cursor:pointer;}
+.ci_r{margin-left:16px;font-family:simsun;color:#999;}
+#qcar{display:block;width:16px;height:15px;position:absolute;right:22px;top:-9px;line-height:15px;text-align:center;color:#fff;overflow:hidden;background:url(css/i.png) 0 -65px no-repeat;}
+.t_c:hover{text-decoration:none;color:#c40000;}
+.navq{background-color:#cc4026;position:relative;z-index:5;height:34px;font-family:"Microsoft Yahei";}
+.navs li{height:34px;line-height:34px;float:left;position:relative;font-size:15px;overflow:hidden;}
+.navs a{color:#fff;display:block;padding:0 12px;}
+.navs a:hover{text-decoration:none; background-color:#c40000;}
+.navs li:hover a::before{background-color:#c40000;height:3px;}
+.nhot{position:absolute;right:10px;top:-1px;z-index:2;}
+.lcat{width:190px;color:#fff;position:relative;z-index:10;float:left;margin:0 15px 0 0;}
+.nall{text-indent:54px;font-size:14px;color:#fff;background-color:#bf3217;width:190px;height:34px;line-height:34px;}
+.lnav{position:absolute;left:0;top:34px;background-color:#d01e1e;width:190px;height:440px;padding-top:10px;z-inedx:3;}
+.lnav li{height:38px;float:left;color:#fff;width:188px;border-left:2px solid #d01e1e;}
+.lma{line-height:38px;width:135px;display:inline-block;color:#fff;}
+.lma:hover{text-decoration:none;}
+.lnav .f{float:left;margin:0 15px 0 18px;_margin:0 10px 0 18px;width:18px;font-size:18px;line-height:38px;}
+.lra{padding:10px;width:270px;height:429px;background-color:#fff;position:absolute;z-index:2;left:190px;top:-1px;display:none;border:1px solid #d01e1e;border-left:none;}
+.lh3{color:#333;border-bottom:1px solid #e5e5e5;line-height:40px;overflow:hidden;font-size:14px;text-align:right;width:248px;margin-left:10px;}
+.lh3 .right{color:#666;font-weight:normal;font-size:12px;}
+.boa a{background-color:#7c7171;color:#fff;display:inline;float:left;width:114px;margin:10px;line-height:25px;  text-align:center;}
+.boa a:hover{text-decoration:none; background-color:#c40000;}
+.bom a{padding:0 0 0 10px;line-height:30px;display:inline-block;}
+.lnav a.m:hover{text-decoration:none;}
+.con{background-color:#fff;}
+.con .f,.con .lma{color:#c40000;}
+.con .lra{display:block;}
+#bignav .lnav{display:none;}
+.b_t{line-height:45px;height:45px;position:relative;}
+.b_t b{background-color:#fff;padding:0 10px;}
+.b_t p{height:1px;background-color:#ddd;width:100%;z-index:0;left:0;position:absolute;top:24px;overflow:hidden;}
+#footer{background-color:#fff;padding-top:10px;margin-top:35px;}
+.ft_t{width:100%;border-bottom:1px solid #e5e5e5;padding:10px 0  20px 0;}
+.f_dl{width:120px;overflow:hidden; white-space:nowrap; float:left;margin:20px 48px 30px 0; line-height:24px;}
+.mr0{margin-right:0;}
+.f_dl dt{font-size:16px;color:#555;line-height:40px;font-weight:bold;}
+.f_dl a{color:#999; display:block;}
+.f_dot{padding:20px 0;color:#999;line-height:20px;background-color:#3a3939}
+.op6{filter:alpha(opacity=60);opacity:0.6;}
+.fa_l{border-left:1px solid #e5e5e5;}
+.fa_dl{width:158px;border:1px solid #e5e5e5;position:relative;margin-left:-1px;padding-bottom:15px;float:left;background-color:#fff;}
+.fa_dl dt{padding-top:10px;display:block;text-align:center;margin-bottom:20px;line-height:40px;}
+.fa_h3{background-color:#fafafa;color:#333;margin-top:15px;font-size:14px;}
+.fa_dl dd{padding:0 5px;}
+.fa_dl dd a{width:60px; height:24px; white-space:nowrap;overflow:hidden; float:left;margin:0 0 0 12px;color:#999;}
+.dlast{width:163px;}
+.hbtn{border:1px solid #ddd; display:inline-block;padding:6px 50px;background-color:#fff;}
+.fa_dl:hover{border-top-color:#c40000;}
+.kf_f{display:none}
+body{background-color:#25e0df;}
+.z_top1{width:100%; height:380px;background:url({$ecsolve_path}/zhuanti/top1.jpg) center top no-repeat;}
+.z_top2{width:100%;height:380px;background:url({$ecsolve_path}/zhuanti/top2.jpg) center top no-repeat;}
+.z_top3{width:100%; height:194px;background:url({$ecsolve_path}/zhuanti/top3fx.jpg) center top no-repeat;}
+.z_tip1{width:100%; height:636px;background:url({$ecsolve_path}/zhuanti/img1fx2.jpg) center top no-repeat;}
+.z_mt50{margin-top:50px; display:block;}
+.bg{background-color:#25e0df;}
+.bgw{padding-bottom:30px;}
+.footer{margin-top:0;}
+.titbar{position:relative;}
+.titbar .arr{display:block; width:48px; height:67px; background:url(img/arr.gif) left top no-repeat; position:absolute; top:0; left:auto; right:-47px;}
+.t_lh {width:100%; margin:0 auto; height:64px;background:#e34e67;}
+.lh80 {height:100px;}
+.t_image {padding-bottom:20px;}
+.t_list {float:left;padding-left:29px;_padding-left:15px;}
+.cj_pt{padding-top:25px;}
+.cj_pb{padding-bottom:20px}
+.menu_bg{width:960px;height:277px;}
+.menu_bg .tab{width:210px;height:53px;line-height:53px;color:#bdbdbd;font-size:14px;margin-top:80px;}
+.menu1 {text-align:left;}
+.menu1 a{padding:2px 6px 2px 6px;text-decoration:none;border:1px solid #ff8448;color:#fff;}
+.menu1 a:hover{padding:2px 6px 2px 6px;background-color:#ff8448; color:#fff;}
+
+.money{height:22px;line-height:24px;width:201px;overflow:hidden;margin:5px 0 10px 10px;color:#555;}
+.money b{float:left;width:82px;color:#3f3d40;font-weight:normal;}
+.xjj{font-size:16px;}
+.zee{float:right;width:38px;height:20px;line-height:20px;padding:0 0 0 5px;font-size:12px;color:#fff;background:url(http://s.qw.cc/themes/v4/zt/zt_qtun/icon07.png) no-repeat;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='corp', src='http://s.qw.cc/themes/v4/zt/zt_qtun/icon07.png');}
+.jian{height:13px;line-height:13px;width:196px;margin:10px 0 8px 12px;color:#aeaeae;}
+.jian b{float:left;width:82px; font-weight:normal; color:#aeaeae;}
+.jian span{float:right;width:100px;text-align:right;font-weight:normal;color:#aeaeae;}
+.rt_1{font-weight:normal;color:#aeaeae; text-decoration:line-through;}
+.zt_hot{position:absolute;width:50px;height:50px;margin:5px 0 0 5px; display:block;background:url(http://s.qw.cc/themes/v4/zt/zt_qtun/qg.png) 50% 50% no-repeat;}
+.menu_bg h2{float:left; height:53px; line-height:53px; font-weight:normal; font-size:25px; color:#fff;}
+.zt_q a{float:left;display:block;}
+
+.zt_t,.zt_ft{height:53px; line-height:53px; float:right; color:#fff;}
+.zt_ft{color:#fff;font-size:14px; margin-right:10px;}
+.link_list{width:790px;height:409px; margin:0 auto;}
+.link_list a{color:#fff;}
+.link_list a:hover{color:#fff;text-decoration:underline;}
+
+.zt_g{padding:12px 10px 4px 4px;width:946px; margin-bottom:0px; background:#ff4526;}
+.zt_g a {background-color:#fff;height:323px;padding:4px;width:221px;display:inline; float:left;overflow:hidden;margin:0 0 10px 7px;}
+.photo{background-color:#fff;height:379px;width:229px;display:inline; float:left;overflow:hidden;margin:0 0 10px 7px;}
+.zt_g a h3{height:36px;line-height:20px;width:193px;overflow:hidden;font-weight:normal;margin:4px auto 10px; color:#555;}
+.zt_g p{background-color:#3f3d40; height:36px; line-height:36px;width:210px;overflow:hidden;font-size:16px;margin:0 auto;color:#fff; text-align:center;}
+.zt_g a:hover{text-decoration:none;}
+.zt_g a:hover p{background-color:#e34e67;}
+
+.zt_fix{width:90px;position:fixed;display:none;left:50%;margin-left:500px;top:50px;z-index:10;}
+.zt_fix a{background-color:#517de7;line-height:35px;height:35px;width:100%;display:block;margin-top:1px;font-size:14px;color:#fff;text-align:center;border:1px solid #f7f7f7;}
+.zt_fix a:hover,.zt_fix a.on{background-color:#ff066a;color:#fff;text-decoration:none;}
+.mt0{margin-top: 0;}
+.hotpd{background-color: #6432ce;}
+.hotpd a{display:inline-block; margin-left: 10px;}
+.z_box1{background-color: #048786;}
+.z_box3,.hotpd2{background-color: #b232ce;}
+.z_box4,.hotpd3{background-color: #ce3295;}
+.z_box2{background-color: #430062;}
+.z_box5{background-color: #f3164b;}
+.z_box6{background-color: #963f4e; width: 457px;}
+.zt_g a.pd_fl,.zt_g a.pd_fr{width: auto;}
+.zt_g a.pd_fr{float: right;}
+.zt_tit{display: block; margin: 0; padding: 0; margin-bottom: 20px;}
+.wp{width: 961px;}
+.wp2{width: 960px;}
+.showfixed{-webkit-animation:scaleDown 0.5s ease both;-moz-animation:scaleDown 0.5s ease both;animation:scaleDown 0.5s ease both;display:block;_display:none;}
+@-webkit-keyframes scaleDown {0%{opacity:0;-webkit-transform:scale(1.5);}100%{opacity:1;-webkit-transform:scale(1);}}
+@-moz-keyframes scaleDown {0%{opacity:0;-moz-transform:scale(1.5);}100%{opacity:1;-moz-transform:scale(1);}}
+@keyframes scaleDown {0%{opacity:0;transform: scale(1.5);}100%{opacity:1;transform: scale(1);}}
+</style>
+
+</head>
+<body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<SCRIPT language=javascript>
+<!--
+window.onerror=function(){return true;}
+// -->
+</SCRIPT> 
+ 
+<style type="text/css">
+<!--
+.weixin{background:url("{$ecsolve_path}/images/top_icon_wechat.png") no-repeat; display:inline-block; width:160px; height:20px;  position:relative; margin-top:5px; z-index:999999999}
+.weixin img{display:none}
+.weixin:hover img{display: block; position:absolute; left:0; top:20px;}
+-->
+.addcss2{margin-top:-108px !important;}
+.addcss3{margin-top: -164px !important;}
+.addcss4{margin-top: -220px !important;}
+.addcss5{margin-top: -276px !important;}
+.addcss6{margin-top: -332px !important;}
+.addcss7{margin-top: -388px !important;}
+.addcss8{margin-top: -444px !important;}
+</style>
+<script type="text/javascript" src="{$ecsolve_path}/js/suggest.js"></script>
+<link href="{$ecsolve_path}/style/css.css" rel="stylesheet" type="text/css">
+<div class="topbrief">
+  
+  <div class="topbrief_mid">
+    <p class="sitenav_mobile">
+    欢迎来到{$shop_name}！ 
+   </p>
+   
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+    <p class="sitenav_point"><a href="{$nav.url}" 
+      <!-- {if $nav.opennew eq 1} -->
+      target="_blank"
+      <!-- {/if} -->
+      >{$nav.name}</a></p>
+    <!-- {/foreach} -->
+   
+ {insert name='member_info'}
+
+
+
+
+
+
+  </div>
+</div>
+
+<div class="topcenterpart" >
+<div class="topcenterpartcon" >
+
+
+<div class="logo_con" id="step0" > <a href="{$weburl}" title="{$shop_name}"><img width="140" height="61" src="{$ecsolve_path}/images/logo.jpg" class="logo" alt="{$shop_name}"/></a><img width="211" height="61" src="images/top_center1.jpg" class="kogo">
+</div>
+  <div class="safe_pic">
+
+
+  <form id="searchForm" name="searchForm" method="get" action="{$weburl}/search.php" onSubmit="return checkSearchForm()">
+    <div class="search"><div class="search-panel"><div class="search-in"><div attr="new" id="js_search_type" class="search-type search-triggers" style="overflow: hidden;">
+      <div id="search_suggest" style="display:none;" onmouseover='javascript:_over();' onmouseout='javascript:_out();'></div>
+    <div class="arrow"></div></div><div class="txt"><input type="text" value="" name="keywords" id="keyword"  class="search-text s_keyword"  nkeypress="if(event.keyCode == 13){checkSearchForm();}"><div class="search-suggest" style="visibility:hidden;"></div></div></div></div><div class="search-btn"><input type="submit"  class="submit-btn" value=''></div>
+    
+    <ul class="search-hots"><li>  {if $searchkeywords}
+   {$lang.hot_search} ：
+   {foreach from=$searchkeywords item=val}
+   <a href="{$weburl}/k-{$val|escape:url}.html" >{$val}</a>
+   
+   {/foreach}
+   {/if}</li></ul>
+    
+   </form>
+
+
+
+   
+
+
+
+
+    </div>
+
+
+  </div>
+<script>
+/*css*/
+if (window.screen.width > 1280)
+{	
+	
+}
+
+</script>
+  <div id="settleup">
+    <dl class="" id="dl_settleup">
+      <dt class="ld"> <s class="shopping"><span id="shopping-amount">{insert name='cart_count'}</span></s> <a href="{$weburl}/flow.php" rel="nofollow">去购物车结算</a> <b></b> </dt>
+      {insert name='cart_data'}
+    </dl>
+  </div>
+</div>
+</div></div>
+<div class="azg_menu">
+  <div class="azg_menu_main">
+    <div {if $menushow eq 1}class="menuleftindex"{else}class="menuleft"{/if}>
+      <div class="menuleft_top alC"><a href="{$weburl}/catalog.html" title="全部商品分类">全部分类</div>
+      <div class="menuleft_bottom" {if $menushow eq 1}style="display:block"{else}style="display:none"{/if} data="">
+        <ul>
+          
+          <!--{foreach from=get_categories_tree() item=cat name=cat_tree}-->
+          <li class="{if $smarty.foreach.cat_tree.iteration % 2 eq 0}gray_li{/if} {if $smarty.foreach.cat_tree.iteration eq 1}woman{/if}{if $smarty.foreach.cat_tree.iteration eq 2}man{/if}{if $smarty.foreach.cat_tree.iteration eq 3}cuiyu{/if}{if $smarty.foreach.cat_tree.iteration eq 4}neiyi{/if}{if $smarty.foreach.cat_tree.iteration eq 5}shuangren{/if}{if $smarty.foreach.cat_tree.iteration eq 6}runhua{/if}{if $smarty.foreach.cat_tree.iteration eq 7}anquantao{/if} " {if $smarty.foreach.cat_tree.iteration eq 7}style=" margin-right:0px"{/if}>
+            <h2  class="white_arew"><s></s><a href="{$cat.url}" target="_blank" title="{$cat.name|escape:html}"  style=" color:#333333;">{$cat.name|escape:html}</a></h2>
+            <div class="cloums">
+              <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+              {if $smarty.foreach.cat_cat_id.iteration < 3} <a href="{$child.url}" target="_blank" title="{$child.name|escape:html}">
+              <h3>{$child.name|escape:html}</h3>
+              </a> {/if}
+              <!--{/foreach}-->
+            </div>
+            <div class="subItem_hd {if $smarty.foreach.cat_tree.iteration >1}addcss{$smarty.foreach.cat_tree.iteration}{/if}" style=" display:none;" >
+              <p class="tc"></p>
+              <span class="import">
+              <p class="left"><a href="{$cat.url}" target="_blank" style=" color:#000000; " title="{$cat.name|escape:html}">
+	      {$cat.name|escape:html}
+	      馆</a></p>
+              <p class="rightname"></p>
+              </span>
+              <div class="leimu">
+                <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+                <a href="{$child.url}" title="{$child.name|escape:html}">
+                <h3>{$child.name|escape:html}</h3>
+                </a>
+                <!--{/foreach}-->
+              </div>
+    <div class="clear"></div>
+<div class="menuad" style="margin-top:10px; width:220px;">
+
+ <!--{foreach from=$cat.menuadlist item=ad name=ad}-->{$ad.ad_code}<!--{/foreach}-->
+</div>
+
+
+              <div class="clear"></div>
+              
+          
+              
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <ul class="Nav_main">
+      <li ><a href="/" title="首页">首页</a></li>
+      <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+      <li  class="{if $nav.active eq 1}curChn{/if} {if $smarty.foreach.nav_middle_list.last}Nav_last{/if}" ><a href="{$nav.url}" title="{$nav.name}">
+        <h2>{$nav.name}</h2>
+        </a></li>
+      <!-- {/foreach} -->
+    </ul>
+    <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+ 
+  </div>
+</div>
+
+
+<!--专题部分-->
+<div class="zt_top">
+  <div class="z_top1"></div>
+  <div class="z_top2"></div>
+  <div class="z_top3"></div>
+</div>
+<div class="z_tip1" id="linq"></div>
+<div class="wp">
+<a href="http://www.7wg.com/g-31747.html" target="_blank" class="z_mt50" style="display:block; width:960px; height:864px" ><img width="960" height="864" src="{$ecsolve_path}/zhuanti/Q9476zt1.jpg" alt="" /></a>
+<a href="http://www.7wg.com/g-31896.html" target="_blank" class="z_mt50" style="display:block; width:960px; height:864px" ><img width="960" height="864" src="{$ecsolve_path}/zhuanti/Q3941.jpg" alt="" /></a>
+</div>
+
+<div class="bg1 yahei" id="step1">
+<div class="wp">
+<div class="titbar">
+  <a href="http://www.7wg.com/g-31928.html" target="_blank"><img class="zt_tit" src="{$ecsolve_path}/zhuanti/top8x1.jpg" width="960" height="403"/></a>
+  <span class="arr"></span>
+</div>
+<div class="clear"></div>
+<div class="zt_g ov mt15 mt0 z_box1">
+ 
+<a href="http://www.7wg.com/g-31945.html" title="以比赞 遥山带日红套装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31945_P_1472408569701.jpg" width="220" height="220" /><h3>以比赞 遥山带日红套装</h3><div class="money"><b class="xjj">¥168.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥218.40</b><span class="txt2">427人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31764.html" title="爱赞 蕾丝开襟立领绣花古典旗袍 " target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31764_P_1472168679403.jpg" width="220" height="220" /><h3>爱赞 蕾丝开襟立领绣花古典旗袍 </h3><div class="money"><b class="xjj">¥179.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥232.70</b><span class="txt2">217人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31774.html" title="爱赞 桑蚕丝性感深V诱惑吊带裙" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31774_P_1472169322558.jpg" width="220" height="220" /><h3>爱赞 桑蚕丝性感深V诱惑吊带裙</h3><div class="money"><b class="xjj">¥365.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥474.50</b><span class="txt2">136人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31922.html" title="以比赞 网纱透明性感睡裙" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31922_P_1472406636043.jpg" width="220" height="220" /><h3>以比赞 网纱透明性感睡裙</h3><div class="money"><b class="xjj">¥198.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥257.40</b><span class="txt2">303人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31852.html" title="史黛丝 高档真丝吊带睡裙套装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31852_P_1472257828330.jpg" width="220" height="220" /><h3>史黛丝 高档真丝吊带睡裙套装</h3><div class="money"><b class="xjj">¥168.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥218.40</b><span class="txt2">284人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32293.html" title="【买就送】爱赞 蕾丝露背诱惑仿真丝吊带睡衣 大码" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32293_P_1472491169457.jpg" width="220" height="220" /><h3>【买就送】爱赞 蕾丝露背诱惑仿真丝吊带睡衣 大码</h3><div class="money"><b class="xjj">¥169.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥219.70</b><span class="txt2">238人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31779.html" title="爱赞 真丝镂空深V性感诱惑吊带裙" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31779_P_1472169599763.jpg" width="220" height="220" /><h3>爱赞 真丝镂空深V性感诱惑吊带裙</h3><div class="money"><b class="xjj">¥385.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥500.50</b><span class="txt2">677人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31773.html" title="爱赞 桑蚕丝深V开襟绣花性感诱惑吊带裙" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31773_P_1472169190638.jpg" width="220" height="220" /><h3>爱赞 桑蚕丝深V开襟绣花性感诱惑吊带裙</h3><div class="money"><b class="xjj">¥385.00</b><span class="zee">5.5折</span></div><div class="jian"><b class="rt_1">¥699.00</b><span class="txt2">817人已经购买</span></div></a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+<p class="lh20">&nbsp;</p>
+</div>
+</div>
+
+
+<div class="bg1 yahei" id="step2">
+<div class="wp" id="z2">
+<div class="titbar">
+  <a href="http://www.7wg.com/g-32443.html" target="_blank"><img class="zt_tit" src="{$ecsolve_path}/zhuanti/top9x1_1.jpg" width="960" height="403"/></a>
+  <span class="arr"></span>
+</div>
+<div class="clear"></div>
+<div class="zt_g ov mt15 mt0 z_box1">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<a href="http://www.7wg.com/g-32396.html" title="欧姿丽雅性感露乳诱惑比基尼套装女情趣内衣" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32396_P_1472496782715.jpg" width="220" height="220" /><h3>欧姿丽雅性感露乳诱惑比基尼套装女情趣内衣</h3><div class="money"><b class="xjj">¥118.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥153.40</b><span class="txt2">188人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32360.html" title="欧姿丽雅火辣情趣内衣文胸套装三点诱惑" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32360_P_1472494550999.jpg" width="220" height="220" /><h3>欧姿丽雅火辣情趣内衣文胸套装三点诱惑</h3><div class="money"><b class="xjj">¥88.00</b><span class="zee">7.1折</span></div><div class="jian"><b class="rt_1">¥123.20</b><span class="txt2">571人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32386.html" title="欧姿丽雅甜蜜时刻性感蕾丝文胸套装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32386_P_1472496088477.jpg" width="220" height="220" /><h3>欧姿丽雅甜蜜时刻性感蕾丝文胸套装</h3><div class="money"><b class="xjj">¥108.00</b><span class="zee">4.8折</span></div><div class="jian"><b class="rt_1">¥226.80</b><span class="txt2">509人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32354.html" title="欧姿丽雅黑色刺绣蕾丝文胸套装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32354_P_1472494247414.jpg" width="220" height="220" /><h3>欧姿丽雅黑色刺绣蕾丝文胸套装</h3><div class="money"><b class="xjj">¥118.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥153.40</b><span class="txt2">212人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32392.html" title="欧姿丽雅透视网纱．蕾丝性感組合" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32392_P_1472496473704.jpg" width="220" height="220" /><h3>欧姿丽雅透视网纱．蕾丝性感組合</h3><div class="money"><b class="xjj">¥108.00</b><span class="zee">4.8折</span></div><div class="jian"><b class="rt_1">¥226.80</b><span class="txt2">844人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32371.html" title="欧姿丽雅恋恋花语．蕾丝花边性感内衣(黑粉)" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32371_P_1472495081097.jpg" width="220" height="220" /><h3>欧姿丽雅恋恋花语．蕾丝花边性感内衣(黑粉)</h3><div class="money"><b class="xjj">¥98.00</b><span class="zee">4.8折</span></div><div class="jian"><b class="rt_1">¥205.80</b><span class="txt2">835人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32344.html" title="欧姿丽雅粉嫩蕾丝文胸套装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32344_P_1472493723643.jpg" width="220" height="220" /><h3>欧姿丽雅粉嫩蕾丝文胸套装</h3><div class="money"><b class="xjj">¥118.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥153.40</b><span class="txt2">248人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32295.html" title="爱赞 豹纹金属钻链美背诱惑套装  " target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32295_P_1472491277711.jpg" width="220" height="220" /><h3>爱赞 豹纹金属钻链美背诱惑套装  </h3><div class="money"><b class="xjj">¥139.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥180.70</b><span class="txt2">671人已经购买</span></div></a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+<p class="lh20">&nbsp;</p>
+</div>
+</div>
+
+
+<div class="bg yahei" id="step3">
+<div class="wp" id="z3">
+<div class="titbar">
+  <a href="http://www.7wg.com/g-32003.html" target="_blank"><img class="zt_tit" src="{$ecsolve_path}/zhuanti/Q8857zt.jpg" width="960" height="403"/></a>
+  <span class="arr"></span>
+</div>
+<div class="clear"></div>
+<div class="zt_g ov mt15 mt0 z_box1">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<a href="http://www.7wg.com/g-32020.html" title="桃色蕾丝  火辣诱惑水滴图案连体套装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32020_P_1472419309945.jpg" width="220" height="220" /><h3>桃色蕾丝  火辣诱惑水滴图案连体套装</h3><div class="money"><b class="xjj">¥128.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥166.40</b><span class="txt2">133人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31994.html" title="欧姿丽雅 复古镂空连体吊带蕾丝马甲组合 " target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31994_P_1472411450622.jpg" width="220" height="220" /><h3>欧姿丽雅 复古镂空连体吊带蕾丝马甲组合 </h3><div class="money"><b class="xjj">¥142.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥184.60</b><span class="txt2">566人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32045.html" title="桃色蕾丝 性感火辣蕾丝开档连体衣" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32045_P_1472421098326.jpg" width="220" height="220" /><h3>桃色蕾丝 性感火辣蕾丝开档连体衣</h3><div class="money"><b class="xjj">¥168.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥218.40</b><span class="txt2">115人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32003.html" title="史黛丝  性感诱惑蕾丝马甲情趣套装" target="_blank"><img src="http://s.qw.cc/images/201607/thumb_img/6602_thumb_P220_1469174990209.jpg" width="220" height="220" /><h3>史黛丝  性感诱惑蕾丝马甲情趣套装</h3><div class="money"><b class="xjj">¥118.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥153.40</b><span class="txt2">274人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32003.html" title="桃色蕾丝 高端镂空连体紧身网衣" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32003_P_1472412094501.jpg" width="220" height="220" /><h3>桃色蕾丝 高端镂空连体紧身网衣</h3><div class="money"><b class="xjj">¥238.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥309.40</b><span class="txt2">335人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31999.html" title="瑟蓓绮selebritee 性感无缝开档连身衣" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31999_P_1472411828837.jpg" width="220" height="220" /><h3>瑟蓓绮selebritee 性感无缝开档连身衣</h3><div class="money"><b class="xjj">¥149.00</b><span class="zee">5折</span></div><div class="jian"><b class="rt_1">¥299.00</b><span class="txt2">1520人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-31777.html" title="爱赞 性感镂空开裆透视情趣连体网衣" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/31777_P_1472169457913.jpg" width="220" height="220" /><h3>爱赞 性感镂空开裆透视情趣连体网衣</h3><div class="money"><b class="xjj">¥109.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥141.70</b><span class="txt2">307人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32013.html" title="史黛丝 蕾丝深V开档连体衣 黑色" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32013_P_1472418620572.jpg" width="220" height="220" /><h3>史黛丝 蕾丝深V开档连体衣 黑色</h3><div class="money"><b class="xjj">¥99.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥128.70</b><span class="txt2">454人已经购买</span></div></a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+<p class="lh20">&nbsp;</p>
+</div>
+</div>
+
+
+
+<div class="bg yahei" id="step4">
+<div class="wp" id="z4">
+<div class="titbar">
+  <a href="#" target="_blank"><img class="zt_tit" src="{$ecsolve_path}/zhuanti/Q8619.jpg" width="960" height="403"/></a>
+  <span class="arr"></span>
+</div>
+<div class="clear"></div>
+<div class="zt_g ov mt15 mt0 z_box1">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<a href="http://www.7wg.com/g-32249.html" title="午夜魅力 甜心蕾丝女仆装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32249_P_1472432563984.jpg" width="220" height="220" /><h3>午夜魅力 甜心蕾丝女仆装</h3><div class="money"><b class="xjj">¥70.00</b><span class="zee">7.1折</span></div><div class="jian"><b class="rt_1">¥98.00</b><span class="txt2">1025人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32228.html" title="爱赞 三点式性感透纱护士制服" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32228_P_1472431401361.jpg" width="220" height="220" /><h3>爱赞 三点式性感透纱护士制服</h3><div class="money"><b class="xjj">¥149.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥193.70</b><span class="txt2">240人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32222.html" title="【买就送】爱赞 女仆诱惑角色扮演情趣制服" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32222_P_1472430713772.jpg" width="220" height="220" /><h3>【买就送】爱赞 女仆诱惑角色扮演情趣制服</h3><div class="money"><b class="xjj">¥159.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥206.70</b><span class="txt2">234人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32253.html" title="以比赞 极度诱惑露乳护士服" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32253_P_1472432830003.jpg" width="220" height="220" /><h3>以比赞 极度诱惑露乳护士服</h3><div class="money"><b class="xjj">¥169.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥219.70</b><span class="txt2">190人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32224.html" title="爱赞 美艳性感兔女郎三点式角色扮演制服" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32224_P_1472431011634.jpg" width="220" height="220" /><h3>爱赞 美艳性感兔女郎三点式角色扮演制服</h3><div class="money"><b class="xjj">¥165.00</b><span class="zee">6.5折</span></div><div class="jian"><b class="rt_1">¥255.00</b><span class="txt2">883人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32238.html" title="珞樱 奢华蕾丝透视热辣教师装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32238_P_1472432192762.jpg" width="220" height="220" /><h3>珞樱 奢华蕾丝透视热辣教师装</h3><div class="money"><b class="xjj">¥218.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥283.40</b><span class="txt2">28人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32272.html" title="以比赞 制服诱惑可爱海军装" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32272_P_1472434069287.jpg" width="220" height="220" /><h3>以比赞 制服诱惑可爱海军装</h3><div class="money"><b class="xjj">¥228.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥296.40</b><span class="txt2">222人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32268.html" title="以比赞 性感条纹深V海军泳装服" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32268_P_1472433945170.jpg" width="220" height="220" /><h3>以比赞 性感条纹深V海军泳装服</h3><div class="money"><b class="xjj">¥188.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥244.40</b><span class="txt2">205人已经购买</span></div></a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+<p class="lh20">&nbsp;</p>
+</div>
+</div>
+
+<div class="bg yahei" id="step5">
+<div class="wp" id="z5">
+<div class="titbar">
+  <a href="http://www.7wg.com/g-32151.html" target="_blank"><img class="zt_tit" src="{$ecsolve_path}/zhuanti/top12x1.jpg" width="960" height="403"/></a>
+  <span class="arr"></span>
+</div>
+<div class="clear"></div>
+<div class="zt_g ov mt15 mt0 z_box1">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<a href="http://www.7wg.com/g-32113.html" title="【3折限时抢购】spotlight hosiery 超细致蕾丝花朵大腿袜" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32113_P_1472425052425.jpg" width="220" height="220" /><h3>【3折限时抢购】spotlight hosiery 超细致蕾丝花朵大腿袜</h3><div class="money"><b class="xjj">¥88.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥114.40</b><span class="txt2">348人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32204.html" title="史黛丝 四面开档吊带袜" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32204_P_1472429372061.jpg" width="220" height="220" /><h3>史黛丝 四面开档吊带袜</h3><div class="money"><b class="xjj">¥49.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥63.70</b><span class="txt2">677人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32137.html" title="【3折限时抢购】spotlight hosiery 无缝提花蕾丝网袜" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32137_P_1472426096141.jpg" width="220" height="220" /><h3>【3折限时抢购】spotlight hosiery 无缝提花蕾丝网袜</h3><div class="money"><b class="xjj">¥98.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥127.40</b><span class="txt2">274人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32210.html" title="史黛丝 性感妩媚护士蕾丝网纹长筒情趣丝袜" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32210_P_1472429571291.jpg" width="220" height="220" /><h3>史黛丝 性感妩媚护士蕾丝网纹长筒情趣丝袜</h3><div class="money"><b class="xjj">¥49.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥63.70</b><span class="txt2">266人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32201.html" title="史黛丝 丝丝爱恋性感吊带网袜" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32201_P_1472429196642.jpg" width="220" height="220" /><h3>史黛丝 丝丝爱恋性感吊带网袜</h3><div class="money"><b class="xjj">¥59.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥76.70</b><span class="txt2">179人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32157.html" title="【3折限时抢购】spotlight hosiery 性感蕾丝镂空网眼连裤袜" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32157_P_1472427189051.jpg" width="220" height="220" /><h3>【3折限时抢购】spotlight hosiery 性感蕾丝镂空网眼连裤袜</h3><div class="money"><b class="xjj">¥88.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥114.40</b><span class="txt2">348人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32212.html" title="史黛丝 诱人蝴蝶结甜美长筒情趣网袜" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32212_P_1472429673067.jpg" width="220" height="220" /><h3>史黛丝 诱人蝴蝶结甜美长筒情趣网袜</h3><div class="money"><b class="xjj">¥49.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥63.70</b><span class="txt2">225人已经购买</span></div></a>
+ 
+ 
+<a href="http://www.7wg.com/g-32191.html" title="史黛丝 今夜绽放镂空花纹吊带情趣网袜" target="_blank"><img src="http://www.7wg.com/images/201608/goods_img/32191_P_1472428897228.jpg" width="220" height="220" /><h3>史黛丝 今夜绽放镂空花纹吊带情趣网袜</h3><div class="money"><b class="xjj">¥49.00</b><span class="zee">7.7折</span></div><div class="jian"><b class="rt_1">¥63.70</b><span class="txt2">278人已经购买</span></div></a>
+ 
+ 
+ 
+ 
+</div>
+<p class="lh20">&nbsp;</p>
+</div>
+</div>
+
+
+
+
+<div class="yahei zt_fix" id="zt_fix">
+<img src="{$ecsolve_path}/zhuanti/superman2.png" width="134" height="99"/>
+<a href="http://www.7wg.com/topic.php?topic_id=5#step1" class="aTo">性感裙装</a>
+<a href="http://www.7wg.com/topic.php?topic_id=5#step2" class="aTo">火辣三点</a>
+<a href="http://www.7wg.com/topic.php?topic_id=5#step3" class="aTo">紧身网衣</a>
+<a href="http://www.7wg.com/topic.php?topic_id=5#step4" class="aTo">制服诱惑</a>
+<a href="http://www.7wg.com/topic.php?topic_id=5#step5" class="aTo">丝袜美腿</a>
+<a href="http://www.7wg.com/topic.php?topic_id=5#step0">返回顶部</a>
+</div>
+
+
+
+
+
+<script>
+var page_h=document.domain;
+var page_t=$(document).attr("title");
+var isIE6=navigator.appVersion.indexOf("MSIE 6")>-1;
+if(isIE6){document.execCommand("BackgroundImageCache",false,true);}
+var $lnav=$("#lnav");
+var pez="top=100,left=100,width=1000,height=580,location=yes,menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,toolbar=no";
+(function($){$.fn.vganload=function(options){var dft={author:"vganchou",timew:10,threshold:100};var ops=$.extend(dft,options);var mb=this;var m_l=mb.length;var mlen=m_l;var poll;var tm_w=ops.timew;var thre=ops.threshold;var vlazy={};if(m_l<1){return}function getClient(){var l,t,w,h,dd=document.documentElement,bb=document.body;l=dd.scrollLeft||bb.scrollLeft;t=dd.scrollTop||bb.scrollTop;w=dd.clientWidth;h=dd.clientHeight;return{left:l,top:t,width:w,height:h}}function getSubClient(p){var l=0,t=0,w,h;w=p.offsetWidth;h=p.offsetHeight;while(p.offsetParent){l+=p.offsetLeft;t+=p.offsetTop;p=p.offsetParent}return{left:l,top:t,width:w,height:h}}function intens(w,p){var lc1,lc2,tc1,tc2,w1,h1;lc1=w.left+w.width/2;lc2=p.left+p.width/2;tc1=w.top+w.height/2;tc2=p.top+p.height/2;w1=(w.width+p.width)/2;h1=(w.height+p.height)/2;return Math.abs(lc1-lc2)<w1+thre&&Math.abs(tc1-tc2)<h1+thre}var vbone=function(){clearTimeout(poll);poll=setTimeout(vlazy.render,tm_w)};$(window).bind("scroll",vbone).bind("resize",vbone);vlazy.detach=function(){$(window).unbind("scroll",vbone).unbind("resize",vbone);clearTimeout(poll)};vlazy.render=function(){if(mlen<1){vlazy.detach();return}var prec1=getClient();mb=mb.filter(function(){return $(this).attr("src")});$.each(mb,function(){var b=$(this).attr("src");if(b){var prec2=getSubClient(this);var inv=intens(prec1,prec2);if(inv){$(this).attr("src",b).removeAttr("src");mlen--}}})};vlazy.render()}})(jQuery);
+(function(root,factory){if(typeof define==="function"&&define.amd){define(function(){return factory(root)})}else{if(typeof exports==="object"){module.exports=factory}else{root.qufloor=factory(root)}}})(this,function(root){var qufloor={};var f_of=[];var f_rf=[];var f_zt=[];var floors=[];var dlen,cur=0,iscroll=false,nav,gtp,ofpx,ite,curclass;var wh=$(window).height();var mwh=wh/2;qufloor.addof=function(arr){dlen=arr.length;for(var i=0;i<dlen;i++){var t=Math.floor($("#"+arr[i]).offset().top);var th=Math.floor($("#"+arr[i]).height());f_of.push(t);f_rf.push(th);f_zt.push(0)}f_zt[0]=1};qufloor.init=function(opts){opts=opts||{};ofpx=opts.ofpx||80;curclass=opts.cur_class||"current";nav=$("#"+opts.nav);ite=nav.find("a");gtp=$("#"+opts.top_id);ite.each(function(){var hr=$(this).attr("href").split("#")[1];floors.push(hr)});qufloor.addof(floors);ite.click(function(event){var i=$(this).index();if(i==cur){return}var ta=(wh-f_rf[i])/2;var tb=f_of[i]-ta;var tc=tb>0?tb:0;var j=ta>0?tc:f_of[i];$(this).addClass(curclass).siblings().removeClass(curclass);iscroll=true;$("body,html").stop().animate({scrollTop:j},300,function(){iscroll=false;qufloor.reseta(i)});event.preventDefault()});gtp.bind("click",function(event){iscroll=true;$("body,html").stop().animate({scrollTop:0},300,function(){f_zt[cur]=0;cur=0;ite.removeClass(curclass);iscroll=false});event.preventDefault()});$(window).scroll(function(){var s_top=$(window).scrollTop();var tp=s_top+mwh;var e=qufloor.arrbs(f_of,tp,0,dlen-1);if(f_zt[e]!=1&&!iscroll){ite.eq(e).addClass(curclass).siblings().removeClass(curclass);qufloor.reseta(e)}if(f_rf[cur]+f_of[cur]<tp-ofpx){ite.eq(cur).removeClass(curclass);f_zt[cur]=0}});$(window).resize(function(){wh=$(window).height();mwh=wh/2})};qufloor.reseta=function(e){for(var i=0;i<dlen;i++){f_zt[i]=0}f_zt[e]=1;cur=e};qufloor.arrbs=function(arr,avl,li,ri){if(li>ri){var f=li-1;return f}var mi=Math.floor((li+ri)/2);var miv=arr[mi];if(miv>avl){return qufloor.arrbs(arr,avl,li,mi-1)}else{if(miv<avl){return qufloor.arrbs(arr,avl,mi+1,ri)}else{var f=mi+1;return f}}};return qufloor});
+function gotop(){$('html,body').stop().animate({scrollTop:'0px'},600);}
+$(function(){
+$("img[src]").vganload({type:"image"});
+var $yvv = $("#keywords");
+var $lnav=$("#lnav");
+var $lnavli=$lnav.children();
+var $yvv=$("#keywords");$yvv.bind("focus",function(){var v=$(this).val();var preh=$(this).attr("data-w");if(v==preh){$(this).val("");$(this).addClass("c3")}}).bind("blur",function(){var v=$(this).val();var preh=$(this).attr("data-w");if(v==""){$(this).val(preh);$(this).removeClass("c3")}});
+$lnavli.hover(function(){$(this).addClass("con");},function(){$(this).removeClass("con");});
+$("#tul").delegate(".nbt","hover",function(event){var tl=$(this);if(event.type=="mouseenter"){tl.addClass("on")}else{tl.removeClass("on")}});$("#bignav").hover(function(){$lnav.show()},function(){$lnav.hide()});
+if($("base").length>0){var dm="http://"+document.domain+"/";if(dm!=$("base").attr("href")){$("base").attr("href",dm);}}	
+});
+function lgout(){$.get('user.php',{act:'ajax_logout'},function(data){if(data=="TRUE"){location.reload();}},'TEXT');}
+function jieshou(a){var curl="http://"+page_h+"/chats.php?pagetitle="+page_t;window.open(curl,'在线客服',pez);}
+function topic_addCar(e,a,c){var d=false;if(c==undefined){d=false}else{d=c}if(isNaN(e)){alert("非法id");return}if(a==undefined){a=""}var b='{"quick":1,"spec":["'+a+'"],"goods_id":'+e+',"number":"1","isgo":"1","parent":0}';$.post("/flow.php",{step:"add_to_cart",one:0,goods:b},function(f){if(f.error>0){if(f.error==2){if(confirm(f.message)){alert("对不起该商品缺货，敬请等待...")}}else{if(f.error==6){alert("请选择商品规格")}else{alert(f.message)}}}else{alert("恭喜您，添加成功！");if(d){location.href="/flow.php"}}},"JSON")}function topic_package(b,c){var d=false;if(c==undefined){d=false}else{d=c}var a='{"package_id":'+b+',"number":1}';$.post("/flow.php",{step:"add_package_to_cart",package_info:a},function(e){if(e.error>0){if(e.error==2){if(confirm(e.message)){location.href="user.php?act=add_booking&id="+e.goods_id}}else{alert(e.message)}}else{alert("恭喜您，添加成功！");if(d){location.href="/flow.php"}}},"JSON")}function getCoupon(a){$.post("topic.php",{step:"get_bun",id:a},function(b){if(b.error!=1){if(b.error==2){alert("请先登录后领取红包")}if(b.error==3){alert("您已经领取过该红包了")}}else{alert("恭喜您，领取成功！")}},"JSON")};
+
+</script>
+
+</div>
+<script>
+setTimeout(function(){
+$("#erma").animate({
+	right:"0"
+	},500);
+},1000);
+$("#erma").click(function(){
+	$(this).remove();
+	});
+</script><script>
+(function($){
+$(function(){
+
+/*hjFixedNav extend*/
+$.fn.hjFixedNav=function(options){
+  var defaults={
+        navClass:'.aTo'
+        },
+        _this=$(this),
+        opts=$.extend(defaults,options),
+        highlightEle=_this.find(opts.navClass),
+        highlightArr=[],
+        fl = $(this).length,
+        eHeight=$(this).height()+parseInt($(this).css("bottom")),
+        windowHeight=($(window).height())/2,
+        show=false;
+  function Ie6check(){
+    var bool;
+    if(window.XMLHttpRequest){
+               bool=false;
+            }
+            else{
+               bool=true;
+            };
+            return bool;
+  };
+
+getHighlightArr();
+  $(window).scroll(function() {
+        var scrollTop=$(document).scrollTop();
+        if(scrollTop>=windowHeight){
+            if(show==false){
+                 _this.addClass("showfixed");
+                show=true;
+            };
+        }else{
+             _this.removeClass("showfixed");
+             show=false;
+        };
+         if (fl>0&&Ie6check()) {
+            ie6fix();
+         };
+
+         $.each(highlightArr,function(i,e){
+            var curEle= highlightEle.eq(i),
+                classOn=highlightEle.eq(i).hasClass("on");
+            if(scrollTop>=e.min&&scrollTop<e.max){
+                if(!classOn){
+                      highlightEle.removeClass("on");
+                      curEle.addClass("on");
+                } 
+            }else if(scrollTop>e.max || scrollTop<e.min){
+                 if(classOn){
+                  highlightEle.removeClass("on");
+                 }
+            }
+         });
+
+    });
+  function ie6fix() {
+    var ks = $(window).scrollTop();
+    var wh = $(window).height() - eHeight;
+    _this.css({
+        "top": wh + ks
+    });   
+  };
+
+
+ function getHighlightArr(){
+    highlightEle.each(function(i){
+        var toID=$(this).attr("href").split("#")[1],
+        stepEle=$("#"+toID);
+        minTop=stepEle.offset().top,
+        maxTop=minTop+stepEle.height();
+        highlightArr.push({"min":minTop,"max":maxTop});
+    });
+    };
+
+
+};
+/*hjFixedNav extend end*/
+
+$("#zt_fix").hjFixedNav();
+$("#gotop").bind("click",function(){
+  gotop();
+  return false;
+});
+function gotop() {
+    $('html,body').stop().animate({
+        scrollTop: '0px'
+    },
+    600);
+};
+
+
+//锚点跳转滑动效果
+     $('a[href*=#],area[href*=#]').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var $target = $(this.hash);
+                $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+                if ($target.length) {
+                    var targetOffset = $target.offset().top;
+                    $('html,body').animate({
+                       scrollTop: targetOffset
+                   }, 500);
+                    return false;
+                }
+            }
+    });
+
+
+});
+})(jQuery)
+</script>
+
+
+
+
+
+
+
+
+
+
+<!--专题部分-->
+
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>
+

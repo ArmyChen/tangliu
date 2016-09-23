@@ -1,0 +1,310 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!--底部-->
+<div class="footer Clearfix">
+    <div class="footer0 w1200">
+        <img src="images/foot_img1.jpg">
+    </div>
+    <div class="footer_help w1200 ClearFix">
+        <div class="footer1_l">
+                                                      
+							
+							
+							
+							
+							
+							{foreach from=$article_cat_help item=cat name=cat}
+							<dl class="helpDL">
+                <dt>
+                    <h5>{$cat.cat_name}</h5>
+                </dt>
+                                                 <!-- {foreach from=$cat.fenlei_arlist item=article} -->
+                                 <dd><a href="{$article.url}" title="{$article.title}"> {$article.title} </a></dd>
+				  <!-- {/foreach} --> 
+                                 
+                                             </dl>
+
+		{/foreach}
+
+
+
+
+
+
+                                      
+        </div>
+        <div class="footer1_r">
+            <ul>
+                <li>
+                    <h2>手机购</h2>
+                    <img src="images/footer_ewm_01.jpg" width="90" height="90">
+                    <p>&nbsp;</p>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer_bottom">
+
+
+<div class="footer_nav">
+        <div class="w720 ClearFix">
+            <ul>
+	    <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+              <li><a href="{$nav.url}">{$nav.name}</a>
+                                               |
+                                                </li>  <!-- {/foreach} -->
+                                                                                                                  
+            </ul>
+        </div>
+    </div>
+
+
+        <div class="w1200">
+            <p>
+                <span class="font_arial">Copyright © 2015 ICP备案:{$icp_number} </span>
+                <br>
+               版权所有：{$shop_name}   {$stats_code}
+            </p>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="UTF-8" src="{$ecsolve_path}/js/trace.js"></script>
+<script type="text/javascript">
+var VL = false;
+$(function(){
+var sp = "Home";
+var sv = "index";
+trace_main(sp, sv);
+var _hmt = _hmt || [];
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?9298c88929ec361a06c5344ab1e2ea65";
+var s = document.getElementsByTagName("script")[0]; 
+s.parentNode.insertBefore(hm, s);
+});
+</script>
+    <!-- Criteo S-->
+<script type="text/javascript" src="{$ecsolve_path}/js/ld.js" async="true"></script>
+<script type="text/javascript">
+    window.criteo_q = window.criteo_q || [];
+    window.criteo_q.push(
+        { event: "setAccount", account: 22367 },
+        { event: "setHashedEmail", email: "" },
+        { event: "setSiteType", type: "d" },
+        { event: "viewHome" }
+    );
+</script>
+<!-- Criteo E-->
+    <script type="text/javascript">
+$(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+});
+</script>
+<!--底部 end-->﻿<!--右侧导航-->
+<div class="rihgt_slider r_s_fixed">
+    <div class="r_s_f_center">
+        <div class="f_c_top">
+            <div class="f_c_list pos_relative f_c_uc">
+                <a class="a_account" href="javascript:;">
+                    <i class="icon_user"></i>
+                    <div class="f_c_list_wz wz_39">账号</div>
+                </a>
+                <div class="h_line">
+                    <span class="line_1"></span>
+                    <span class="line_2"></span>
+                </div>
+                <div class="user_center  f_c_list_tc" style="display: none;">
+                    <div class="uc_close"></div>
+
+
+
+		    {if $smarty.session.user_id gt 0}
+		     
+                    <div class="uc_unlogin">
+
+                           
+                          
+                            <div class="uc_title_wel">欢迎来到七王国</div>
+
+			   <a > {$lang.hello}，<font class="f4_b">{$user_info.username}</font>, {$lang.welcome_return}！</a><a href="{$weburl}/user.php?act=logout" >退出</a><a href="{$weburl}/user.php">会员中心</a>  
+
+  </div>   
+               
+       {else}
+<!--未登录-->
+                    <div class="uc_unlogin">
+<form name="formLogin" action="{$weburl}/user.php" method="post" >
+                           
+                          
+                            <div class="uc_title_wel">欢迎来到七王国</div>
+                            <div class="item item1">
+                              
+				<input class="itxt onfocustxt" name="username" type="text" class="input180" id="username"  maxlength="40"  placeholder="用户名"  />
+                               
+                            </div>
+                            
+                            <!--密码-->
+                            <div class="item item2">
+                                <input tabindex="2" class="itxt" name="password" id="password" autocomplete="off" placeholder="请输入密码" type="password">
+                               
+                            </div>
+                            <!--密码end-->
+                            <!--验证码-->
+                            <div class="item item3_yzm">
+                              
+
+
+
+			   
+              {$lang.comment_captcha}：<input type="text" size="8" placeholder="验证码" name="captcha" class="input180" style="width:80px;height:30px;float:left;border:1px solid #ccc" />
+                  <img src="{$weburl}/captcha.php?is_login=1&{$rand}" alt="captcha"  class="ml5"  style="vertical-align: middle;cursor: pointer; width: 100px;height:30px;float:left;" onClick="this.src='{$weburl}/captcha.php?is_login=1&'+Math.random()" /></td>
+               
+             
+                            </div>
+                            <!--验证码end-->
+                            <div class="enter_uc uc_login" style="width:248px;text-align:left;margin-left:18px;margin-top:35px;">
+                           
+
+<input type="hidden" name="act" value="act_login" />
+                <input type="hidden" name="back_act" value="{$back_act}" />
+
+                  <input type="submit" tabindex="4"  value="登陆" class="login_btn2" style="width:248px;height:35px;background:#ff5e9a;color:#fff;line-height:35px;border:none;cursor: pointer;" / />
+
+                           
+                            </div>
+                            
+			    <div class="pwd_reg">
+                                <a href="user.php?act=get_password" class="a_fpwd">忘记密码？</a>
+                                <a href="user.php?act=register" class="a_reg">立即注册</a>
+                            </div>
+                            </form>
+                        </div>
+    
+                    <!--未登录 end-->
+      
+    {/if}                           
+ </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="f_c_list">
+                <a class="a_car" href="flow.php" target="_blank">
+                    <i class="icon_car" id="shopCart"></i>
+                    <div class="f_c_list_wz"> 购物车</div>
+                    <div class="car_num">{insert name='cart_count'}</div>
+                   
+                </a>
+                <div class="h_line">
+                    <span class="line_1"></span>
+                    <span class="line_2"></span>
+                </div>
+            </div>
+                        <div class="f_c_list">
+                <a href="user.php?act=collection_list" target="_blank">
+                    <i class="icon_collect"></i>
+                    <div class="f_c_list_wz wz_39">收藏</div>
+                </a>
+            </div>
+        </div>
+        <div class="f_c_bottom">
+            <div class="f_c_list pos_relative">
+                <a href="javascript:void(0)" class="f_c_b_bg f_c_b_ewm">
+                    <div class="ewm_img"></div>
+                </a>
+                <div class="ewm_tc f_c_list_tc" style="display: none;">
+                    <div class="ewm_tc_bg">
+                        <div class="down_app_icon"></div>
+                        <img style="" src="{$ecsolve_path}/images/down_app_ewm.png">
+                    </div>
+                </div>
+            </div>
+           <div class="f_c_list pos_relative f_c_list_online">
+                    <a href="javascript:void(0)" class="f_c_b_bg f_c_b_kf">
+                        <div class="online_cus"></div>
+                    </a>
+                    <div class="online_cus_tc f_c_list_tc" style="display: none;">
+                        <div class="cus_tc_bg">
+                            <div>
+
+
+
+
+
+			    
+		{foreach from=$article_cat_fuwu item=cat name=cat}
+                                <p class="kf_title">{$cat.cat_name}</p>
+                                <p class="kf_con_bg">
+				<!-- {foreach from=$cat.fenlei_arlist item=article} -->
+                                    <a class="looyu" href="{$article.url}">{$article.title}</a>
+                                  <!-- {/foreach} --> 
+                                </p>
+                              {/foreach}
+                            </div>
+                        </div>
+                    </div>
+              
+           
+            <!-- 客服end -->
+            </div>
+            <div class="f_c_list">
+                <a style="opacity: 1;" href="javascript:void(0);" id="gotop">
+                    <div class="retrun_top"></div>
+                    <div class="arial_10">TOP</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+//返回顶部
+backTop=function (btnId){
+	var btn=document.getElementById(btnId);
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	window.onscroll=set;
+	btn.onclick=function (){
+		btn.style.opacity="0.5";
+		window.onscroll=null;
+		this.timer=setInterval(function(){
+		    scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			scrollTop-=Math.ceil(scrollTop*0.1);
+			if(scrollTop==0) clearInterval(btn.timer,window.onscroll=set);
+			if (document.documentElement.scrollTop > 0) document.documentElement.scrollTop=scrollTop;
+			if (document.body.scrollTop > 0) document.body.scrollTop=scrollTop;
+		},10);
+	};
+	function set(){
+	    scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	    btn.style.opacity=scrollTop?'1':"0.5";
+	}
+};
+backTop('gotop');
+</script>
+<!--右侧导航 end-->
+
+<script src="{$ecsolve_path}/js/j.htm" type="text/javascript"></script><div style="display: none;" id="criteo-tags-div"><iframe src="images/dis.htm" style="display: none;" height="0" width="0"></iframe></div>
+

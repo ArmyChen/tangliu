@@ -1,0 +1,10 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files='transport.js,utils.js'}
+<div id="ECS_ORDERTOTAL">
+<p class="youhui" style="text-align:right; height:20px">总计：<span class="red"><em></em>{$total.goods_price_formated}</span></p>
+        <p class="yunfei" style="text-align:right; height:20px">运费：<span class="red"><em></em>{$total.shipping_fee_formated}</span></p>
+		<p class="youhui" style="text-align:right; height:20px">优惠：<span style="color:#009900;"><em></em>{$total.discount_formated}</span></p>
+        <p class="price_bi"><em><b>{$total.amount_formated}</b></em><span>实付款：</span></p>
+        <div class="clear"></div>
+        <!--p class="arpoints">可获积分：<span>0点</span>(会员收到宝贝后，自动获得！)</p-->
+</div>

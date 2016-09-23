@@ -1,0 +1,26 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- 微信登录新增样式与JS start -->
+
+{if $user_info}
+    <div class="brief_logins" style="width:495px">
+<span class="col666 left" style=" margin-right:5px;">{$lang.hello}，<font class="f4_b">{$user_info.username}</font>, {$lang.welcome_return}！</span>
+<span class="left" style=" margin-right:5px;"><a href="{$weburl}/user.php?act=logout" style=" color:#666; margin-left:5px;">退出</a> | <a href="{$weburl}/user.php">会员中心</a> | 
+</span>
+ </div>
+
+
+
+{$lang.hello}，<font class="f4_b">{$user_info.username}</font>, {$lang.welcome_return}！ <a href="{$weburl}/user.php?act=logout"  class="a_login">[退出]</a>
+
+<span class="line"></span> <a href="{$weburl}/user.php">会员中心</a>  
+
+
+
+{else}
+
+   <a href="{$weburl}/user.php?act=login">[登录]</a> <span class="line"></span>  <a href="{$weburl}/user.php?act=register">[注册]</a> 
+
+{/if}
+
+

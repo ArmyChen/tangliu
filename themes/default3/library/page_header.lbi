@@ -1,0 +1,94 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div id="append_parent"></div>
+<div class="header">
+    <!-- 顶部上面 登录 注册条-->
+    <div class="header_top">
+    <div class="w1200 ClearFix" style="display: block;">
+        <div class="h_t_l">
+                     <div class="login_1">
+                <span class="h_t_l_wz">欢迎来到{$shop_name}！</span>{insert name='member_info'}
+            </div>
+                 </div>
+        <div class="h_t_r">
+            <ul>
+                <li><a href="{$weburl}/user.php?act=order">订单查询</a><span class="line"></span></li>
+                <li><a href="{$weburl}/user.php">我的中心</a><span class="line"></span></li>
+                <li><i class="tel_icon"></i><span class="sp_tel">{$service_phone}</span><span class="line"></span></li>
+               <!-- <li class="d_l_hgp"><a href="javascript:void(0);">下载app</a><span class="line"></span>-->
+                    <div class="down_load_hpg" style="display: none;">
+                        <div class="down_load_border">
+                            <b class="icon_top"></b>
+                            <img style="" src="images/down_load_20160411.png">
+                            <p>快乐生活</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="cus_c_box"><a  href="javascript:;">客服中心<b class="b_down"></b></a>
+                    <div class="cus_center" style="display: none;">
+		    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+                        <a href="{$nav.url}">{$nav.name}</a>
+                       <!-- {/foreach} -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>    <!-- 顶部上面 登录 注册条 end-->
+    <!--搜索-->
+    <div class="full_sc">
+    <div class="w1200 header_center ClearFix">
+        <div class="h_c_logo">
+            <a href="{$weburl}">
+                <img src="images/logo.jpg">
+            </a>
+        </div>
+        <div class="h_c_bz">
+            <img src="images/top_center1.jpg">
+        </div>
+        <div class="h_c_search">
+
+            <div class="search_input">
+               
+             <form id="searchForm" name="searchForm" method="get" action="{$weburl}/search.php" onSubmit="return checkSearchForm()">
+                    <input value="search" id="search_act1" name="act" type="hidden">
+                    <input value="index" id="search_act" name="op" type="hidden">
+                    <input autocomplete="off"  placeholder="" name="keywords" id="keyword"  class="txt_searchbox"  type="text">
+                    <input class="btn_search" value="搜索" type="submit">
+                </form>
+                <div class="search_his_list" style="display: none;"><ul></ul></div>
+            </div>
+            <div class="search_key">
+                <ul>
+                                          {foreach from=$searchkeywords item=val}
+                                            <li style="float: left;"><a href="{$weburl}/k-{$val|escape:url}.html">{$val}</a></li>
+                                         {/foreach}
+                                    </ul>
+            </div>
+        </div>
+        <div class="h_c_right">
+            <a href="{$weburl}/flow.php" class="h_c_r_car"><b class="b_car1"></b><span>我的购物车</span><b class="b_car2"></b> <!--<i class="i_car_num"></i>--></a>
+        </div>
+    </div>
+</div>
+
+
+    <!--导航条-->
+    <div class="full_nav">
+    <div class="w1200">
+        <ul class="nav">
+            <li class="li_all_type"><a href="{$weburl}/catalog.html">全部分类<b class="b_down"></b></a></li>
+            <li class="home  on"><a href="{$weburl}">首页</a></li>
+	     <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+            <li class=""><a href="{$nav.url}">{$nav.name}</a></li>
+	    <!-- {/foreach} -->
+                                                                        
+                                                                        
+                                                           
+        </ul>
+    </div>
+</div>    <!--导航条 end-->
+</div>
+<!--头部 end-->

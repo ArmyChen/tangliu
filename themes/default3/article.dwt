@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html><head><script src="js/v.htm" charset="utf-8"></script><script src="js/hm.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>快乐购商城 - 新手指南</title>
+<meta name="keywords" content="快乐购商城">
+<meta name="description" content="快乐购商城">
+<style type="text/css">
+body {
+_behavior: url(http://www.happigo.com/shop/templates/default/{$ecsolve_path}/css/csshover.htc);
+}
+</style>
+
+<script src="js/jquery-1.js"></script>
+<script src="js/placeholderfriend.js"></script>
+<link href="{$ecsolve_path}/css/header.css" rel="stylesheet">
+<link href="{$ecsolve_path}/css/footer.css" rel="stylesheet">
+<link href="{$ecsolve_path}/css/uc_pub.css" rel="stylesheet">
+<script src="js/head_js.js"></script>
+<!-- ie6 透明背景兼容js -->
+    <!--[if IE 6]> 
+    <script src="js/DD_belatedPNG_0.0.8a-min.js"></script> 
+    <script> 
+     DD_belatedPNG.fix('img,.tel_icon,.b_down,.icon_car,.today_zb_icon,.yestoday_icon,.time_icon,.groUlOut li .x,.car_num,.ewm_img,.online_cus,.retrun_top,.ppsx_tc_xx,.q_r_ul_addsc b,.prev_img,.next_img,.btn span，.ppsx_tc'); 
+    </script> 
+<![endif]-->
+    
+<script>
+var COOKIE_PRE = 'C4F3_';
+var _CHARSET = 'utf-8';
+var SITEURL = 'http://www.happigo.com/shop';
+var SHOP_SITE_URL = 'http://www.happigo.com/shop';
+var RESOURCE_SITE_URL = 'http://ecimg.happigo.com/resource';
+var SHOP_TEMPLATES_URL = 'http://www.happigo.com/shop/templates/default';
+var WEB_UID = '34764272';
+var WEB_CUST_NO = '1602911693';
+</script>
+<script src="js/dialog.js" id="dialog_js" charset="utf-8"></script><link href="{$ecsolve_path}/css/dialog.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="images/member.js"></script>
+<script type="text/javascript" src="images/ToolTip.js"></script><div style="position: absolute; z-index: 999; display: none; visibility: visible; left: 1477px; top: 99px;" id="toolTipLayer"></div>
+<script src="js/head_js.js"></script>
+<script>
+//sidebar-menu
+$(document).ready(function() {
+    $.each($(".side-menu > a"), function() {
+        $(this).click(function() {
+            var ulNode = $(this).next("ul");
+            if (ulNode.css('display') == 'block') {
+            	$.cookie(COOKIE_PRE+'Mmenu_'+$(this).attr('key'),1);
+            } else {
+            	$.cookie(COOKIE_PRE+'Mmenu_'+$(this).attr('key'),null);
+            }
+			ulNode.slideToggle();
+				if ($(this).hasClass('shrink')) {
+					$(this).removeClass('shrink');
+				} else {
+					$(this).addClass('shrink');
+				}
+        });
+    });
+	$.each($(".side-menu-quick > a"), function() {
+        $(this).click(function() {
+            var ulNode = $(this).next("ul");
+			ulNode.slideToggle();
+				if ($(this).hasClass('shrink')) {
+					$(this).removeClass('shrink');
+				} else {
+					$(this).addClass('shrink');
+				}
+        });
+    });
+});
+$(function() {
+	//展开关闭常用菜单设置
+	$('.set-btn').bind("click",
+	function() {
+		$(".set-container-arrow").show("fast");
+		$(".set-container").show("fast");
+	});
+	$('[nctype="closeCommonOperations"]').bind("click",
+	function() {
+		$(".set-container-arrow").hide("fast");
+		$(".set-container").hide("fast");
+	});
+
+    $('dl[nctype="checkcCommonOperations"]').find('input').click(function(){
+        var _this = $(this);
+        var _dd = _this.parents('dd:first');
+        var _type = _this.is(':checked') ? 'add' : 'del';
+        var _value = _this.attr('name');
+        var _operations = $('[nctype="commonOperations"]');
+
+        // 最多添加5个
+        if (_operations.find('li').length >= 5 && _type == 'add') {
+            showError('最多只能添加5个常用选项。');
+            return false;
+        }
+        $.getJSON('http://www.happigo.com/shop/index.php?act=member&op=common_operations', {type : _type, value : _value}, function(data){
+            if (data) {
+                if (_type == 'add') {
+                    _dd.addClass('checked');
+                    if (_operations.find('li').length == 0) {
+                        _operations.fadeIn('slow');
+                    }
+                    _operations.find('ul').append('<li style="display : none;" nctype="' + _value + '"><a href="' + _this.attr('data-value') + '">' + _this.attr('data-name') + '</a></li>');
+                    _operations.find('li[style]').fadeIn('slow');
+                } else {
+                    _dd.removeClass('checked');
+                    _operations.find('li[nctype="' + _value + '"]').fadeOut('slow', function(){
+                        $(this).remove();
+                        if (_operations.find('li').length == 0) {
+                            _operations.fadeOut('slow');
+                        }
+                    });
+                }
+            }
+        });
+    });
+});
+</script>
+    <div class="w1200 ClearFix">
+                <div class="ClearFix">
+            <link href="{$ecsolve_path}/css/layout.css" rel="stylesheet" type="text/css">	
+<link href="{$ecsolve_path}/css/help_center.css" rel="stylesheet" type="text/css">
+	
+<div class="locantion">
+            <div class="loc_h2">
+                <span class="title">帮助中心</span>
+                <span class="title_wel">Hi，欢迎您来到帮助中心。</span>
+            </div>
+</div>
+	
+<div class="nch-container wrapper help_content">
+      <div class="help_left ClearFix">
+        <div class="nc-sidebar-article-class">
+          <ul class="help_ul">
+          	<li class="first_li"><a href="javascript:;" >帮助中心</a></li>
+		{foreach from=$article_cat_help item=cat name=cat}
+                        <li class="on"><a  href="javascript:;" >{$cat.cat_name}</a></li>
+                      
+                       <!-- {foreach from=$cat.fenlei_arlist item=article} -->
+                        <li><a href="{$article.url}">{$article.title}</a></li>
+{/foreach}
+
+{/foreach}
+
+
+
+
+
+
+
+
+                      </ul>
+        </div>
+  </div>
+ 
+  
+  <!--<div class="uc_location">
+                <a href="http://www.happigo.com/shop">首页</a>
+        <span>></span>
+                    <a href="http://www.happigo.com/newslist-2/">使用帮助</a>
+        <span>></span>
+                    <a class="a_cur">文章内容</a>
+        </div>
+-->  
+  <div class="help_right">
+    <div class="nch-article-con">
+      <h1>{$article.title}</h1>
+      <!--<h2>$article.add_time}</h2>-->
+      <div class="default">
+        <!-- {if $article.content } -->
+          {$article.content}
+         <!-- {/if} -->
+      </div>
+      <div class="more_article"> 
+
+
+
+<span class="fl"> {if $prev_article}
+            {$lang.prev_article}:<a href="{$prev_article.url}" class="f6">{$prev_article.title}</a>
+          {/if}</span> 
+ <!-- 上一篇文章 -->
+ <span class="fr">
+          {if $next_article}
+            {$lang.next_article}:<a href="{$next_article.url}" class="f6">{$next_article.title}</a><br /><br />
+          {/if}</span> 
+          <!-- 下一篇文章 --> 
+
+
+
+	</div>
+    </div>
+  </div>
+</div>
+        </div>
+    </div>
+<!--底部-->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --></body></html>

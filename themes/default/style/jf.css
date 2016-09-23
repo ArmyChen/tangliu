@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+.earn-juandou {
+  width: 770px;
+  margin: 10px auto 27px;
+}
+.earn-juandou .earn-text {
+  background: #ebebeb;
+}
+.earn-juandou .earn-text h3 {
+  padding: 13px 0 13px 40px;
+  font-size: 14px;
+}
+.earn-juandou .earn-list {
+  overflow: hidden;
+  margin-top: 1px;
+}
+.special-show{ padding:25px 36px 30px 25px; width:428px;}
+.special-show .earn-img{ margin-right:10px;}
+.icon-web:hover{ background-position:0px -74px;}
+.icon-webed{ background-position:0 -148px;cursor:default;}
+.icon-webed:hover{ background-position:0 -148px;}
+.earn-show .behavior .my_store{ position:absolute; top:-7px; right:0px; color:#919191;}
+.earn-show .behavior .my_store b{color:#ff6600; font-size:22px; vertical-align:-3px; font-weight:normal;}
+.earn-show .behavior .my_store em{ position:absolute; top:-10px; right:0; color:#ff6600; font-size:14px;opacity:1; display:none;}
+.earn-show .behavior .my_store .add{ display:block;}
+/* main start by ake20140217*/
+.c_rx ul li span.numhover1 a{ display:block; background:#d80100; width:16px; height:16px; float:left; color:#FFF; line-height:16px; text-align:center; text-decoration:none;margin-right:10px;}
+
+
+.earn-show {
+  background: #ffffff;
+  width:380px;
+  padding: 25px 0px 30px 0px;
+  margin-right: 1px;
+  float: left;
+  position: relative;
+  min-height: 138px;
+  _height: 138px;
+  display:inline;
+}
+.earn-show h3 {color: #666;font-size: 16px;margin-bottom: 8px;}
+.earn-show .earn-img {
+  margin-right: 20px;
+  float: left;
+}
+.earn-show .includep {
+  display: block;
+  min-height: 60px;
+  _height: 60px;
+}
+.earn-show .includep p.special{ margin-bottom:10px;}
+.earn-show .includep p.special .strcolor{ font-size:16px; vertical-align:middle;}
+.includep p {color: #919191;}
+.earn-show .includep p {
+  width: 300px;
+  line-height: 20px;
+}
+.earn-show .behavior {
+	position:relative;
+  float: left;
+}
+.behavior-img .juandou-show {
+	float:left;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.behavior-img a {
+  display: block;
+  float:right;
+  width: 90px;
+  height: 30px;
+  background: url(../images/earnjd.gif) repeat 0 -280px;
+  font-size: 14px;
+  color: #0289cd;
+  text-align: center;
+  line-height: 30px;
+  text-decoration: none;
+}
+.behavior-img a:hover {
+  background: url(../images/earnjd.gif) repeat 0 -330px;
+  text-decoration:none;
+}
+.error-box{
+	float:right;
+  height: 30px;
+  font-size: 14px;
+  color: #66b100;
+  font-weight:bold;
+  line-height: 30px;
+}
+.error-box strong{
+	background:url(images/stroe-total.gif) no-repeat;
+    display: inline-block;
+    height: 20px;
+    margin-right: 3px;
+    vertical-align: -5px;
+    width: 20px;}
+.error-box strong.ok{ background-position:right -192px;}
+/*this is package-box start*/
+.package-box{ background:#fff; text-align:center; padding:20px 0; position:relative;}
+.package-box .icon-gift{ background:url(../images/stroe-total.gif?20141021) no-repeat -120px -28px; width:64px; height:64px; display:inline-block; vertical-align:-24px;}
+.package-box span{ color:#666; font-weight:bold; font-size:16px; margin:0 5px 0 10px;}
+.package-box .btn{ color:#ff3366; font-weight:bold; font-size:14px; background:#fff9e9; border:#ffecb9 solid 1px; display:inline-block; border-radius:3px; width:90px; height:30px; line-height:30px;}
+.package-box .error-box{ position:absolute; top:38px; right:220px;}
+/*this is package-box end*/
+.icon {
+  display: block;
+  width: 56px;
+  height: 56px;
+  background: url(../images/stroe-total.gif) no-repeat;
+}
+.icon-web{
+	background:url(../images/tank-sign.gif) no-repeat;
+  background-position: 0 0;
+  width:73px;
+  height:74px;
+}
+.icon-client{
+  background-position: 0 -89px;
+}
+.icon-user {
+  background-position: 0 -147px;
+}
+.icon-zone {
+  background-position: -84px -444px;
+
+}
+.icon-weixin {
+  background-position: -84px -385px;
+
+}
+.icon-download {
+  background-position: 0 -347px;
+}
+.icon-annount {
+  background-position: 0 -263px;
+}
+.icon-iphone{
+  background-position:0 -205px;
+}
+.icon-iphone{
+  background-position:0 -205px;
+}
+.icon-visited{
+  background-position:0 -410px;
+}
+.icon-sale{
+  background-position: -154px -444px;
+}
+.icon-digger{
+	background-position:-61px -31px;
+}
+.special-show{ padding:25px 36px 30px 25px; width:428px;}
+.special-show .earn-img{ margin-right:10px;}
+.icon-web:hover{ background-position:0px -74px;}
+.icon-webed{ background-position:0 -148px;cursor:default;}
+.icon-webed:hover{ background-position:0 -148px;}
+.earn-show .behavior .my_store{ position:absolute; top:-7px; right:0px; color:#919191;}
+.earn-show .behavior .my_store b{color:#ff6600; font-size:22px; vertical-align:-3px; font-weight:normal;}
+.earn-show .behavior .my_store em{ position:absolute; top:-10px; right:0; color:#ff6600; font-size:14px;opacity:1; display:none;}
+.earn-show .behavior .my_store .add{ display:block;}

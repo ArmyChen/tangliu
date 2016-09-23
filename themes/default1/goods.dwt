@@ -1,0 +1,406 @@
+<?php
+$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(1)); 
+$GLOBALS['smarty']->assign('article_cat_gywm',     get_article_cat(4));   //分类链接标识_关于我们  
+$GLOBALS['smarty']->assign('article_list_gywm',     index_get_all_cat_articles(4));   //文章列表_关于我们  
+$GLOBALS['smarty']->assign('article_list_zxkf',     index_get_all_cat_articles(67));   //文章列表_关于我们  
+$GLOBALS['smarty']->assign('article_cat_zxkf',     get_article_cat(67));   //文章列表_关于我们  
+ ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title}</title>
+
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css" />
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<style>
+.pro_detail  .name{ padding-top:8px;font-family: "寰蒋闆呴粦"; border-bottom:#b5b5b5 1px dotted; padding-bottom:10px; }
+.pro_detail  .name h1{ font-size:16px;width:520px; overflow:hidden;  margin:0; padding:0;}
+.pro_detail  .name h2{ font-weight:normal;width:520px;overflow:hidden;  font-size:14px; color:#e4393c; margin:0; padding-top:3px;}
+.pro_detail .pro_detail_l{ width:300px; height:auto; float:left; padding-left:20px;padding-top:20px;}
+.pro_detail .pro_detail_l img {border:none;}
+.pro_detail .pro_detail_l .pro_detail_l_t{ width:300px; height:300px; margin-bottom:5px; border:1px solid #ddd;}
+.pro_detail .pro_detail_l .spe_list{ width:300px; height:54px;}
+.pro_detail .pro_detail_l .spe_list a.forward,.pro_detail .pro_detail_l .spe_list a.backward,
+.pro_detail .pro_detail_l .spe_list a.forward:hover,.pro_detail .pro_detail_l .spe_list a.backward:hover
+,.pro_detail .pro_detail_l .spe_list .disabled{ background:url("../images/newicon20131017.jpg");}
+.pro_detail .pro_detail_l .spe_list a.forward{ display:block; width:17px; height:54px; background-position:0 0; float:left;}
+.pro_detail .pro_detail_l .spe_list a.forward:hover{background-position:-34px 0;}
+.pro_detail .pro_detail_l .spe_list a.backward{display:block; width:17px; height:54px;background-position:-17px 0; float:right;}
+.pro_detail .pro_detail_l .spe_list a.backward:hover{background-position:-51px 0;}
+.pro_detail .pro_detail_l .spe_list a.forward.disabled{background-position:-68px 0;}
+.pro_detail .pro_detail_l .spe_list a.backward.disabled{background-position:-85px 0;}
+.pro_detail .pro_detail_l .spe_list .spe_item{ width:265px; height:54px; overflow:hidden; float:left;}
+.pro_detail .pro_detail_l .spe_list .spe_item ul{ padding-left:3px;}
+.pro_detail .pro_detail_l .spe_list .spe_item ul li{ width:60px; height:54px; text-align:center; float:left;}
+.pro_detail .pro_detail_l .spe_list .spe_item ul li img{ border:#eaeaea 1px solid;vertical-align: middle;}
+.pro_detail .pro_detail_l .spe_list .spe_item ul li img.img_hover{ border:#fda2a2 2px solid;}
+ .pro_detail .pro_detail_l .spe_list a.forward, .pro_detail .pro_detail_l .spe_list a.backward, .pro_detail .pro_detail_l .spe_list a.forward:hover,.pro_detail .pro_detail_l .spe_list a.backward:hover
+, .pro_detail .pro_detail_l .spe_list .disabled{ background:url("{$ecsolve_path}/images/newicon.jpg");}
+.pro_detail .pro_detail_r{ width:280px; float:left; padding-top:20px; padding-left:20px;  }
+
+.pro_detail .pro_detail_r ul.summary{ width:280px; margin-top:5px;line-height: 30px;}
+.pro_detail .pro_detail_r ul.summary li {padding: 6px 0;overflow: hidden;clear: both;}
+.pro_detail .pro_detail_r ul.summary li.pinpai a{ text-decoration:underline; color:#0088cc;}
+
+.product-cotent {padding:10px;padding-bottom:50px;word-break:break-all;word-wrap:break-word}
+.product-cotent strong {font-weight:bold;}
+.product-cotent span{word-break:break-all;word-wrap:break-word}
+.product-cotent p{padding-bottom:20px;}
+.product-cotent .item{display:none;}
+.product-cotent .active{display:block;}
+.product-body .bigimg  {width:300px;height:300px;float:left;margin-right:20px;}
+.product-body .bigimg  img{width:300px;height:300px;}
+.product-body .smallimg {height:50px;padding:20px 0;}
+.product-body .smallimg li{float:left;width:60px;height:60px;margin-right:10px;cursor:pointer;}
+.product-body .smallimg img{width:60px;height:60px;}
+.product-body .product-tab{height:37px;background:#DEE6F8;padding-left:20px;}
+.product-body .product-tab span{padding:0 10px;display:block;float:left;height:30px;line-height:30px;margin-top:7px;cursor:pointer;}
+.product-body .product-tab span.active{background:#fff;}
+</style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+
+
+<div class="content">
+ <!-- {foreach from=$ad_gywm item=ad name=ad} -->
+ <div style="background:url({$ad.ad_code}) no-repeat center;" class="child_banner"> </div>
+ {/foreach}
+
+
+
+
+
+
+
+  <div class="child_content">
+    <div id="child_menu" class="child_menu">
+ {foreach from=$categories item=cat}
+      <div class="child_menuTitle"> <span>{$cat.name|escape:html}</span> </div>
+  <!--{/foreach}-->
+  
+
+
+
+
+
+      <div>
+        <div>
+	     <span class="childpopup"></span>
+        </div>
+        <ul class="menuLeft_ul">
+          
+	  {foreach from=$categories item=cat}
+
+
+
+	 <!--{foreach from=$cat.cat_id item=child name=child}-->
+   {if $smarty.foreach.child.iteration <11}
+         <li class="menuLeft_li" style="background:#0d83c1;color:#fff;">
+<a href="{$cat.url}" style="color:#fff;" >{$child.name|escape:html}</a>
+
+</li>
+
+
+
+ <!--{foreach from=$child.cat_id item=childer}-->
+      <li {if $childer.id  eq  $cat_id} class="menuLeft_li menuLeft_selected" {else} class="menuLeft_li" {/if} > <a href="{$childer.url}" >{$childer.name|escape:html}</a> </li>
+       <!--{/foreach}-->
+
+  {/if}
+{/foreach}
+{/foreach}	 
+	 
+	 
+	 
+	 </ul>
+	
+      </div>
+    </div>
+    <div class="child_detail">
+      <div>
+       <style>
+/*======中间部分内======*/
+a{ text-decoration:none;}
+/*分页*/
+.endPageNum{ clear:both; font-size:12px; text-align:center;line-height:1em;}
+.endPageNum table{ margin:auto;}
+.endPageNum .s1{*+width:52px;}
+.endPageNum .s2{background:#1f3a87; border:1px solid #ccc; color:#fff; font-weight:bold;}
+.endPageNum a.s2:visited {color:#fff;}
+.endPageNum a{padding:2px 5px;margin:5px 4px 0 0; color:#1F3A87;background:#fff; display:inline-table; border:1px solid #ccc; float:left;}
+.endPageNum a:visited{color:#1f3a87;} 
+.endPageNum a:hover{color:#fff; background:#1f3a87; border:1px solid #1f3a87;float:left; text-decoration:underline;}
+.endPageNum .s3{cursor:default;padding:2px 5px;margin:5px 4px 0 0; color:#ccc;background:#fff; display:inline-table; border:1px solid #ccc; float:left;}
+.clear{ clear:both;}
+.editor{ float:left; font-size:12px; margin:11px 0; width:545px; text-align:right;}
+#newscontent{margin:0 auto; }
+#newsconttitle .urpart{text-align:left; background:url(../images/urlhome.png)  no-repeat scroll 0 center;padding-left:30px; }
+#newsconttitle{text-align:center;}
+#newsconttitle a:hover{ color:#09F;}
+#newsconttitle h1{ font-size:16px; color:#259f53; padding:0; margin:0;text-align: center;text-indent: 10px; line-height:50px;}
+.nytitbg{ height:3px; background:url(../images/nytitbg.png)  no-repeat; width:730px;}
+.nytitborder{ height:1px; background:#ddd; width:710px;}
+
+#newsconttitle p{ width:100%; height:20px; line-height:20px;  padding:15px 0; margin:0; color:#666; border-bottom:1px #ddd dashed; }
+#newsconttitle p a{ max-width:310px;height:20px; overflow:hidden;  color:#4b555c;word-wrap: break-word;word-break: normal; }	
+#newsummary{margin: 10px 0px 0px;padding: 12px 5px 6px;width:98%; background:#FFF;border: 1px solid #DCDDDD; }
+#newsummary h2{text-indent: 2em;font-size: 14px;line-height: 20px;color:#666; font-weight:500;}
+#newcontent{ line-height:22px; color:#666; margin:10px 5px 0 5px; float:left; display:inline;}
+#newcontent p{ padding:0; margin:0;}
+#newcontent p a:hover{ color:#04d;}
+#newsleft .ad{ margin:10px 0; float:left;}
+#newsright{ float:left; width:350px; margin-left:10px; display:inline;}
+#articeBottom {font-size: 14px; margin: 6px 0 10px; padding-top: 10px; text-align: right; }
+#articeBottom span{ float:left;}
+#articeBottom span a{ font-size:12px;}
+#articeBottom span a:hover{ color:#0099FF;}
+#articleHeader { margin:5px 0; padding:10px; }
+#articleHeader h4{font-size:12px; color:#333; height:20px;font-weight: normal;}
+#articleHeader h4 a{ font-size:12px; color:#333}
+.details h2{ background:#F8F8FF; border: 1px solid #DDD; line-height: 25px; margin-bottom: 15px;  padding: 10px; font-size:14px; text-indent:28px;}
+
+
+.pddetiallm{ background:url(../images/gbg.png)  no-repeat scroll 0 center; width:500px; height:50px;}
+.pddetialmtit {}
+
+
+.pro_xiangqing{  height:auto;}
+.pro_xiangqing .pro_xiangqing_left{ width:748px; height:auto; overflow:hidden; padding-bottom:20px; margin-bottom:20px; float:left; border:#cbcbcb 1px solid; background:#ffffff; margin-top:20px; }
+.pro_xiangqing .pro_xiangqing_left .tabs_select{ width:750px; height:34px; border-bottom:#d3d3d3 1px solid;  background:#f3f2f2;_position:relative;}
+.pro_xiangqing .pro_xiangqing_left .tabs_select ul{ width:615px; overflow:hidden; float:left;}
+.pro_xiangqing .pro_xiangqing_left .tabs_select ul li{ float:left;margin-left: -1px;overflow: hidden;padding: 1px 0; }
+.pro_xiangqing .pro_xiangqing_left .tabs_select ul li a{ padding:0px 18px; display:inline-block;border-left: 1px solid #d2d2d2; font-weight: 700;
+font-size: 14px;color:#333333;line-height:32px; height:32px;}
+
+
+
+</style>
+<div id="newscontent">
+	<div id="newsconttitle">
+		<div class="urpart"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+	<!--<div class="nytitbg"></div>-->
+		<h1> {$article.title}</h1>
+<!--<p><span>{$article.add_time} 来源: </span><a href="{$weburl}"> {$shop_name}</a><span>&nbsp;&nbsp;阅读：{$article.click_count}次</span></p>-->
+
+	</div>
+
+	<div class="nytitborder"></div>
+	<!--<div class="nytitbg"></div>-->
+    <div class="clear"></div>
+    	<div id="newcontent">
+
+
+
+<div class="pro_detail">
+<div class="name">
+          <h1>{$goods.goods_style_name}</h1>
+        
+        </div>
+<div class="pro_detail_l">
+        <div class="pro_detail_l_t"> <a id="Zoomer" class="MagicZoomPlus" rel="selectors-effect:false;zoom-fade:true;background-opacity:70;zoom-width:500px;zoom-height:500px;caption-source:img:title;thumb-change:mouseover"   href="{$goods.goods_img}" onclick="window.open('gallery.php?id={$goods.goods_id}'); return false;"><img src="{$goods.goods_img}" width="300" height="300" alt="{$goods.goods_name}" /> </a></div>
+        <div class="clear"></div>
+ 
+        <script>
+		$(".spe_item ul li").hover(function(){
+				$(this).children("img").addClass("img_hover").parent().siblings().children("img").removeClass();
+				$(".pro_detail_l .pro_detail_l_t img").attr("src",$(this).children("img").attr("data")); 
+			});
+		</script>
+        
+
+</div>
+
+
+ <!--右侧-->
+      <div class="pro_detail_r">
+        
+        <ul class="summary">
+          
+
+ 
+
+  <li class="sc_price">
+	     <div class="dt"><b>产品描述：</b></div>
+            <div class="dd" style="color:#333;  "><span>{$goods.goods_spcdesc}</span></div>
+          </li>
+
+	   <li class="sc_price">
+	     <div class="dt"><b>关键特性：</b></div>
+            <div class="dd" style="color:#333;  "><span>{$goods.goods_brief}</span></div>
+          </li>
+		
+		 
+
+
+
+ 
+
+
+
+
+
+
+
+
+	  
+
+     
+</ul>
+
+    </div>
+
+
+
+  <div class="cl"></div>
+
+
+
+
+ 
+
+
+  <div class="cl"></div>
+
+
+
+</div>
+
+	
+
+
+
+
+
+
+	
+</div>
+
+
+<div class="pro_xiangqing" style="padding-top:15px;">
+      <!--左侧-->
+      <div class="pro_xiangqing_left  product-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <div class="product-tab" id="product-tab">   
+					<span  class="active">订购型号</span><span class="">技术参数</span>
+				</div>
+				<div class="clearfix"></div>
+				<div class="product-cotent" id="product-cotent">
+					<div class="item active">
+						
+						{$goods.goods_desc}
+
+					</div>
+
+					<div class="item ">
+						{$goods.seller_note}
+					</div>
+				</div>
+				<div class="clearfix"></div>
+
+
+
+<script>
+	$(function(){
+		$("#product-tab span").click(function(){
+			var _index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$("#product-cotent .item:eq("+_index+")").addClass("active").siblings().removeClass("active");
+		});
+
+		$("#smallimg img").hover(function(){
+			$("#bigimg").attr("src",$(this).attr("src"));
+		});
+
+	});
+
+</script>
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+<div style="border:1px dashed #eee"></div>
+<div id="articleHeader">
+	<h4> <!-- 上一篇文章 -->
+          {if $next_article}
+            {$lang.next_article}:<a href="{$next_article.url}" class="f6">{$next_article.title}</a>
+          {/if}
+          <!-- 下一篇文章 -->
+          {if $prev_article}
+            {$lang.prev_article}:<a href="{$prev_article.url}" class="f6">{$prev_article.title}</a>
+          {/if}</h4>
+
+
+
+
+
+	</div>      </div>
+</div>
+  
+  </div>
+   </div>
+
+   </div>
+
+
+
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+  <div class="cl"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

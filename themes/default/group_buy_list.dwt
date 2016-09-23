@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel='stylesheet' type='text/css' href='themes/aizhigu/css/group.css'>
+<script type="text/javascript" src="themes/aizhigu/js/jquery.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/brand.js"></script>
+
+</head>
+<body>
+<script>
+/*css*/
+if (window.screen.width > 1280)
+{	
+    document.write("<link rel='stylesheet' type='text/css' href='themes/aizhigu/css/1230new_pindao.css'>");
+	document.write("<link rel='stylesheet' type='text/css' href='themes/aizhigu/css/1230common_index.css'>");
+	document.getElementsByTagName("body")[0].className="w1210";
+}
+else {
+	document.write("<link rel='stylesheet' type='text/css' href='themes/aizhigu/css/new_pindao.css'>");
+	document.write("<link rel='stylesheet' type='text/css' href='themes/aizhigu/css/980common_index.css'>");
+}
+</script>
+<!-- header -->
+<script type="text/javascript" src="themes/aizhigu/js/jquery.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/hd_cache.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/index_com.js"></script>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- end header -->
+<div class="new_pinpai_body" style="background-color:#FFFFFF">
+  <div class="new_pinpai_con" style="">
+    <div class="location"> <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --> </div>
+    <!--左侧开始-->
+
+      <div class="block">
+        <div class="tuan">
+          <ul class="tuan_list clearfix">
+            <!--{foreach from=$gb_list item=group_buy key=key name=groupname} 循环团购活动开始 -->
+            <li onmouseover="this.className='cur'" onmouseout="this.className=''">
+              <div>
+                <h3> <a target="_blank" href="{$group_buy.url}" title="{if $group_buy.group_title}{$group_buy.group_title}{else}{$group_buy.act_name}{/if}">{if $group_buy.group_title}{$group_buy.group_title}{else}{$group_buy.act_name}{/if}</a> </h3>
+                <a target="_blank" href="{$group_buy.url}"> <img src="{$group_buy.group_img}" alt="{$group_buy.act_name|escape:html}" height="185" width="277" style="margin-left:8px"> </a>
+                <p class="buy"><a target="_blank" href="{$group_buy.url}">立即抢购</a><s>¥</s>
+                  <!-- {foreach from=$group_buy.price_ladder item=item name=foo} -->
+                  <!-- {if $smarty.foreach.foo.last} -->
+                  {$item.price}
+                  <!-- {/if} -->
+                  <!-- {/foreach} -->
+                </p>
+                <p class="buy_info"> <span class="first" id="marketPrice">原价:<b>{$group_buy.market_price}</b></span> <span id="discount">折扣：<b>{$group_buy.t_discount}</b>折</span> <span class="last" id="buyCount">已购买<strong>{if $group_buy.isg_rs eq 1}{$group_buy.group_rs}{else}{$group_buy.cur_amount}{/if}</strong>件</span> </p>
+              </div>
+            </li>
+            <!--{/foreach}-->
+          </ul>
+        </div>
+        <div class="blank"></div>
+        <!-- #BeginLibraryItem "/library/pages2.lbi" --><!-- #EndLibraryItem --> </div>
+  
+    <div class="clear"></div>
+  </div>
+</div>
+<!--购物车浮动层开始-->
+<div class="scroll_div" onclick="$(window).scrollTop(0)" id="scroll_div" style="left: 1331px; display: block;"></div>
+<!--爱之谷底部-->
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--尾文件，加载分屏代码-->
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+	var $imgOriginal = $("img[original]");
+	//360图片不显示问题
+	if($.browser.msie){
+		$imgOriginal.each(function(){
+			$(this).attr('src',$(this).attr('original'));
+		});
+	}else{
+		$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
+	}
+});
+</script>
+<script>
+
+//滚动的回顶部
+var is_ie6 = ( $.browser.msie &&　$.browser.version　< 7 )?true:false;
+function scall() {
+var scroll_div = $("#scroll_div");
+var top_size = ($(document).scrollTop()+$(window).height()-scroll_div.height()*4);
+var left_size= ($(document).scrollLeft() + $('.new_pinpai_con').width() + ($(window).width() - $('.new_pinpai_con').width())/2);
+	scroll_div.css({ left: left_size +"px"});
+	is_ie6?scroll_div.css({ top: top_size +"px"}):"";
+}
+scall();
+$(window).scroll(function() {
+	($(document).scrollTop()>0)?$("#scroll_div").show():$("#scroll_div").hide();
+	is_ie6?scall():'';
+}).resize(function(){
+scall();
+});
+</script>
+</body>
+</html>

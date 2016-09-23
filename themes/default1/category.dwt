@@ -1,0 +1,178 @@
+<?php
+$GLOBALS['smarty']->assign('article_cat_gywm',     get_article_cat(4));   //分类链接标识_关于我们  
+$GLOBALS['smarty']->assign('article_list_gywm',     index_get_all_cat_articles(4));   //文章列表_关于我们  
+$GLOBALS['smarty']->assign('article_list_zxkf',     index_get_all_cat_articles(67));   //文章列表_关于我们  
+$GLOBALS['smarty']->assign('article_cat_zxkf',     get_article_cat(67));   //文章列表_关于我们  
+ ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/common.js"></script>
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css" />
+<script type="text/javascript" src="{$ecsolve_path}/js/wycms/jquery.js"></script>
+<link href="{$ecsolve_path}/common/hdp/style/index.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/common/hdp/js/lrtk.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/gundong.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css" />
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<style>
+*{ margin:0; padding:0;}
+ul,li{ list-style:none;}
+a{ text-decoration:none;}
+#newlist{ width:99%; float:left;}
+#newlist li{ line-height:35px; border-bottom:#eee 1px dashed; list-style:none; padding-right:10px;}
+#newlist li span{ float:right;}
+#newlist li a{ background:url({$ecsolve_path}/images/list_a.gif) 6px 5px no-repeat; color:#4b555c; padding:0 0 0 25px;}
+#newlist li a:hover{ background:url({$ecsolve_path}/images/list_l.gif) 6px 5px no-repeat; color:#3a9acc;}
+#newsconttitle .urpart{text-align:left; background:url(../images/urlhome.png)  no-repeat scroll 0 center;padding-left:30px; }
+.pagebar {text-indent:10px;}
+#articeBottom { font-size: 14px; margin: 6px 0 10px; padding-top: 10px; text-align: right; width: 97%;}
+.rightlistcontent {padding:25px; }
+.rightlistcontent .imgcontentlist { height:280px; width:210px;float:left; margin-right:20px;  margin-bottom:10px;}
+.rightlistcontent .imgcontentlist img{ border:#ebebeb 3px solid;  height:200px; width:200px; }
+.rightlistcontent .imgcontentlist span{ font-size:16px;font-weight: normal;line-height:25px;   font-family: "寰蒋闆呴粦"; text-align:center;}
+</style>
+</head>
+
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+<div class="content">
+
+
+ <!-- {foreach from=$ad_gywm item=ad name=ad} -->
+ <div style="background:url({$ad.ad_code}) no-repeat center;" class="child_banner"> </div>
+ {/foreach}
+
+
+
+
+
+
+
+  <div class="child_content">
+    <div id="child_menu" class="child_menu">
+ {foreach from=$categories item=cat}
+      <div class="child_menuTitle"> <span>{$cat.name|escape:html}</span> </div>
+  <!--{/foreach}-->
+  
+
+
+
+
+
+      <div>
+        <div>
+	     <span class="childpopup"></span>
+        </div>
+        <ul class="menuLeft_ul">
+          
+	  {foreach from=$categories item=cat}
+
+
+
+	 <!--{foreach from=$cat.cat_id item=child name=child}-->
+   {if $smarty.foreach.child.iteration <11}
+         <li class="menuLeft_li" style="background:#0d83c1;color:#fff;">
+<a href="{$cat.url}" style="color:#fff;" >{$child.name|escape:html}</a>
+
+</li>
+
+
+
+ <!--{foreach from=$child.cat_id item=childer}-->
+      <li {if $childer.id  eq  $cat_id} class="menuLeft_li menuLeft_selected" {else} class="menuLeft_li" {/if} > <a href="{$childer.url}" >{$childer.name|escape:html}</a> </li>
+       <!--{/foreach}-->
+
+  {/if}
+{/foreach}
+{/foreach}	 
+	 
+	 
+	 
+	 </ul>
+      </div>
+    </div>
+    <div class="child_detail">
+    <div id="newsconttitle">
+		<div class="urpart"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+	</div>
+      <div>
+       <style type="text/css">
+
+
+</style>
+<div id="newlist">
+
+	
+
+
+
+
+
+
+
+<div class="rightlistcontent">
+
+
+{foreach from=$goods_list item=goods name=index_goods}
+{if $goods.name }
+   <div class="imgcontentlist"  {if $smarty.foreach.index_goods.iteration%3== 0}style="margin-right:0px;"{/if}>
+     <a title="{$goods.name}" target="_blank" href="{$goods.url}">
+<img title="{$goods.name}" alt="{$goods.name}" src="{$goods.goods_thumb}"> </a>
+     
+      <span><a title="{$goods.name}" target="_blank" href="{$goods.url}">{$goods.name|truncate:20:"...":true}</a> </span>
+     
+    </div>
+   
+
+{/if}
+{/foreach}
+
+
+ <div class="cl"></div>
+
+
+
+
+
+
+	<div class="clear"></div>
+	<div id="articeBottom"></div>
+</div>   
+ <div class="page"> <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --> </div>
+
+</div>
+</div>
+  
+  </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="cl"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

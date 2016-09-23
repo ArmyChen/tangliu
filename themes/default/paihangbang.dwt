@@ -1,0 +1,1982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta property="qc:admins" content="423516203760161121101663757" />
+<title>{$page_title}</title>
+<script>	
+document.write("<link rel='stylesheet' type='text/css' href='{$ecsolve_path}/style/index.css'>");
+document.write("<link rel='stylesheet' type='text/css' href='{$ecsolve_path}/style/gtcommon.css'>");
+</script>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/catcommon.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/head_js.js"></script>
+<script type="text/javascript">
+window.onload = function()
+{
+  
+}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+<style type="text/css">
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,span,a,b,img,em,del,label,form,fieldset,input,p,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+th,em,i{font-style:normal;font-weight:normal;}
+ol,ul{list-style:none;}
+fieldset,img,a img{border:0;}
+input,img{vertical-align:middle;}
+button,input,select,textarea{font-size:100%;font-family:"Microsoft Yahei";}
+.alR{text-align:right;}
+.alL{text-align:left;}
+.alC{text-align:center;}
+del{text-decoration:line-through;color:#999;}
+body{font:12px/150% tahoma,Arial,Verdana,"\5b8b\4f53";color:#666;_background-image:url(about:blank);_background-attachment:fixed;}
+a{color:#666;text-decoration:none;}
+a:hover{text-decoration:underline;}
+.red,a.red{color:#c40000;}
+.gray,.c9,a.gray{color:#999;}
+.c5,a.c5{color:#555;}
+.c3,a.c3{color:#333;}
+.c8{color:#888;}
+.cb,a.cb{color:#3388bb;}
+.tre{color:#9e8e82;}
+.org{color:#ff7700;}
+.blue{color:#4782c3;}
+.green{color:#38b512;}
+.xj{color:#c40000;font-size:14px;}
+.fB{font-weight:bold;}
+.fI{font-style:italic;}
+.fN{font-weight:normal;}
+.f12{font-size:12px;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+.f18{font-size:18px;}
+.f24{font-size:24px;}
+.lh16{line-height:16px;}
+.lh18{line-height:18px;}
+.lh20{line-height:20px;}
+.lh25{line-height:25px;}
+.lh30{line-height:30px;}
+.lh35{line-height:35px;}
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+.clearfix:after{content:" ";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{display:inline-block;}
+.hid{display:none;}
+input[type=submit]{-webkit-appearance:none;}
+.OverH{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ov{overflow:hidden;position:relative;}
+.over{overflow:hidden;zoom:1;}
+.mb5{margin-bottom:5px;}
+.ml5{margin-left:5px;}
+.mt5{margin-top:5px;}
+.mr5{margin-right:5px;}
+.pb5{padding-bottom:5px;}
+.pl5{padding-left:5px;}
+.pt5{padding-top:5px;}
+.pr5{padding-right:5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+.ml10{margin-left:10px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mr10{margin-right:10px;}
+.pb10{padding-bottom:10px;}
+.pl10{padding-left:10px;}
+.pt10{padding-top:10px;}
+.pr10{padding-right:10px;}
+@font-face{font-family:"vgan";src:url('css/f.eot');src:url('css/f.eot?#iefix') format('embedded-opentype'),url('css/f.woff') format('woff'),url('css/f.ttf') format('truetype'),url('css/f.svg#iconfont') format('svg');}
+.f{font-family:"vgan" !important;}
+.U,.U a{text-decoration:underline;}
+.hand{cursor:pointer;}
+.wb{word-wrap:break-word;}
+.wn{white-space:nowrap;}
+.vline{padding:0 5px;color:#cacaca;}
+.xline{text-decoration:line-through;}
+.yahei{font-family:"Microsoft Yahei";}
+.rel{position:relative;}
+.w{width:1190px;margin:0 auto;}
+.w9,.wp,.content{width:960px;margin:0 auto;}
+.w10{width:110%;}
+.dinl{display:inline;}
+#top{height:30px;line-height:30px;background-color:#f1f1f1;border-bottom:1px solid #e5e5e5;width:100%;color:#888;}
+.z_k,.z_kh{background-color:#cc4026;color:#fff;padding:0 5px;}
+.bgw{background-color:#fff;}
+.load img{background:#fff url(css/load.gif) 50% 50% no-repeat;}
+#top,#header,#footer,#l_nav{min-width:990px;}
+.tul li{float:left;position:relative;z-index:11;margin-left:5px;border-left:1px solid #f1f1f1;border-right:1px solid #f1f1f1;}
+.nbt{padding:0 15px 0 8px;}
+.rdop{right:2px;top:15px;width:0;height:0;border-width:3px;border-style:solid dashed dashed;border-color:#bbb transparent transparent;font-size:0;line-height:0;position: absolute;-webkit-transform .2s ease-in;-moz-transition:-moz-transform .2s ease-in;-o-transition:-o-transform .2s ease-in;transition:transform .2s ease-in;}
+.tul li.on{background-color:#fff;border-color:#e5e5e5;}
+.tul li.on .rdop{-moz-transform:rotate(180deg);-webkit-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg);-moz-transform-origin:50% 30% 0;-webkit-transform-origin:50% 30% 0;-o-transform-origin:50% 30% 0;transform-origin:50% 30% 0;}
+.tuln{display:none;position:absolute;border:1px solid #e5e5e5;padding:5px 0;border-top:none;background-color:#fff;top:30px;left:-1px;}
+.tul a{color:#999;}
+.tuln a{width:80px;display:block;padding:0 8px;color:#555;}
+.tul li.on .tuln{display:block;}
+.mt1{margin-right:4px;top:-1px;position:relative;}
+.t_v{width:14px;height:14px;background:url(css/i.png) 0 -806px;color:#fff;padding:0 2px 2px 2px;line-height:14px;font-size:10px;}
+#top a:hover{text-decoration:none;color:#c40000;}
+#header{background-color:#fff;padding-top:25px;height:78px;position:relative;z-index:6;}
+.logo{height:44px;width:296px;display:block;overflow:hidden;}
+.chead{position:absolute;left:150px;top:-10px;}
+.search{margin:0 30px;z-index:5;position:relative;}
+.shl{border:2px solid #bf3217;color:#c2c2c2;height:34px;line-height:34px;padding-left:5px;width:360px;display:inline;}
+.search .c3{color:#333;}
+.shr{width:65px;height:38px;background-color:#bf3217;line-height:36px;color:#fff;border:none;display:inline;cursor:pointer;}
+.hotw a{color:#999;line-height:30px;}
+.hotw a:hover{color:#c40000;text-decoration:none;}
+#s_box{position:absolute;left:0;top:37px;width:425px;background-color:#fff;border:1px solid #cc4026;line-height:26px;display:none;}
+#s_box a{padding:0 10px;display:block;height:26px;overflow:hidden;white-space:nowrap;}
+#s_box a:hover{background-color:#e5e5e5;text-decoration:none;}
+.tr_c{position:relative;z-index:5;width:136px;height:38px;}
+.t_c{display:block;position:relative;z-index:2;background:url(css/i.png) 10px -27px no-repeat;padding-left:40px;width:94px;line-height:36px;height:36px;border:1px solid #ddd;background-color:#f9f9f9;cursor:pointer;}
+.ci_r{margin-left:16px;font-family:simsun;color:#999;}
+#qcar{display:block;width:16px;height:15px;position:absolute;right:22px;top:-9px;line-height:15px;text-align:center;color:#fff;overflow:hidden;background:url(css/i.png) 0 -65px no-repeat;}
+.t_c:hover{text-decoration:none;color:#c40000;}
+.navq{background-color:#cc4026;position:relative;z-index:5;height:34px;font-family:"Microsoft Yahei";}
+.navs li{height:34px;line-height:34px;float:left;position:relative;font-size:15px;overflow:hidden;}
+.navs a{color:#fff;display:block;padding:0 12px;}
+.navs a:hover{text-decoration:none; background-color:#c40000;}
+.navs li:hover a::before{background-color:#c40000;height:3px;}
+.nhot{position:absolute;right:10px;top:-1px;z-index:2;}
+.lcat{width:190px;color:#fff;position:relative;z-index:10;float:left;margin:0 15px 0 0;}
+.nall{text-indent:54px;font-size:14px;color:#fff;background-color:#bf3217;width:190px;height:34px;line-height:34px;}
+.lnav{position:absolute;left:0;top:34px;background-color:#d01e1e;width:190px;height:440px;padding-top:10px;z-inedx:3;}
+.lnav li{height:38px;float:left;color:#fff;width:188px;border-left:2px solid #d01e1e;}
+.lma{line-height:38px;width:135px;display:inline-block;color:#fff;}
+.lma:hover{text-decoration:none;}
+.lnav .f{float:left;margin:0 15px 0 18px;_margin:0 10px 0 18px;width:18px;font-size:18px;line-height:38px;}
+.lra{padding:10px;width:270px;height:429px;background-color:#fff;position:absolute;z-index:2;left:190px;top:-1px;display:none;border:1px solid #d01e1e;border-left:none;}
+.lh3{color:#333;border-bottom:1px solid #e5e5e5;line-height:40px;overflow:hidden;font-size:14px;text-align:right;width:248px;margin-left:10px;}
+.lh3 .right{color:#666;font-weight:normal;font-size:12px;}
+.boa a{background-color:#7c7171;color:#fff;display:inline;float:left;width:114px;margin:10px;line-height:25px;  text-align:center;}
+.boa a:hover{text-decoration:none; background-color:#c40000;}
+.bom a{padding:0 0 0 10px;line-height:30px;display:inline-block;}
+.lnav a.m:hover{text-decoration:none;}
+.con{background-color:#fff;}
+.con .f,.con .lma{color:#c40000;}
+.con .lra{display:block;}
+#bignav .lnav{display:none;}
+.b_t{line-height:45px;height:45px;position:relative;}
+.b_t b{background-color:#fff;padding:0 10px;}
+.b_t p{height:1px;background-color:#ddd;width:100%;z-index:0;left:0;position:absolute;top:24px;overflow:hidden;}
+#footer{background-color:#fff;padding-top:10px;margin-top:35px;}
+.ft_t{width:100%;border-bottom:1px solid #e5e5e5;padding:10px 0  20px 0;}
+.f_dl{width:120px;overflow:hidden; white-space:nowrap; float:left;margin:20px 48px 30px 0; line-height:24px;}
+.mr0{margin-right:0;}
+.f_dl dt{font-size:16px;color:#555;line-height:40px;font-weight:bold;}
+.f_dl a{color:#999; display:block;}
+.f_dot{padding:20px 0;color:#999;line-height:20px;background-color:#3a3939}
+.op6{filter:alpha(opacity=60);opacity:0.6;}
+.fa_l{border-left:1px solid #e5e5e5;}
+.fa_dl{width:158px;border:1px solid #e5e5e5;position:relative;margin-left:-1px;padding-bottom:15px;float:left;background-color:#fff;}
+.fa_dl dt{padding-top:10px;display:block;text-align:center;margin-bottom:20px;line-height:40px;}
+.fa_h3{background-color:#fafafa;color:#333;margin-top:15px;font-size:14px;}
+.fa_dl dd{padding:0 5px;}
+.fa_dl dd a{width:60px; height:24px; white-space:nowrap;overflow:hidden; float:left;margin:0 0 0 12px;color:#999;}
+.dlast{width:163px;}
+.hbtn{border:1px solid #ddd; display:inline-block;padding:6px 50px;background-color:#fff;}
+.fa_dl:hover{border-top-color:#c40000;}
+.kf_f{display:none}
+.rx_bg{background:#dd2468 url(top.jpg) 50% 0 no-repeat; padding-bottom:100px;}
+.z_nav{width:960px;position:absolute; height:60px; display:block;left:0;bottom:37px;z-index:2;}
+.z_nav a{width:90px;display:inline-block;height:60px; float:left;cursor:pointer; background:url({$ecsolve_path}/blank.png) 0 0; }
+.new_zone{background-color:#a30a42; padding:10px 0 10px 5px; width:955px;}
+.rx_tt{width:100%; height:67px; line-height:67px; background:#5f0082 url(t.png) 0 0 no-repeat; margin:20px 0;}
+.rx_tt h2{color:#991679; font-size:18px; font-weight:normal; margin:0 57px 0 70px; line-height:40px;}
+.rx_bg .zt_more{color:#853c9f; float:right; padding-right:15px; font-size:14px;}
+.rx_tt i{font-family:Arial, Helvetica, sans-serif; font-size:50px;color:#7f339b;}
+.footer{margin-top:0;}
+.new_zone dl{background-color:#fff;width:230px;height:340px;float:left;margin:5px 2px 10px 5px; display:inline;}
+.new_zone dt{width:230px; height:255px; display:block; float:left;text-align:center;}
+.new_zone dt p{line-height:30px; background-color:#e01282;color:#fff; font-size:24px;margin-bottom:5px;}
+.new_zone dd{width:220px;line-height:20px; float:left;margin-left:5px;}
+.new_zone dd.pric{ text-align:right; line-height:30px;color:#999;}
+.new_zone dd.ms{ height:40px; overflow:hidden;}
+.ms a{color:#92706b;}
+
+.z_dh{width:95px;overflow:hidden;position:fixed;left:50%;margin-left:510px;z-index:2;top:600px;_position:absolute; display:none; background-color:#f7739e;}
+.z_dh .t{background:url({$ecsolve_path}/zhuanti/nr.png) -1px 0 no-repeat; height:95px;}
+.z_dh .b{background-color:#ea588e; text-align:center;line-height:25px;}
+.z_dh .b a{color:#fff; font-weight:bold;}
+.z_dh ul{width:82px;margin:0 auto;line-height:20px;text-align:center;}
+.z_dh li{line-height:20px; height:20px; width:100%;display:block; margin-bottom:10px;}
+.z_dh li a{color:#fff;display:block;width:100%; height:20px;}
+.z_dh li a:hover,.z_dh li a.on{ background-color:#991679;}
+</style>
+</head>
+<body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<SCRIPT language=javascript>
+<!--
+window.onerror=function(){return true;}
+// -->
+</SCRIPT> 
+ 
+<style type="text/css">
+<!--
+.weixin{background:url("{$ecsolve_path}/images/top_icon_wechat.png") no-repeat; display:inline-block; width:160px; height:20px;  position:relative; margin-top:5px; z-index:999999999}
+.weixin img{display:none}
+.weixin:hover img{display: block; position:absolute; left:0; top:20px;}
+-->
+.addcss2{margin-top:-108px !important;}
+.addcss3{margin-top: -164px !important;}
+.addcss4{margin-top: -220px !important;}
+.addcss5{margin-top: -276px !important;}
+.addcss6{margin-top: -332px !important;}
+.addcss7{margin-top: -388px !important;}
+.addcss8{margin-top: -444px !important;}
+</style>
+<script type="text/javascript" src="{$ecsolve_path}/js/suggest.js"></script>
+<link href="{$ecsolve_path}/style/css.css" rel="stylesheet" type="text/css">
+<div class="topbrief">
+  
+  <div class="topbrief_mid">
+    <p class="sitenav_mobile">
+    欢迎来到{$shop_name}！ 
+   </p>
+   
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+    <p class="sitenav_point"><a href="{$nav.url}" 
+      <!-- {if $nav.opennew eq 1} -->
+      target="_blank"
+      <!-- {/if} -->
+      >{$nav.name}</a></p>
+    <!-- {/foreach} -->
+   
+ {insert name='member_info'}
+
+
+
+
+
+
+  </div>
+</div>
+
+<div class="topcenterpart" >
+<div class="topcenterpartcon" >
+
+
+<div class="logo_con" > <a href="{$weburl}" title="{$shop_name}"><img width="140" height="61" src="{$ecsolve_path}/images/logo.jpg" alt="{$shop_name}"/></a><img src="images/top_center1.jpg" class="kogo" width="211" height="61">
+</div>
+  <div class="safe_pic">
+
+
+  <form id="searchForm" name="searchForm" method="get" action="{$weburl}/search.php" onSubmit="return checkSearchForm()">
+    <div class="search"><div class="search-panel"><div class="search-in"><div attr="new" id="js_search_type" class="search-type search-triggers" style="overflow: hidden;">
+      <div id="search_suggest" style="display:none;" onmouseover='javascript:_over();' onmouseout='javascript:_out();'></div>
+    <div class="arrow"></div></div><div class="txt"><input type="text" value="" name="keywords" id="keyword"  class="search-text s_keyword"  nkeypress="if(event.keyCode == 13){checkSearchForm();}"><div class="search-suggest" style="visibility:hidden;"></div></div></div></div><div class="search-btn"><input type="submit"  class="submit-btn" value=''></div>
+    
+    <ul class="search-hots"><li>  {if $searchkeywords}
+   {$lang.hot_search} ：
+   {foreach from=$searchkeywords item=val}
+   <a href="{$weburl}/k-{$val|escape:url}.html" >{$val}</a>
+   
+   {/foreach}
+   {/if}</li></ul>
+    
+   </form>
+
+
+
+   
+
+
+
+
+    </div>
+
+
+  </div>
+<script>
+/*css*/
+if (window.screen.width > 1280)
+{	
+	
+}
+
+</script>
+  <div id="settleup">
+    <dl class="" id="dl_settleup">
+      <dt class="ld"> <s class="shopping"><span id="shopping-amount">{insert name='cart_count'}</span></s> <a href="{$weburl}/flow.php" rel="nofollow">去购物车结算</a> <b></b> </dt>
+      {insert name='cart_data'}
+    </dl>
+  </div>
+</div>
+</div></div>
+<div class="azg_menu">
+  <div class="azg_menu_main">
+    <div {if $menushow eq 1}class="menuleftindex"{else}class="menuleft"{/if}>
+      <div class="menuleft_top alC"><a href="{$weburl}/catalog.html" title="全部商品分类">全部分类</div>
+      <div class="menuleft_bottom" {if $menushow eq 1}style="display:block"{else}style="display:none"{/if} data="">
+        <ul>
+          
+          <!--{foreach from=get_categories_tree() item=cat name=cat_tree}-->
+          <li class="{if $smarty.foreach.cat_tree.iteration % 2 eq 0}gray_li{/if} {if $smarty.foreach.cat_tree.iteration eq 1}woman{/if}{if $smarty.foreach.cat_tree.iteration eq 2}man{/if}{if $smarty.foreach.cat_tree.iteration eq 3}cuiyu{/if}{if $smarty.foreach.cat_tree.iteration eq 4}neiyi{/if}{if $smarty.foreach.cat_tree.iteration eq 5}shuangren{/if}{if $smarty.foreach.cat_tree.iteration eq 6}runhua{/if}{if $smarty.foreach.cat_tree.iteration eq 7}anquantao{/if} " {if $smarty.foreach.cat_tree.iteration eq 7}style=" margin-right:0px"{/if}>
+            <h2  class="white_arew"><s></s><a href="{$cat.url}" target="_blank" title="{$cat.name|escape:html}"  style=" color:#333333;">{$cat.name|escape:html}</a></h2>
+            <div class="cloums">
+              <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+              {if $smarty.foreach.cat_cat_id.iteration < 3} <a href="{$child.url}" target="_blank" title="{$child.name|escape:html}">
+              <h3>{$child.name|escape:html}</h3>
+              </a> {/if}
+              <!--{/foreach}-->
+            </div>
+            <div class="subItem_hd {if $smarty.foreach.cat_tree.iteration >1}addcss{$smarty.foreach.cat_tree.iteration}{/if}" style=" display:none;" >
+              <p class="tc"></p>
+              <span class="import">
+              <p class="left"><a href="{$cat.url}" target="_blank" style=" color:#000000; " title="{$cat.name|escape:html}">
+	      {$cat.name|escape:html}
+	      馆</a></p>
+              <p class="rightname"></p>
+              </span>
+              <div class="leimu">
+                <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+                <a href="{$child.url}" title="{$child.name|escape:html}">
+                <h3>{$child.name|escape:html}</h3>
+                </a>
+                <!--{/foreach}-->
+              </div>
+    <div class="clear"></div>
+<div class="menuad" style="margin-top:10px; width:220px;">
+
+ <!--{foreach from=$cat.menuadlist item=ad name=ad}-->{$ad.ad_code}<!--{/foreach}-->
+</div>
+
+
+              <div class="clear"></div>
+              
+          
+              
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <ul class="Nav_main">
+      <li ><a href="/" title="首页">首页</a></li>
+      <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+      <li  class="{if $nav.active eq 1}curChn{/if} {if $smarty.foreach.nav_middle_list.last}Nav_last{/if}" ><a href="{$nav.url}" title="{$nav.name}">
+        <h2>{$nav.name}</h2>
+        </a></li>
+      <!-- {/foreach} -->
+    </ul>
+    <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+ 
+  </div>
+</div>
+
+	<div class="rx_bg"><div class="wp rel"><img src="{$ecsolve_path}/zhuanti/h1.jpg" width="960" height="100" />
+	<img src="{$ecsolve_path}/zhuanti/h2.jpg" width="960" height="100" />
+	<img src="{$ecsolve_path}/zhuanti/h3.jpg" width="960" height="100" />
+	<img src="{$ecsolve_path}/zhuanti/h4.jpg" width="960" height="100" />
+	<img src="{$ecsolve_path}/zhuanti/h5.jpg" width="960" height="63"/>
+	<div class="z_nav"><a href="http://www.7wg.com/topic.php?topic_id=6#f1" title="男性用品"></a>
+		<a href="http://www.7wg.com/topic.php?topic_id=6#f2" title="女性用品" style="width:150px;"></a>
+		<a href="http://www.7wg.com/topic.php?topic_id=6#f3" style="width:134px;" title="风情女人"></a>
+		<a href="http://www.7wg.com/topic.php?topic_id=6#f4" style="width:120px;" title="情趣服饰"></a>
+		<a href="http://www.7wg.com/topic.php?topic_id=6#f5" style="width:120px;" title="延时助情"></a>
+		<a href="http://www.7wg.com/topic.php?topic_id=6#f6" style="width:120px;" title="双人情趣"></a>
+		<a href="http://www.7wg.com/topic.php?topic_id=6#f7" title="润滑液" style="width:130px;"></a>
+		<a href="http://www.7wg.com/topic.php?topic_id=6#f8" title="避孕套"></a></div></div>
+
+<div class="content">
+<div class="new_zone">
+<table width="930" border="0" cellspacing="0" cellpadding="0" class="ml10">
+  <tbody><tr>
+    <td align="left"><a href="# " target="_blank"><img src="{$ecsolve_path}/zhuanti/20140522154255_81246.jpg" width="460" height="285"></a></td>
+    <td align="right"><a href="http://www.7wg.com/g-31358.html" target="_blank"><img src="{$ecsolve_path}/zhuanti/24242222223354r.jpg" width="460" height="285"></a></td>
+  </tr>
+</tbody></table>
+</div>
+
+<div class="rx_tt clearfix" id="f1"><h2 class="yahei left">男性用品</h2><i class="left">MAN</i><a href="http://www.7wg.com/c-nanxing/" target="_blank" class="zt_more">查看更多>></a></div>
+<div class="new_zone clearfix">
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32405.html" target="_blank" title="琦莎 口阴互换舌震免提HAPPY飞机杯"><img width="220" height="220" alt="琦莎 口阴互换舌震免提HAPPY飞机杯" src="http://www.7wg.com/images/201608/goods_img/32405_P_1472497266789.JPG"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥199.00</span></div><span class="ypr xline">¥258.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32405.html" title="琦莎 口阴互换舌震免提HAPPY飞机杯" target="_blank">琦莎 口阴互换舌震免提HAPPY飞机杯</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31159.html" target="_blank" title="爱侣 真人性感发声双穴美臀倒模"><img width="220" height="220" alt="爱侣 真人性感发声双穴美臀倒模" src="http://www.7wg.com/images/201608/goods_img/31159_P_1471914463858.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥528.00</span></div><span class="ypr xline">¥686.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31159.html" title="爱侣 真人性感发声双穴美臀倒模" target="_blank">爱侣 真人性感发声双穴美臀倒模</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31260.html" target="_blank" title="张筱雨 真人发声1:1仿真名器"><img width="220" height="220" alt="张筱雨 真人发声1:1仿真名器" src="http://www.7wg.com/images/201608/goods_img/31260_P_1471996551400.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥580.00</span></div><span class="ypr xline">¥754.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31260.html" title="张筱雨 真人发声1:1仿真名器" target="_blank">张筱雨 真人发声1:1仿真名器</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31359.html" target="_blank" title="DMM 触控型真人发声免提飞机杯"><img width="220" height="220" alt="DMM 触控型真人发声免提飞机杯" src="http://www.7wg.com/images/201608/goods_img/31359_P_1472064037341.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥299.00</span></div><span class="ypr xline">¥388.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31359.html" title="DMM 触控型真人发声免提飞机杯" target="_blank">DMM 触控型真人发声免提飞机杯</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31176.html" target="_blank" title="VINA 莎拉宝贝真人发声臀部倒模"><img width="220" height="220" alt="VINA 莎拉宝贝真人发声臀部倒模" src="http://www.7wg.com/images/201608/goods_img/31176_P_1471971683654.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥299.00</span></div><span class="ypr xline">¥598.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31176.html" title="VINA 莎拉宝贝真人发声臀部倒模" target="_blank">VINA 莎拉宝贝真人发声臀部倒模</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32431.html" target="_blank" title="雷霆 活塞抽插全自动免提飞机杯"><img width="220" height="220" alt="雷霆 活塞抽插全自动免提飞机杯" src="http://www.7wg.com/images/201608/goods_img/32431_P_1472504906695.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥299.00</span></div><span class="ypr xline">¥388.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32431.html" title="雷霆 活塞抽插全自动免提飞机杯" target="_blank">雷霆 活塞抽插全自动免提飞机杯</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31239.html" target="_blank" title="Secwell恰然国际宅男女神露露名器"><img width="220" height="220" alt="Secwell恰然国际宅男女神露露名器" src="http://www.7wg.com/images/201608/goods_img/31239_P_1471993155855.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥199.00</span></div><span class="ypr xline">¥408.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31239.html" title="Secwell恰然国际宅男女神露露名器" target="_blank">Secwell恰然国际宅男女神露露名器</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31293.html" target="_blank" title="香港兆邦NMC罗马大帝仿真阳具"><img width="220" height="220" alt="香港兆邦NMC罗马大帝仿真阳具" src="http://www.7wg.com/images/201608/goods_img/31293_P_1472001471983.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥198.00</span></div><span class="ypr xline">¥415.80</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31293.html" title="香港兆邦NMC罗马大帝仿真阳具" target="_blank">香港兆邦NMC罗马大帝仿真阳具</a></dd>
+</dl>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+
+
+
+<div class="rx_tt clearfix" id="f2"><h2 class="yahei left">女性用品</h2><i class="left">WOMAN</i><a href="http://www.7wg.com/c-nvxing/" target="_blank" class="zt_more">查看更多>></a></div>
+<div class="new_zone clearfix">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31668.html" target="_blank" title="香港诺兰音乐人声控变频按摩棒"><img width="220" height="220" alt="香港诺兰音乐人声控变频按摩棒" src="http://www.7wg.com/images/201608/goods_img/31668_P_1472160631488.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥399.00</span></div><span class="ypr xline">¥837.90</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31668.html" title="香港诺兰音乐人声控变频按摩棒" target="_blank">香港诺兰音乐人声控变频按摩棒</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31358.html" target="_blank" title="奇乐圆Q-LUV-U无线遥控自动抽插电动仿真阳具"><img width="220" height="220" alt="奇乐圆Q-LUV-U无线遥控自动抽插电动仿真阳具" src="http://www.7wg.com/images/201608/goods_img/31358_P_1472064011452.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥329.00</span></div><span class="ypr xline">¥688.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31358.html" title="奇乐圆Q-LUV-U无线遥控自动抽插电动仿真阳具" target="_blank">奇乐圆Q-LUV-U无线遥控自动抽插电动仿真阳具</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31803.html" target="_blank" title="日本NPG 高潮不求人上下其手旋转按摩棒"><img width="220" height="220" alt="日本NPG 高潮不求人上下其手旋转按摩棒" src="http://www.7wg.com/images/201608/goods_img/31803_P_1472171818748.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥259.00</span></div><span class="ypr xline">¥599.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31803.html" title="日本NPG 高潮不求人上下其手旋转按摩棒" target="_blank">日本NPG 高潮不求人上下其手旋转按摩棒</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31885.html" target="_blank" title="快感大爆发360度旋转强震转珠棒"><img width="220" height="220" alt="快感大爆发360度旋转强震转珠棒" src="http://www.7wg.com/images/201608/goods_img/31885_P_1472261966741.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥198.00</span></div><span class="ypr xline">¥257.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31885.html" title="快感大爆发360度旋转强震转珠棒" target="_blank">快感大爆发360度旋转强震转珠棒</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31335.html" target="_blank" title="PE迪凯特安东尼性爱佳器仿真阳具"><img width="220" height="220" alt="PE迪凯特安东尼性爱佳器仿真阳具" src="http://www.7wg.com/images/201608/goods_img/31335_P_1472062123554.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥298.00</span></div><span class="ypr xline">¥387.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31335.html" title="PE迪凯特安东尼性爱佳器仿真阳具" target="_blank">PE迪凯特安东尼性爱佳器仿真阳具</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31653.html" target="_blank" title="香港诺兰自动伸缩抽插硅胶震动转珠棒"><img width="220" height="220" alt="香港诺兰自动伸缩抽插硅胶震动转珠棒" src="http://www.7wg.com/images/201608/goods_img/31653_P_1472159397190.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥999.00</span></div><span class="ypr xline">¥1298.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31653.html" title="香港诺兰自动伸缩抽插硅胶震动转珠棒" target="_blank">香港诺兰自动伸缩抽插硅胶震动转珠棒</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31762.html" target="_blank" title="倍力乐VIBMAX-G点抠动型女用震动棒"><img width="220" height="220" alt="倍力乐VIBMAX-G点抠动型女用震动棒" src="http://www.7wg.com/images/201608/goods_img/31762_P_1472168598639.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥299.00</span></div><span class="ypr xline">¥599.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31762.html" title="倍力乐VIBMAX-G点抠动型女用震动棒" target="_blank">倍力乐VIBMAX-G点抠动型女用震动棒</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31719.html" target="_blank" title="KEY莉娅 磁吸式充电式多体位双震硅胶按摩棒"><img width="220" height="220" alt="KEY莉娅 磁吸式充电式多体位双震硅胶按摩棒" src="http://www.7wg.com/images/201608/goods_img/31719_P_1472165605515.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥165.00</span></div><span class="ypr xline">¥888.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31719.html" title="KEY莉娅 磁吸式充电式多体位双震硅胶按摩棒" target="_blank">KEY莉娅 磁吸式充电式多体位双震硅胶按摩棒</a></dd>
+</dl>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+
+
+<div class="rx_tt clearfix" id="f3"><h2 class="yahei left">风情女人</h2><i class="left">LADY</i><a href="http://www.7wg.com/c-tiaodan/" target="_blank" class="zt_more">查看更多>></a></div>
+<div class="new_zone clearfix">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31610.html" target="_blank" title="瑞典皮克朋欧妮小精灵防水震蛋"><img width="220" height="220" alt="瑞典皮克朋欧妮小精灵防水震蛋" src="http://www.7wg.com/images/201608/goods_img/31610_P_1472150205329.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥268.00</span></div><span class="ypr xline">¥348.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31610.html" title="瑞典皮克朋欧妮小精灵防水震蛋" target="_blank">瑞典皮克朋欧妮小精灵防水震蛋</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31923.html" target="_blank" title="瑞典LELO Luna女露娜球缩阴球阴道哑铃"><img width="220" height="220" alt="瑞典LELO Luna女露娜球缩阴球阴道哑铃" src="http://www.7wg.com/images/201608/goods_img/31923_P_1472406728306.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥380.00</span></div><span class="ypr xline">¥798.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31923.html" title="瑞典LELO Luna女露娜球缩阴球阴道哑铃" target="_blank">瑞典LELO Luna女露娜球缩阴球阴道哑铃</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32127.html" target="_blank" title="韩国ZINI-姿妮女性外阴粉嫩修复液 35ml"><img width="220" height="220" alt="韩国ZINI-姿妮女性外阴粉嫩修复液 35ml" src="http://www.7wg.com/images/201608/thumb_img/32127_thumb_P_1472425759413.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥368.00</span></div><span class="ypr xline">¥772.80</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32127.html" title="韩国ZINI-姿妮女性外阴粉嫩修复液 35ml" target="_blank">韩国ZINI-姿妮女性外阴粉嫩修复液 35ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31382.html" target="_blank" title="百乐电动真空吸附女用乳房增大刺激按摩器"><img width="220" height="220" alt="百乐电动真空吸附女用乳房增大刺激按摩器" src="http://www.7wg.com/images/201608/goods_img/31382_P_1472066024841.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥269.00</span></div><span class="ypr xline">¥678.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31382.html" title="百乐电动真空吸附女用乳房增大刺激按摩器" target="_blank">百乐电动真空吸附女用乳房增大刺激按摩器</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31933.html" target="_blank" title="香港诺兰-妞妞 女用缩阴跳蛋"><img width="220" height="220" alt="香港诺兰-妞妞 女用缩阴跳蛋" src="http://www.7wg.com/images/201608/goods_img/31933_P_1472407814588.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥199.00</span></div><span class="ypr xline">¥258.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31933.html" title="香港诺兰-妞妞 女用缩阴跳蛋" target="_blank">香港诺兰-妞妞 女用缩阴跳蛋</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31932.html" target="_blank" title="香港诺兰 女用芯美娅妮金属缩阴球"><img width="220" height="220" alt="香港诺兰 女用芯美娅妮金属缩阴球" src="http://www.7wg.com/images/201608/goods_img/31932_P_1472607174220.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥199.00</span></div><span class="ypr xline">¥328.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31932.html" title="香港诺兰 女用芯美娅妮金属缩阴球" target="_blank">香港诺兰 女用芯美娅妮金属缩阴球</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31642.html" target="_blank" title="LELO 塔拉TARA玫瑰红旋转尾翼情侣共振按摩器"><img width="220" height="220" alt="LELO 塔拉TARA玫瑰红旋转尾翼情侣共振按摩器" src="http://www.7wg.com/images/201608/goods_img/31642_P_1472152945871.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥1080.00</span></div><span class="ypr xline">¥1404.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31642.html" title="LELO 塔拉TARA玫瑰红旋转尾翼情侣共振按摩器" target="_blank">LELO 塔拉TARA玫瑰红旋转尾翼情侣共振按摩器</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31607.html" target="_blank" title="瑞典LELO Luna Smart Bead智能露娜球"><img width="220" height="220" alt="瑞典LELO Luna Smart Bead智能露娜球" src="http://www.7wg.com/images/201608/goods_img/31607_P_1472149860527.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥839.00</span></div><span class="ypr xline">¥1144.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31607.html" title="瑞典LELO Luna Smart Bead智能露娜球" target="_blank">瑞典LELO Luna Smart Bead智能露娜球</a></dd>
+</dl>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+
+
+<div class="rx_tt clearfix" id="f3"><h2 class="yahei left">情趣服饰</h2><i class="left">SEXY LINGERIE</i><a href="http://www.7wg.com/c-qingqufushi/" target="_blank" class="zt_more">查看更多>></a></div>
+<div class="new_zone clearfix">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31871.html" target="_blank" title="史黛丝优雅精致真丝睡裙套装"><img width="220" height="220" alt="史黛丝优雅精致真丝睡裙套装" src="http://www.7wg.com/images/201608/goods_img/31871_P_1472260310086.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥198.00</span></div><span class="ypr xline">¥257.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31871.html" title="史黛丝优雅精致真丝睡裙套装" target="_blank">史黛丝优雅精致真丝睡裙套装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31945.html" target="_blank" title="以比赞 遥山带日红套装"><img width="220" height="220" alt="以比赞 遥山带日红套装" src="http://www.7wg.com/images/201608/goods_img/31945_P_1472408569701.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥168.00</span></div><span class="ypr xline">¥218.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31945.html" title="以比赞 遥山带日红套装" target="_blank">以比赞 遥山带日红套装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32235.html" target="_blank" title="金梦蝶 海军风透明薄纱三点式水手服"><img width="220" height="220" alt="金梦蝶 海军风透明薄纱三点式水手服" src="http://www.7wg.com/images/201608/goods_img/32235_P_1472431883902.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥99.00</span></div><span class="ypr xline">¥128.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32235.html" title="金梦蝶 海军风透明薄纱三点式水手服" target="_blank">金梦蝶 海军风透明薄纱三点式水手服</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32253.html" target="_blank" title="以比赞 极度诱惑露乳护士服"><img width="220" height="220" alt="以比赞 极度诱惑露乳护士服" src="http://www.7wg.com/images/201608/goods_img/32253_P_1472432830003.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥169.00</span></div><span class="ypr xline">¥219.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32253.html" title="以比赞 极度诱惑露乳护士服" target="_blank">以比赞 极度诱惑露乳护士服</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32354.html" target="_blank" title="欧姿丽雅黑色刺绣蕾丝文胸套装"><img width="220" height="220" alt="欧姿丽雅黑色刺绣蕾丝文胸套装" src="http://www.7wg.com/images/201608/goods_img/32354_P_1472494247414.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥118.00</span></div><span class="ypr xline">¥153.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32354.html" title="欧姿丽雅黑色刺绣蕾丝文胸套装" target="_blank">欧姿丽雅黑色刺绣蕾丝文胸套装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32344.html" target="_blank" title="欧姿丽雅粉嫩蕾丝文胸套装"><img width="220" height="220" alt="欧姿丽雅粉嫩蕾丝文胸套装" src="http://www.7wg.com/images/201608/goods_img/32344_P_1472493723643.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥118.00</span></div><span class="ypr xline">¥153.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32344.html" title="欧姿丽雅粉嫩蕾丝文胸套装" target="_blank">欧姿丽雅粉嫩蕾丝文胸套装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32439.html" target="_blank" title="【买就送】爱赞 蕾丝透明无痕性感内裤"><img width="220" height="220" alt="【买就送】爱赞 蕾丝透明无痕性感内裤" src="http://www.7wg.com/images/201608/goods_img/32439_P_1472505219194.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥29.00</span></div><span class="ypr xline">¥37.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32439.html" title="【买就送】爱赞 蕾丝透明无痕性感内裤" target="_blank">【买就送】爱赞 蕾丝透明无痕性感内裤</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32409.html" target="_blank" title="【买就送】爱赞 蕾丝镂空铃铛系带情趣丁字裤"><img width="220" height="220" alt="【买就送】爱赞 蕾丝镂空铃铛系带情趣丁字裤" src="http://www.7wg.com/images/201608/goods_img/32409_P_1472497807262.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥39.00</span></div><span class="ypr xline">¥50.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32409.html" title="【买就送】爱赞 蕾丝镂空铃铛系带情趣丁字裤" target="_blank">【买就送】爱赞 蕾丝镂空铃铛系带情趣丁字裤</a></dd>
+</dl>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+
+
+
+<div class="rx_tt clearfix" id="f4"><h2 class="yahei left">延时助情</h2><i class="left">DELAY</i><a href="http://www.7wg.com/c-yanshizhuqing/" target="_blank" class="zt_more">查看更多>></a></div>
+<div class="new_zone clearfix">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31558.html" target="_blank" title="藏帝 高原珍稀植物延时喷剂 不麻木无依赖 15ml"><img width="220" height="220" alt="藏帝 高原珍稀植物延时喷剂 不麻木无依赖 15ml" src="http://www.7wg.com/images/201608/goods_img/31558_P_1472089293173.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥198.00</span></div><span class="ypr xline">¥399.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31558.html" title="藏帝 高原珍稀植物延时喷剂 不麻木无依赖 15ml" target="_blank">藏帝 高原珍稀植物延时喷剂 不麻木无依赖 15ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31562.html" target="_blank" title="藏帝 早泄修复延时精华素 多效合一 50ml"><img width="220" height="220" alt="藏帝 早泄修复延时精华素 多效合一 50ml" src="http://www.7wg.com/images/201608/goods_img/31562_P_1472144423505.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥399.00</span></div><span class="ypr xline">¥518.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31562.html" title="藏帝 早泄修复延时精华素 多效合一 50ml" target="_blank">藏帝 早泄修复延时精华素 多效合一 50ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31544.html" target="_blank" title="雅迪克 天然植物延时喷剂 持久新感受 15ml"><img width="220" height="220" alt="雅迪克 天然植物延时喷剂 持久新感受 15ml" src="http://www.7wg.com/images/201608/goods_img/31544_P_1472087628315.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥198.00</span></div><span class="ypr xline">¥257.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31544.html" title="雅迪克 天然植物延时喷剂 持久新感受 15ml" target="_blank">雅迪克 天然植物延时喷剂 持久新感受 15ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31575.html" target="_blank" title="藏帝 高原珍贵植物提取延时湿巾 不麻木不依赖"><img width="220" height="220" alt="藏帝 高原珍贵植物提取延时湿巾 不麻木不依赖" src="http://www.7wg.com/images/201608/goods_img/31575_P_1472146121905.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥100.00</span></div><span class="ypr xline">¥142.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31575.html" title="藏帝 高原珍贵植物提取延时湿巾 不麻木不依赖" target="_blank">藏帝 高原珍贵植物提取延时湿巾 不麻木不依赖</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31555.html" target="_blank" title="NO17 植物抑菌延时喷剂 持久不麻木 15ml"><img width="220" height="220" alt="NO17 植物抑菌延时喷剂 持久不麻木 15ml" src="http://www.7wg.com/images/201608/goods_img/31555_P_1472088727837.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥399.00</span></div><span class="ypr xline">¥518.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31555.html" title="NO17 植物抑菌延时喷剂 持久不麻木 15ml" target="_blank">NO17 植物抑菌延时喷剂 持久不麻木 15ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31542.html" target="_blank" title="德国pjur med延时助勃喷雾剂 20ml"><img width="220" height="220" alt="德国pjur med延时助勃喷雾剂 20ml" src="http://www.7wg.com/images/201608/goods_img/31542_P_1472087441363.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥279.00</span></div><span class="ypr xline">¥362.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31542.html" title="德国pjur med延时助勃喷雾剂 20ml" target="_blank">德国pjur med延时助勃喷雾剂 20ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31582.html" target="_blank" title="德国EROS 强化活力延时喷剂 原装进口 30ml"><img width="220" height="220" alt="德国EROS 强化活力延时喷剂 原装进口 30ml" src="http://www.7wg.com/images/201608/goods_img/31582_P_1472412239273.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥240.00</span></div><span class="ypr xline">¥312.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31582.html" title="德国EROS 强化活力延时喷剂 原装进口 30ml" target="_blank">德国EROS 强化活力延时喷剂 原装进口 30ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31557.html" target="_blank" title="日本黑豹 第2代天然植物延时喷剂 10ml"><img width="220" height="220" alt="日本黑豹 第2代天然植物延时喷剂 10ml" src="http://www.7wg.com/images/201608/goods_img/31557_P_1472088922576.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥198.00</span></div><span class="ypr xline">¥257.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31557.html" title="日本黑豹 第2代天然植物延时喷剂 10ml" target="_blank">日本黑豹 第2代天然植物延时喷剂 10ml</a></dd>
+</dl>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+
+
+
+<div class="rx_tt clearfix" id="f5"><h2 class="yahei left">双人情趣</h2><i class="left">DOUBLE FUN</i><a href="http://www.7wg.com/c-shuangrenqingqu/" target="_blank" class="zt_more">查看更多>></a></div>
+<div class="new_zone clearfix">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31693.html" target="_blank" title="美国Toughage-高级性爱蹦床 性爱新体验 各种姿势任你摆！爽翻天！"><img width="220" height="220" alt="美国Toughage-高级性爱蹦床 性爱新体验 各种姿势任你摆！爽翻天！" src="http://www.7wg.com/images/201608/goods_img/31693_P_1472163678297.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥429.00</span></div><span class="ypr xline">¥900.90</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31693.html" title="美国Toughage-高级性爱蹦床 性爱新体验 各种姿势任你摆！爽翻天！" target="_blank">美国Toughage-高级性爱蹦床 性爱新体验 各种姿势任你摆！爽翻天！</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31636.html" target="_blank" title="TIANI 蒂阿妮二代遥控情侣共震按摩器设计版"><img width="220" height="220" alt="TIANI 蒂阿妮二代遥控情侣共震按摩器设计版" src="http://www.7wg.com/images/201608/goods_img/31636_P_1472152638457.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥1380.00</span></div><span class="ypr xline">¥2799.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31636.html" title="TIANI 蒂阿妮二代遥控情侣共震按摩器设计版" target="_blank">TIANI 蒂阿妮二代遥控情侣共震按摩器设计版</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31706.html" target="_blank" title="TOUGHAGE情趣爱垫/坡道垫组合 SM体位道具"><img width="220" height="220" alt="TOUGHAGE情趣爱垫/坡道垫组合 SM体位道具" src="http://www.7wg.com/images/201608/goods_img/31706_P_1472164766612.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥399.00</span></div><span class="ypr xline">¥518.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31706.html" title="TOUGHAGE情趣爱垫/坡道垫组合 SM体位道具" target="_blank">TOUGHAGE情趣爱垫/坡道垫组合 SM体位道具</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31420.html" target="_blank" title="倍力乐震震嘴全能按摩套装"><img width="220" height="220" alt="倍力乐震震嘴全能按摩套装" src="http://www.7wg.com/images/201608/goods_img/31420_P_1472075711057.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥240.00</span></div><span class="ypr xline">¥504.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31420.html" title="倍力乐震震嘴全能按摩套装" target="_blank">倍力乐震震嘴全能按摩套装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31309.html" target="_blank" title="空心穿戴震动仿真阳具"><img width="220" height="220" alt="空心穿戴震动仿真阳具" src="http://www.7wg.com/images/201608/goods_img/31309_P_1472058451705.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥168.00</span></div><span class="ypr xline">¥218.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31309.html" title="空心穿戴震动仿真阳具" target="_blank">空心穿戴震动仿真阳具</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31691.html" target="_blank" title="美国TOUGHAGE-身体性摇摆 体位捆绑带"><img width="220" height="220" alt="美国TOUGHAGE-身体性摇摆 体位捆绑带" src="http://www.7wg.com/images/201608/goods_img/31691_P_1472163492548.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥180.00</span></div><span class="ypr xline">¥252.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31691.html" title="美国TOUGHAGE-身体性摇摆 体位捆绑带" target="_blank">美国TOUGHAGE-身体性摇摆 体位捆绑带</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31641.html" target="_blank" title="瑞典LELO-NOA Cerise 诺娅（樱桃红）情侣共振器"><img width="220" height="220" alt="瑞典LELO-NOA Cerise 诺娅（樱桃红）情侣共振器" src="http://www.7wg.com/images/201608/goods_img/31641_P_1472152862660.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥880.00</span></div><span class="ypr xline">¥1144.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31641.html" title="瑞典LELO-NOA Cerise 诺娅（樱桃红）情侣共振器" target="_blank">瑞典LELO-NOA Cerise 诺娅（樱桃红）情侣共振器</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31302.html" target="_blank" title="香港兆邦前后夹击女用实心穿戴仿真阳具"><img width="220" height="220" alt="香港兆邦前后夹击女用实心穿戴仿真阳具" src="http://www.7wg.com/images/201608/goods_img/31302_P_1472002275318.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥298.00</span></div><span class="ypr xline">¥387.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31302.html" title="香港兆邦前后夹击女用实心穿戴仿真阳具" target="_blank">香港兆邦前后夹击女用实心穿戴仿真阳具</a></dd>
+</dl>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+
+
+
+<div class="rx_tt clearfix" id="f6"><h2 class="yahei left">润滑液</h2><i class="left">LUBRICANTS</i><a href="http://www.7wg.com/c-runhuaye/" target="_blank" class="zt_more">查看更多>></a></div>
+<div class="new_zone clearfix">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31538.html" target="_blank" title="男女用SM套装 蝴蝶手铐乳贴口塞球十件套"><img width="220" height="220" alt="男女用SM套装 蝴蝶手铐乳贴口塞球十件套" src="http://www.7wg.com/images/201608/goods_img/31538_P_1472087230004.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥298.00</span></div><span class="ypr xline">¥387.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31538.html" title="男女用SM套装 蝴蝶手铐乳贴口塞球十件套" target="_blank">男女用SM套装 蝴蝶手铐乳贴口塞球十件套</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32331.html" target="_blank" title="美国MOVO 能量欲望润滑液情侣套装 45ml*2"><img width="220" height="220" alt="美国MOVO 能量欲望润滑液情侣套装 45ml*2" src="http://www.7wg.com/images/201608/goods_img/32331_P_1472492986353.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥168.00</span></div><span class="ypr xline">¥218.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32331.html" title="美国MOVO 能量欲望润滑液情侣套装 45ml*2" target="_blank">美国MOVO 能量欲望润滑液情侣套装 45ml*2</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32309.html" target="_blank" title="LELO   私密润滑保湿剂  75-150ml"><img width="220" height="220" alt="LELO   私密润滑保湿剂  75-150ml" src="http://www.7wg.com/images/201608/goods_img/32309_P_1472491877509.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥108.00</span></div><span class="ypr xline">¥151.20</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32309.html" title="LELO   私密润滑保湿剂  75-150ml" target="_blank">LELO   私密润滑保湿剂  75-150ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32005.html" target="_blank" title="美国KEYO 快感增强液  15ml"><img width="220" height="220" alt="美国KEYO 快感增强液  15ml" src="http://www.7wg.com/images/201608/goods_img/32005_P_1472412277655.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥119.00</span></div><span class="ypr xline">¥255.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32005.html" title="美国KEYO 快感增强液  15ml" target="_blank">美国KEYO 快感增强液  15ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32370.html" target="_blank" title="美国sensuva  on可食用天然热感唇吸液 125ml"><img width="220" height="220" alt="美国sensuva  on可食用天然热感唇吸液 125ml" src="http://www.7wg.com/images/201608/goods_img/32370_P_1472495017665.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥199.00</span></div><span class="ypr xline">¥258.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32370.html" title="美国sensuva  on可食用天然热感唇吸液 125ml" target="_blank">美国sensuva  on可食用天然热感唇吸液 125ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32314.html" target="_blank" title="杜蕾斯 舒缓怡情按摩二合一 200ml"><img width="220" height="220" alt="杜蕾斯 舒缓怡情按摩二合一 200ml" src="http://www.7wg.com/images/201608/goods_img/32314_P_1472492128270.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥89.00</span></div><span class="ypr xline">¥186.90</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32314.html" title="杜蕾斯 舒缓怡情按摩二合一 200ml" target="_blank">杜蕾斯 舒缓怡情按摩二合一 200ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32320.html" target="_blank" title="杜蕾斯playO 快感增强润滑液 原装进口 15ml"><img width="220" height="220" alt="杜蕾斯playO 快感增强润滑液 原装进口 15ml" src="http://www.7wg.com/images/201608/goods_img/32320_P_1472492392745.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥99.00</span></div><span class="ypr xline">¥198.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32320.html" title="杜蕾斯playO 快感增强润滑液 原装进口 15ml" target="_blank">杜蕾斯playO 快感增强润滑液 原装进口 15ml</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32329.html" target="_blank" title="日本Rends Peace's 贝丝原装进口润滑液 360ml"><img width="220" height="220" alt="日本Rends Peace's 贝丝原装进口润滑液 360ml" src="http://www.7wg.com/images/201608/goods_img/32329_P_1472492845905.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥99.00</span></div><span class="ypr xline">¥128.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32329.html" title="日本Rends Peace's 贝丝原装进口润滑液 360ml" target="_blank">日本Rends Peace's 贝丝原装进口润滑液 360ml</a></dd>
+</dl>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div>
+
+
+
+<div class="rx_tt clearfix" id="f7"><h2 class="yahei left">避孕套</h2><i class="left">CONDOM</i><a href="http://www.7wg.com/c-biyuntao/" target="_blank" class="zt_more">查看更多>></a></div>
+<div class="new_zone clearfix">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32216.html" target="_blank" title="大象 坚持不懈款避孕套 中号 7/12只装"><img width="220" height="220" alt="大象 坚持不懈款避孕套 中号 7/12只装" src="http://www.7wg.com/images/201608/goods_img/32216_P_1472430088948.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥99.00</span></div><span class="ypr xline">¥128.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32216.html" title="大象 坚持不懈款避孕套 中号 7/12只装" target="_blank">大象 坚持不懈款避孕套 中号 7/12只装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32182.html" target="_blank" title="冈本 003系列避孕套 中号 10只装"><img width="220" height="220" alt="冈本 003系列避孕套 中号 10只装" src="http://www.7wg.com/images/201608/goods_img/32182_P_1472428359572.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥138.00</span></div><span class="ypr xline">¥179.40</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32182.html" title="冈本 003系列避孕套 中号 10只装" target="_blank">冈本 003系列避孕套 中号 10只装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32218.html" target="_blank" title="杜蕾斯 至尊持久装避孕套 大号 3/12只装"><img width="220" height="220" alt="杜蕾斯 至尊持久装避孕套 大号 3/12只装" src="http://www.7wg.com/images/201608/goods_img/32218_P_1472430366313.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥129.00</span></div><span class="ypr xline">¥167.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32218.html" title="杜蕾斯 至尊持久装避孕套 大号 3/12只装" target="_blank">杜蕾斯 至尊持久装避孕套 大号 3/12只装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32219.html" target="_blank" title="倍力乐 3倍持久避孕套 中号 9只装"><img width="220" height="220" alt="倍力乐 3倍持久避孕套 中号 9只装" src="http://www.7wg.com/images/201608/goods_img/32219_P_1472430440033.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥45.00</span></div><span class="ypr xline">¥90.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32219.html" title="倍力乐 3倍持久避孕套 中号 9只装" target="_blank">倍力乐 3倍持久避孕套 中号 9只装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32221.html" target="_blank" title="杜蕾斯 凸点螺纹热感装避孕套 大号 3/12只装 "><img width="220" height="220" alt="杜蕾斯 凸点螺纹热感装避孕套 大号 3/12只装 " src="http://www.7wg.com/images/201608/goods_img/32221_P_1472430657837.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥69.00</span></div><span class="ypr xline">¥89.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32221.html" title="杜蕾斯 凸点螺纹热感装避孕套 大号 3/12只装 " target="_blank">杜蕾斯 凸点螺纹热感装避孕套 大号 3/12只装 </a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32097.html" target="_blank" title="米奥 紧绷超薄避孕套 中号 8只装"><img width="220" height="220" alt="米奥 紧绷超薄避孕套 中号 8只装" src="http://www.7wg.com/images/201608/goods_img/32097_P_1472423849540.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥30.00</span></div><span class="ypr xline">¥60.00</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32097.html" title="米奥 紧绷超薄避孕套 中号 8只装" target="_blank">米奥 紧绷超薄避孕套 中号 8只装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-31951.html" target="_blank" title="杜蕾斯 至尊超薄中号安全套 3只装"><img width="220" height="220" alt="杜蕾斯 至尊超薄中号安全套 3只装" src="http://www.7wg.com/images/201608/goods_img/31951_P_1472408892071.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥29.90</span></div><span class="ypr xline">¥59.80</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-31951.html" title="杜蕾斯 至尊超薄中号安全套 3只装" target="_blank">杜蕾斯 至尊超薄中号安全套 3只装</a></dd>
+</dl>
+ 
+ 
+<dl>
+<dt><p>TOP</p>
+<a href="http://www.7wg.com/g-32182.html" target="_blank" title="冈本 SKIN系列避孕套 中号 10只装"><img width="220" height="220" alt="冈本 SKIN系列避孕套 中号 10只装" src="http://www.7wg.com/images/201608/goods_img/32182_P_1472428359572.jpg"></a></dt>
+<dd class="pric"><div class="left">现价<span class="xpr">¥49.00</span></div><span class="ypr xline">¥63.70</span></dd>
+<dd class="ms"><a href="http://www.7wg.com/g-32182.html" title="冈本 SKIN系列避孕套 中号 10只装" target="_blank">冈本 SKIN系列避孕套 中号 10只装</a></dd>
+</dl>
+ 
+</div>
+
+
+
+
+
+
+<div class="z_dh" id="dh">
+<p class="t"></p>
+<ul>
+<li><a href="http://www.7wg.com/topic.php?topic_id=6#f1" class="on">1F 男性用品</a></li>          
+<li><a href="http://www.7wg.com/topic.php?topic_id=6#f2">2F 女性用品</a></li>          
+<li><a href="http://www.7wg.com/topic.php?topic_id=6#f3">3F 风情女人</a></li>            
+<li><a href="http://www.7wg.com/topic.php?topic_id=6#f4">4F 情趣服饰 </a></li>           
+<li><a href="http://www.7wg.com/topic.php?topic_id=6#f5">5F 延时助情</a></li>            
+<li><a href="http://www.7wg.com/topic.php?topic_id=6#f6">6F 双人情趣</a></li>            
+<li><a href="http://www.7wg.com/topic.php?topic_id=6#f7">7F 润滑液</a></li>            
+<li><a href="http://www.7wg.com/topic.php?topic_id=6#f8">8F 避孕套</a></li>
+</ul>
+<p class="b"><a href="http://www.7wg.com/topic.php?topic_id=6#top">回顶部</a></p>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<script type="text/javascript" src="js/jq.js"></script>
+<script>
+var page_h=document.domain;
+var page_t=$(document).attr("title");
+var isIE6=navigator.appVersion.indexOf("MSIE 6")>-1;
+if(isIE6){document.execCommand("BackgroundImageCache",false,true);}
+var $lnav=$("#lnav");
+var pez="top=100,left=100,width=1000,height=580,location=yes,menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,toolbar=no";
+(function($){$.fn.vganload=function(options){var dft={author:"vganchou",timew:10,threshold:100};var ops=$.extend(dft,options);var mb=this;var m_l=mb.length;var mlen=m_l;var poll;var tm_w=ops.timew;var thre=ops.threshold;var vlazy={};if(m_l<1){return}function getClient(){var l,t,w,h,dd=document.documentElement,bb=document.body;l=dd.scrollLeft||bb.scrollLeft;t=dd.scrollTop||bb.scrollTop;w=dd.clientWidth;h=dd.clientHeight;return{left:l,top:t,width:w,height:h}}function getSubClient(p){var l=0,t=0,w,h;w=p.offsetWidth;h=p.offsetHeight;while(p.offsetParent){l+=p.offsetLeft;t+=p.offsetTop;p=p.offsetParent}return{left:l,top:t,width:w,height:h}}function intens(w,p){var lc1,lc2,tc1,tc2,w1,h1;lc1=w.left+w.width/2;lc2=p.left+p.width/2;tc1=w.top+w.height/2;tc2=p.top+p.height/2;w1=(w.width+p.width)/2;h1=(w.height+p.height)/2;return Math.abs(lc1-lc2)<w1+thre&&Math.abs(tc1-tc2)<h1+thre}var vbone=function(){clearTimeout(poll);poll=setTimeout(vlazy.render,tm_w)};$(window).bind("scroll",vbone).bind("resize",vbone);vlazy.detach=function(){$(window).unbind("scroll",vbone).unbind("resize",vbone);clearTimeout(poll)};vlazy.render=function(){if(mlen<1){vlazy.detach();return}var prec1=getClient();mb=mb.filter(function(){return $(this).attr("src")});$.each(mb,function(){var b=$(this).attr("src");if(b){var prec2=getSubClient(this);var inv=intens(prec1,prec2);if(inv){$(this).attr("src",b).removeAttr("src");mlen--}}})};vlazy.render()}})(jQuery);
+(function(root,factory){if(typeof define==="function"&&define.amd){define(function(){return factory(root)})}else{if(typeof exports==="object"){module.exports=factory}else{root.qufloor=factory(root)}}})(this,function(root){var qufloor={};var f_of=[];var f_rf=[];var f_zt=[];var floors=[];var dlen,cur=0,iscroll=false,nav,gtp,ofpx,ite,curclass;var wh=$(window).height();var mwh=wh/2;qufloor.addof=function(arr){dlen=arr.length;for(var i=0;i<dlen;i++){var t=Math.floor($("#"+arr[i]).offset().top);var th=Math.floor($("#"+arr[i]).height());f_of.push(t);f_rf.push(th);f_zt.push(0)}f_zt[0]=1};qufloor.init=function(opts){opts=opts||{};ofpx=opts.ofpx||80;curclass=opts.cur_class||"current";nav=$("#"+opts.nav);ite=nav.find("a");gtp=$("#"+opts.top_id);ite.each(function(){var hr=$(this).attr("href").split("#")[1];floors.push(hr)});qufloor.addof(floors);ite.click(function(event){var i=$(this).index();if(i==cur){return}var ta=(wh-f_rf[i])/2;var tb=f_of[i]-ta;var tc=tb>0?tb:0;var j=ta>0?tc:f_of[i];$(this).addClass(curclass).siblings().removeClass(curclass);iscroll=true;$("body,html").stop().animate({scrollTop:j},300,function(){iscroll=false;qufloor.reseta(i)});event.preventDefault()});gtp.bind("click",function(event){iscroll=true;$("body,html").stop().animate({scrollTop:0},300,function(){f_zt[cur]=0;cur=0;ite.removeClass(curclass);iscroll=false});event.preventDefault()});$(window).scroll(function(){var s_top=$(window).scrollTop();var tp=s_top+mwh;var e=qufloor.arrbs(f_of,tp,0,dlen-1);if(f_zt[e]!=1&&!iscroll){ite.eq(e).addClass(curclass).siblings().removeClass(curclass);qufloor.reseta(e)}if(f_rf[cur]+f_of[cur]<tp-ofpx){ite.eq(cur).removeClass(curclass);f_zt[cur]=0}});$(window).resize(function(){wh=$(window).height();mwh=wh/2})};qufloor.reseta=function(e){for(var i=0;i<dlen;i++){f_zt[i]=0}f_zt[e]=1;cur=e};qufloor.arrbs=function(arr,avl,li,ri){if(li>ri){var f=li-1;return f}var mi=Math.floor((li+ri)/2);var miv=arr[mi];if(miv>avl){return qufloor.arrbs(arr,avl,li,mi-1)}else{if(miv<avl){return qufloor.arrbs(arr,avl,mi+1,ri)}else{var f=mi+1;return f}}};return qufloor});
+function gotop(){$('html,body').stop().animate({scrollTop:'0px'},600);}
+$(function(){
+$("img[src]").vganload({type:"image"});
+var $yvv = $("#keywords");
+var $lnav=$("#lnav");
+var $lnavli=$lnav.children();
+var $yvv=$("#keywords");$yvv.bind("focus",function(){var v=$(this).val();var preh=$(this).attr("data-w");if(v==preh){$(this).val("");$(this).addClass("c3")}}).bind("blur",function(){var v=$(this).val();var preh=$(this).attr("data-w");if(v==""){$(this).val(preh);$(this).removeClass("c3")}});
+$lnavli.hover(function(){$(this).addClass("con");},function(){$(this).removeClass("con");});
+$("#tul").delegate(".nbt","hover",function(event){var tl=$(this);if(event.type=="mouseenter"){tl.addClass("on")}else{tl.removeClass("on")}});$("#bignav").hover(function(){$lnav.show()},function(){$lnav.hide()});
+if($("base").length>0){var dm="http://"+document.domain+"/";if(dm!=$("base").attr("href")){$("base").attr("href",dm);}}	
+});
+function lgout(){$.get('user.php',{act:'ajax_logout'},function(data){if(data=="TRUE"){location.reload();}},'TEXT');}
+function jieshou(a){var curl="http://"+page_h+"/chats.php?pagetitle="+page_t;window.open(curl,'在线客服',pez);}
+function topic_addCar(e,a,c){var d=false;if(c==undefined){d=false}else{d=c}if(isNaN(e)){alert("非法id");return}if(a==undefined){a=""}var b='{"quick":1,"spec":["'+a+'"],"goods_id":'+e+',"number":"1","isgo":"1","parent":0}';$.post("/flow.php",{step:"add_to_cart",one:0,goods:b},function(f){if(f.error>0){if(f.error==2){if(confirm(f.message)){alert("对不起该商品缺货，敬请等待...")}}else{if(f.error==6){alert("请选择商品规格")}else{alert(f.message)}}}else{alert("恭喜您，添加成功！");if(d){location.href="/flow.php"}}},"JSON")}function topic_package(b,c){var d=false;if(c==undefined){d=false}else{d=c}var a='{"package_id":'+b+',"number":1}';$.post("/flow.php",{step:"add_package_to_cart",package_info:a},function(e){if(e.error>0){if(e.error==2){if(confirm(e.message)){location.href="user.php?act=add_booking&id="+e.goods_id}}else{alert(e.message)}}else{alert("恭喜您，添加成功！");if(d){location.href="/flow.php"}}},"JSON")}function getCoupon(a){$.post("topic.php",{step:"get_bun",id:a},function(b){if(b.error!=1){if(b.error==2){alert("请先登录后领取红包")}if(b.error==3){alert("您已经领取过该红包了")}}else{alert("恭喜您，领取成功！")}},"JSON")};
+setTimeout(function(){
+$("#erma").animate({
+	right:"0"
+	},500);
+},1000);
+$("#erma").click(function(){
+	$(this).remove();
+	});
+</script><script>
+$(".new_zone").each(function(index, element){
+for(i=0;i<8;i++){
+var k=i+1;
+$(this).find("dt p").eq(i).html("TOP"+k);
+}
+});
+$(".new_zone dl").hover(function(){
+$(this).find("dt p").css("background-color","#ea40c1");	
+	},function(){
+$(this).find("dt p").css("background-color","#E01282");		
+	});
+$(window).scroll(function(){
+var kscroll=$(window).scrollTop();
+var vts=$(document).scrollTop();
+$(".rx_tt h2").each(function(index, element) {
+    jtops = $(this).offset().top-40;
+	if(vts>jtops){
+	$("#dh ul li a").removeClass("on");
+	$("#dh ul li a").eq(index).addClass("on");
+		}
+});
+if(vts>480){
+	if($("#dh").is(":hidden")){
+		$("#dh").fadeIn(200);
+		}
+if(!window.XMLHttpRequest){
+	$("#dh").css({"top":kscroll-500});
+	}else{
+	$("#dh").css("top","100px");
+		}
+}else{
+	$("#dh").css("top","600px").hide();	
+	}
+return false;});
+$("#dh ul li a").click(function(){
+	$("#dh ul li a").removeClass("on");
+	$(this).addClass("on");
+	});
+</script>
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

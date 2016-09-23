@@ -1,0 +1,52 @@
+<div class="footer">
+    <p id="userinfo"><a href="user.php?act=login">登录</a>|<a href="user.php?act=register">注册</a></p>
+    <p class="xuan"><a href="{$site_url}">电脑版</a><a class="current" href="../">触屏版</a><a href="#">客户端</a></p>
+    <p class="icp">
+    	粤ICP备14064108号-1 {$shop_name} <br>
+        深圳市西乐信息技术有限公司
+    </p>
+</div>
+
+
+<div class="bottomFixCar"><a href="flow.php"><img original="{$ectouch_themes}/images/bottomfixcar.png" src="{$ectouch_themes}/images/bottomfixcar.png"></a></div>
+<div class="bototmFixTop"><a href="#"><img original="{$ectouch_themes}/images/fixbottomtop.png" src="{$ectouch_themes}/images/fixbottomtop.png"></a></div>
+<script src="{$ectouch_themes}/jsct/analytics.js" async=""></script>
+<script type="text/javascript" src="{$ectouch_themes}/jsct/common.js"></script>
+<script type="text/javascript" src="{$ectouch_themes}/jsct/public.js"></script>
+
+
+<script type="text/javascript">
+
+//顶部固定
+$(window).scroll(function(){
+	var tuwengao = $('.navHeight').offset().top;
+	var tuwenscrollt =  $(window).scrollTop();
+	//var tuwenshow =  tuwenscrollt - tuwengao;
+	if ( tuwenscrollt >= tuwengao ) { 
+		$('.navHeightWap').addClass('navWrapHide');
+	}else{
+		$('.navHeightWap').removeClass('navWrapHide');
+		}
+});
+
+$('.jhxx').click(function(){
+	$('.jhdown').hide();
+	});
+
+
+//搜索框显隐
+$('.headerClose').click(function(){
+	$('.header .search').hide();
+});
+$('.headerOpen').click(function(){
+	$('.header .search').show();
+	$('.header .search .text').focus();
+});
+
+
+
+</script>
+
+
+</div>
+

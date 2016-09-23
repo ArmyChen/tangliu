@@ -1,0 +1,311 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!--底部-->
+<div class="footer Clearfix">
+    <div class="footer0 w1200">
+        <img src="images/foot_img1.jpg">
+    </div>
+    <div class="footer_help w1200 ClearFix">
+        <div class="footer1_l">
+                                                      
+							
+							
+							
+							
+							
+							{foreach from=$article_cat_help item=cat name=cat}
+							<dl class="helpDL">
+                <dt>
+                    <h5>{$cat.cat_name}</h5>
+                </dt>
+                                                 <!-- {foreach from=$cat.fenlei_arlist item=article} -->
+                                 <dd><a href="{$article.url}" title="{$article.title}"> {$article.title} </a></dd>
+				  <!-- {/foreach} --> 
+                                 
+                                             </dl>
+
+		{/foreach}
+
+
+
+
+
+
+                                      
+        </div>
+        <div class="footer1_r">
+            <ul>
+                <li>
+                    <h2>手机购</h2>
+                    <img src="images/footer_ewm_01.jpg">
+                    <p>&nbsp;</p>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer_bottom">
+
+
+<div class="footer_nav">
+        <div class="w720 ClearFix">
+            <ul>
+	    <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+              <li><a href="{$nav.url}">{$nav.name}</a>
+                                               |
+                                                </li>  <!-- {/foreach} -->
+                                                                                                                  
+            </ul>
+        </div>
+    </div>
+
+
+        <div class="w1200">
+            <p>
+                <span class="font_arial">Copyright © 2015 ICP备案:{$icp_number} </span>
+                <br>
+               版权所有：{$shop_name}   {$stats_code}
+            </p>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="UTF-8" src="{$ecsolve_path}/js/trace.js"></script>
+<script type="text/javascript">
+var VL = false;
+$(function(){
+var sp = "Home";
+var sv = "index";
+trace_main(sp, sv);
+var _hmt = _hmt || [];
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?9298c88929ec361a06c5344ab1e2ea65";
+var s = document.getElementsByTagName("script")[0]; 
+s.parentNode.insertBefore(hm, s);
+});
+</script>
+    <!-- Criteo S-->
+<script type="text/javascript" src="{$ecsolve_path}/js/ld.js" async="true"></script>
+<script type="text/javascript">
+    window.criteo_q = window.criteo_q || [];
+    window.criteo_q.push(
+        { event: "setAccount", account: 22367 },
+        { event: "setHashedEmail", email: "" },
+        { event: "setSiteType", type: "d" },
+        { event: "viewHome" }
+    );
+</script>
+<!-- Criteo E-->
+    <script type="text/javascript">
+$(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+});
+</script>
+<!--底部 end-->﻿<!--右侧导航-->
+<div class="rihgt_slider r_s_fixed">
+    <div class="r_s_f_center">
+        <div class="f_c_top">
+            <div class="f_c_list pos_relative f_c_uc">
+                <a class="a_account" href="javascript:;">
+                    <i class="icon_user"></i>
+                    <div class="f_c_list_wz wz_39">账号</div>
+                </a>
+                <div class="h_line">
+                    <span class="line_1"></span>
+                    <span class="line_2"></span>
+                </div>
+                <div class="user_center  f_c_list_tc" style="display: none;">
+                    <div class="uc_close"></div>
+                                        <!--未登录-->
+                    <div class="uc_unlogin">
+                            <form id="login_form" method="post" action="http://www.happigo.com/shop/index.php?act=login&amp;op=login&amp;inajax=1">
+                            <input name="formhash" value="cmOHMld0NRMpyQLP5C-fTr3fBiyNzW9" type="hidden">                            <input name="form_submit" value="ok" type="hidden">
+                            <input id="nchash" name="nchash" value="b1d485b5" type="hidden">
+                            <div class="uc_title_wel">欢迎来到快乐购</div>
+                            <div class="item item1">
+                                <input class="itxt onfocustxt" tabindex="1" name="user_name" autocomplete="off" id="user_name" placeholder="已验证手机/邮箱/用户名" type="text">
+                                <!--错误提示-->
+                                <div class="index_err_box">
+                                    <div class="err_msg err_msg1" style="display: none;" id="error_user_name"></div>
+                                </div>
+                                <!--错误提示 end-->
+                            </div>
+                            <!--用户名 end-->
+                            <!--密码-->
+                            <div class="item item2">
+                                <input tabindex="2" class="itxt" name="password" id="password" autocomplete="off" placeholder="请输入密码" type="password">
+                                <!--错误提示-->
+                                <div class="index_err_box">
+                                    <div class="err_msg err_msg1" style="display: none;" id="error_password"></div>
+                                </div>
+                                <!--错误提示 end-->
+                            </div>
+                            <!--密码end-->
+                            <!--验证码-->
+                            <div class="item item3_yzm">
+                                <input tabindex="3" name="captcha" id="captcha" autocomplete="off" class="itxt" maxlength="4" size="10" placeholder="验证码" type="text">
+                                <img style="" src="images/index.png" name="codeimage" id="codeimage" class="verify-code" border="0">
+                                    <a href="javascript:void(0)" class="ml5" onclick="javascript:document.getElementById('codeimage').src='http://www.happigo.com/shop/index.php?act=seccode&amp;op=makecode&amp;nchash=b1d485b5&amp;t=' + Math.random();">换一张</a>
+                                <!--错误提示-->
+                                <div class="index_err_box">
+                                   <div class="err_msg err_msg1" style="display: none;" id="error_captcha"></div>
+                                </div>
+                                <!--错误提示 end-->
+                            </div>
+                            <!--验证码end-->
+                            <div class="enter_uc uc_login">
+                            <a id="loginsubmit" href="javascript:void(0);" tabindex="4">立即登录</a>
+                            <input value="" name="ref_url" type="hidden">
+                            </div>
+                            <div class="pwd_reg">
+                                <a class="a_fpwd" href="http://www.happigo.com/login/forget_password/">忘记密码？</a>
+                                <a class="a_reg" href="http://www.happigo.com/register/">立即注册</a>
+                            </div>
+                            </form>
+                        </div>
+                        <script src="{$ecsolve_path}/js/user_login.js" type="text/javascript"></script>
+                    <!--未登录 end-->
+                                    </div>
+            </div>
+
+            <div class="f_c_list">
+                <a class="a_car" href="http://www.happigo.com/shop/index.php?act=cart&amp;op=index" target="_blank">
+                    <i class="icon_car" id="shopCart"></i>
+                    <div class="f_c_list_wz"> 购物车</div>
+                    <div class="car_num">0</div>
+                    <div class="ani_num">1</div>
+                </a>
+                <div class="h_line">
+                    <span class="line_1"></span>
+                    <span class="line_2"></span>
+                </div>
+            </div>
+                        <div class="f_c_list">
+                <a href="http://www.happigo.com/shop/index.php?act=member_favorites&amp;op=fglist" target="_blank">
+                    <i class="icon_collect"></i>
+                    <div class="f_c_list_wz wz_39">收藏</div>
+                </a>
+            </div>
+        </div>
+        <div class="f_c_bottom">
+            <div class="f_c_list pos_relative">
+                <a href="javascript:void(0)" class="f_c_b_bg f_c_b_ewm">
+                    <div class="ewm_img"></div>
+                </a>
+                <div class="ewm_tc f_c_list_tc" style="display: none;">
+                    <div class="ewm_tc_bg">
+                        <div class="down_app_icon"></div>
+                        <img style="" src="images/down_app_ewm.png">
+                    </div>
+                </div>
+            </div>
+           <div class="f_c_list pos_relative f_c_list_online">
+                    <a href="javascript:void(0)" class="f_c_b_bg f_c_b_kf">
+                        <div class="online_cus"></div>
+                    </a>
+                    <div class="online_cus_tc f_c_list_tc" style="display: none;">
+                        <div class="cus_tc_bg">
+                            <div>
+                                <p class="kf_title">订单服务</p>
+                                <p class="kf_con_bg">
+                                    <a onclick="onlineCustomerService1('161','','web_product');" class="looyu" href="javascript://">商品咨询</a>
+                                    <a onclick="onlineCustomerService1('164','','web_off');" class="looyu" href="javascript://">优惠/政策咨询</a>
+                                    <a onclick="onlineCustomerService1('163','','web_pay');" class="looyu" href="javascript://">订单支付</a>
+                                    <a onclick="onlineCustomerService1('165','','web_peisong');" class="looyu" href="javascript://">配送查询</a>
+                                    <a onclick="onlineCustomerService1('162','','web_order');" class="looyu" href="javascript://">订单查询</a>
+                                </p>
+                                <p class="kf_title">售后服务</p>
+                                <p class="kf_con_bg">
+                                    <a onclick="onlineCustomerService1('167','','web_tuikuan');" class="looyu" href="javascript://">退款查询</a>
+                                    <a onclick="onlineCustomerService1('166','','web_tuihuo');" class="looyu" href="javascript://">取消/退换货</a>
+                                    <a onclick="onlineCustomerService1('168','','web_shouhou');" class="looyu" href="javascript://">售后处理</a>
+                                    <a onclick="onlineCustomerService1('169','','web_tousu');" class="looyu" href="javascript://">投诉建议</a>
+                                </p>
+                                <p class="kf_title">账户服务</p>
+                                <p class="kf_con_bg">
+                                    <a onclick="onlineCustomerService1('170','','web_account');" class="looyu" href="javascript://">账号咨询</a>
+                                    <a onclick="onlineCustomerService1('171','','web_pass');" class="looyu" href="javascript://">密码找回</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <script type="text/javascript" language="javascript">
+                var happigo_host_foot = document.location.host;
+                function onlineCustomerService1(g,ly){
+                    if(!WEB_CUST_NO&&g!=171){
+                        showDialog("请您先登录！", '', '', function(){
+                            window.location.href = SHOP_LOGIN_URL;
+                        }, 1);
+                        return false;
+                    }
+                    var bp = WEB_CUST_NO;
+                    var pid = '';
+                    var img='';
+                    var pids='';
+                                        var sChatUrl = "http://looyu.happigo.com/live/p.do?c=2&g="+g+"&hly="+ly+"&huid="+bp+"&partner="+bp+"&hpid="+pid+"&pid="+pids+"&img="+img+"&timestamp=1469845760&nonce=4&sign=8348f150367f25d505f8523c9b8cbf90";
+                    try{
+                        var oW=window.open(sChatUrl, 'looyu', 'toolbar=no,location=no,directories=no,scrollbars=no,menubar=no,width=700,height=420,resizable=yes,left=0,top=0,status=no');
+                        if (typeof(oW)!="undefined") oW.focus;
+                    }catch(e){}
+                    return false;
+                }
+            </script>
+            <!-- 客服 -->
+            <script type="text/javascript">
+            $(function(){
+                var script = document.createElement('script');
+                script.type = "text/javascript";
+                script.src = "http://looyu.happigo.com/j.jsp?c=2&f=160";
+                document.body.appendChild(script);
+            });
+            </script>
+            <!-- 客服end -->
+            </div>
+            <div class="f_c_list">
+                <a style="opacity: 1;" href="javascript:void(0);" id="gotop">
+                    <div class="retrun_top"></div>
+                    <div class="arial_10">TOP</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+//返回顶部
+backTop=function (btnId){
+	var btn=document.getElementById(btnId);
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	window.onscroll=set;
+	btn.onclick=function (){
+		btn.style.opacity="0.5";
+		window.onscroll=null;
+		this.timer=setInterval(function(){
+		    scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			scrollTop-=Math.ceil(scrollTop*0.1);
+			if(scrollTop==0) clearInterval(btn.timer,window.onscroll=set);
+			if (document.documentElement.scrollTop > 0) document.documentElement.scrollTop=scrollTop;
+			if (document.body.scrollTop > 0) document.body.scrollTop=scrollTop;
+		},10);
+	};
+	function set(){
+	    scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	    btn.style.opacity=scrollTop?'1':"0.5";
+	}
+};
+backTop('gotop');
+</script>
+<!--右侧导航 end-->
+
+<script src="{$ecsolve_path}/js/j.htm" type="text/javascript"></script><div style="display: none;" id="criteo-tags-div"><iframe src="images/dis.htm" style="display: none;" height="0" width="0"></iframe></div>
+

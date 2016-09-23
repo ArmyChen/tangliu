@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$page_title}</title>
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<link href="{$ectouch_themes}/images/touch-icon.png" rel="apple-touch-icon-precomposed" />
+<link href="{$ectouch_themes}/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="{$ectouch_themes}/ectouch.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body>
+
+
+
+<div class="head_title">
+	<a class="ret_btn ret_btn2" href="{$site_url}mobile/codecenter.php"></a>
+	<h2>我二维码      <a href="#" onclick="location.href='codecenter.php?act=wlist'" style="color:#fff;" >【推广二维码管理】</a></h2>
+         
+	
+	
+</div>
+<ol class="main-flow">
+	<li class="ts_flow"><a href="#">推广步骤:</a></li>
+	<li ><a href="{$site_url}mobile/codecenter.php?act=weitui">1:选择推广产品</a></li>
+	<li><a href="#">2:点制作二维码按钮</a></li>
+	<li class="first-current"><a href="{$site_url}mobile/codecenter.php?act=wlist">3:点分享到朋友圈按钮</a></li>
+</ol>
+
+
+
+
+<!--{foreach from=$goodsok_list item=goods key=key}-->
+
+<div class="qrcode_list">
+
+
+<div class="qrcode_img">
+			<img width="60" height="60" src="{$site_url}{$goods.goods_thumb}" alt="二维码" id="code{$goods.id}">
+		</div>
+		<div class="qrcode_img">
+			<img width="60" height="60" src="{$site_url}mobile/images/pdcode/{$goods.mwximg}" alt="二维码" id="code{$goods.id}">
+		</div>
+
+
+		
+		<div class="qrcode_txt">
+			<p><a href="codecenter.php?act=wxdelete&id={$goods.id}"  class="qrcode_more" title="删除">删除</a>
+			 <a href="codecenter.php?act=wxedite&id={$goods.id}" class="qrcode_more"  title="编辑">编辑</a>
+			
+			 
+			<b>姓名：</b>{$goods.mname}</p>
+			<p><b>手机：</b>{$goods.phone}</p>
+			<p><b>心得：</b>{$goods.content}</p>
+			
+
+			
+		</div>
+		
+		<div class="clear"></div>
+		<b>链接地址：</b>{$goods.url}
+		<div class="clear"></div>
+		<!--<a class="sz_btn" href="javascript:void(0);" rel="/1449/spread/getqrcode.html?id=1441">-->
+		
+		<a href="wdetail.php?act=wxdetail&id={$goods.id}&u={$user_id}" class="sz_btn">推广二维码</a>
+	</div>
+
+
+
+
+
+<!--{/foreach}-->
+
+
+
+<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+
+</body>
+</html>

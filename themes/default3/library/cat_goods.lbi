@@ -1,0 +1,62 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="body_mid floors_cat">
+  <div class="floors">
+    <div class="floort">
+      <div class="classnamelei florhov" style=" width:120px;"> <a href="category.php?id={$goods_cat.id}" title="{$goods_cat.name}" target="_blank" class="fenlei">
+        <h2 style="margin-left:15px;">1F{$goods_cat.name}</h2>
+        </a>
+        <div class="hover_layer" style="display:none;">
+          <ul>
+		  <!--{foreach from=get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id']) item=cat_item name=child_cat}-->
+            <li><a href="{$cat_item.url}" target="_blank">{$cat_item.name|escape:html}</a></li>
+          <!--{/foreach}-->
+            <div class="clear"></div>
+          </ul>
+        </div>
+      </div>
+      <ul class="floor_keys">
+	  <!--{foreach from=get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id']) item=cat_item name=child_cat}-->
+        <li {if $smarty.foreach.child_cat.iteration>8}class="showin1230"{/if}><a href="{$cat_item.url}" target="_blank">{$cat_item.name|escape:html}</a></li>
+	  <!--{/foreach}-->	
+      </ul>
+      <a href="{$goods_cat.url}" class="morefresh" target="_blank"  style="text-indent:10px;">{$goods_cat.name}</a> </div>
+   
+	<script language="javascript">
+	
+	$('.cat_comment_img').each(
+		  	function(i){
+				var src = $(this).attr('src');
+				var src_arr = src.split('|');
+				$(this).html('');
+				for (var i = 0; i < src_arr.length; i ++){
+					var str = '<img src="'+src_arr[i]+'" width="45px" height="45px"  alt="" style="vertical-align:top;">';
+					str = $(this).html() + str;
+					$(this).html(str);
+				}
+			}
+		  );
+	</script>
+    <div class="floor_botom biKancat">
+      <ul>
+	  <!--{foreach from=get_cat_best_goods_6($GLOBALS['smarty']->_var['goods_cat']['id']) item=goods name=best_goods}-->
+        <li >
+          <div class="proimg"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}"><img original="{$goods.thumb}" src="{$goods.thumb}" width="180" height="180" /></a></div>
+          <div class="proname"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a></div>
+          <div class="promiao">{$goods.brief|escape:html}</div>
+          <div class="prices"><span class="fhao"></span><span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></div>
+          <div class="clear"></div>
+          <div class="sale_month">口碑：<span>{$goods.pinglun}</span> 条</div>
+         <div class="bikanCHecat"><span onclick="javascript:addToCart({$goods.id})"  href="javascript:;">加入购物车</span></div>
+	
+	</li>
+	<!--{/foreach}-->	
+       
+      </ul>
+    </div>
+  </div>
+  <div class="shadowbg">
+    <div class="shadowbgl"></div>
+    <div class="shadowbgr"></div>
+  </div>
+</div>

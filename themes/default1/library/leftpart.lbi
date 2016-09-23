@@ -1,0 +1,53 @@
+<div id="child_menu" class="child_menu">
+    <!-- {foreach from=$articlecatsabout item=da_cat name=da_cat} -->
+      <div class="child_menuTitle"> <span>{$da_cat.cat_name}</span> </div>
+          <!-- {/foreach} --> 
+      <div>
+        <div>
+	     <span class="childpopup"></span>
+        </div>
+        <ul class="menuLeft_ul">
+  
+	 
+
+
+<!-- {foreach from=$articlecatsabout item=da_cat name=da_cat} -->
+	  <!-- {foreach from=$da_cat.cat_fenlei_cat  item=cat} -->
+        <li ><a href="{$cat.cat_url}" {if $cat.id  eq  $cat_id } class="menuLeft_li menuLeft_selected" {else} class="menuLeft_li" {/if}  >{$cat.cat_name}</a></li>
+	      <!-- {/foreach} --> 
+
+
+ <!-- {foreach from=$da_cat.cat_fenlei  item=article} -->
+        <li ><a href="{$article.url}"  {if $article.id  eq  $cat_id } class="menuLeft_li menuLeft_selected" {else}  class="menuLeft_li"{/if} >{$article.title}</a></li>
+	      <!-- {/foreach} --> 
+
+
+
+
+    <!-- {/foreach} --> 
+
+	 
+	 </ul>
+	
+      </div>
+
+
+
+
+<!-- <div class="nychild_menuTitle"> <span>联系我们</span> </div>
+
+
+<div class="nyleftcon3"> 
+
+
+
+<div class="spc">公司地址：{$shop_address}</div>
+<div class="spc">电子邮箱：{$service_email} </div>
+
+<div class="spc">联系电话：{$service_phone}</div>
+ </div>-->
+
+
+
+
+    </div>

@@ -1,0 +1,53 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{foreach from=$goods_com key=key item=goods name=name}-->
+
+
+
+
+
+
+<li class="teMaiTime" style="{if $smarty.foreach.name.iteration % 4 == 0} margin-right:0px;{/if}">
+            	<a href="{$goods.url}" class="listBox " target="_blank">
+         
+                 
+		   <img original="{$goods.thumb}" src="{$goods.thumb}" alt="{$goods.name|escape:html}" title="{$goods.name|escape:html}" width=230>
+                   
+
+
+                    <h4>{$goods.name}</h4>
+                    <div class="pricepart">
+                       <span class="jiaGe02 cf0189d">{$goods.shop_price}</span>&nbsp;<del class="jiaGe03">{$goods.market_price}</del>&nbsp;
+                       
+                       
+			
+
+{if $goods.is_hot == 1}
+			<img src="{$ecsolve_path}/images/jiaobiao_temai_04.png" class="jiaoBiao">
+			{/if}
+ </div>
+                   
+                </a>
+                <div class="bikanCHe "><span onclick="javascript:addToCartcat({$goods.id})"  href="javascript:;">加入购物车</span></div>
+            </li>
+
+
+
+
+{/foreach}
+
+
+

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>{$page_title}</title>
+<meta name="Keywords" content="{$Keywords}">
+<meta name="Description" content="{$Description}">
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css">
+{insert_scripts files='common.js,shopping_flow.js'}
+<script type="text/javascript" src="{$ecsolve_path}/js/transport.js"></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<style>
+.ninput{-webkit-opacity:0;-moz-opacity:0;opacity:0;filter:alpha(opacity:0);}
+.radio{display: none;}
+.radio:checked + .trigger{background:#dd2727 ; color:#fff;}
+.hrem{height:3rem; line-height:3rem; border-radius: 4px; padding: 1rem ;}
+</style>
+  {insert_scripts files='region.js,utils.js'}
+
+
+
+<script>
+ onload = function() { 
+ 
+
+
+
+
+
+
+
+
+
+
+ var sp = document.getElementsByName('shipping');
+         
+             for (i=0;i<sp.length;i++){
+                 if (sp[i].checked){
+                    oRadioValue = sp[i];
+                   }
+            }
+             selectShipping(oRadioValue );   
+
+   var py = document.getElementsByName('payment');
+   for (i=0;i<py.length;i++){
+             if (py[i].checked){
+                oRadioValue = py[i];
+               }
+        }
+         selectPaymentnow(oRadioValue );   
+
+var pack = document.getElementsByName('pack');
+ for (i=0;i<pack.length;i++){
+             if (pack[i].checked){
+                oRadioValue = pack[i];
+               }
+        }
+         selectPack(oRadioValue );   
+var bonus = document.getElementsByName('bonus');
+ for (i=0;i<bonus.length;i++){
+             if (bonus[i].checked){
+                oRadioValue = bonus[i];
+               }
+        }
+         changeBonus(oRadioValue ); 
+
+
+
+var card = document.getElementsByName('card');
+ for (i=0;i<card.length;i++){
+             if (card[i].checked){
+                oRadioValue = card[i];
+               }
+        }
+         selectCard(oRadioValue ); 
+ 
+          }
+
+
+
+function selectPaymentnow(obj)
+{
+  if (selectedPayment == obj)
+  {
+
+    return;
+  }
+  else
+  {
+    selectedPayment = obj;
+  }
+
+
+  
+  Ajax.call('car.php?step=select_payment', 'payment=' + obj.value, orderSelectedResponse, 'GET', 'JSON');
+}
+
+
+
+
+</script>
+</head>
+<body>
+<div id="top">
+<div class="header">
+<a href="javascript:;" onclick="goback()" class="b_l"></a>
+<h2>订单结算</h2>
+<a href="" class="b_r">继续购物</a>
+</div>
+</div>
+<div class="pageauto">
+     <input id="ci" value="2" type="hidden">
+    <p id="sck" class="sck ov sckt" onclick="scks()">购物车商品(<span  id="total_number" >{$total.total_number}</span>) <em></em></p>
+    <div class="" id="hcar">
+
+
+<form id="formCart" name="formCart" method="post" action="flow.php">
+<!-- {foreach from=$goods_list item=goods} -->
+<dl class="car">
+<dt><a href="goods.php?id={$goods.goods_id}"><img src="{$goods.goods_img}" height="80" width="80"></a></dt>
+<dd><h3><a href="goods.php?id={$goods.goods_id}">{$goods.goods_name|escape:html}</a></h3>
+
+<button type="button" class="decrease zja" onclick="changenum({$goods.rec_id},-1)">-</button>
+            <!-- {if $goods.goods_id gt 0 && $goods.is_gift eq 0 && $goods.parent_id eq 0} 普通商品可修改数量 -->
+            <input class="num" type="text" min="1" max="1000" name="goods_number[{$goods.rec_id}]" id="goods_number_{$goods.rec_id}" value="{$goods.goods_number}" size="4"   onkeyup="changenum({$goods.rec_id},0)"/>
+			<button type="button" class="increase zja" onclick="changenum({$goods.rec_id},1)">+</button>
+ <em class="f10  left mr5">X</em><p class="left"><span class="c3 left mr5 ">{$goods.goods_price}</span>
+
+			<script>
+        function changenum(rec_id,diff){
+					var num = parseInt(document.getElementById('goods_number_'+rec_id).value);
+					var goods_number = num + Number(diff);
+					if( goods_number >= 1){
+						document.getElementById('goods_number_'+rec_id).value = goods_number;//更新数量
+						change_goods_number(rec_id,goods_number);
+					}
+        }
+        
+        function change_goods_number(rec_id, goods_number)
+        {   
+        Ajax.call('flow.php?step=ajax_update_cart', 'rec_id=' + rec_id +'&goods_number=' + goods_number, change_goods_number_response, 'POST','JSON');  
+        } 
+        
+        function change_goods_number_response(result)
+        {    
+	//alert("bbbb");
+          if (result.error == 0)
+          {
+          var rec_id = result.rec_id;
+            document.getElementById('total_number').innerHTML = result.total_number;//更新数量
+            document.getElementById('goods_subtotal').innerHTML = result.total_desc;//更新小计
+            if (document.getElementById('ECS_CARTINFO'))
+              {//更新购物车数量
+              document.getElementById('ECS_CARTINFO').innerHTML = result.cart_info;
+              }
+        }
+        else if (result.message != '')
+          {
+          alert(result.message);
+          }                
+        }
+      </script>
+            <!-- {else} --> 
+            {$goods.goods_number} 
+            <!-- {/if} --> 
+
+</p><a  href="javascript:if (confirm('{$lang.drop_goods_confirm}')) location.href='flow.php?step=drop_goods&amp;id={$goods.rec_id}'; "   class="right gray">删除</a>
+</dd>
+</dl>
+
+
+ <!-- {/foreach} -->
+
+ 
+</div>
+ <input type="hidden" name="step" value="update_cart" />
+</form>
+
+
+
+
+<form action="buy.php?step=done" method="POST" id="car" class="se_p" onsubmit="return carb()">
+<div class="bgw pd10">
+<table class="ftable" border="0" width="100%">
+  <tbody><tr>
+    <td width="20%"><b>收&nbsp; 货&nbsp; 人</b></td>
+    <td> <input name="consignee" id="consignee" maxlength="10" placeholder="收货人姓名" class="pt" required="" type="text"></td>
+  </tr>
+  <tr>
+    <td><b>手机号码</b></td>
+    <td><input name="tel" id="tel" placeholder="手机号码" maxlength="15" class="pt" required="true" type="text"></td>
+  </tr>
+  <tr>
+  <td><b>配送区域</b></td>
+  <td>
+
+<input name="country" id="selCountries_1" type="hidden" value="1">
+ 
+   
+    <select name="province" id="selProvinces_{$sn}" onchange="region.changed(this, 2, 'selCities_{$sn}')" class="left select" required="true">
+      <option value="">请选择省份</option>
+      <!-- {foreach from=$province_list item=province} -->
+      <option value="{$province.region_id}" {if $consignee.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+      <!-- {/foreach} -->
+    </select>
+ 
+   
+    <select name="city" id="selCities_{$sn}" onchange="region.changed(this, 3, 'selDistricts_{$sn}')"    class="left select" required="true">
+      <option value="">请选择市</option>
+      <!-- {foreach from=$city_list.$sn item=city} -->
+      <option value="{$city.region_id}" {if $consignee.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+      <!-- {/foreach} -->
+    </select>
+ 
+
+
+    <select name="district" id="selDistricts_{$sn}"  class="left select" required="true">
+      <option value="">请选择区</option>
+      <!-- {foreach from=$district_list.$sn item=district} -->
+      <option value="{$district.region_id}" {if $consignee.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+      <!-- {/foreach} -->
+    </select>
+ 
+
+
+  </td>
+  </tr>
+
+
+
+  <tr>
+    <td><b>街道地址</b></td>
+    <td><input name="address" id="address" placeholder="镇、街道、小区名、门牌号" maxlength="50" class="pt" required="true" type="text"></td>
+  </tr>
+ </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+<div class="bgw lr10 mt10">
+<table class="ftable" border="0" width="100%">
+  <tbody><tr>
+    <td width="20%"><b>配送方式</b></td>
+    <td>
+        <div id="fukuan">
+ 
+        
+
+<!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
+
+		  <p style="width:33%;float:left; background:#fff;">
+            <input name="shipping" type="radio"  class="radio "  id="shipping_{$shipping.shipping_id}" value="{$shipping.shipping_id}" {if $order.shipping_id eq $shipping.shipping_id}checked="true"{/if}   supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" style="vertical-align:middle" /><label for="shipping_{$shipping.shipping_id}" class="trigger  hrem"> {$shipping.shipping_name} </label>
+
+</p>
+            <!-- {/foreach} -->
+
+
+
+
+
+    </div>
+    <input name="payment" id="payment" class="hid" checked="checked" value="3" type="radio">
+        </td>
+  </tr>
+</tbody></table>
+</div>
+
+
+
+
+<div class="bgw lr10 mt10">
+<table class="ftable" border="0" width="100%">
+  <tbody><tr>
+    <td width="20%"><b>付款方式</b></td>
+    <td>
+        <div id="fukuan">
+ 
+        
+
+ <!-- {foreach from=$payment_list item=payment} -->
+		  <p style="width:33%;float:left; background:#fff;">
+           <input type="radio"  class="radio "  name="payment" id="payment_{$payment.pay_id}" value="{$payment.pay_id}" {if $order.pay_id eq $payment.pay_id}checked{/if} isCod="{$payment.is_cod}" onclick="selectPaymentnow(this)" {if $cod_disabled and $payment.is_cod eq "1"}disabled="true"{/if} style="vertical-align:middle" /><label for="payment_{$payment.pay_id}" class="trigger   hrem">{$payment.pay_name} </label>
+
+</p>
+            <!-- {/foreach} -->
+
+
+
+
+
+    </div>
+   
+        </td>
+  </tr>
+</tbody></table>
+</div>
+
+
+  
+
+
+
+
+
+
+<div class="bgw pd10 mt10" id="ECS_ORDERTOTAL">
+<table class="ftable lh25" border="0" width="100%">
+  <tbody><tr>
+    <td width="20%"><em class="gray">商品总价</em></td>
+    <td class="alR"><em id="goods_price"><span  id="goods_subtotal" >{$total.goods_price}</span></em> 元</td>
+    </tr>
+   <!-- <tr>
+    <td><em class="gray">运费</em></td>
+    <td class="alR">+<em id="shipping_fee">¥0.00</em>元</td>
+    </tr>-->
+  
+    
+	
+	
+    <tr>
+    <td><em class="gray">最终支付</em></td>
+    <td class="alR"><b id="amount" class="red f18">{$total.amount_formated}{$total.goods_price}</b>元</td>
+    </tr>
+</tbody></table>
+</div>
+<input type="hidden" name="step" value="done" />
+<div class="mt10 "><input value="提交订单" id="tijiao" class="bbt vbt" type="submit"></div>
+
+</form>
+
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+</body></html>

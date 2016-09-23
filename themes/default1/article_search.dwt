@@ -1,0 +1,131 @@
+<?php
+$GLOBALS['smarty']->assign('article_cat_gywm',     get_article_cat(4));   //分类链接标识_关于我们  
+$GLOBALS['smarty']->assign('article_list_gywm',     index_get_all_cat_articles(4));   //文章列表_关于我们  
+ ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/transport.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/jsct/common.js"></script>
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css" />
+<script type="text/javascript" src="{$ecsolve_path}/js/wycms/jquery.js"></script>
+
+</head>
+
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+<div class="hdphover">
+<div class="contentall">
+<div class="contentallabout">
+
+<div class="leftpart" style="float:right; width:1000px;"> 
+<div class="titlehead" style="width:1000px;">
+<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+
+</div>
+<div class="divcontent"  style="width:auto;">
+
+<div class="content">
+   <div class="aboutul fr" style="width:auto;">
+  <ul>
+<!-- {foreach from=$search_article_list item=article} -->
+ {if $article.title}
+  <li style="width:auto;"><a  title="{$article.title}" target="_blank" href="{$article.url}"> {$article.title}</a> <span>{$article.add_time}</span></li>  {/if}
+{/foreach}
+
+
+
+
+    
+
+
+
+  </ul>
+
+    <div class="page"> <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --> </div>
+
+    </div>
+
+ </div>
+
+
+</div>
+</div>
+
+
+<div class="rightpart" style="float:left;"> 
+
+
+
+
+
+
+
+<!-- {foreach from=$articlecatsabout item=da_cat name=da_cat} -->
+<div class="one">
+
+
+
+<ul>
+
+ <!-- {foreach from=$da_cat.cat_fenlei_cat  item=cat} -->
+        <li {if $cat.id  eq  $nowid } class="jianj" {else} {/if}><p><a href="{$cat.cat_url}"  >{$cat.cat_name}</a></p></li>
+	      <!-- {/foreach} --> 
+
+
+ <!-- {foreach from=$da_cat.cat_fenlei  item=article} -->
+        <li {if $article.id  eq  $nowid } class="jianj" {else} {/if}><p><a href="{$article.url}"  >{$article.title}</a></p></li>
+	      <!-- {/foreach} --> 
+
+</div>
+
+
+    <!-- {/foreach} --> 
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="cl"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

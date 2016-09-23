@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/gtcommon.css">
+<link href="{$ecsolve_path}/style/help.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css">
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/left.css">
+
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$article.title}</title>
+</head>
+<body>
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
+
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div style="height:0px; overflow:hidden;"></div>
+<div id="content">
+<div class="main_route">
+<div class="route">
+
+<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  </div>
+  </div>
+ </div>
+<div id="forhelp">
+
+
+  <div class="r_c_l">
+<div class="content_left left" style="border-bottom:1px solid #ddd;">      
+<script language="javascript">
+function shut_top_cat(){
+	var icon=$("#top_cat_img").attr("src"); 
+	var icon_on="{$ecsolve_path}/images/button_on.jpg";
+	var icon_off="{$ecsolve_path}/images/button_off.jpg";
+	if(icon==icon_on){
+		$("#top_cat_img").attr("src",icon_off);
+		$("#top_cat_child").show();
+	}
+	if(icon==icon_off){
+		$("#top_cat_img").attr("src",icon_on);
+		$("#top_cat_child").hide();
+	}	
+}
+function shut_other_cat(key){
+	var icon=$("#other_cat_img_"+key).attr("src");
+	var icon_on="{$ecsolve_path}/images/button_on.jpg";
+	var icon_off="{$ecsolve_path}/images/button_off.jpg";
+	if(icon==icon_on){
+		$("#other_cat_img_"+key).attr("src",icon_off);
+		$("#other_cat_child_"+key).show();
+	}
+	if(icon==icon_off){
+		$("#other_cat_img_"+key).attr("src",icon_on);
+		$("#other_cat_child_"+key).hide();
+	}	
+}				
+</script>
+<!--{foreach from=$article_categories item=cat  name=get_categories_tree}-->
+<div class="maintitle font14 colccl bold"><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
+
+        <!--{foreach from=$cat.children item=child name=child}-->
+		  <div onclick="shut_top_cat();" class="maincontent font14 bold"><a href="{$child.url}">{$child.name|escape:html}</a><span class="font14 col999 boldnone"></span>
+            <div class="button_off"><img  id="top_cat_img"  src="images/button_off.jpg" width="16" height="16" /></div>
+          </div>
+          <div class="classify" id="top_cat_child">
+            <ul>
+              <!--{foreach from=$child.cat_id item=childs name=childs}-->
+              <li><a {if $childs.id eq $category}class='selected'{/if}  href="{$childs.url}">{$childs.name|escape:html}<span class="col999"></span></a></li>
+              <!--{/foreach}-->
+            </ul>
+          </div>
+	   <!--{/foreach}-->	
+          <!--{/foreach}-->
+ 
+ </div>
+</div>
+
+
+  <div class="r_c_r">
+    <div class="AreaR" style="width:100%">
+    <div class="box">
+	
+     <div class="box_1">
+      <div style="border:1px solid #ddd; background-color:#fff; padding:20px 15px;">
+
+      
+
+
+        <div class="tc" style="padding:8px;">
+         <h1 class="f5 f6">{$article.title|escape:html}</h1><br /><br />
+		 <font class="f3">{$article.author|escape:html}   点击：{$article.click_count}次</font>
+         </div>  
+         <!-- {if $article.content } -->
+          {$article.content}
+         <!-- {/if} -->
+         {if $article.open_type eq 2 or $article.open_type eq 1}<br />
+         <div><a href="{$article.file_url}" target="_blank">{$lang.relative_file}</a></div>
+          {/if}
+            
+	        {if $prev_article}
+            {$lang.prev_article}:<a href="{$prev_article.url}" class="f6">{$prev_article.title}</a>
+          {/if}
+ <!-- 上一篇文章 -->
+          {if $next_article}
+            {$lang.next_article}:<a href="{$next_article.url}" class="f6">{$next_article.title}</a><br /><br />
+          {/if}
+          <!-- 下一篇文章 --> 
+
+       
+         </div>  
+      </div>
+    </div>
+  </div>
+  <div class="blank"></div>
+ 
+
+  </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="scroll_div" onclick="$(window).scrollTop(0)" class="scroll_div"></div>
+<div class="clear"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!--尾文件，加载分屏代码-->
+<script type="text/javascript">
+var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
+$(document).ready(function(){
+	var $imgOriginal = $("img[original]");
+	//360图片不显示问题
+	if($.browser.msie){
+		$imgOriginal.each(function(){
+			$(this).attr('src',$(this).attr('original'));
+		});
+	}else{
+		$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link href="themes/aizhigu/style/gtcommon.css" rel="stylesheet" type="text/css" />
+<link href="themes/aizhigu/style/product.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="overflow-x:hidden">
+<script type="text/javascript" src="themes/aizhigu/js/jquery.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/hd_cache.js"></script>
+<script type="text/javascript" src="themes/aizhigu/js/index_com.js"></script>
+{insert_scripts files='transport.js,common.js,user.js,utils.js'}
+<script type="text/javascript">
+$(function() {
+window.__Object_toJSONString = Object.prototype.toJSONString;
+delete Object.prototype.toJSONString;
+});
+</script>
+<link rel="stylesheet" type="text/css" href="themes/aizhigu/css/common_index.css">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置开始-->
+<div id="position"> <span class="gray"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></span> </div>
+<!--当前位置结束-->
+<div class="list_lb">
+<!--左侧开始-->
+<div class="leftdiv">
+  <div id="category">
+    <!--{foreach from=get_categories_tree() item=cat name=get_categories_tree}-->
+    {if $cat.id eq $parent_cat_id}
+    <dl>
+      <dt><strong>{$cat.name|escape:html}</strong></dt>
+      <dd>
+        <ul>
+          <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+          <li class="{if $child.id eq $goods.cat_id}child{/if} {if $smarty.foreach.cat_cat_id.last}nbord{/if}"><a href="cat_id">{$child.name|escape:html}</a></li>
+          <!--{/foreach}-->
+        </ul>
+        <div class="corner bottomleft"></div>
+        <div class="corner bottomright"></div>
+      </dd>
+    </dl>
+    {/if}
+    <!--{/foreach}-->
+  </div>
+  <!--诚信开始-->
+  <div class="chengxin tmar10"><a target="_blank"></a></div>
+  <!--诚信结束-->
+  <!--销售排行开始-->
+  <div class="leftgoods tmar10">
+    <dl>
+      <dt><strong>销售排行</strong></dt>
+      <dd>
+        <ul class="top10">
+          <!--{foreach from=get_cat_hot_goods_10(0) item=goods_item name=get_cat_hot_goods}-->
+          <li>
+            <div class="num"><span>{$smarty.foreach.get_cat_hot_goods.iteration}</span><a href="{$goods_item.url}" target="_blank" title="{$goods_item.name|escape:html}">{$goods_item.short_name|escape:html}</a></div>
+            <div class="lefttoptxt"> <a href="{$goods_item.url}" target="_blank" title="{$goods_item.name|escape:html}"><img  src="{$goods_item.thumb}" width="60" height="60" /></a> <span class="redd9">
+              <!-- {if $goods_item.promote_price neq ""} -->
+              {$goods_item.promote_price}
+              <!-- {else}-->
+              {$goods_item.shop_price}
+              <!--{/if}-->
+              </span>
+              <p class="salenum">{$goods_item.market_price}</p>
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+        <div class="clear"></div>
+      </dd>
+    </dl>
+    <div class="bottomleft6 corner"></div>
+    <div class="bottomright6 corner"></div>
+  </div>
+  <!--销售排行结束-->
+  <!--活动广告开始-->
+  <!--活动广告结束-->
+  <!--历史记录开始-->
+  <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem --> 
+  <!--历史记录结束-->
+  <div class="clear"></div>
+</div>
+<!--右侧开始-->
+<div class="rightdiv">
+<!--推广活动-->
+<h1 class="tmar7">{$goods.goods_style_name}&nbsp;<span class="red">{$goods.goods_brief}</span></h1>
+<!--推广活动-->
+<div id="detail">
+<div class="detail_left">
+  <div class="tb-gallery"><img id="good_img" src="{$pictures.0.img_url}" width="400" height="400" title="{$goods.goods_name}" /></div>
+  <ul id="good_thumb" class="tb-thumb">
+    <!-- {foreach from=$pictures item=picture}-->
+    <li><img usemap="{$picture.img_url}" src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" width="40" height="40" /></li>
+    <!--{/foreach}-->
+  </ul>
+  <div id="share"> </div>
+</div>
+<div class="detail_right" style="position:relative;">
+<div class="price2">
+  <div style="height:32px; margin:0px;">
+    <div class="price2left"><span >品牌：<a href="{$goods.goods_brand_url}"><span class="pinpaiblue">{$goods.goods_brand}</span></a></span></div>
+    <div class="price2right"><span >商品编号：<strong>{$goods.goods_sn}</strong></span></div>
+  </div>
+  <div class="clear"></div>
+  <p style="height:32px; margin:0px;"> <span>市场价：<s>{$goods.market_price}</s></span> </p>
+  <p>{$lang.exchange_integral}<span class="market">{$goods.exchange_integral}</span></p>
+</div>
+<form action="exchange.php?act=buy" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+<div class="buy">
+  <div class="buybutton"> 
+  <span class="favorites_button"><a href="javascript:ECS_FORMBUY.submit();">{$lang.exchange_goods}</a></span> 
+  <span class="favorites_button"><a href="javascript:collect({$goods.goods_id})">收藏此商品</a></span> 
+  </div>
+</div>
+<input type="hidden" name="goods_id" value="{$goods.goods_id}" />
+ </form>
+<div class="prefer_yh">
+  <p> {foreach from=get_advlist_by_id(7) item=ad name=index_image}{$ad.ad_code}{/foreach} </p>
+</div>
+</div>
+</div>
+<!--商品礼包开始-->
+<div class="clear"></div>
+<div id="detail_conment" style=" margin-top:10px;" >
+  <!--排列方式开始-->
+  <a name="brief_tab"></a>
+  <ul id="J_TabBar" class="tabbar tm-clear" style="position: static; top: 0px; display: block; ">
+    <li class="selected"><a href="javascript:void(0)" rel="goods_desc_div">商品详情</a></li>
+  </ul>
+  <div id="all-list-wrap">
+    <!-- 商品简介开始 -->
+    <div id="goods_desc_div" style="position:relative;">
+      <!-- {if $properties} -->
+      <ul class="property">
+        <!-- {foreach from=$properties item=property_group key=key} -->
+        <!-- {foreach from=$property_group item=property} -->
+        <li>{$property.name|escape:html}：{$property.value}</li>
+        <!-- {/foreach}-->
+        <!-- {/foreach}-->
+      </ul>
+      <!-- {/if} -->
+      <!--商品展示开始-->
+      <div id="goods_desc" class="show-details font14"> {$goods.goods_desc} </div>
+      <!--商品展示结束-->
+    </div>
+    <!-- 商品简介结束 -->
+    <div class="clear"></div>
+  </div>
+</div>
+</div>
+<!--底部商品图片开始-->
+<div class="list_lb">
+  <div class="clear"></div>
+  <!--购物车浮动层开始-->
+</div>
+</div>
+<!--底部商品图片结束-->
+<div class="clear" style="height:30px"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>
