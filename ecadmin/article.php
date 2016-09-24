@@ -143,9 +143,6 @@ if ($_REQUEST['act'] == 'insert')
 
 
 
-
-
-
  /* 取得文件地址 */
     $brand_url = '';
     if ((isset($_FILES['brandfile']['error']) && $_FILES['brandfile']['error'] == 0) || (!isset($_FILES['brandfile']['error']) && isset($_FILES['brandfile']['tmp_name']) && $_FILES['brandfile']['tmp_name'] != 'none'))
@@ -169,51 +166,7 @@ if ($_REQUEST['act'] == 'insert')
         $brand_url = $_POST['brand_url'];
     }
 
-/* 取得文件地址 */
-    $wen_url = '';
-    if ((isset($_FILES['wenfile']['error']) && $_FILES['wenfile']['error'] == 0) || (!isset($_FILES['wenfile']['error']) && isset($_FILES['wenfile']['tmp_name']) && $_FILES['wenfile']['tmp_name'] != 'none'))
-    {
-        // 检查文件格式
-        if (!check_file_type($_FILES['wenfile']['tmp_name'], $_FILES['wenfile']['name'], $allow_file_types))
-        {
-            sys_msg($_LANG['invalid_file']);
-        }
 
-        // 复制文件
-        $res = upload_article_file($_FILES['wenfile']);
-        if ($res != false)
-        {
-            $wen_url = $res;
-        }
-    }
-
-    if ($wen_url == '')
-    {
-        $wen_url = $_POST['wen_url'];
-    }
-
-/* 取得文件地址 */
-    $wen2_url = '';
-    if ((isset($_FILES['wen2file']['error']) && $_FILES['wen2file']['error'] == 0) || (!isset($_FILES['wen2file']['error']) && isset($_FILES['wen2file']['tmp_name']) && $_FILES['wen2file']['tmp_name'] != 'none'))
-    {
-        // 检查文件格式
-        if (!check_file_type($_FILES['wen2file']['tmp_name'], $_FILES['wen2file']['name'], $allow_file_types))
-        {
-            sys_msg($_LANG['invalid_file']);
-        }
-
-        // 复制文件
-        $res = upload_article_file($_FILES['wen2file']);
-        if ($res != false)
-        {
-            $wen2_url = $res;
-        }
-    }
-
-    if ($wen2_url == '')
-    {
-        $wen2_url = $_POST['wen2_url'];
-    }
 
     
     /*插入数据*/
@@ -226,16 +179,23 @@ if ($_REQUEST['act'] == 'insert')
 $sql = "INSERT INTO ".$ecs->table('article').
 	"(title, cat_id, article_type, article_type_key, is_open, author,author_email,".
 	"keywords, content,mobilecontent,add_time,file_url,brand_url,wen_url,wen2_url,".
-	"open_type,link,link_video,link_video2,description,spcdesc, title_define,suppliers_id) ".
+	"open_type,link,link_video,link_video2,description,spcdesc,adds,xmjs, title_define,suppliers_id) ".
    "VALUES ('$_POST[title]', '$_POST[article_cat]', '$_POST[article_type]', '$_POST[article_type_key]',".
 	"'$_POST[is_open]', "."'$_POST[author]', '$_POST[author_email]', '$_POST[keywords]', ".
 	"'$_POST[FCKeditor1]','$_POST[FCKeditor2]','$add_time', '$file_url','$brand_url', '$wen_url',".
 	"'$wen2_url',  '$open_type', '$_POST[link_url]','$_POST[link_video]','$_POST[link_video2]',".
-	"'$_POST[description]', '$_POST[spcdesc]', '$_POST[title_define]', '$_POST[suppliers_id]' )";
+	"'$_POST[description]', '$_POST[spcdesc]','$_POST[adds]','$_POST[xmjs]', '$_POST[title_define]', '$_POST[suppliers_id]' )";
     $db->query($sql);
 
     /* 处理关联商品 */
     $article_id = $db->insert_id();
+
+
+ handle_gallery_image_article($article_id, $_FILES['img_url'], $_POST['img_desc'], $_POST['img_file']);
+
+
+
+
     $sql = "UPDATE " . $ecs->table('goods_article') . " SET article_id = '$article_id' WHERE article_id = 0";
     $db->query($sql);
 
@@ -268,6 +228,30 @@ if ($_REQUEST['act'] == 'edit')
     create_html_bdeditor1('FCKeditor1',htmlspecialchars($article['content'])); /* mod by wengwenjin 百度编辑器 */
 	  create_html_bdeditor2('FCKeditor2',htmlspecialchars($article['mobilecontent'])); /* mod by wengwenjin 百度编辑器 */
 
+
+ /* 图片列表 */
+        $sql = "SELECT * FROM " . $ecs->table('articles_gallery') . " WHERE article_id = '$_REQUEST[id]'";
+        $img_list = $db->getAll($sql);
+
+        /* 格式化相册图片路径 */
+        if (isset($GLOBALS['shop_id']) && ($GLOBALS['shop_id'] > 0))
+        {
+            foreach ($img_list as $key => $gallery_img)
+            {
+                $gallery_img[$key]['img_url'] = get_image_path($gallery_img['goods_id'], $gallery_img['img_original'], false, 'gallery');
+                $gallery_img[$key]['thumb_url'] = get_image_path($gallery_img['goods_id'], $gallery_img['img_original'], true, 'gallery');
+            }
+        }
+        else
+        {
+            foreach ($img_list as $key => $gallery_img)
+            {
+                $gallery_img[$key]['thumb_url'] = '../' . (empty($gallery_img['thumb_url']) ? $gallery_img['img_url'] : $gallery_img['thumb_url']);
+            }
+        }
+
+
+
     /* 取得分类、品牌 */
     $smarty->assign('goods_cat_list', cat_list());
     $smarty->assign('brand_list', get_brand_list());
@@ -275,6 +259,8 @@ if ($_REQUEST['act'] == 'edit')
     /* 取得关联商品 */
     $goods_list = get_article_goods($_REQUEST['id']);
     $smarty->assign('goods_list', $goods_list);
+
+    $smarty->assign('img_list', $img_list);
 
     $smarty->assign('article',     $article);
 	$smarty->assign('special',     $_LANG['special']);
@@ -355,52 +341,6 @@ if ($_REQUEST['act'] =='update')
         $brand_url = $_POST['brand_url'];
     }
 
-
-/* 取得文件地址 */
-    $wen_url = '';
-    if ((isset($_FILES['wenfile']['error']) && $_FILES['wenfile']['error'] == 0) || (!isset($_FILES['wenfile']['error']) && isset($_FILES['wenfile']['tmp_name']) && $_FILES['wenfile']['tmp_name'] != 'none'))
-    {
-        // 检查文件格式
-        if (!check_file_type($_FILES['wenfile']['tmp_name'], $_FILES['wenfile']['name'], $allow_file_types))
-        {
-            sys_msg($_LANG['invalid_file']);
-        }
-
-        // 复制文件
-        $res = upload_article_file($_FILES['wenfile']);
-        if ($res != false)
-        {
-            $wen_url = $res;
-        }
-    }
-
-    if ($wen_url == '')
-    {
-        $wen_url = $_POST['wen_url'];
-    }
-/* 取得文件地址 */
-    $wen2_url = '';
-    if (empty($_FILES['wen2file']['error']) || (!isset($_FILES['wen2file']['error']) && isset($_FILES['wen2file']['tmp_name']) && $_FILES['wen2file']['tmp_name'] != 'none'))
-    {
-        // 检查文件格式
-        if (!check_file_type($_FILES['wen2file']['tmp_name'], $_FILES['wen2file']['name'], $allow_file_types))
-        {
-            sys_msg($_LANG['invalid_file']);
-        }
-
-        // 复制文件
-        $res = upload_article_file($_FILES['wen2file']);
-        if ($res != false)
-        {
-            $wen2_url = $res;
-        }
-    }
-
-    if ($wen2_url == '')
-    {
-        $wen2_url = $_POST['wen2_url'];
-    }
-
     /* 计算文章打开方式 */
     if ($file_url == '')
     {
@@ -452,12 +392,33 @@ if ($_REQUEST['act'] =='update')
 
 
 
+//var_dump($_POST['img_desc']);
+//var_dump($_POST['img_url']);
 
+
+
+
+//var_dump($_FILES['img_url']);
+
+
+
+ handle_gallery_image_article($_REQUEST['id'], $_FILES['img_url'], $_POST['img_desc'], $_POST['img_file']);
+
+
+  /* 编辑时处理相册图片描述 */
+    if (isset($_POST['old_img_desc']))
+    {
+        foreach ($_POST['old_img_desc'] AS $img_id => $img_desc)
+        {
+            $sql = "UPDATE " . $ecs->table('articles_gallery') . " SET img_desc = '$img_desc' WHERE img_id = '$img_id' LIMIT 1";
+            $db->query($sql);
+        }
+    }
 
 
 
      $add_time = local_strtotime($_POST['add_time']);
-    if($exc->edit("title='$_POST[title]',cat_id='$_POST[article_cat]',article_type='$_POST[article_type]',article_type_key='$_POST[article_type_key]',is_open='$_POST[is_open]',author='$_POST[author]',add_time='$add_time',author_email='$_POST[author_email]', keywords ='$_POST[keywords]', file_url ='$file_url', brand_url ='$brand_url', wen_url ='$wen_url',wen2_url ='$wen2_url', open_type='$open_type', content='$_POST[FCKeditor1]', mobilecontent='$_POST[FCKeditor2]', link='$_POST[link_url]',link_video='$_POST[link_video]',link_video2='$_POST[link_video2]',  description = '$_POST[description]' ,spcdesc = '$_POST[spcdesc]' , title_define = '$_POST[title_define]',suppliers_id = '$_POST[suppliers_id]' ", $_POST['id']))
+    if($exc->edit("title='$_POST[title]',cat_id='$_POST[article_cat]',article_type='$_POST[article_type]',article_type_key='$_POST[article_type_key]',is_open='$_POST[is_open]',author='$_POST[author]',add_time='$add_time',author_email='$_POST[author_email]', keywords ='$_POST[keywords]', file_url ='$file_url', brand_url ='$brand_url', wen_url ='$wen_url',wen2_url ='$wen2_url', open_type='$open_type', content='$_POST[FCKeditor1]', mobilecontent='$_POST[FCKeditor2]', link='$_POST[link_url]',link_video='$_POST[link_video]',link_video2='$_POST[link_video2]',  description = '$_POST[description]' ,spcdesc = '$_POST[spcdesc]' ,adds = '$_POST[adds]' ,xmjs = '$_POST[xmjs]' , title_define = '$_POST[title_define]',suppliers_id = '$_POST[suppliers_id]' ", $_POST['id']))
     {
         $link[0]['text'] = $_LANG['back_list'];
         $link[0]['href'] = 'article.php?act=list&' . list_link_postfix();
@@ -473,6 +434,43 @@ if ($_REQUEST['act'] =='update')
     {
         die($db->error());
     }
+}
+
+
+/*------------------------------------------------------ */
+//-- 删除图片
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'drop_image')
+{
+    check_authz_json('articles_add');
+
+    $img_id = empty($_REQUEST['img_id']) ? 0 : intval($_REQUEST['img_id']);
+
+    /* 删除图片文件 */
+    $sql = "SELECT img_url, thumb_url, img_original " .
+            " FROM " . $GLOBALS['ecs']->table('articles_gallery') .
+            " WHERE img_id = '$img_id'";
+    $row = $GLOBALS['db']->getRow($sql);
+
+    if ($row['img_url'] != '' && is_file('../' . $row['img_url']))
+    {
+        @unlink('../' . $row['img_url']);
+    }
+    if ($row['thumb_url'] != '' && is_file('../' . $row['thumb_url']))
+    {
+        @unlink('../' . $row['thumb_url']);
+    }
+    if ($row['img_original'] != '' && is_file('../' . $row['img_original']))
+    {
+        @unlink('../' . $row['img_original']);
+    }
+
+    /* 删除数据 */
+    $sql = "DELETE FROM " . $GLOBALS['ecs']->table('articles_gallery') . " WHERE img_id = '$img_id' LIMIT 1";
+    $GLOBALS['db']->query($sql);
+
+    clear_cache_files();
+    make_json_result($img_id);
 }
 
 /*------------------------------------------------------ */
@@ -647,6 +645,65 @@ elseif ($_REQUEST['act'] == 'drop_link_goods')
 
     make_json_result($opt);
 }
+
+
+
+
+/*------------------------------------------------------ */
+//-- 删除图片
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'drop_image')
+{
+    check_authz_json('articles_add');
+
+    $img_id = empty($_REQUEST['img_id']) ? 0 : intval($_REQUEST['img_id']);
+
+    /* 删除图片文件 */
+    $sql = "SELECT img_url, thumb_url, img_original " .
+            " FROM " . $GLOBALS['ecs']->table('articles_gallery') .
+            " WHERE img_id = '$img_id'";
+    $row = $GLOBALS['db']->getRow($sql);
+
+    if ($row['img_url'] != '' && is_file('../' . $row['img_url']))
+    {
+        @unlink('../' . $row['img_url']);
+    }
+    if ($row['thumb_url'] != '' && is_file('../' . $row['thumb_url']))
+    {
+        @unlink('../' . $row['thumb_url']);
+    }
+    if ($row['img_original'] != '' && is_file('../' . $row['img_original']))
+    {
+        @unlink('../' . $row['img_original']);
+    }
+
+    /* 删除数据 */
+    $sql = "DELETE FROM " . $GLOBALS['ecs']->table('articles_gallery') . " WHERE img_id = '$img_id' LIMIT 1";
+    $GLOBALS['db']->query($sql);
+
+    clear_cache_files();
+    make_json_result($img_id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*------------------------------------------------------ */
 //-- 搜索商品
@@ -874,7 +931,129 @@ function upload_article_file($upload)
         return false;
     }
 }
+/* 上传文件 */
+function upload_array_article_file($upload)
+{
+    if (!make_dir("../" . DATA_DIR . "/arrayarticle"))
+    {
+        /* 创建目录失败 */
+        return false;
+    }
+
+    $filename = cls_image::random_filename() . substr($upload['name'], strpos($upload['name'], '.'));
+    $path     = ROOT_PATH. DATA_DIR . "/arrayarticle/" . $filename;
+
+    if (move_upload_file($upload['tmp_name'], $path))
+    {
+        return '/'.DATA_DIR . "/arrayarticle/" . $filename;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+function handle_gallery_image_article($article_id, $image_files, $image_descs, $image_urls)
+{
+    /* 是否处理缩略图 */
+    $proc_thumb = (isset($GLOBALS['shop_id']) && $GLOBALS['shop_id'] > 0)? false : true;
+    foreach ($image_descs AS $key => $img_desc)
+    {
+        /* 是否成功上传 */
+        $flag = false;
+        if (isset($image_files['error']))
+        {
+            if ($image_files['error'][$key] == 0)
+            {
+                $flag = true;
+            }
+        }
+        else
+        {
+            if ($image_files['tmp_name'][$key] != 'none')
+            {
+                $flag = true;
+            }
+        }
+
+        if ($flag)
+        {
+          
+			
 
 
 
+
+$upload = array(
+                'name' => $image_files['name'][$key],
+                'type' => $image_files['type'][$key],
+                'tmp_name' => $image_files['tmp_name'][$key],
+                'size' => $image_files['size'][$key],
+            );
+
+
+
+// 生成缩略图
+          
+      
+
+
+
+
+
+
+
+
+  // 复制文件
+     $ress = upload_array_article_file($upload);
+    
+      if ($ress != false)
+        {
+            $file_urls = $ress;
+        }
+
+//var_dump($file_urls);
+
+  //  if ($file_url == '')
+    //{
+    //    $file_url = $_POST['file_url'];
+    //}
+
+$sql = "INSERT INTO " . $GLOBALS['ecs']->table('articles_gallery') . " (article_id, img_url, img_desc, thumb_url, img_original) " .
+        "VALUES ('$article_id', '$file_urls', '$img_desc', '$file_urls', '$img_original')";
+ $GLOBALS['db']->query($sql);
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+        elseif (!empty($image_urls[$key]) && ($image_urls[$key] != $GLOBALS['_LANG']['img_file']) && ($image_urls[$key] != 'http://') && copy(trim($image_urls[$key]), ROOT_PATH . 'temp/' . basename($image_urls[$key])))
+        {
+           
+
+
+           
+
+
+
+
+        }
+    }
+}
 ?>

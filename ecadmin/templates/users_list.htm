@@ -36,7 +36,7 @@
   <tr>
   {foreach from=$user_list item=user}
   <tr>
-    <td>{$user.user_id}</td>
+    <td><input type="checkbox" name="checkboxes[]" value="{$user.user_id}" notice="{if $user.user_money ne 0}1{else}0{/if}"/>{$user.user_id}</td>
     <td class="first-cell">{$user.user_name|escape}</td>
     <td style="display:none;"><span onclick="listTable.edit(this, 'edit_email', {$user.user_id})">{$user.email}</span></td>
     <td align="center"  style="display:none;" >{if $user.is_validated} <img src="images/yes.gif"> {else} <img src="images/no.gif"> {/if}</td>
@@ -47,11 +47,11 @@
 	 <td  >{$user.userinfo.nickname}</td>
     <td   style="display:none;"  align="center">{$user.reg_time}</td>
     <td align="center">
-     <!-- <a href="users.php?act=edit&id={$user.user_id}" title="编辑/查看"><img src="images/icon_edit.gif" border="0" height="16" width="16" /></a>-->
+      <a href="users.php?act=edit&id={$user.user_id}" title="编辑/查看"><img src="images/icon_edit.gif" border="0" height="16" width="16" /></a>
       <a style="display:none;"  href="users.php?act=address_list&id={$user.user_id}" title="{$lang.address_list}"><img src="images/book_open.gif" border="0" height="16" width="16" /></a>
       <a style="display:none;" href="order.php?act=list&user_id={$user.user_id}" title="{$lang.view_order}" ><img src="images/icon_view.gif" border="0" height="16" width="16" /></a>
       <a href="account_log.php?act=list&user_id={$user.user_id}" title="{$lang.view_deposit}"  style="display:none;" ><img src="images/icon_account.gif" border="0" height="16" width="16" /></a>
-      <a href="javascript:confirm_redirect('{if $user.user_money ne 0}{$lang.still_accounts}{/if}{$lang.remove_confirm}', 'wxch_users.php?act=remove&id={$user.user_id}')" title="{$lang.remove}"><img src="images/icon_drop.gif" border="0" height="16" width="16" /></a>
+      <a href="javascript:confirm_redirect('{if $user.user_money ne 0}{$lang.still_accounts}{/if}{$lang.remove_confirm}', 'users.php?act=remove&id={$user.user_id}')" title="{$lang.remove}"><img src="images/icon_drop.gif" border="0" height="16" width="16" /></a>
     </td>
   </tr>
   {foreachelse}
@@ -60,7 +60,7 @@
   <tr>
       <td colspan="2">
       <input type="hidden" name="act" value="batch_remove" />
-     <!-- <input type="submit" id="btnSubmit" value="{$lang.button_remove}" disabled="true" class="button" />--></td>
+      <input type="submit" id="btnSubmit" value="{$lang.button_remove}" disabled="true" class="button" /></td>
       <td align="right" nowrap="true" colspan="8">
       {include file="page.htm"}
       </td>

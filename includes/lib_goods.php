@@ -74,16 +74,12 @@ function get_categories_tree($cat_id = 0)
                 $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
                 $cat_arr[$row['cat_id']]['url']  = build_uri('category', array('cid' => $row['cat_id']), $row['cat_name']);
 
-                $cat_arr[$row['cat_id']]['menuadlist']=get_pcat_codead('130',$row['cat_id']); //
-
-
                 if (isset($row['cat_id']) != NULL)
                 {
                     $cat_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id']);
                 }
 
 				    $cat_arr[$row['cat_id']]['catinfopar'] = index_tag_key_par($row['cat_id']);
-					$cat_arr[$row['cat_id']]['pdgoodslist']=get_cat_goods_pd($row['cat_id']); 
             }
         }
     }
@@ -95,103 +91,6 @@ function get_categories_tree($cat_id = 0)
 
 
 
-function get_cat_goods_pd($type = '', $cat_id = 0, $cat_num = 0, $brand = 0, $min =0,  $max = 0, $ext='')
-{
-    $brand_where = ($brand > 0) ? " AND g.brand_id = '$brand'" : '';
-
-    $price_where = ($min > 0) ? " AND g.shop_price >= $min " : '';
-    $price_where .= ($max > 0) ? " AND g.shop_price <= $max " : '';
-
-    $sql =  'SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price,g.seller_note, g.goods_thumb, ' .
-                "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price, ".
-				'(select AVG(r.comment_rank) from ' . $GLOBALS['ecs']->table('comment') . ' as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, ' .
-					'(select IFNULL(sum(og.goods_number), 0) from ' . $GLOBALS['ecs']->table('order_goods') . ' as og where og.goods_id = g.goods_id) AS sell_number, ' .
-                'promote_start_date, promote_end_date, g.goods_brief, goods_img, b.brand_name,b.brand_id,b.brand_logo ' .
-            'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
-            'LEFT JOIN ' . $GLOBALS['ecs']->table('brand') . ' AS b ON b.brand_id = g.brand_id ' .
-            "LEFT JOIN " . $GLOBALS['ecs']->table('member_price') . " AS mp ".
-                    "ON mp.goods_id = g.goods_id AND mp.user_rank = '$_SESSION[user_rank]' ".
-            'WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $brand_where . $price_where . $ext;
-    $num = 0;
-    $type2lib = array('best'=>'recommend_best', 'new'=>'recommend_new', 'hot'=>'recommend_hot', 'promote'=>'recommend_promotion');
-    if($cat_num==0)
-		$num = get_library_number($type2lib[$type]);
-	else
-		$num = $cat_num;
-
-    switch ($type)
-    {
-        case 'best':
-            $sql .= ' AND is_best = 1';
-            break;
-        case 'new':
-            $sql .= ' AND is_new = 1';
-            break;
-        case 'hot':
-            $sql .= ' AND is_hot = 1';
-            break;
-        case 'promote':
-            $time = gmtime();
-            $sql .= " AND is_promote = 1 AND promote_start_date <= '$time' AND promote_end_date >= '$time'";
-            break;
-    }
-
-    $cats = get_children($cat_id);
-    if (!empty($cats))
-    {
-        $sql .= " AND (" . $cats . " OR " . get_extension_goods($cats) .")";
-    }
-
-    $order_type = $GLOBALS['_CFG']['recommend_order'];
-    $sql .= ($order_type == 0) ? ' ORDER BY g.sort_order, g.last_update DESC' : ' ORDER BY RAND()';
-    $res = $GLOBALS['db']->selectLimit($sql, $num);
-
-    $idx = 0;
-	$index = 1;
-    $goods = array();
-    while ($row = $GLOBALS['db']->fetchRow($res))
-    {
-        if ($row['promote_price'] > 0)
-        {
-            $promote_price = bargain_price($row['promote_price'], $row['promote_start_date'], $row['promote_end_date']);
-            $goods[$idx]['promote_price'] = $promote_price > 0 ? price_format($promote_price) : '';
-			$goods[$idx]['promote_price2'] = $promote_price;
-			$goods[$idx]['saving']   = $row['market_price'] - $promote_price;
-        }
-        else
-        {
-            $goods[$idx]['promote_price'] = '';
-        }
-        $index++;
-        $goods[$idx]['i']           = $index;
-        $goods[$idx]['id']           = $row['goods_id'];
-        $goods[$idx]['name']         = $row['goods_name'];
-		$goods[$idx]['goods_sn']         = $row['goods_sn'];
-		$goods[$idx]['comment_rank']     = $row['comment_rank'];
-		$goods[$idx]['sell_number']      = $row['sell_number'];
-		$goods[$idx]['seller_note']      = $row['seller_note'];
-		$goods[$idx]['is_new']           = $row['is_new'];
-        $goods[$idx]['brief']        = $row['goods_brief'];
-        $goods[$idx]['brand_name']   = $row['brand_name'];
-		$goods[$idx]['brand_id']   = $row['brand_id'];
-		$goods[$idx]['brand_logo']   = $row['brand_logo'];
-        $goods[$idx]['short_name']   = $GLOBALS['_CFG']['goods_name_length'] > 0 ?
-                                       sub_str($row['goods_name'], $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
-        $goods[$idx]['market_price'] = price_format($row['market_price']);
-        $goods[$idx]['shop_price']   = price_format($row['shop_price']);
-        $goods[$idx]['thumb']        = get_image_path($row['goods_id'], $row['goods_thumb'], true);
-        $goods[$idx]['goods_img']    = get_image_path($row['goods_id'], $row['goods_img']);
-        $goods[$idx]['url']          = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
-		
-		$goods[$idx]['promote_end_date']    = local_date('m/d/Y H:i:s', $row['promote_end_date']);
-		$goods[$idx]['promote_end_date2']    = $row['promote_end_date'];
-		 $goods[$idx]['pinglun']   = get_pinglun_sum($row['goods_id']);
-        $goods[$idx]['short_style_name'] = add_style($goods[$idx]['short_name'], $row['goods_name_style']);
-        $idx++;
-    }
-
-    return $goods;
-}
 
 
 
@@ -271,11 +170,29 @@ function get_child_tree($tree_id = 0)
                if (isset($row['cat_id']) != NULL)
                    {
                        $three_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id']);
-
+                       $three_arr[$row['cat_id']]['goods_list'] = get_goodslist($row['cat_id']);
             }
         }
     }
     return $three_arr;
+}
+
+function get_goodslist($cid)
+{
+   
+        $sql = 'SELECT * ' .
+                'FROM ' . $GLOBALS['ecs']->table('goods') .
+                "WHERE cat_id = '$cid' ";
+        $res = $GLOBALS['db']->getAll($sql);
+        foreach ($res AS $row)
+        {
+
+              $arr[$row['goods_id']]['id']   = $row['goods_id'];
+               $arr[$row['goods_id']]['name'] = $row['goods_name'];
+               $arr[$row['goods_id']]['url']  = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
+        }
+   
+    return $arr;
 }
 
 /**
@@ -828,16 +745,14 @@ function get_goods_info($goods_id)
 //载入demo数据
 $demogoodss=csv_goods_list();
 $row['goods_name']       = isset($demogoodss['name'][$goods_id])?$demogoodss['name'][$goods_id]:$row['goods_name'];
-$row['thumb']       = get_image_path($goods_id, $row['goods_thumb'], true);
-$row['goods_img']       =$row['goods_img'];
-
-$row['goods_desc']      =$row['goods_desc'];
+$row['thumb']       = isset($demogoodss['thumb'][$goods_id])?$demogoodss['thumb'][$goods_id]:get_image_path($goods_id, $row['goods_thumb'], true);
+$row['goods_img']       = isset($demogoodss['goods_img'][$goods_id])?$demogoodss['goods_img'][$goods_id]:get_image_path($goods_id, $row['goods_img']);
+$row['goods_desc']      = isset($demogoodss['goods_desc'][$goods_id])?$demogoodss['goods_desc'][$goods_id]:$row['goods_desc'];
 //载入demo数据
 
 
 
-	 $row['pinglun'] = get_pinglun_sum($row['goods_id']);
-	   $row['selled_count']   = selled_count($row['goods_id']);
+	 $row['pinglun'] = get_pinglun_sum($goods_id);
 $row['goods_brief']  = $row['goods_brief'];
 $promote_price = $row["shop_price"] - $row["promote_price"];
 	$promote_end_date = $row["promote_end_date"] - $row["promote_start_date"];
@@ -1963,9 +1878,9 @@ function get_goods_com($cats = '')
         $goods[$idx]['market_price'] = price_format($row['market_price']);
         $goods[$idx]['shop_price']   = price_format($row['shop_price']);
           //载入demo数据
-
-$goods[$idx]['name']       = $row['goods_name'];
-$goods[$idx]['goods_thumb']       = get_image_path($row['goods_id'], $row['goods_img'], true);
+$demogoodss=csv_goods_list();
+$goods[$idx]['name']       = isset($demogoodss['name'][$row['goods_id']])?$demogoodss['name'][$row['goods_id']]:$row['goods_name'];
+$goods[$idx]['goods_thumb']       = isset($demogoodss['goods_thumb'][$row['goods_id']])?$demogoodss['goods_thumb'][$row['goods_id']]:get_image_path($row['goods_id'], $row['goods_thumb'], true);
 //载入demo数据
         $goods[$idx]['goods_img']    = get_image_path($row['goods_id'], $row['goods_img']);
         $goods[$idx]['url']          = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
@@ -2181,7 +2096,7 @@ function get_goods_best($cats = '')
 
 
 $goods[$idx]['name']       = $row['goods_name'];
-$goods[$idx]['thumb']       = get_image_path($row['goods_id'], $row['goods_thumb'], true);
+$goods[$idx]['thumb']       = get_image_path($row['goods_id'], $row['goods_img'], true);
 
 
 
@@ -2287,10 +2202,11 @@ function get_goods_new($cats = '')
         $goods[$idx]['short_style_name']   = add_style($goods[$idx]['short_name'],$row['goods_name_style']);
         $goods[$idx]['market_price'] = price_format($row['market_price']);
         $goods[$idx]['shop_price']   = price_format($row['shop_price']);
-$goods[$idx]['name']       = $row['goods_name'];
-$goods[$idx]['thumb']       = get_image_path($row['goods_id'], $row['goods_thumb'], true);
-
-
+       //载入demo数据
+$demogoodss=csv_goods_list();
+$goods[$idx]['name']       = isset($demogoodss['name'][$row['goods_id']])?$demogoodss['name'][$row['goods_id']]:$row['goods_name'];
+$goods[$idx]['goods_thumb']       = isset($demogoodss['goods_thumb'][$row['goods_id']])?$demogoodss['goods_thumb'][$row['goods_id']]:get_image_path($row['goods_id'], $row['goods_thumb'], true);
+//载入demo数据
         $goods[$idx]['goods_img']    = get_image_path($row['goods_id'], $row['goods_img']);
         $goods[$idx]['url']          = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
 

@@ -40,7 +40,7 @@
     <td align="center"><span onclick="listTable.edit(this, 'edit_sort_order', {$goods.goods_id})">{$goods.sort_order}</span></td>
 	
     <td align="center">
-      <a href="../goods.php?id={$goods.goods_id}" target="_blank" title="{$lang.view}" ><img src="images/icon_view.gif" width="16" height="16" border="0" /></a>
+      <a href="../goods.php?id={$goods.goods_id}" target="_blank" title="{$lang.view}" style="display:none;><img src="images/icon_view.gif" width="16" height="16" border="0" /></a>
       <a href="goods.php?act=edit&goods_id={$goods.goods_id}{if $code neq 'real_goods'}&extension_code={$code}{/if}" title="{$lang.edit}"><img src="images/icon_edit.gif" width="16" height="16" border="0" /></a>
      
       <a href="javascript:;" onclick="listTable.remove({$goods.goods_id}, '{$lang.trash_goods_confirm}')" title="{$lang.trash}"><img src="images/icon_trash.gif" width="16" height="16" border="0" /></a>

@@ -7,9 +7,9 @@
   <div id="tabbar-div">
     <p>
       <span class="tab-front" id="general-tab">{$lang.tab_general}</span>
-  <span class="tab-back" id="detail-tab">文章内容</span>
-	  <!-- <span class="tab-back" id="mobile-tab">手机端文章内容</span>-->
-
+  <span class="tab-back" id="detail-tab">电脑端文章内容</span>
+	   <span class="tab-back" id="mobile-tab">手机端文章内容</span>
+<span  class="tab-back" id="gallery-tab"  >图片相册</span>
 
     </p>
   </div>
@@ -23,13 +23,13 @@
       </tr>     
 	  
 	
-	  <tr>
-        <td class="narrow-label">自定义Title</td>
+	  <tr style="display:none;">
+        <td class="narrow-label">项目标题</td>
         <td><input type="text" name="title_define" size ="60" maxlength="60" value="{$article.title_define|escape}" />{$lang.require_field}</td>
       </tr> 
 
 
-      <!-- {if $article.cat_id >= 0} -->
+       <!-- {if $article.cat_id >= 0} -->
       <tr>
         <td class="narrow-label">{$lang.cat} </td>
         <td>
@@ -43,14 +43,14 @@
       <input type="hidden" name="article_cat" value="-1" />
       <!-- {/if} -->
       {if $article.cat_id >= 0}
-      <tr>
+      <tr style="display:none;">
         <td class="narrow-label">{$lang.article_type}</td>
         <td><input type="radio" name="article_type" value="0" {if $article.article_type eq 0}checked{/if}>{$lang.common}
       <input type="radio" name="article_type" value="1" {if $article.article_type eq 1}checked{/if}>{$lang.top}
         {$lang.require_field}        </td>
       </tr>
 	  {if $special}
-	  <tr>
+	  <tr style="display:none;">
         <td class="narrow-label">是否推荐</td>
         <td><input type="radio" name="article_type_key" value="0" {if $article.article_type_key eq 0}checked{/if}>否
       <input type="radio" name="article_type_key" value="1" {if $article.article_type_key eq 1}checked{/if}>是
@@ -98,38 +98,67 @@
         <td><textarea name="spcdesc" id="spcdesc" cols="40" rows="5">{$article.spcdesc|escape}</textarea></td>
       </tr>
 	  <tr>
-        <td class="narrow-label">缩略图片{$lang.upload_file}</td>
+        <td class="narrow-label">缩略图片A{$lang.upload_file}</td>
         <td><input type="file" name="file">
           <span class="narrow-label">{$lang.file_url}
           <input name="file_url" type="text" value="{$article.file_url|escape}" size="30" maxlength="255" />
           </span></td>
       </tr>
-	  {if $special}
+	
  <tr>
-        <td class="narrow-label">品牌标识{$lang.upload_file}</td>
+        <td class="narrow-label">缩略图片B{$lang.upload_file}</td>
         <td><input type="file" name="brandfile">
           <span class="narrow-label">{$lang.file_url}
           <input name="brand_url" type="text" value="{$article.brand_url|escape}" size="30" maxlength="255" />
           </span></td>
       </tr>
-	   <tr>
-        <td class="narrow-label">文件图片1{$lang.upload_file}</td>
-        <td><input type="file" name="wenfile">
-          <span class="narrow-label">{$lang.file_url}
-          <input name="wen_url" type="text" value="{$article.wen_url|escape}" size="30" maxlength="255" />
-          </span></td>
-      </tr>
-	   <tr>
-        <td class="narrow-label">文件图片2{$lang.upload_file}</td>
-        <td><input type="file" name="wen2file">
-          <span class="narrow-label">{$lang.file_url}
-          <input name="wen2_url" type="text" value="{$article.wen2_url|escape}" size="30" maxlength="255" />
-          </span></td>
-      </tr>
-     {/if}
       
 	  
     </table>
+
+
+
+
+<!-- 鍟嗗搧鐩稿唽 -->
+        <table width="90%" id="gallery-table" style="display:none" align="center">
+          <!-- 鍥剧墖鍒楄〃 -->
+          <tr>
+            <td>
+              {foreach from=$img_list item=img key=i}
+              <div id="gallery_{$img.img_id}" style="float:left; text-align:center; border: 1px solid #DADADA; margin: 4px; padding:2px;">
+                <a href="javascript:;" onclick="if (confirm('确定删除')) dropImg('{$img.img_id}')">[-]</a><br />
+              
+                <img src="../{if $img.thumb_url}{$img.thumb_url}{else}{$img.img_url}{/if}"  width="100" height="100" border="0" />
+               <br />
+                <input type="text" value="{$img.img_desc|escape}" size="15" name="old_img_desc[{$img.img_id}]" />
+              </div>
+              {/foreach}
+            </td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <!-- 涓婁紶鍥剧墖 -->
+          <tr>
+            <td>
+              <a href="javascript:;" onclick="addImg(this)">[+]</a>
+              {$lang.img_desc} <input type="text" name="img_desc[]" size="20" />
+              {$lang.img_url} <input type="file" name="img_url[]" />
+            
+            </td>
+          </tr>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <table width="90%" id="detail-table" style="display:none">
      <tr><td>{$FCKeditor1}</td></tr>
@@ -471,6 +500,44 @@ function addVolumecontent(obj)
     var priErrNum = 0;
 
    
+  }
+   function addImg(obj)
+  {
+      var src  = obj.parentNode.parentNode;
+      var idx  = rowindex(src);
+      var tbl  = document.getElementById('gallery-table');
+      var row  = tbl.insertRow(idx + 1);
+      var cell = row.insertCell(-1);
+      cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addImg)(.*)(\[)(\+)/i, "$1removeImg$3$4-");
+  }
+
+
+  /**
+   * 鍒犻櫎鍥剧墖涓婁紶
+   */
+  function removeImg(obj)
+  {
+      var row = rowindex(obj.parentNode.parentNode);
+      var tbl = document.getElementById('gallery-table');
+
+      tbl.deleteRow(row);
+  }
+
+  /**
+   * 鍒犻櫎鍥剧墖
+   */
+  function dropImg(imgId)
+  {
+	 
+    Ajax.call('article.php?is_ajax=1&act=drop_image', "img_id="+imgId, dropImgResponse, "GET", "JSON");
+  }
+
+  function dropImgResponse(result)
+  {
+      if (result.error == 0)
+      {
+          document.getElementById('gallery_' + result.content).style.display = 'none';
+      }
   }
   {/literal}
 

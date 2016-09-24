@@ -39,14 +39,14 @@ $_LANG['os'][OS_SPLITING_PART] = '部分分单';
 
 $_LANG['ss'][SS_UNSHIPPED] = '未发货';
 $_LANG['ss'][SS_PREPARING] = '配货中';
-$_LANG['ss'][SS_SHIPPED] = '<font color="#0771b3"><b>已发货</b></font>';
+$_LANG['ss'][SS_SHIPPED] = '已发货';
 $_LANG['ss'][SS_RECEIVED] = '收货确认';
 $_LANG['ss'][SS_SHIPPED_PART] = '已发货(部分商品)';
 $_LANG['ss'][SS_SHIPPED_ING] = '发货中';
 
 $_LANG['ps'][PS_UNPAYED] = '未付款';
 $_LANG['ps'][PS_PAYING] = '付款中';
-$_LANG['ps'][PS_PAYED] = '<font  style="color:#00991d; "><b>已付款</b></font>';
+$_LANG['ps'][PS_PAYED] = '已付款';
 
 $_LANG['ss_admin'][SS_SHIPPED_ING] = '发货中（前台状态：未发货）';
 /* 订单操作 */

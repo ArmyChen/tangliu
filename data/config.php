@@ -3,13 +3,13 @@
 $db_host   = "localhost";
 
 // database name
-$db_name   = "tangliu";
+$db_name   = "webts2";
 
 // database username
-$db_user   = "root";
+$db_user   = "webts2";
 
 // database password
-$db_pass   = "root";
+$db_pass   = "eudqk3jp";
 
 // table prefix
 $prefix    = "site_";

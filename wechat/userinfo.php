@@ -5,7 +5,7 @@ $wxid = !empty($_GET['wxid']) ? $_GET['wxid'] : '';
 if(!empty($wxid)) 
 {
 	access_token($db);
-	$ret = $db->getRow("SELECT * FROM `site_weixin_config` WHERE `id` = 1");
+	$ret = $db->getRow("SELECT * FROM `site_config` WHERE `id` = 1");
 	$access_token = $ret['access_token'];
 	$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=$access_token&openid=$wxid";
 	$res_json = curl_get_contents($url);
@@ -88,7 +88,7 @@ function random_filename()
 }
 function access_token($db) 
 {
-	$ret = $db->getRow("SELECT * FROM `site_weixin_config` WHERE `id` = 1");
+	$ret = $db->getRow("SELECT * FROM `site_config` WHERE `id` = 1");
 	$appid = $ret['appid'];
 	$appsecret = $ret['appsecret'];
 	$access_token = $ret['access_token'];
@@ -102,7 +102,7 @@ function access_token($db)
 		$ret = json_decode($ret_json);
 		if($ret->access_token)
 		{
-			$db->query("UPDATE `site_weixin_config` SET `access_token` = '$ret->access_token',`dateline` = '$time' WHERE `id` =1;");
+			$db->query("UPDATE `site_config` SET `access_token` = '$ret->access_token',`dateline` = '$time' WHERE `id` =1;");
 		}
 	}
 	elseif(empty($access_token)) 
@@ -113,13 +113,13 @@ function access_token($db)
 		$ret = json_decode($ret_json);
 		if($ret->access_token)
 		{
-			$db->query("UPDATE `site_weixin_config` SET `access_token` = '$ret->access_token',`dateline` = '$time' WHERE `id` =1;");
+			$db->query("UPDATE `site_config` SET `access_token` = '$ret->access_token',`dateline` = '$time' WHERE `id` =1;");
 		}
 	}
 }
 function new_access_token($db) 
 {
-	$ret = $db->getRow("SELECT * FROM `site_weixin_config` WHERE `id` = 1");
+	$ret = $db->getRow("SELECT * FROM `site_config` WHERE `id` = 1");
 	$appid = $ret['appid'];
 	$appsecret = $ret['appsecret'];
 	$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret";
@@ -127,7 +127,7 @@ function new_access_token($db)
 	$ret = json_decode($ret_json);
 	if($ret->access_token)
 	{
-		$db->query("UPDATE `site_weixin_config` SET `access_token` = '$ret->access_token',`dateline` = '$time' WHERE `id` =1;");
+		$db->query("UPDATE `site_config` SET `access_token` = '$ret->access_token',`dateline` = '$time' WHERE `id` =1;");
 	}
 	return $ret->access_token;
 }

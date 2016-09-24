@@ -27,7 +27,7 @@
 				<th>头像</th>
                 <th>昵称</th>
                
-               
+                <th>绑定会员</th>
                 <th>性别</th>
                 <th>省份</th>
                 <th>城市</th>
@@ -41,17 +41,21 @@
                     {if $user.headimgurl }<img src="{$user.headimgurl}" title="{$user.nickname}" width="46" /> {/if}
                 </td>
 
+ <td align="center">
+                   {$user.nickname}
+                </td>
 
 
 
                 
-                <td align="center"> {$user.nickname}</td>
+                <td align="center">{$user.user_name}</td>
                 <td align="center">{$user.sex}</td>
                 <td align="center">{$user.province}</td>
                 <td align="center">{$user.city}</td>
                 <td align="center">{$user.subscribe_time}</td>
                 <td align="center">
-                    
+                    <a href="wxch_users.php?act=view&uid={$user.uid}" ><img src="images/icon_view.gif" border="0" height="16" width="16" /></a>
+                    <a href="wxch_users.php?act=send&uid={$user.uid}" ><img src="images/icon_title.gif" border="0" height="16" width="16" /></a>
 					 <a href="javascript:confirm_redirect('是否删除该粉丝', 'wxch_users.php?act=remove&id={$user.uid}')" title="移除"><img src="images/icon_drop.gif" border="0" height="16" width="16" /></a>
                 </td>
             </tr>

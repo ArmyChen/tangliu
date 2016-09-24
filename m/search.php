@@ -21,7 +21,7 @@ $_REQUEST['act'] = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '';
 
 
 /*------------------------------------------------------ */
-//-- ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½
+//-- ¸ß¼¶ËÑË÷
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'advanced_search')
 {
@@ -34,12 +34,12 @@ if ($_REQUEST['act'] == 'advanced_search')
     assign_template();
     assign_dynamic('search');
     $position = assign_ur_here(0, $_LANG['advanced_search']);
-    $smarty->assign('page_title', $position['title']);    // Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    $smarty->assign('ur_here',    $position['ur_here']);  // ï¿½ï¿½Ç°Î»ï¿½ï¿½
+    $smarty->assign('page_title', $position['title']);    // Ò³Ãæ±êÌâ
+    $smarty->assign('ur_here',    $position['ur_here']);  // µ±Ç°Î»ÖÃ
 
-    $smarty->assign('categories', get_categories_tree()); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    $smarty->assign('helps',      get_shop_help());       // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    $smarty->assign('top_goods',  get_top10());           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    $smarty->assign('categories', get_categories_tree()); // ·ÖÀàÊ÷
+    $smarty->assign('helps',      get_shop_help());       // Íøµê°ïÖú
+    $smarty->assign('top_goods',  get_top10());           // ÏúÊÛÅÅÐÐ
     $smarty->assign('promotion_info', get_promotion_info());
     $smarty->assign('cat_list',   cat_list(0, 0, true, 2, false));
     $smarty->assign('brand_list', get_brand_list());
@@ -51,7 +51,7 @@ if ($_REQUEST['act'] == 'advanced_search')
     exit;
 }
 /*------------------------------------------------------ */
-//-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//-- ËÑË÷½á¹û
 /*------------------------------------------------------ */
 else
 {
@@ -106,7 +106,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
     $action = '';
     if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'form')
     {
-        /* Òªï¿½ï¿½Ê¾ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+        /* ÒªÏÔÊ¾¸ß¼¶ËÑË÷À¸ */
         $adv_value['keywords']  = htmlspecialchars(stripcslashes($_REQUEST['keywords']));
         $adv_value['brand']     = $_REQUEST['brand'];
         $adv_value['min_price'] = $_REQUEST['min_price'];
@@ -115,7 +115,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
 
         $attributes = get_seachable_attributes($_REQUEST['goods_type']);
 
-        /* ï¿½ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½Öµ */
+        /* ½«Ìá½»Êý¾ÝÖØÐÂ¸³Öµ */
         foreach ($attributes['attr'] AS $key => $val)
         {
             if (!empty($_REQUEST['attr'][$val['id']]))
@@ -147,7 +147,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
         $action = 'form';
     }
 
-    /* ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+    /* ³õÊ¼»¯ËÑË÷Ìõ¼þ */
     $keywords  = '';
     $tag_where = '';
 
@@ -156,26 +156,26 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
         $arr = array();
         if (stristr($_REQUEST['keywords'], ' AND ') !== false)
         {
-            /* ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ANDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½Ç²ï¿½ */
+            /* ¼ì²é¹Ø¼ü×ÖÖÐÊÇ·ñÓÐAND£¬Èç¹û´æÔÚ¾ÍÊÇ²¢ */
             $arr        = explode('AND', $_REQUEST['keywords']);
             $operator   = " AND ";
         }
         elseif (stristr($_REQUEST['keywords'], ' OR ') !== false)
         {
-            /* ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ORï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½Ç»ï¿½ */
+            /* ¼ì²é¹Ø¼ü×ÖÖÐÊÇ·ñÓÐOR£¬Èç¹û´æÔÚ¾ÍÊÇ»ò */
             $arr        = explode('OR', $_REQUEST['keywords']);
             $operator   = " OR ";
         }
         elseif (stristr($_REQUEST['keywords'], ' + ') !== false)
         {
-            /* ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ð¼ÓºÅ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½Ç»ï¿½ */
+            /* ¼ì²é¹Ø¼ü×ÖÖÐÊÇ·ñÓÐ¼ÓºÅ£¬Èç¹û´æÔÚ¾ÍÊÇ»ò */
             $arr        = explode('+', $_REQUEST['keywords']);
             $operator   = " OR ";
 
         }
         else
         {
-            /* ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ð¿Õ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½Ç²ï¿½ */
+            /* ¼ì²é¹Ø¼ü×ÖÖÐÊÇ·ñÓÐ¿Õ¸ñ£¬Èç¹û´æÔÚ¾ÍÊÇ²¢ */
             $arr        = explode(' ', $_REQUEST['keywords']);
             $operator   = " AND ";
 
@@ -221,7 +221,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
     $min_price  = $_REQUEST['min_price'] != 0                               ? " AND g.shop_price >= '$_REQUEST[min_price]'" : '';
     $max_price  = $_REQUEST['max_price'] != 0 || $_REQUEST['min_price'] < 0 ? " AND g.shop_price <= '$_REQUEST[max_price]'" : '';
 
-    /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ê½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ */
+    /* ÅÅÐò¡¢ÏÔÊ¾·½Ê½ÒÔ¼°ÀàÐÍ */
     $default_display_type = $_CFG['show_order_type'] == '0' ? 'list' : ($_CFG['show_order_type'] == '1' ? 'grid' : 'text');
     $default_sort_order_method = $_CFG['sort_order_method'] == '0' ? 'DESC' : 'ASC';
     $default_sort_order_type   = $_CFG['sort_order_type'] == '0' ? 'goods_id' : ($_CFG['sort_order_type'] == '1' ? 'shop_price' : 'last_update');
@@ -235,7 +235,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
     $page       = !empty($_REQUEST['page'])  && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
     $size       = !empty($_CFG['page_size']) && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
 
-    $intromode = '';    //ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
+    $intromode = '';    //·½Ê½£¬ÓÃÓÚ¾ö¶¨ËÑË÷½á¹ûÒ³±êÌâÍ¼Æ¬
 
     if (!empty($_REQUEST['intro']))
     {
@@ -277,7 +277,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
     }
 
     /*------------------------------------------------------ */
-    //-- ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½
+    //-- ÊôÐÔ¼ìË÷
     /*------------------------------------------------------ */
     $attr_in  = '';
     $attr_num = 0;
@@ -314,7 +314,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
                 }
                 else
                 {
-                    /* ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+                    /* ´¦ÀíÑ¡¹ºÖÐÐÄ¹ýÀ´µÄÁ´½Ó */
                     $sql .= isset($_REQUEST['pickout']) ? " AND attr_id = '$key' AND attr_value = '" . $val . "' " : " AND attr_id = '$key' AND attr_value LIKE '%" . mysql_like_quote($val) . "%' ";
                     $attr_url .= "&amp;attr[$key]=$val";
                     $attr_arg["attr[$key]"] = $val;
@@ -324,7 +324,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
             }
         }
 
-        /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½Ä£ï¿½ï¿½Í²ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ */
+        /* Èç¹û¼ìË÷Ìõ¼þ¶¼ÊÇÎÞÐ§µÄ£¬¾Í²»ÓÃ¼ìË÷ */
         if ($attr_num > 0)
         {
             $sql .= " GROUP BY goods_id HAVING num = '$attr_num'";
@@ -342,17 +342,17 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
     }
     elseif (isset($_REQUEST['pickout']))
     {
-        /* ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+        /* ´ÓÑ¡¹ºÖÐÐÄ½øÈëµÄÁ´½Ó */
         $sql = "SELECT DISTINCT(goods_id) FROM " . $ecs->table('goods_attr');
         $col = $db->getCol($sql);
-        //ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ã´ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+        //Èç¹ûÉÌµêÃ»ÓÐÉèÖÃÉÌÆ·ÊôÐÔ,ÄÇÃ´´Ë¼ìË÷Ìõ¼þÊÇÎÞÐ§µÄ
         if (!empty($col))
         {
             $attr_in = " AND " . db_create_in($col, 'g.goods_id');
         }
     }
 
-    /* ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ */
+    /* »ñµÃ·ûºÏÌõ¼þµÄÉÌÆ·×ÜÊý */
     $sql   = "SELECT COUNT(*) FROM " .$ecs->table('goods'). " AS g ".
         "WHERE g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_alone_sale = 1 $attr_in ".
         "AND (( 1 " . $categories . $keywords . $brand . $min_price . $max_price . $intro . $outstock ." ) ".$tag_where." )";
@@ -364,7 +364,7 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
         $page = $max_page;
     }
 
-    /* ï¿½ï¿½Ñ¯ï¿½ï¿½Æ· */
+    /* ²éÑ¯ÉÌÆ· */
     $sql = "SELECT g.goods_id, g.goods_name, g.market_price, g.is_new, g.is_best, g.is_hot, g.shop_price AS org_price, ".
                 "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price, ".
                 "g.promote_price, g.promote_start_date, g.promote_end_date, g.goods_thumb, g.goods_img, g.goods_brief, g.goods_type ".
@@ -388,8 +388,8 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
             $promote_price = 0;
         }
 
-        /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·Ë®Ó¡Í¼Æ¬ */
-        /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·Ë®Ó¡Í¼Æ¬ */
+        /* ´¦ÀíÉÌÆ·Ë®Ó¡Í¼Æ¬ */
+        /* ´¦ÀíÉÌÆ·Ë®Ó¡Í¼Æ¬ */
         $watermark_img = '';
 
         if ($promote_price != 0)
@@ -424,11 +424,11 @@ $_REQUEST['keywords']  = is_utf8(trim($_REQUEST['keywords']))?  urldecode(strips
  
         $arr[$row['goods_id']]['goods_img']     = get_image_path($row['goods_id'], $row['goods_img']);
 
- //ï¿½ï¿½ï¿½ï¿½demoï¿½ï¿½ï¿½ï¿½
+ //ÔØÈëdemoÊý¾Ý
 $demogoodss=csv_goods_list();
  $arr[$row['goods_id']]['goods_name']       = isset($demogoodss['name'][$row['goods_id']])?$demogoodss['name'][$row['goods_id']]:$row['goods_name'];
  $arr[$row['goods_id']]['goods_thumb']       = isset($demogoodss['thumb'][$row['goods_id']])?$demogoodss['thumb'][$row['goods_id']]:get_image_path($row['goods_id'], $row['goods_thumb'], true);
-//ï¿½ï¿½ï¿½ï¿½demoï¿½ï¿½ï¿½ï¿½
+//ÔØÈëdemoÊý¾Ý
 
         $arr[$row['goods_id']]['url']           = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
 	
@@ -450,7 +450,7 @@ $demogoodss=csv_goods_list();
     $smarty->assign('max_price',  $max_price);
     $smarty->assign('outstock',  $_REQUEST['outstock']);
 
-    /* ï¿½ï¿½Ò³ */
+    /* ·ÖÒ³ */
     $url_format = "search.php?category=$category&amp;keywords=" . urlencode(stripslashes($_REQUEST['keywords'])) . "&amp;brand=" . $_REQUEST['brand']."&amp;action=".$action."&amp;goods_type=" . $_REQUEST['goods_type'] . "&amp;sc_ds=" . $_REQUEST['sc_ds'];
     if (!empty($intromode))
     {
@@ -498,21 +498,21 @@ $smarty->assign('tags',      $tags);
 $smarty->assign('keywords',     htmlspecialchars($tags['keywords']));
 $smarty->assign('description', htmlspecialchars($tags['description']));
 $page_title=empty($tags['title'])?$tags['key_name']:$tags['title'];
-$smarty->assign('page_title',$page_title);    // Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+$smarty->assign('page_title',$page_title);    // Ò³Ãæ±êÌâ
 
- $smarty->assign('ur_here',    $position['ur_here']);  // ï¿½ï¿½Ç°Î»ï¿½ï¿½
+ $smarty->assign('ur_here',    $position['ur_here']);  // µ±Ç°Î»ÖÃ
 
 
 
-   $smarty->assign('max_page', $max_page);
+
 
 
 
 
     $smarty->assign('intromode',      $intromode);
-    $smarty->assign('categories', get_categories_tree()); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    $smarty->assign('helps',       get_shop_help());      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    $smarty->assign('top_goods',  get_top10());           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    $smarty->assign('categories', get_categories_tree()); // ·ÖÀàÊ÷
+    $smarty->assign('helps',       get_shop_help());      // Íøµê°ïÖú
+    $smarty->assign('top_goods',  get_top10());           // ÏúÊÛÅÅÐÐ
     $smarty->assign('promotion_info', get_promotion_info());
 
     $smarty->display('search.dwt');
@@ -542,7 +542,7 @@ function is_not_null($value)
 }
 
 /**
- * ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * »ñµÃ¿ÉÒÔ¼ìË÷µÄÊôÐÔ
  *
  * @access  public
  * @params  integer $cat_id
@@ -555,13 +555,13 @@ function get_seachable_attributes($cat_id = 0)
         'attr' => array()
     );
 
-    /* ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Ãµï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ */
+    /* »ñµÃ¿ÉÓÃµÄÉÌÆ·ÀàÐÍ */
     $sql = "SELECT t.cat_id, cat_name FROM " .$GLOBALS['ecs']->table('goods_type'). " AS t, ".
            $GLOBALS['ecs']->table('attribute') ." AS a".
            " WHERE t.cat_id = a.cat_id AND t.enabled = 1 AND a.attr_index > 0 ";
     $cat = $GLOBALS['db']->getAll($sql);
 
-    /* ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+    /* »ñÈ¡¿ÉÒÔ¼ìË÷µÄÊôÐÔ */
     if (!empty($cat))
     {
         foreach ($cat AS $val)
@@ -637,7 +637,7 @@ function is_gb2312($str)
                                 if( ($i+2) >= (strlen($str) - 1)) return true;  // not enough characters
                                 $v1 = ord( $str[$i+1] );
                                 $v2 = ord( $str[$i+2] );
-                                if( ($v1 >= 128) && ($v1 <=191) && ($v2 >=128) && ($v2 <= 191) ) // utfï¿½ï¿½ï¿½ï¿½
+                                if( ($v1 >= 128) && ($v1 <=191) && ($v2 >=128) && ($v2 <= 191) ) // utf±àÂë
                                         return false;
                                 else
                                         return true;
@@ -650,7 +650,7 @@ function is_gb2312($str)
 
 function get_tag_info($article_id)
 {
-    /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½Ï¢ */
+    /* »ñµÃÎÄÕÂµÄÐÅÏ¢ */
     $sql = "SELECT a.* ".
             "FROM " .$GLOBALS['ecs']->table('content_key'). " AS a ".
             "WHERE  a.key_id = '$article_id' GROUP BY a.key_id";

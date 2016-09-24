@@ -83,8 +83,7 @@ elseif ($_REQUEST['act'] == 'add')
     $smarty->assign('ur_here',       $_LANG['mad_list_mobile_add']);
     $smarty->assign('action_link',   array('href' => 'ads.php?act=list', 'text' => $_LANG['mad_list_mobile']));
     $smarty->assign('position_list', get_position_list());
-     $smarty->assign('cat_select',  article_cat_list(0,$ads_arr['cat_id']));
-	$smarty->assign('cat_list',     cat_list(0, $ads_arr['pcat_id']));
+
     $smarty->assign('form_act', 'insert');
     $smarty->assign('action',   'add');
     $smarty->assign('cfg_lang', $_CFG['lang']);
@@ -222,7 +221,7 @@ elseif ($_REQUEST['act'] == 'insert')
     }
 
     /* 插入数据 */
-    $sql = "INSERT INTO ".$ecs->table('touch_ad'). " (position_id,media_type,ad_name,ad_link,ad_code,start_time,end_time,link_man,cat_id,pcat_id,link_email,link_phone,click_count,enabled)
+    $sql = "INSERT INTO ".$ecs->table('touch_ad'). " (position_id,media_type,ad_name,ad_link,ad_code,start_time,end_time,link_man,link_email,link_phone,click_count,enabled)
     VALUES ('$_POST[position_id]',
             '$_POST[media_type]',
             '$ad_name',
@@ -231,8 +230,6 @@ elseif ($_REQUEST['act'] == 'insert')
             '$start_time',
             '$end_time',
             '$_POST[link_man]',
-			'$_POST[article_cat]',
-            '$_POST[pcat_id]',
             '$_POST[link_email]',
             '$_POST[link_phone]',
             '0',
@@ -322,8 +319,6 @@ elseif ($_REQUEST['act'] == 'edit')
     $smarty->assign('action_link',   array('href' => 'ads.php?act=list', 'text' => $_LANG['mad_list_mobile']));
     $smarty->assign('form_act',      'update');
     $smarty->assign('action',        'edit');
-	 $smarty->assign('cat_select',  article_cat_list(0,$ads_arr['cat_id']));
-	   $smarty->assign('cat_list',     cat_list(0, $ads_arr['pcat_id']));
     $smarty->assign('position_list', get_position_list());
     $smarty->assign('ads',           $ads_arr);
 
@@ -443,8 +438,6 @@ elseif ($_REQUEST['act'] == 'update')
             "start_time  = '$start_time', ".
             "end_time    = '$end_time', ".
             "link_man    = '$_POST[link_man]', ".
-		 "cat_id    = '$_POST[article_cat]', ".
-		    "pcat_id    = '$_POST[pcat_id]', ".
             "link_email  = '$_POST[link_email]', ".
             "link_phone  = '$_POST[link_phone]', ".
             "enabled     = '$_POST[enabled]' ".

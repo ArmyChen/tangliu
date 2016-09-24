@@ -17,11 +17,11 @@
         <span class="tab-front" id="general-tab">{$lang.tab_general}</span><span
         class="tab-back" id="detail-tab">{$lang.tab_detail}</span><span
         class="tab-back" id="mix-tab">{$lang.tab_mix}</span>
-		<span  class="tab-back" id="gallery-tab"   >{$lang.tab_gallery}</span>
+		
 		{if $lang.banben2}
 		{if $goods_type_list}
 		<span  class="tab-back" id="properties-tab">{$lang.tab_properties}</span>{/if}
-		
+		<span  class="tab-back" id="gallery-tab"  >{$lang.tab_gallery}</span>
 		{/if}
 		
       </p>
@@ -67,9 +67,9 @@
           </tr>
 
 
-<tr  >
+<tr style="display:none;">
 
-            <td class="label">宣传图片：</td>
+            <td class="label">商品广告图片：</td>
 
             <td>
 
@@ -93,7 +93,7 @@
 
 
 
-          <tr >
+          <tr style="display:none;">
             <td class="label">{$lang.lab_goods_brand}</td>
             <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0">{$lang.select_please}{html_options options=$brand_list selected=$goods.brand_id}</select>
               
@@ -116,7 +116,7 @@
           </tr>
 		  	  {if $lang.banben2}
           {if $user_rank_list}
-          <tr 	style="display:none;">
+          <tr 	>
             <td class="banben2" ><a href="javascript:showNotice('noticeUserPrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_user_price}</td>
             <td>
               {foreach from=$user_rank_list item=user_rank}
@@ -131,7 +131,7 @@
          {/if}
           <!--鍟嗗搧浼樻儬浠锋牸-->
 		  	  {if $lang.banben2}
-          <tr  style="display:none;">
+          <tr  >
             <td class="banben2"><a href="javascript:showNotice('volumePrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_volume_price}</td>
             <td>
               <table width="100%" id="tbody-volume" align="center">
@@ -196,7 +196,7 @@
             <td class="banben2"><label for="is_promote"><input type="checkbox" id="is_promote" name="is_promote" value="1" {if $goods.is_promote}checked="checked"{/if} onclick="handlePromote(this.checked);" /> {$lang.lab_promote_price}</label></td>
             <td id="promote_3"><input type="text" id="promote_1" name="promote_price" value="{$goods.promote_price}" size="20" /></td>
           </tr>
-          <tr id="promote_4"  >
+          <tr id="promote_4" >
             <td class="banben2" id="promote_5">{$lang.lab_promote_date}</td>
             <td id="promote_6">
               <input name="promote_start_date" type="text" id="promote_start_date" size="12" value='{$goods.promote_start_date}' readonly="readonly" /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="{$lang.btn_select}" class="button"/> - <input name="promote_end_date" type="text" id="promote_end_date" size="12" value='{$goods.promote_end_date}' readonly="readonly" /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="{$lang.btn_select}" class="button"/>
@@ -233,8 +233,8 @@
                 <img src="images/no.gif" />
               {/if}
               <br /><input type="text" size="40" value="{$lang.lab_thumb_url}" style="color:#aaa;" onfocus="if (this.value == '{$lang.lab_thumb_url}'){this.value='http://';this.style.color='#000';}" name="goods_thumb_url"/>
-              
-              <br /><label for="auto_thumb"><input type="checkbox" id="auto_thumb" name="auto_thumb" checked="true" value="1" onclick="handleAutoThumb(this.checked)" />{$lang.auto_thumb}</label>
+              {if $gd > 0}
+              <br /><label for="auto_thumb"><input type="checkbox" id="auto_thumb" name="auto_thumb" checked="true" value="1" onclick="handleAutoThumb(this.checked)" />{$lang.auto_thumb}</label>{/if}
             </td>
           </tr>
         </table>
@@ -257,7 +257,7 @@
           {/if}
 		     {/if}
           {if $cfg.use_storage}
-          <tr >
+          <tr style="display:none;">
             <td class="label"><a href="javascript:showNotice('noticeStorage');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_goods_number}</td>
 <!--            <td><input type="text" name="goods_number" value="{$goods.goods_number}" size="20" {if $code neq '' || $goods._attribute neq ''}readonly="readonly"{/if} /><br />-->
             <td><input type="text" name="goods_number" value="{$goods.goods_number}" size="20" /><br />
@@ -290,18 +290,15 @@
           </tr>
 		  <tr>
             <td class="label">产品描述</td>
+            <td><textarea name="goods_spcdesc" cols="40" rows="3">{$goods.goods_spcdesc|escape}</textarea></td>
+          </tr>
+          <tr>
+            <td class="label">关键特性</td>
             <td><textarea name="goods_brief" cols="40" rows="3">{$goods.goods_brief|escape}</textarea></td>
           </tr>
-          <tr >
-            <td class="label">简单描述</td>
-            <td><textarea name="goods_spcdesc" cols="40" rows="3">{$goods.goods_spcdesc|escape}</textarea>可用于副标题</td>
-          </tr>
-          <tr >
-            <td class="label">视频地址</td>
-            <td><textarea name="goods_video" cols="40" rows="3">{$goods.goods_video|escape}</textarea>可用视频地址</td>
-          </tr>		   
+		   
 
-          <tr style="display:none;">
+          <tr>
             <td class="label">技术参数</td>
             <td><textarea name="seller_note" cols="40" rows="3">{$goods.seller_note|escape}</textarea></td>
           </tr>
@@ -336,7 +333,7 @@
               <div id="gallery_{$img.img_id}" style="float:left; text-align:center; border: 1px solid #DADADA; margin: 4px; padding:2px;">
                 <a href="javascript:;" onclick="if (confirm('{$lang.drop_img_confirm}')) dropImg('{$img.img_id}')">[-]</a><br />
                 <a href="goods.php?act=show_image&img_url={$img.img_url}" target="_blank">
-                <img src="../{if $img.thumb_url}{$img.thumb_url}{else}{$img.img_url}{/if}" {if $thumb_width neq 0}width="{$thumb_width}"{/if} {if $thumb_height neq 0}height="{$thumb_height}"{/if} border="0" />
+                <img src="{$webhttp}{if $img.thumb_url}{$img.thumb_url}{else}{$img.img_url}{/if}" {if $thumb_width neq 0}width="{$thumb_width}"{/if} {if $thumb_height neq 0}height="{$thumb_height}"{/if} border="0" />
                 </a><br />
                 <input type="text" value="{$img.img_desc|escape}" size="15" name="old_img_desc[{$img.img_id}]" />
               </div>

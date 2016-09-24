@@ -2,29 +2,6 @@
 
 define('IN_ECS', true);
 
-//周五特惠
-//获取当日时间戳
-
-$time=date("Y-m-d");
-
-$extime= local_strtotime($time);  
-$smarty->assign('extime', $extime);
-//获取当日时间戳
-
-$addtime = $db->getOne("SELECT add_time FROM ".$GLOBALS['ecs']->table('tehui') ." where id=1 ");
-if($extime==$addtime)
-{
-$zhekou = $db->getOne("SELECT value FROM ".$GLOBALS['ecs']->table('tehui') ." where id=1 ");
-}
-
-$tshow = $db->getOne("SELECT tshow FROM ".$GLOBALS['ecs']->table('tehui') ." where id=1 ");
-$smarty->assign('zhekou', $zhekou);
-
-
-$smarty->assign('addtime', $addtime);
-$smarty->assign('tshow', $tshow);
-//echo $extime;
-//周五特惠
 
 
 
@@ -259,183 +236,6 @@ function send_seo_set($template_id)
 
 
 
-
-
-function get_categories_tree_index($cat_id = 0)
-{
-    if ($cat_id > 0)
-    {
-        $sql = 'SELECT parent_id FROM ' . $GLOBALS['ecs']->table('category') . " WHERE cat_id = '$cat_id'";
-        $parent_id = $GLOBALS['db']->getOne($sql);
-    }
-    else
-    {
-        $parent_id = 0;
-    }
-
-    /*
-     判断当前分类中全是是否是底级分类，
-     如果是取出底级分类上级分类，
-     如果不是取当前分类及其下的子分类
-    */
-    $sql = 'SELECT count(*) FROM ' . $GLOBALS['ecs']->table('category') . " WHERE parent_id = '$parent_id' AND is_show = 1 ";
-    if ($GLOBALS['db']->getOne($sql) || $parent_id == 0)
-    {
-        /* 获取当前分类及其子分类 */
-        $sql = 'SELECT cat_id,cat_name ,parent_id,is_show ' .
-                'FROM ' . $GLOBALS['ecs']->table('category') .
-                "WHERE parent_id = '$parent_id' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC";
-
-        $res = $GLOBALS['db']->getAll($sql);
-
-        foreach ($res AS $row)
-        {
-            if ($row['is_show'])
-            {
-
-
-   /*获得分类下商品总数 */
-                $children = get_children($row['cat_id']);
-                $sql = 'SELECT count(*)' . "FROM " . $GLOBALS['ecs']->table('goods') . ' AS g '.
-                'WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND '.
-                 'g.is_delete = 0 AND (' . $children . 'OR ' . get_extension_goods($children) . ') ';
-                $cat_goods_num=$GLOBALS['db']->getOne($sql);
-                $cat_arr[$row['cat_id']]['goods_num']   = $cat_goods_num == '' ? 0 : $cat_goods_num;
-
-
-
-
-                $cat_arr[$row['cat_id']]['id']   = $row['cat_id'];
-                $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
-                $cat_arr[$row['cat_id']]['url']  = build_uri('category', array('cid' => $row['cat_id']), $row['cat_name']);
-
-
-
-
-
-
-                if (isset($row['cat_id']) != NULL)
-                {
-
-$cat_arr[$row['cat_id']]['catgoodslist']=get_cat_goods_recommend('new',$row['cat_id'],20); //
-$cat_arr[$row['cat_id']]['adlist']=get_pcat_ad('5',$row['cat_id']); //
-
-
-
-
-                    $cat_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id']);
-                }
-
-				    $cat_arr[$row['cat_id']]['catinfopar'] = index_tag_key_par($row['cat_id']);
-            }
-        }
-    }
-    if(isset($cat_arr))
-    {
-        return $cat_arr;
-    }
-}
-
-
-
-
-function get_cat_goods_recommend($type = '', $cat_id = 0, $cat_num = 0, $brand = 0, $min =0,  $max = 0, $ext='')
-{
-    $brand_where = ($brand > 0) ? " AND g.brand_id = '$brand'" : '';
-
-    $price_where = ($min > 0) ? " AND g.shop_price >= $min " : '';
-    $price_where .= ($max > 0) ? " AND g.shop_price <= $max " : '';
-
-    $sql =  'SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price,g.seller_note, g.goods_thumb, ' .
-                "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price, ".
-				'(select AVG(r.comment_rank) from ' . $GLOBALS['ecs']->table('comment') . ' as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, ' .
-					'(select IFNULL(sum(og.goods_number), 0) from ' . $GLOBALS['ecs']->table('order_goods') . ' as og where og.goods_id = g.goods_id) AS sell_number, ' .
-                'promote_start_date, promote_end_date, g.goods_brief, goods_img, b.brand_name,b.brand_id,b.brand_logo ' .
-            'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
-            'LEFT JOIN ' . $GLOBALS['ecs']->table('brand') . ' AS b ON b.brand_id = g.brand_id ' .
-            "LEFT JOIN " . $GLOBALS['ecs']->table('member_price') . " AS mp ".
-                    "ON mp.goods_id = g.goods_id AND mp.user_rank = '$_SESSION[user_rank]' ".
-            'WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ' . $brand_where . $price_where . $ext;
-    $num = 0;
-    $type2lib = array('best'=>'recommend_best', 'new'=>'recommend_new', 'hot'=>'recommend_hot', 'promote'=>'recommend_promotion');
-    if($cat_num==0)
-		$num = get_library_number($type2lib[$type]);
-	else
-		$num = $cat_num;
-
-    switch ($type)
-    {
-        case 'best':
-            $sql .= ' AND is_best = 1';
-            break;
-        case 'new':
-            $sql .= ' AND is_new = 1';
-            break;
-        case 'hot':
-            $sql .= ' AND is_hot = 1';
-            break;
-        case 'promote':
-            $time = gmtime();
-            $sql .= " AND is_promote = 1 AND promote_start_date <= '$time' AND promote_end_date >= '$time'";
-            break;
-    }
-
-    $cats = get_children($cat_id);
-    if (!empty($cats))
-    {
-        $sql .= " AND (" . $cats . " OR " . get_extension_goods($cats) .")";
-    }
-
-    $order_type = $GLOBALS['_CFG']['recommend_order'];
-    $sql .= ($order_type == 0) ? ' ORDER BY g.sort_order, g.last_update DESC' : ' ORDER BY RAND()';
-    $res = $GLOBALS['db']->selectLimit($sql, $num);
-
-    $idx = 0;
-	$index = 1;
-    $goods = array();
-    while ($row = $GLOBALS['db']->fetchRow($res))
-    {
-        if ($row['promote_price'] > 0)
-        {
-            $promote_price = bargain_price($row['promote_price'], $row['promote_start_date'], $row['promote_end_date']);
-            $goods[$idx]['promote_price'] = $promote_price > 0 ? price_format($promote_price) : '';
-			$goods[$idx]['promote_price2'] = $promote_price;
-			$goods[$idx]['saving']   = $row['market_price'] - $promote_price;
-        }
-        else
-        {
-            $goods[$idx]['promote_price'] = '';
-        }
-        $index++;
-        $goods[$idx]['i']           = $index;
-        $goods[$idx]['id']           = $row['goods_id'];
-        $goods[$idx]['name']         = $row['goods_name'];
-		$goods[$idx]['goods_sn']         = $row['goods_sn'];
-		$goods[$idx]['comment_rank']     = $row['comment_rank'];
-		$goods[$idx]['sell_number']      = $row['sell_number'];
-		$goods[$idx]['seller_note']      = $row['seller_note'];
-		$goods[$idx]['is_new']           = $row['is_new'];
-        $goods[$idx]['brief']        = $row['goods_brief'];
-        $goods[$idx]['brand_name']   = $row['brand_name'];
-		$goods[$idx]['brand_id']   = $row['brand_id'];
-		$goods[$idx]['brand_logo']   = $row['brand_logo'];
-        $goods[$idx]['short_name']   = $GLOBALS['_CFG']['goods_name_length'] > 0 ?
-                                       sub_str($row['goods_name'], $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
-        $goods[$idx]['market_price'] = price_format($row['market_price']);
-        $goods[$idx]['shop_price']   = price_format($row['shop_price']);
-        $goods[$idx]['thumb']        = get_image_path($row['goods_id'], $row['goods_thumb'], true);
-        $goods[$idx]['goods_img']    = get_image_path($row['goods_id'], $row['goods_img']);
-        $goods[$idx]['url']          = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
-		
-		$goods[$idx]['promote_end_date']    = local_date('m/d/Y H:i:s', $row['promote_end_date']);
-		$goods[$idx]['promote_end_date2']    = $row['promote_end_date'];
-		 $goods[$idx]['pinglun']   = get_pinglun_sum($row['goods_id']);
-        $goods[$idx]['short_style_name'] = add_style($goods[$idx]['short_name'], $row['goods_name_style']);
-        $idx++;
-    }
-
-    return $goods;
-}
 
 
 
@@ -1833,7 +1633,7 @@ $demoads=csv_ad_list();
 function get_pcat_ad($cat_aid,$cat_id)
 {
 	
-    $sql = 'SELECT * FROM ' .$GLOBALS['ecs']->table('touch_ad'). ' WHERE position_id = '.$cat_aid.' and  pcat_id = '.$cat_id;
+    $sql = 'SELECT * FROM ' .$GLOBALS['ecs']->table('ad'). ' WHERE position_id = '.$cat_aid.' and  pcat_id = '.$cat_id;
     $res = $GLOBALS['db']->getAll($sql);
 
     $arr = array();
@@ -1842,16 +1642,16 @@ function get_pcat_ad($cat_aid,$cat_id)
         
 	
         $arr[$row['ad_id']]['ad_name']  = $row['ad_name'];
-		  $arr[$row['ad_id']]['link_man']  = $row['link_man'];
+		
 		$arr[$row['ad_id']]['url']  = 'affiche.php?ad_id='.$row['ad_id'].'&amp;uri='.urlencode($row['ad_link']);
-
- $arr[$row['ad_id']]['ad_code']     = 'data/afficheimg/'.$row['ad_code'];
-     
+   //载入demo数据
+$demoads=csv_ad_list();
+ $arr[$idx]['ad_code']     = isset($demoads['file_url'][$row['ad_id']])?$demoads['file_url'][$row['ad_id']]:'data/afficheimg/'.$row['ad_code'];
+//载入demo数据     
     }
 
     return $arr;
 }
-
 
 function get_article($article_id)
 {

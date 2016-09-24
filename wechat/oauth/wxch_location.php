@@ -1,5 +1,5 @@
 <?php
-define('IN_ECS', true);
+define('IN_ECTOUCH', true);
 $uri = !empty($_GET['uri']) ? $_GET['uri'] : '';
 if(!empty($uri)) 
 {
@@ -9,8 +9,8 @@ if(empty($uri))
 {
 	exit('uri is empty locaion');
 }
-require (dirname(__FILE__) . '/../../m/includes/init.php');
-$wxch_config = $db->getRow("SELECT * FROM `site_weixin_config` WHERE `id` = 1");
+require (dirname(__FILE__) . '/../../mobile/include/init.php');
+$wxch_config = $db->getRow("SELECT * FROM `site_config` WHERE `id` = 1");
 $appid = $wxch_config['appid'];
 $appsecret = $wxch_config['appsecret'];
 $code = !empty($_GET['code']) ? $_GET['code'] : '';
@@ -19,12 +19,12 @@ $ret_json = curl_get_contents($url);
 $ret = json_decode($ret_json);
 $openid = !empty($ret->openid) ? $ret->openid : '';
 $access_token = !empty($ret->access_token) ? $ret->access_token : '';
-$cfg_baseurl = $db->getOne("SELECT cfg_value FROM site_weixin_cfg WHERE cfg_name = 'baseurl'");
-$cfg_murl = $db->getOne("SELECT cfg_value FROM site_weixin_cfg WHERE cfg_name = 'murl'");
+$cfg_baseurl = $db->getOne("SELECT cfg_value FROM site_cfg WHERE cfg_name = 'baseurl'");
+$cfg_murl = $db->getOne("SELECT cfg_value FROM site_cfg WHERE cfg_name = 'murl'");
 $back_url = $uri;
 if(strlen($openid) == 28)
 {
-	$oauth_step = $db->getOne("SELECT `setp` FROM `site_weixin_user` WHERE `wxid` = '$openid'");
+	$oauth_step = $db->getOne("SELECT `setp` FROM `site_user` WHERE `wxid` = '$openid'");
 	$wxch_ecs = $ecs->table('users');
 	if($oauth_step == 3) 
 	{

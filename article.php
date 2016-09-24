@@ -91,6 +91,7 @@ if (!$smarty->is_cached('article.dwt', $cache_id))
     $smarty->assign('email',            $_SESSION['email']);
     $smarty->assign('type',            '1');
     $smarty->assign('promotion_info', get_promotion_info());
+	$smarty->assign('bmrq', time());
 
     /* 验证码相关设置 */
     if ((intval($_CFG['captcha']) & CAPTCHA_COMMENT) && gd_version() > 0)
@@ -108,7 +109,7 @@ if (!$smarty->is_cached('article.dwt', $cache_id))
     {
         $catlist[] = $v['cat_id'];
     }
-
+    $smarty->assign('pictures',            get_articles_gallery($article_id));   
     assign_template('a', $catlist);
 
     $position = assign_ur_here($article['cat_id'], $article['title']);
@@ -263,5 +264,18 @@ function article_related_goods($id)
 
     return $arr;
 }
-
+function get_articles_gallery($article_id)
+{
+    $sql = 'SELECT img_id, img_url, thumb_url, img_desc' .
+        ' FROM ' . $GLOBALS['ecs']->table('articles_gallery') .
+        " WHERE article_id = '$article_id' LIMIT " . $GLOBALS['_CFG']['goods_gallery_number'];
+    $row = $GLOBALS['db']->getAll($sql);
+    /* 格式化相册图片路径 */
+    foreach($row as $key => $gallery_img)
+    {
+        $row[$key]['img_url'] = $gallery_img['img_url'];
+        $row[$key]['thumb_url'] = $gallery_img['thumb_url'];
+    }
+    return $row;
+}
 ?>

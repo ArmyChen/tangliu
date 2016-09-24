@@ -708,7 +708,6 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
     $goods_thumb = (empty($goods_thumb) && isset($_POST['auto_thumb']))? $goods_img : $goods_thumb;
 $tuijie_img_name = basename($image->upload_image($_FILES['tuijie_img'],'tuijie_img'));
 $tuijie_img = $tuijie_img_name;
-
     /* 入库 */
     if ($is_insert)
     {
@@ -716,13 +715,13 @@ $tuijie_img = $tuijie_img_name;
         {
             $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_style, goods_sn, " .
                     "cat_id, brand_id, shop_price, market_price, is_promote, promote_price, " .
-                    "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief, goods_spcdesc,goods_video," .
+                    "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief, goods_spcdesc," .
                     "seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, " .
                     "is_on_sale, is_alone_sale, is_shipping, goods_desc, add_time, last_update, goods_type, rank_integral,fencheng, suppliers_id, tuijie_img)" .
                 "VALUES ('$_POST[goods_name]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
                     "'$brand_id', '$shop_price', '$market_price', '$is_promote','$promote_price', ".
                     "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', ".
-                    "'$_POST[keywords]', '$_POST[goods_brief]','$_POST[goods_spcdesc]','$_POST[goods_video]', '$_POST[seller_note]', '$goods_weight', '$goods_number',".
+                    "'$_POST[keywords]', '$_POST[goods_brief]','$_POST[goods_spcdesc]', '$_POST[seller_note]', '$goods_weight', '$goods_number',".
                     " '$warn_number', '$_POST[integral]', '$give_integral', '$is_best', '$is_new', '$is_hot', '$is_on_sale', '$is_alone_sale', $is_shipping, ".
                     " '$_POST[goods_desc]', '" . gmtime() . "', '". gmtime() ."', '$goods_type', '$rank_integral','$fencheng', '$suppliers_id', '$tuijie_img')";
         }
@@ -730,13 +729,13 @@ $tuijie_img = $tuijie_img_name;
         {
             $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_style, goods_sn, " .
                     "cat_id, brand_id, shop_price, market_price, is_promote, promote_price, " .
-                    "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief,goods_spcdesc,goods_video, " .
+                    "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief,goods_spcdesc, " .
                     "seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, is_real, " .
                     "is_on_sale, is_alone_sale, is_shipping, goods_desc, add_time, last_update, goods_type, extension_code, rank_integral,fencheng, tuijie_img)" .
                 "VALUES ('$_POST[goods_name]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
                     "'$brand_id', '$shop_price', '$market_price', '$is_promote','$promote_price', ".
                     "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', ".
-                    "'$_POST[keywords]', '$_POST[goods_brief]', '$_POST[goods_spcdesc]','$_POST[goods_video]','$_POST[seller_note]', '$goods_weight', '$goods_number',".
+                    "'$_POST[keywords]', '$_POST[goods_brief]', '$_POST[goods_spcdesc]','$_POST[seller_note]', '$goods_weight', '$goods_number',".
                     " '$warn_number', '$_POST[integral]', '$give_integral', '$is_best', '$is_new', '$is_hot', 0, '$is_on_sale', '$is_alone_sale', $is_shipping, ".
                     " '$_POST[goods_desc]', '" . gmtime() . "', '". gmtime() ."', '$goods_type', '$code', '$rank_integral','$fencheng', '$tuijie_img')";
         }
@@ -821,7 +820,6 @@ if($tuijie_img)
         $sql .= "keywords = '$_POST[keywords]', " .
                 "goods_brief = '$_POST[goods_brief]', " .
 			"goods_spcdesc = '$_POST[goods_spcdesc]', " .
-			"goods_video = '$_POST[goods_video]', " .
                 "seller_note = '$_POST[seller_note]', " .
                 "goods_weight = '$goods_weight'," .
                 "goods_number = '$goods_number', " .
@@ -1063,11 +1061,10 @@ if($tuijie_img)
 
     /* 提示页面 */
     $link = array();
-    /*if (check_goods_specifications_exist($goods_id))
+    if (check_goods_specifications_exist($goods_id))
     {
         $link[0] = array('href' => 'goods.php?act=product_list&goods_id=' . $goods_id, 'text' => $_LANG['product']);
     }
-	*/
     if ($code == 'virtual_card')
     {
         $link[1] = array('href' => 'virtual_card.php?act=replenish&goods_id=' . $goods_id, 'text' => $_LANG['add_replenish']);

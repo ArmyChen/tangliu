@@ -339,7 +339,10 @@ function insert_member_info()
         }
     }
 
-	
+	//获取微信登录配置信息
+	$ret = $GLOBALS['db']->getRow("SELECT * FROM ".$GLOBALS['ecs']->table('config')." WHERE `id` = 1");
+	$GLOBALS['smarty']->assign('wx_appid', $ret['appid']);
+	$GLOBALS['smarty']->assign('wx_uri', $ret['redirect_uri']);
 
     $output = $GLOBALS['smarty']->fetch('library/member_info.lbi');
 
@@ -604,12 +607,4 @@ function insert_kefushow($arr)
 	return $val;
 	
 }
-
- function insert_comments_count($arr)
-    {
-    $count=$GLOBALS['db']->getOne('SELECT COUNT(*) FROM '.
-    $GLOBALS['ecs']->table('comment')."WHERE id_value='$arr[id]'".
-    "AND comment_type='$arr[type]' AND status = 1 AND parent_id = 0");
-    return $count;
-    }
 ?>

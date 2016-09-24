@@ -23,8 +23,10 @@
         <div style="overflow:hidden; word-break:break-all; font-size:14px; line-height:20px;">
 
 
-	
-	{if $msg.content}	{$msg.content}<br>{/if}
+	<b>姓名：</b>{$msg.user_name}<br>
+		<b>电话:</b>{$msg.contact_tel}<br>
+		{if $msg.email}<b>邮箱：{$msg.email}</b><br>{/if}
+	{if $msg.content}	<b>内容：</b>{$msg.content}<br>{/if}
 	
 	
 
@@ -35,7 +37,7 @@
       </td>
     </tr>
    
- <tr>
+<!-- <tr>
       <td align="center">
         {if $msg.status eq "0"}
         <input type="button" onclick="location.href='comment_manage.php?act=check&check=allow&id={$msg.comment_id}'" value="{$lang.allow}" class="button" />
@@ -43,7 +45,7 @@
         <input type="button" onclick="location.href='comment_manage.php?act=check&check=forbid&id={$msg.comment_id}'" value="{$lang.forbid}" class="button" />
         {/if}
     </td>
-    </tr>
+    </tr>-->
   </table>
 </div>
 <!--

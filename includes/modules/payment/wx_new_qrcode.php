@@ -63,7 +63,7 @@ class wx_new_qrcode
 
         if(!defined('WXAPPID'))
         {
-            $root_url = $GLOBALS['ecs']->url();
+            $root_url = str_replace('mobile/', '', $GLOBALS['ecs']->url());
 			
             define("WXAPPID", $payment['appid']);
             define("WXMCHID", $payment['mchid']);
@@ -97,7 +97,7 @@ class wx_new_qrcode
 
 
 
-      
+        $html = $code_url.'<button type="button" onclick="javascript:alert(\'出错了\')">微信支付</button>';
 
 
 
@@ -110,14 +110,6 @@ class wx_new_qrcode
             $html .= "</div>";
 
             $html .= "<div style=\"text-align:center\">支付后点击<a href=\"user.php?act=order_list\">此处</a>查看我的订单</div>";
-        }else{
-            $html = $code_url.'<button type="button" onclick="javascript:alert(\'出错了\')">微信支付</button>';
-            $code_url = $unifiedOrderResult["code_url"];
-            $html .= '<div class="wx_qrcode" style="text-align:center">';
-            $html .= $this->getcode($code_url);
-            $html .= "</div>";
-
-            $html .= "<div style=\"text-align:center\">支付后点击<a href=\"user.php?act=order_list\">此处</a>查看我的订单</div>";
         }
         
         
@@ -126,9 +118,6 @@ class wx_new_qrcode
 	}
     function respond()
     {
-
-
-
         $payment  = get_payment('wx_new_qrcode');
 
         $notify = new Notify_pub();
@@ -144,19 +133,19 @@ class wx_new_qrcode
             if ($notify->data["return_code"] == "FAIL") {
                 //此处应该更新一下订单状态，商户自行增删操作
                 if($payment['logs']){
-                    $this->log(ROOT_PATH.'/data/wx_new_log.txt',"return_code失败a\r\n");
+                    $this->log(ROOT_PATH.'/data/wx_new_log.txt',"return_code失败\r\n");
                 }
             }
             elseif($notify->data["result_code"] == "FAIL"){
                 //此处应该更新一下订单状态，商户自行增删操作
                 if($payment['logs']){
-                    $this->log(ROOT_PATH.'/data/wx_new_log.txt',"result_code失败b\r\n");
+                    $this->log(ROOT_PATH.'/data/wx_new_log.txt',"result_code失败\r\n");
                 }
             }
             else{
                 //此处应该更新一下订单状态，商户自行增删操作
                 if($payment['logs']){
-                    $this->log(ROOT_PATH.'/data/wx_new_log.txt',"支付成功c\r\n");
+                    $this->log(ROOT_PATH.'/data/wx_new_log.txt',"支付成功\r\n");
                 }
                 $total_fee = $notify->data["total_fee"];
                 $log_id = $notify->data["attach"];
@@ -165,7 +154,7 @@ class wx_new_qrcode
                 
                 if($payment['logs'])
                 {
-                    $this->log(ROOT_PATH.'/data/wx_new_log.txt','订单金额c'.$amount."\r\n");
+                    $this->log(ROOT_PATH.'/data/wx_new_log.txt','订单金额'.$amount."\r\n");
                 }
                 
                 if(intval($amount*100) != $total_fee)
@@ -173,7 +162,7 @@ class wx_new_qrcode
                     
                     if($payment['logs'])
                     {   
-                        $this->log(ROOT_PATH.'/data/wx_new_log.txt','订单金额不符d'."\r\n");
+                        $this->log(ROOT_PATH.'/data/wx_new_log.txt','订单金额不符'."\r\n");
                     }
                     
                     echo 'fail';

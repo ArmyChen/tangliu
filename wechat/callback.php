@@ -53,24 +53,24 @@ class wechatCallbackapi{
             }
             $time = time();
             $lang = array();
-            $setp = $db -> getOne("SELECT `setp` FROM `site_weixin_user` WHERE `wxid` = '$fromUsername'");
+            $setp = $db -> getOne("SELECT `setp` FROM `site_user` WHERE `wxid` = '$fromUsername'");
             if($setp == 2 or $setp == 3 or $setp == 10){
-                $uname = $db -> getOne("SELECT `uname` FROM `site_weixin_user` WHERE `wxid` = '$fromUsername'");
+                $uname = $db -> getOne("SELECT `uname` FROM `site_user` WHERE `wxid` = '$fromUsername'");
             }
             if(empty($uname)){
                 $postfix = '&wxid=' . $fromUsername;
             }else{
-                $ret['wxid'] = $db -> getOne("SELECT `wxid` FROM `site_weixin_user` WHERE `wxid` = '$fromUsername'");
+                $ret['wxid'] = $db -> getOne("SELECT `wxid` FROM `site_user` WHERE `wxid` = '$fromUsername'");
                 $postfix = '&wxid=' . $ret['wxid'];
             }
-            $m_ret = $db -> getRow("SELECT * FROM  `site_weixin_cfg` WHERE `cfg_name` = 'murl'");
-            $base_ret = $db -> getRow("SELECT * FROM  `site_weixin_cfg` WHERE `cfg_name` = 'baseurl'");
-            $imgpath_ret = $db -> getRow("SELECT * FROM  `site_weixin_cfg` WHERE `cfg_name` = 'imgpath'");
-            $plustj_ret = $db -> getRow("SELECT * FROM  `site_weixin_cfg` WHERE `cfg_name` = 'plustj'");
-            $cxbd = $db -> getOne("SELECT `cfg_value` FROM `site_weixin_cfg` WHERE `cfg_name` = 'cxbd'");
-            $oauth_state = $db -> getOne("SELECT `cfg_value` FROM `site_weixin_cfg` WHERE `cfg_name` = 'oauth'");
-            $goods_is_ret = $db -> getOne("SELECT `cfg_value` FROM `site_weixin_cfg` WHERE `cfg_name` = 'goods'");
-            $article_url = $db -> getOne("SELECT `cfg_value` FROM `site_weixin_cfg` WHERE `cfg_name` = 'article'");
+            $m_ret = $db -> getRow("SELECT * FROM  `site_cfg` WHERE `cfg_name` = 'murl'");
+            $base_ret = $db -> getRow("SELECT * FROM  `site_cfg` WHERE `cfg_name` = 'baseurl'");
+            $imgpath_ret = $db -> getRow("SELECT * FROM  `site_cfg` WHERE `cfg_name` = 'imgpath'");
+            $plustj_ret = $db -> getRow("SELECT * FROM  `site_cfg` WHERE `cfg_name` = 'plustj'");
+            $cxbd = $db -> getOne("SELECT `cfg_value` FROM `site_cfg` WHERE `cfg_name` = 'cxbd'");
+            $oauth_state = $db -> getOne("SELECT `cfg_value` FROM `site_cfg` WHERE `cfg_name` = 'oauth'");
+            $goods_is_ret = $db -> getOne("SELECT `cfg_value` FROM `site_cfg` WHERE `cfg_name` = 'goods'");
+            $article_url = $db -> getOne("SELECT `cfg_value` FROM `site_cfg` WHERE `cfg_name` = 'article'");
             if($goods_is_ret == 'false'){
                 $goods_is = ' AND is_delete = 0 AND is_on_sale = 1';
             }else{
@@ -78,7 +78,7 @@ class wechatCallbackapi{
             }
             $img_path = $imgpath_ret['cfg_value'];
             $plustj = $plustj_ret['cfg_value'];
-            $wxch_bd = $db -> getOne("SELECT `cfg_value` FROM `site_weixin_cfg` WHERE `cfg_name` = 'bd'");
+            $wxch_bd = $db -> getOne("SELECT `cfg_value` FROM `site_cfg` WHERE `cfg_name` = 'bd'");
             if(empty($base_ret['cfg_value'])){
                 $m_url = $base_url . $m_ret['cfg_value'];
             }else{
@@ -91,7 +91,7 @@ class wechatCallbackapi{
             $img_path = $imgpath_ret['cfg_value'];
             $base_img_path = $base_url;
             if($img_path == 'local'){
-                $img_murl = $db -> getOne("SELECT `cfg_value` FROM `site_weixin_cfg` WHERE `cfg_name` = 'murl'");
+                $img_murl = $db -> getOne("SELECT `cfg_value` FROM `site_cfg` WHERE `cfg_name` = 'murl'");
                 if(empty($img_murl)){
                     $temp_img_arr = explode('.', $base_ret['cfg_value']);
                     $temp_do = array('http://m', 'http://mobile');
@@ -108,13 +108,13 @@ class wechatCallbackapi{
             if(!empty($ret['user_id'])){
                 $user_id = $ret['user_id'];
             }
-            $ret = $db -> getRow("SELECT `wxid` FROM `site_weixin_user` WHERE `wxid` = '$fromUsername'");
+            $ret = $db -> getRow("SELECT `wxid` FROM `site_user` WHERE `wxid` = '$fromUsername'");
             if(empty($ret)){
                 if(!empty($fromUsername)){
-                    $db -> query("INSERT INTO `site_weixin_user` (`subscribe`, `wxid` , `dateline`) VALUES ('1','$fromUsername','$time')");
+                    $db -> query("INSERT INTO `site_user` (`subscribe`, `wxid` , `dateline`) VALUES ('1','$fromUsername','$time')");
                 }
             }else{
-                $db -> query("UPDATE  `site_weixin_user` SET  `subscribe` =  '1',`dateline` = '$time' WHERE  `site_weixin_user`.`wxid` = '$fromUsername';");
+                $db -> query("UPDATE  `site_user` SET  `subscribe` =  '1',`dateline` = '$time' WHERE  `site_user`.`wxid` = '$fromUsername';");
             }
             $subscribe = 1;
             if($msgType == 'text'){
@@ -123,7 +123,7 @@ class wechatCallbackapi{
             }
             $belong = $db -> insert_id();
             $thistable = $db -> prefix . 'users';
-            $ec_pwd = $db -> getOne("SELECT `cfg_value` FROM `site_weixin_cfg` WHERE `cfg_name` = 'userpwd'");
+            $ec_pwd = $db -> getOne("SELECT `cfg_value` FROM `site_cfg` WHERE `cfg_name` = 'userpwd'");
             $ec_pwd = md5($ec_pwd);
             $ret_22 = $db -> getRow("SELECT * FROM `$thistable` WHERE `wxid` = '$fromUsername'");
             if(strlen($ret_22['user_name']) == 28){
@@ -207,7 +207,7 @@ class wechatCallbackapi{
                     $postObj -> EventKey = $scan_ret['function'];
                 }
             }elseif($postObj -> Event == 'unsubscribe'){
-                $db -> query("UPDATE  `site_weixin_user` SET  `subscribe` =  '0' WHERE  `site_weixin_user`.`wxid` = '$fromUsername';");
+                $db -> query("UPDATE  `site_user` SET  `subscribe` =  '0' WHERE  `site_user`.`wxid` = '$fromUsername';");
                 $subscribe = 0;
             }elseif($postObj -> Event == 'SCAN'){
                 $qrscene = $postObj -> EventKey;
@@ -221,7 +221,7 @@ class wechatCallbackapi{
                 if($setp > 0 and $setp < 3){
                     $msgType = "text";
                     if($keyword == 'ko' or $keyword == 'KO' or $keyword == 'Ko' or $keyword == '退出'){
-                        $db -> query("UPDATE `site_weixin_user` SET `setp`= 0,`uname` = '' WHERE `wxid`= '$fromUsername';");
+                        $db -> query("UPDATE `site_user` SET `setp`= 0,`uname` = '' WHERE `wxid`= '$fromUsername';");
                         $contentStr = "您已退出会员绑定流程，再次绑定输入bd进入绑定流程";
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         $this -> insert_wmessage($db, $fromUsername, $contentStr, $time, $belong);
@@ -235,7 +235,7 @@ class wechatCallbackapi{
                         if(empty($ret)){
                             $contentStr = '您输入的用户名不存在，检查之后请重新输入，（输入ko退出绑定流程）' . $keyword;
                         }else{
-                            $ret = $db -> getRow("SELECT `uname` FROM  `site_weixin_user` WHERE `uname` = '$keyword' AND `setp`>=3");
+                            $ret = $db -> getRow("SELECT `uname` FROM  `site_user` WHERE `uname` = '$keyword' AND `setp`>=3");
                             if(!empty($ret)){
                                 $contentStr = $keyword . '已经被其他用户绑定了，请绑定其他账号，退出绑定输入 ko';
                                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
@@ -244,8 +244,8 @@ class wechatCallbackapi{
                                 echo $resultStr;
                                 exit;
                             }
-                            $db -> query("UPDATE `site_weixin_user` SET `setp`=`setp`+1 WHERE `wxid`= '$fromUsername';");
-                            $db -> query("UPDATE `site_weixin_user` SET `uname` = '$keyword' WHERE `wxid`= '$fromUsername';");
+                            $db -> query("UPDATE `site_user` SET `setp`=`setp`+1 WHERE `wxid`= '$fromUsername';");
+                            $db -> query("UPDATE `site_user` SET `uname` = '$keyword' WHERE `wxid`= '$fromUsername';");
                             $contentStr = '请输入密码';
                         }
                     }elseif($setp == 2){
@@ -254,7 +254,7 @@ class wechatCallbackapi{
                         if(!$verifyLogin){
                             $contentStr = '您输入的密码不正确，请重新输入，（输入ko退出绑定流程）';
                         }else{
-                            $db -> query("UPDATE `site_weixin_user` SET `setp`=`setp` + 1 WHERE `wxid`= '$fromUsername';");
+                            $db -> query("UPDATE `site_user` SET `setp`=`setp` + 1 WHERE `wxid`= '$fromUsername';");
                             $contentStr = $uname . '，您的账号已经绑定成功！';
                             $users_table = $db -> prefix . 'users';
                             $db -> query("UPDATE `$users_table` SET `site_bd`='ok',`wxid`='$fromUsername' WHERE `user_name`= '$uname';");
@@ -270,7 +270,7 @@ class wechatCallbackapi{
             }elseif($wxch_bd == 'web'){
                 $msgType = "text";
                 if($keyword == 'ko' or $keyword == 'KO' or $keyword == 'Ko' or $keyword == '退出'){
-                    $db -> query("UPDATE `site_weixin_user` SET `setp`= 0,`uname` = '' WHERE `wxid`= '$fromUsername';");
+                    $db -> query("UPDATE `site_user` SET `setp`= 0,`uname` = '' WHERE `wxid`= '$fromUsername';");
                     $contentStr = "您已退出会员绑定流程，再次绑定输入bd进入绑定流程";
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     $this -> insert_wmessage($db, $fromUsername, $contentStr, $time, $belong);
@@ -278,12 +278,12 @@ class wechatCallbackapi{
                     echo $resultStr;
                     exit;
                 }
-                $setp = $db -> getOne("SELECT `setp` FROM `site_weixin_user` WHERE `wxid` = '$fromUsername'");
+                $setp = $db -> getOne("SELECT `setp` FROM `site_user` WHERE `wxid` = '$fromUsername'");
                 if($keyword == 'bd'){
                     if($setp == 0){
-                        $db -> query("UPDATE `site_weixin_user` SET `setp`=`setp`+1 WHERE `wxid`= '$fromUsername';");
+                        $db -> query("UPDATE `site_user` SET `setp`=`setp`+1 WHERE `wxid`= '$fromUsername';");
                         $bd_url = '<a href="' . $m_url . 'user_wxch.php?wxid=' . $fromUsername . '">点击绑定会员</a>';
-                        $bd_lang = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'bd'");
+                        $bd_lang = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'bd'");
                         $contentStr = $bd_url . $bd_lang . ',（中途退出绑定，请输入ko退出绑定流程）';
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         $this -> plusPoint($db, $uname, $keyword, $fromUsername);
@@ -294,7 +294,7 @@ class wechatCallbackapi{
                     }
                     if($setp >= 1 AND $setp < 3){
                         $bd_url = '<a href="' . $m_url . 'user_wxch.php?wxid=' . $fromUsername . '">点击绑定会员</a>';
-                        $bd_lang = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'bd'");
+                        $bd_lang = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'bd'");
                         $contentStr = $bd_url . $bd_lang . ',（中途退出绑定，请输入ko退出绑定流程）';
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         $this -> plusPoint($db, $uname, $keyword, $fromUsername);
@@ -306,7 +306,7 @@ class wechatCallbackapi{
                 }
                 if($setp >= 1 AND $setp < 3){
                     $bd_url = '<a href="' . $m_url . 'user_wxch.php?wxid=' . $fromUsername . '">点击绑定会员</a>';
-                    $bd_lang = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'bd'");
+                    $bd_lang = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'bd'");
                     $contentStr = $bd_url . $bd_lang . ',（中途退出绑定，请输入ko退出绑定流程）';
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     $this -> plusPoint($db, $uname, $keyword, $fromUsername);
@@ -318,7 +318,7 @@ class wechatCallbackapi{
             }
             if($setp == 10){
                 if($keyword == 'ko' or $keyword == 'KO' or $keyword == 'Ko' or $keyword == '退出'){
-                    $db -> query("UPDATE `site_weixin_user` SET `setp`= 3 WHERE `wxid`= '$fromUsername';");
+                    $db -> query("UPDATE `site_user` SET `setp`= 3 WHERE `wxid`= '$fromUsername';");
                     if($cxbd == 'true'){
                         $contentStr = "您已退出会员绑定流程，再次绑定输入cxbd进入绑定流程";
                     }elseif($cxbd == 'true'){
@@ -335,11 +335,11 @@ class wechatCallbackapi{
                 if(!$verifyLogin){
                     $contentStr = '您输入的密码不正确，请重新输入，想要退出请输出ko';
                 }else{
-                    $db -> query("UPDATE `site_weixin_user` SET `setp`=1,`uname` = '' WHERE `wxid`= '$fromUsername';");
+                    $db -> query("UPDATE `site_user` SET `setp`=1,`uname` = '' WHERE `wxid`= '$fromUsername';");
                     $users_table = $db -> prefix . 'users';
                     $contentStr = '已经解除：' . $uname . '账号的绑定' . "\r\n您已经重新进入会员绑定流程，想要退出绑定流程请回复ko或“退出”,继续请输入网站会员昵称";
                     $db -> query("UPDATE `$users_table` SET `site_bd`='no',`wxid`='' WHERE `user_name`= '$uname';");
-                    $db -> query("UPDATE `site_weixin_user` SET `uname`='' WHERE `uname`= '$uname';");
+                    $db -> query("UPDATE `site_user` SET `uname`='' WHERE `uname`= '$uname';");
                 }
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 $this -> insert_wmessage($db, $fromUsername, $contentStr, $time, $belong);
@@ -383,10 +383,10 @@ class wechatCallbackapi{
             if($keyword == 'bd'){
                 if($setp < 3){
                     $contentStr = '您已进入会员绑定流程，想要退出绑定流程请回复ko或“退出”,继续请输入网站会员昵称';
-                    $db -> query("UPDATE `site_weixin_user` SET `setp`=`setp`+1 WHERE `wxid`= '$fromUsername';");
+                    $db -> query("UPDATE `site_user` SET `setp`=`setp`+1 WHERE `wxid`= '$fromUsername';");
                 }
                 if($setp == 3){
-                    $ret = $db -> getRow("SELECT `uname` FROM  `site_weixin_user` WHERE `wxid` = '$fromUsername'");
+                    $ret = $db -> getRow("SELECT `uname` FROM  `site_user` WHERE `wxid` = '$fromUsername'");
                     $uname = $ret['uname'];
                     if($cxbd == 'true'){
                         $contentStr = '您已经绑定了会员账号：' . $uname . "\r\n" . '如需重新绑定请输入cxbd';
@@ -395,7 +395,7 @@ class wechatCallbackapi{
                     }
                 }
                 if($setp == 0){
-                    $db -> query("UPDATE `site_weixin_user` SET `setp`=1 WHERE `wxid`= '$fromUsername';");
+                    $db -> query("UPDATE `site_user` SET `setp`=1 WHERE `wxid`= '$fromUsername';");
                 }
                 $msgType = "text";
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
@@ -411,7 +411,7 @@ class wechatCallbackapi{
                 $msgType = "text";
                 $contentStr = '请输入' . $uname . '的密码才能继续绑定,（想要退出绑定流程请回复ko或“退出”）';
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                $db -> query("UPDATE `site_weixin_user` SET `setp`=10 WHERE `wxid`= '$fromUsername';");
+                $db -> query("UPDATE `site_user` SET `setp`=10 WHERE `wxid`= '$fromUsername';");
                 $this -> insert_wmessage($db, $fromUsername, $contentStr, $time, $belong);
                 $this -> universal($fromUsername, $base_url);
                 echo $resultStr;
@@ -716,7 +716,7 @@ class wechatCallbackapi{
             }elseif($keyword == 'reg'){
             }elseif($keyword == 'help' or $keyword == 'HELP'){
                 $msgType = "text";
-                $lang['help'] = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'help'");
+                $lang['help'] = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'help'");
                 $contentStr = $lang['help'];
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 $this -> insert_wmessage($db, $fromUsername, $contentStr, $time, $belong);
@@ -790,7 +790,7 @@ nation=大雁塔&mode=driving&region=西安';
                         $contentStr = $res['contentStr'];
                     }
                 }elseif($jf_state == 'no'){
-                    $qdstop = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'qdstop'");
+                    $qdstop = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'qdstop'");
                     if(empty($qdstop)){
                         $qdstop = '签到积送已停止使用';
                     }
@@ -803,7 +803,7 @@ nation=大雁塔&mode=driving&region=西安';
                 exit;
             }elseif($keyword == 'subscribe'){
                 $msgType = "text";
-                $lang['regmsg'] = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'regmsg'");
+                $lang['regmsg'] = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'regmsg'");
                 $contentStr = $lang['regmsg'];
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 $this -> insert_wmessage($db, $fromUsername, $contentStr, $time, $belong);
@@ -921,7 +921,7 @@ nation=大雁塔&mode=driving&region=西安';
                 $db -> query($insert_sql);
             }
         }else{
-            $qdtoday = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'qdtoday'");
+            $qdtoday = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'qdtoday'");
             if(empty($qdtoday)){
                 $qdtoday = '今天您已经签到了，明天再来赚积分吧';
             }
@@ -937,7 +937,7 @@ nation=大雁塔&mode=driving&region=西安';
                 $update_sql = "UPDATE `site_point_record` SET `num` = `num`+1,`lasttime` = '$lasttime' WHERE `point_name` = '$keyword' AND `wxid` ='$fromUsername';";
                 $db -> query($update_sql);
             }else{
-                $qdno = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'qdno'");
+                $qdno = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'qdno'");
                 if(empty($qdno)){
                     $qdno = '签到数次已用完';
                 }
@@ -962,7 +962,7 @@ nation=大雁塔&mode=driving&region=西安';
                 }
             }
         }
-        $qdok = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'qdok'");
+        $qdok = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'qdok'");
         if(empty($qdok)){
             $qdok = '签到成功,积分+';
         }
@@ -1016,7 +1016,7 @@ nation=大雁塔&mode=driving&region=西安';
         }
     }
     protected function get_keywords_articles($kws_id, $db){
-        $sql = "SELECT `article_id` FROM `site_weixin_keywords_article` WHERE `kws_id` = '$kws_id'";
+        $sql = "SELECT `article_id` FROM `site_keywords_article` WHERE `kws_id` = '$kws_id'";
         $ret = $db -> getAll($sql);
         $articles = '';
         foreach($ret as $v){
@@ -1031,8 +1031,8 @@ nation=大雁塔&mode=driving&region=西安';
         return $res;
     }
     protected function coupon($db, $fromUsername){
-        $retc = $db -> getRow("SELECT `coupon` FROM `site_weixin_user` WHERE `wxid` ='$fromUsername'");
-        $lang = $db -> getAll("SELECT * FROM `site_weixin_lang` WHERE `lang_name` LIKE '%coupon%'");
+        $retc = $db -> getRow("SELECT `coupon` FROM `site_user` WHERE `wxid` ='$fromUsername'");
+        $lang = $db -> getAll("SELECT * FROM `site_lang` WHERE `lang_name` LIKE '%coupon%'");
         if(!empty($retc['coupon'])){
             $contentStr = $lang[0]['lang_value'] . $retc['coupon'] . $lang[3]['lang_value'];
             return $contentStr;
@@ -1049,7 +1049,7 @@ nation=大雁塔&mode=driving&region=西安';
                 $ret = $db -> getRow("SELECT `bonus_sn` FROM `$thistable` WHERE `bonus_type_id` = $type_id AND `used_time` = 0 ");
                 if(!empty($ret['bonus_sn'])){
                     $user_bonus = $db -> getAll("SELECT `bonus_sn` FROM  `$thistable` WHERE `bonus_type_id` = $type_id");
-                    $wx_bonus = $db -> getAll("SELECT `coupon` FROM  `site_weixin_user` ");
+                    $wx_bonus = $db -> getAll("SELECT `coupon` FROM  `site_user` ");
                     foreach ($wx_bonus as $k => $v){
                         foreach ($user_bonus as $kk => $vv){
                             if($v['coupon'] == $vv['bonus_sn']){
@@ -1061,7 +1061,7 @@ nation=大雁塔&mode=driving&region=西安';
                     $coupon = $user_bonus[$bonus_rand]['bonus_sn'];
                     if(!empty($user_bonus[$bonus_rand]['bonus_sn'])){
                         $contentStr = $lang[1]['lang_value'] . $type_money . "元,优惠卷：" . $coupon . "\r\n使用结束日期：$use_end_date" . $lang[3]['lang_value'];
-                        $db -> query("UPDATE `site_weixin_user` SET `coupon` = '$coupon' WHERE `wxid` ='$fromUsername';");
+                        $db -> query("UPDATE `site_user` SET `coupon` = '$coupon' WHERE `wxid` ='$fromUsername';");
                     }else{
                         $contentStr = $lang[2]['lang_value'] . $lang[3]['lang_value'];
                     }
@@ -1073,7 +1073,7 @@ nation=大雁塔&mode=driving&region=西安';
         return $contentStr;
     }
     protected function dzp($db, $base_url, $fromUsername){
-        $ret = $db -> getAll("SELECT * FROM `site_weixin_prize` WHERE `fun` = 'dzp' AND `status` = 1 ORDER BY `dateline` DESC ");
+        $ret = $db -> getAll("SELECT * FROM `site_prize` WHERE `fun` = 'dzp' AND `status` = 1 ORDER BY `dateline` DESC ");
         $temp_count = count($ret);
         $time = time();
         if($temp_count > 1){
@@ -1088,7 +1088,7 @@ nation=大雁塔&mode=driving&region=西安';
         $ArticleCount = 1;
         $prize_count = count($ret);
         $prize = $ret[array_rand($ret)];
-        $wxch_lang = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'prize_dzp'");
+        $wxch_lang = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'prize_dzp'");
         if($prize_count <= 0){
             $items = '<item>
                  <Title><![CDATA[大转盘暂时未开放]]></Title>
@@ -1111,7 +1111,7 @@ nation=大雁塔&mode=driving&region=西安';
         return $data;
     }
     protected function egg($db, $base_url, $fromUsername){
-        $ret = $db -> getAll("SELECT * FROM `site_weixin_prize` WHERE `fun` = 'egg' AND `status` = 1 ORDER BY `dateline` DESC ");
+        $ret = $db -> getAll("SELECT * FROM `site_prize` WHERE `fun` = 'egg' AND `status` = 1 ORDER BY `dateline` DESC ");
         $temp_count = count($ret);
         $time = time();
         if($temp_count > 1){
@@ -1126,7 +1126,7 @@ nation=大雁塔&mode=driving&region=西安';
         $ArticleCount = 1;
         $prize_count = count($ret);
         $prize = $ret[array_rand($ret)];
-        $wxch_lang = $db -> getOne("SELECT `lang_value` FROM `site_weixin_lang` WHERE `lang_name` = 'prize_egg'");
+        $wxch_lang = $db -> getOne("SELECT `lang_value` FROM `site_lang` WHERE `lang_name` = 'prize_egg'");
         if($prize_count <= 0){
             $items = '<item>
              <Title><![CDATA[砸金蛋暂时未开放]]></Title>
@@ -1149,7 +1149,7 @@ nation=大雁塔&mode=driving&region=西安';
         return $data;
     }
     protected function getauto($db, $keyword, $textTpl, $newsTpl, $base_url, $m_url, $fromUsername, $toUsername, $time, $article_url){
-        $auto_res = $ret = $db -> getAll("SELECT * FROM `site_weixin_keywordswx`");
+        $auto_res = $ret = $db -> getAll("SELECT * FROM `site_keywordswx`");
         if(count($auto_res) > 0){
             foreach($auto_res as $k => $v){
                 if($v['status'] == 1){
@@ -1161,7 +1161,7 @@ nation=大雁塔&mode=driving&region=西安';
                                 $contentStr = $v['contents'];
                                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                                 echo $resultStr;
-                                $db -> query("UPDATE `site_weixin_keywordswx` SET `count` = `count`+1 WHERE `id` =$v[id]");
+                                $db -> query("UPDATE `site_keywordswx` SET `count` = `count`+1 WHERE `id` =$v[id]");
                                 exit;
                             }
                         }
@@ -1188,7 +1188,7 @@ nation=大雁塔&mode=driving&region=西安';
                                 }
                                 $resultStr = sprintf($newsTpl, $fromUsername, $toUsername, $time, $msgType, $ArticleCount, $items);
                                 echo $resultStr;
-                                $db -> query("UPDATE `site_weixin_keywordswx` SET `count` = `count`+1 WHERE `id` =$v[id];");
+                                $db -> query("UPDATE `site_keywordswx` SET `count` = `count`+1 WHERE `id` =$v[id];");
                                 exit;
                             }
                         }
@@ -1202,7 +1202,7 @@ nation=大雁塔&mode=driving&region=西安';
 nation=大雁塔&mode=driving&region=西安&output=html';
     }
     public function access_token($db){
-        $ret = $db -> getRow("SELECT * FROM `site_weixin_config` WHERE `id` = 1");
+        $ret = $db -> getRow("SELECT * FROM `site_config` WHERE `id` = 1");
         $appid = $ret['appid'];
         $appsecret = $ret['appsecret'];
         $dateline = $ret['dateline'];
@@ -1212,13 +1212,13 @@ nation=大雁塔&mode=driving&region=西安&output=html';
             $ret_json = curl_get_contents($url);
             $ret = json_decode($ret_json);
             if($ret -> access_token){
-                $db -> query("UPDATE `site_weixin_config` SET `access_token` = '$ret->access_token',`dateline` = '$time' WHERE `site_weixin_config`.`id` =1;");
+                $db -> query("UPDATE `site_config` SET `access_token` = '$ret->access_token',`dateline` = '$time' WHERE `site_config`.`id` =1;");
             }
         }
     }
     public function create_menu($db){
         $this -> access_token($db);
-        $ret = $db -> getRow("SELECT `access_token` FROM `site_weixin_config`");
+        $ret = $db -> getRow("SELECT `access_token` FROM `site_config`");
         $access_token = $ret['access_token'];
         if(strlen($access_token) == 150){
             $url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=' . $access_token;
@@ -1281,7 +1281,7 @@ nation=大雁塔&mode=driving&region=西安&output=html';
     }
     public function delete_menu($db){
         $this -> access_token($db);
-        $ret = $db -> getRow("SELECT `access_token` FROM `site_weixin_config`");
+        $ret = $db -> getRow("SELECT `access_token` FROM `site_config`");
         $access_token = $ret['access_token'];
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=' . $access_token;
         $ret_json = $this -> curl_get_contents($url);
@@ -1400,7 +1400,7 @@ nation=大雁塔&mode=driving&region=西安&output=html';
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];
-        $ret = $db -> getRow("SELECT * FROM `site_weixin_config` WHERE `id` = 1");
+        $ret = $db -> getRow("SELECT * FROM `site_config` WHERE `id` = 1");
         $token = $ret['token'];
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
@@ -1439,5 +1439,4 @@ nation=大雁塔&mode=driving&region=西安&output=html';
         }
     }
 }
-
 ?>

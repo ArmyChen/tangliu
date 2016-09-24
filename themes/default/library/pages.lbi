@@ -42,7 +42,7 @@
           <input type="hidden" name="{$key}" value="{$item}" />
       {/if}
     <!--{/foreach}-->
-  
+    <kbd style="float:left; margin-left:8px; position:relative; bottom:3px;"><input type="text" name="page" onkeydown="if(event.keyCode==13)selectPage(this)" size="3" class="B_blue" /></kbd>
     <!-- {/if} -->
 </div>
 <!--翻页 END-->

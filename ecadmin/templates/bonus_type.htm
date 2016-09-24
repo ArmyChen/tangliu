@@ -31,11 +31,11 @@
         <a href="bonus.php?act=gen_excel&tid={$type.type_id}">{$lang.report_form}</a> |
         {/if}
         {if $type.send_type neq 2}
-        <!--<a href="bonus.php?act=send&amp;id={$type.type_id}&amp;send_by={$type.send_type}">{$lang.send}</a> |-->
+        <a href="bonus.php?act=send&amp;id={$type.type_id}&amp;send_by={$type.send_type}">{$lang.send}</a> |
         {/if}
         <a href="bonus.php?act=bonus_list&amp;bonus_type={$type.type_id}">{$lang.view}</a> |
         <a href="bonus.php?act=edit&amp;type_id={$type.type_id}">{$lang.edit}</a> |
-        <!--<a href="javascript:;" onclick="listTable.remove({$type.type_id}, '{$lang.drop_confirm}')">{$lang.remove}</a>--></span></td>
+        <a href="javascript:;" onclick="listTable.remove({$type.type_id}, '{$lang.drop_confirm}')">{$lang.remove}</a></span></td>
     </tr>
       {foreachelse}
     <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>

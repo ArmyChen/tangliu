@@ -33,7 +33,7 @@ function return_url($code)
  */
 function get_payment($code)
 {
-    $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('touch_payment').
+    $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('payment').
            " WHERE pay_code = '$code' AND enabled = '1'";
     $payment = $GLOBALS['db']->getRow($sql);
 
@@ -217,65 +217,19 @@ function order_paid($log_id, $pay_status = PS_PAYED, $note = '')
             }
             elseif ($pay_log['order_type'] == PAY_SURPLUS)
             {
-
- $sql = 'SELECT `order_sn` FROM ' . $GLOBALS['ecs']->table('order_info') .  " WHERE `order_id` = '$pay_log[order_id]'   LIMIT 1";
- $res_sn=$GLOBALS['db']->getOne($sql);
-
-
-
-
-                $sql = 'SELECT `id` FROM ' . $GLOBALS['ecs']->table('user_account') .  " WHERE `id` = '$res_sn' AND `is_paid` = 1  LIMIT 1";
+                $sql = 'SELECT `id` FROM ' . $GLOBALS['ecs']->table('user_account') .  " WHERE `id` = '$pay_log[order_id]' AND `is_paid` = 1  LIMIT 1";
                 $res_id=$GLOBALS['db']->getOne($sql);
-
-
-                $sqlo = 'SELECT order_id, user_id,order_amount, order_sn, consignee, address, tel, shipping_id, extension_code, extension_id, goods_amount ' .
-                        'FROM ' . $GLOBALS['ecs']->table('order_info') .
-                       " WHERE order_id = '$pay_log[order_id]'";
-                $orders    = $GLOBALS['db']->getRow($sqlo);
-                $order_id = $orders['order_id'];
-                $amount = $orders['order_amount'];
-                  $user_id = $orders['user_id'];
-
-
-
-
-if($amount >=200 && $amount <500)  //小于等于100到200元
-		{
-
-            /*充值1元送用户红包*/
-            $type_id='5';		
-			$ret = $GLOBALS['db'] -> getRow("SELECT * FROM `site_bonus_type` WHERE `type_id` =$type_id ");
-			$type_money = $ret['type_money'];
-            $content ="充值送红包！".$type_money.'元';
-			$sqlh = "INSERT INTO `site_user_bonus` ( bonus_type_id, bonus_sn, user_id, used_time, order_id, emailed)"."VALUES('$type_id', 0, '".$user_id."', 0, 0, 0)";  
-			$GLOBALS['db']->query($sqlh);
-			/*充值1元送用户红包*/
-		}
-if($amount >=500)  //小于等于200到500元
-		{
-
-            /*充值1元送用户红包*/
-            $type_id='6';		
-			$ret = $GLOBALS['db'] -> getRow("SELECT * FROM `site_bonus_type` WHERE `type_id` =$type_id ");
-			$type_money = $ret['type_money'];
-            $content ="充值送红包！".$type_money.'元';
-			$sqlh = "INSERT INTO `site_user_bonus` ( bonus_type_id, bonus_sn, user_id, used_time, order_id, emailed)"."VALUES('$type_id', 0, '".$user_id."', 0, 0, 0)";  
-			$GLOBALS['db']->query($sqlh);
-			/*充值1元送用户红包*/
-		}
-
-
                 if(empty($res_id))
                 {
                     /* 更新会员预付款的到款状态 */
                     $sql = 'UPDATE ' . $GLOBALS['ecs']->table('user_account') .
                            " SET paid_time = '" .gmtime(). "', is_paid = 1" .
-                           " WHERE id = '$res_sn' LIMIT 1";
+                           " WHERE id = '$pay_log[order_id]' LIMIT 1";
                     $GLOBALS['db']->query($sql);
 
                     /* 取得添加预付款的用户以及金额 */
                     $sql = "SELECT user_id, amount FROM " . $GLOBALS['ecs']->table('user_account') .
-                            " WHERE id = '$res_sn'";
+                            " WHERE id = '$pay_log[order_id]'";
                     $arr = $GLOBALS['db']->getRow($sql);
 
                     /* 修改会员帐户金额 */

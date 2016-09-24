@@ -1,11 +1,11 @@
 <?php
-define('IN_ECS', true);
-require (dirname(__FILE__) . '/../../m/includes/init.php');
+define('IN_ECTOUCH', true);
+require (dirname(__FILE__) . '/../../mobile/include/init.php');
 $oid = $_GET['oid'];
 $_SESSION['wxch_oid'] = $oid; //1?
 $getoid = 'oid=' . $oid;
-$appid = $db -> getOne("SELECT appid FROM `site_weixin_config` WHERE `id` = 1");//
-$cfg_baseurl = $db -> getOne("SELECT cfg_value FROM site_weixin_cfg WHERE cfg_name = 'baseurl'");  //http://www.mall93.cn/
+$appid = $db -> getOne("SELECT appid FROM `site_config` WHERE `id` = 1");//
+$cfg_baseurl = $db -> getOne("SELECT cfg_value FROM site_cfg WHERE cfg_name = 'baseurl'");  //http://www.mall93.cn/
 $back_url = $cfg_baseurl . 'wechat/oauth/wxch_back.php?' . $getoid;//http://www.mall93.cn/wechat/oauth/wxch_back.php?oid=1
 $redirect_uri = urlencode($back_url);//将字符串以URL编码 返回值
 $state = 'wechat';

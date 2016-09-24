@@ -42,7 +42,7 @@ function get_cat_articles($cat_id, $page = 1, $size = 20 ,$requirement='')
     //增加搜索条件，如果有搜索内容就进行搜索    
     if ($requirement != '')
     {
-        $sql = 'SELECT article_id, title, author, add_time, file_url,description, spcdesc,open_type,link_video,wen_url,brand_url,content,click_count,keywords' .
+        $sql = 'SELECT article_id, title, author, add_time, file_url,description, spcdesc,xmjs,open_type,link_video,wen_url,brand_url,content,click_count,keywords' .
                ' FROM ' .$GLOBALS['ecs']->table('article') .
                ' WHERE is_open = 1 AND title like \'%' . $requirement . '%\' ' .
                ' ORDER BY article_type DESC, article_id DESC';
@@ -50,7 +50,7 @@ function get_cat_articles($cat_id, $page = 1, $size = 20 ,$requirement='')
     else 
     {
         
-        $sql = 'SELECT article_id, title, author, add_time, file_url,description,spcdesc, open_type,link_video,wen_url,brand_url,content,click_count,keywords' .
+        $sql = 'SELECT article_id, title, author, add_time, file_url,description,spcdesc,xmjs, open_type,link_video,wen_url,brand_url,content,click_count,keywords' .
                ' FROM ' .$GLOBALS['ecs']->table('article') .
                ' WHERE is_open = 1 AND ' . $cat_str .
                ' ORDER BY   add_time DESC';
@@ -81,6 +81,7 @@ $arr[$article_id]['file_url']       = isset($demoarticles['file_url'][$article_i
             $arr[$article_id]['add_time']    = date($GLOBALS['_CFG']['date_format'], $row['add_time']);
 			 $arr[$article_id]['description']=$row['description'];
 	 $arr[$article_id]['spcdesc']=$row['spcdesc'];
+	 $arr[$article_id]['xmjs']=$row['xmjs'];
 	      $arr[$article_id]['link_video']       = $row['link_video'];
 		  	      $arr[$article_id]['wen_url']       = $row['wen_url'];
 $arr[$article_id]['wen_url_name']       = get_extension($row['wen_url']);
@@ -178,6 +179,9 @@ $arr[$article_id]['file_url']       = isset($demoarticles['file_url'][$article_i
             $arr[$article_id]['author']      = empty($row['author']) || $row['author'] == '_SHOPHELP' ? $GLOBALS['_CFG']['shop_name'] : $row['author'];
             $arr[$article_id]['url']         = build_uri('article', array('aid'=>$article_id), $row['title']);
             $arr[$article_id]['add_time']    = date($GLOBALS['_CFG']['date_format'], $row['add_time']);
+			$arr[$article_id]['add_time_bmrq']    =$row['add_time'];
+			
+            $arr[$article_id]['add_time_now']    =$row['add_time']-time();
 			 $arr[$article_id]['description']=$row['description'];
 			 $arr[$article_id]['content']=$row['content'];
 			 	$arr[$article_id]['pic']  = bodyimg($row['content']); 

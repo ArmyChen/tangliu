@@ -470,7 +470,7 @@ function checkOrderForm(frm)
 {
   var paymentSelected = false;
   var shippingSelected = false;
- // var besttimeSelected = false;
+
   // 检查是否选择了支付配送方式
   for (i = 0; i < frm.elements.length; i ++ )
   {
@@ -483,16 +483,6 @@ function checkOrderForm(frm)
     {
       paymentSelected = true;
     }
-
-
-//if (frm.elements[i].name == 'besttime' && frm.elements[i].checked)
- //   {
- //     besttimeSelected = true;
- //   }
-
-
-
-
   }
 
   if ( ! shippingSelected)
@@ -506,17 +496,6 @@ function checkOrderForm(frm)
     alert(flow_no_payment);
     return false;
   }
-
- //if ( ! besttimeSelected)
-  //{
-  //  alert('请选择配送时间');
-   // return false;
-  //}
-
-
-
-
-
 
   // 检查用户输入的余额
   if (document.getElementById("ECS_SURPLUS"))

@@ -78,12 +78,31 @@
 
  
   
-
+ <tr>
+    <td class="label">用户名称:</td>
+    <td >{$user.useraddressinfo.consignee}</td>
+</tr>
+ <tr>
+    <td class="label">性别:</td>
+    <td >{if $user.useraddressinfo.sex eq 0}男{else}女{/if}</td>
+</tr>
+   <tr>
+    <td class="label">用户邮箱:</td>
+    <td>{$user.useraddressinfo.email}</td>
+</tr>
+ <tr>
+    <td class="label">默认取餐地址:</td>
+    <td>{$user.useraddressinfo.address}</td>
+</tr>
  <tr>
     <td class="label">电话:</td>
     <td>{$user.useraddressinfo.tel}</td>
 </tr>
-
+ <tr>
+    <td class="label">是否验证</td>
+    <td>{if $user.useraddressinfo.isnz eq 1}是{else}未{/if}</td>
+</tr>
+  
   <tr>
     <td colspan="2" align="center">
       <input type="submit" value="{$lang.button_submit}" class="button" />

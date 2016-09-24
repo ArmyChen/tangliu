@@ -13,7 +13,7 @@
 <div class="tab-div">
   <!-- tab bar -->
   <div id="tabbar-div">
-    <p> <span class="tab-front" id="general-tab" >{$lang.tab_general}</span> <span class="tab-back" id="goods-tab" style="display:none;">{$lang.tab_goods}</span> <span class="tab-back" id="desc-tab">{$lang.tab_desc}</span><span class="tab-back" id="advanced-tab">{$lang.tab_advanced}</span> </p>
+    <p> <span class="tab-front" id="general-tab">{$lang.tab_general}</span> <span class="tab-back" id="goods-tab">{$lang.tab_goods}</span> <span class="tab-back" id="desc-tab">{$lang.tab_desc}</span><span class="tab-back" id="advanced-tab">{$lang.tab_advanced}</span> </p>
   </div>
   <!-- tab body -->
   <div id="tabbody-div">
@@ -31,7 +31,7 @@
           <td class="label">{$lang.lable_topic_description}</td>
           <td><textarea name="description" id="description" cols="40" rows="5">{$topic.description}</textarea></td>
         </tr>
-        <tr style="display:none;">
+        <tr>
           <td class="label">{$lang.lable_topic_type}</td>
           <td><select name="topic_type" id="topic_type" onchange="showMedia(this.value)">
        <option value='0'>{$lang.top_img}</option>
@@ -39,8 +39,8 @@
        <option value='2'>{$lang.top_html}</option>
        </select></td>
         </tr>
-        <tbody id="content_01" style="display:none;">
-          <tr style="display:none;">
+        <tbody id="content_01">
+          <tr>
             <td  class="label">
               <a href="javascript:showNotice('title_upload');" title="{$lang.form_notice}">
               <img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lable_upload}</td>
@@ -48,50 +48,50 @@
               <input type='file' name='topic_img' id='topic_img' size='35' />
               <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="title_upload">{$width_height}</span></td>
           </tr>
-          <tr style="display:none;">
+          <tr>
             <td class="label">{$lang.lable_from_web}</td>
             <td><input type="text" name="url" id="url" value="" size="35" /></td>
           </tr>
         </tbody>
         
-        <tbody id="edit_img" style="display:none;">
-          <tr  style="display:none;">
+        <tbody id="edit_img">
+          <tr>
             <td class="label">&nbsp;</td>
             <td><input type="text" name="img_url" id="img_url" value="{$topic.topic_img}" size="35" readonly="readonly"/></td>
           </tr>
         </tbody>
 
-        <tbody id="content_23" style="display:none;">
+        <tbody id="content_23">
           <tr>
             <td class="label">{$lang.lable_content}</td>
             <td><textarea name="htmls" id="htmls" cols="50" rows="7">{$topic.htmls}</textarea></td>
           </tr>
         </tbody>
         
-        <tr style="display:none;">
+        <tr>
           <td  class="label"><a href="javascript:showNotice('title_pic_upload');" title="{$lang.form_notice}">
               <img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lable_title_upload}</td>
           <td><input type='file' name='title_pic' id='title_pic' size='35' />
           <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="title_pic_upload">{$title_width_height}</span></td>
         </tr>
-        <tr style="display:none;">
+        <tr>
           <td class="label">{$lang.lable_from_web}</td>
           <td><input type="text" name="title_url" id="title_url" value="" size="35" /></td>
         </tr>
 
-        <tbody id="edit_title_img" style="display:none;">
+        <tbody id="edit_title_img">
           <tr>
             <td class="label">&nbsp;</td>
             <td><input type="text" name="title_img_url" id="title_img_url" value="{$topic.title_pic}" size="35" readonly="readonly"/></td>
           </tr>
         </tbody>
 
-        <tr style="display:none;">
+        <tr>
           <td class="label">{$lang.lable_base_style}</td>
           <td><input type="text" name="base_style" id="base_style" value="{$topic.base_style}" size="7" maxlength="6" style="float:left;color:{$goods_name_color};" size="30"/><div style="background-color:#{$topic.base_style};float:left;margin-left:2px;" id="font_color" onclick="ColorSelecter.Show(this);"><img src="images/color_selecter.gif" style="margin-top:-1px;" /></div></td>
         </tr>
 
-        <tr s>
+        <tr>
           <td class="label">{$lang.cycle}</td>
           <td><input name="start_time" type="text" id="start_time" size="12" value='{$topic.start_time}' readonly="readonly" />
             <input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('start_time', '%Y-%m-%d', false, false, 'selbtn1');" value="{$lang.btn_select}" class="button"/>

@@ -18,7 +18,7 @@ if (!defined('IN_ECS'))
     die('Hacking attempt');
 }
 
-$payment_lang = ROOT_PATH . 'lang/' .$GLOBALS['_CFG']['lang']. '/payment/cod.php';
+$payment_lang = ROOT_PATH . 'languages/' .$GLOBALS['_CFG']['lang']. '/payment/cod.php';
 
 if (file_exists($payment_lang))
 {
@@ -48,10 +48,10 @@ if (isset($set_modules) && $set_modules == TRUE)
     $modules[$i]['pay_fee'] = '0';
 
     /* 作者 */
-    $modules[$i]['author']  = 'TEAM';
+    $modules[$i]['author']  = 'ECSHOP TEAM';
 
     /* 网址 */
-    $modules[$i]['website'] = '/';
+    $modules[$i]['website'] = 'http://www.ecshop.com';
 
     /* 版本号 */
     $modules[$i]['version'] = '1.0.0';

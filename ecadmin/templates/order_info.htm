@@ -67,7 +67,7 @@
       <div align="center">
         <input name="prev" type="button" class="button" onClick="location.href='order.php?act=info&order_id={$prev_id}';" value="{$lang.prev}" {if !$prev_id}disabled{/if} />
         <input name="next" type="button" class="button" onClick="location.href='order.php?act=info&order_id={$next_id}';" value="{$lang.next}" {if !$next_id}disabled{/if} />
-       <input type="button" onclick="window.open('order.php?act=info&order_id={$order.order_id}&print=1')" class="button" value="{$lang.print_order}" />
+        <input type="button" onclick="window.open('order.php?act=info&order_id={$order.order_id}&print=1')" class="button" value="{$lang.print_order}" />
     </div></td>
   </tr>
   <tr>
@@ -81,8 +81,7 @@
   </tr>
   <tr>
     <td><div align="right"><strong>{$lang.label_user_name}</strong></div></td>
-    <td>{$order.user_name|default:$lang.anonymous} {if $order.user_id > 0}[ <a href="" onclick="staticbar();return false;">{$lang.display_buyer}</a> ]
-	<!--[ <a href="user_msg.php?act=add&order_id={$order.order_id}&user_id={$order.user_id}">{$lang.send_message}</a> ]-->{/if}</td>
+    <td>{$order.user_name|default:$lang.anonymous} {if $order.user_id > 0}[ <a href="" onclick="staticbar();return false;">{$lang.display_buyer}</a> ] [ <a href="user_msg.php?act=add&order_id={$order.order_id}&user_id={$order.user_id}">{$lang.send_message}</a> ]{/if}</td>
     <td><div align="right"><strong>{$lang.label_order_time}</strong></div></td>
     <td>{$order.formated_add_time}</td>
   </tr>
@@ -170,10 +169,10 @@
     <td>{$order.mobile|escape}</td>
   </tr>
   <tr>
-    <td><div align="right"><strong>留言备注:</strong></div></td>
-    <td>{$order.inv_payee}</td>
+    <td><div align="right"><strong>{$lang.label_sign_building}</strong></div></td>
+    <td>{$order.sign_building|escape}</td>
     <td><div align="right"><strong>{$lang.label_best_time}</strong></div></td>
-    <td>{$order.besttime}</td>
+    <td>{$order.best_time|escape}</td>
   </tr>
 </table>
 </div>

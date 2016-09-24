@@ -96,8 +96,6 @@ if ($_REQUEST['act'] == 'insert')
     $cat['measure_unit'] = !empty($_POST['measure_unit']) ? trim($_POST['measure_unit']) : '';
 	$cat['moban']     = !empty($_POST['moban'])     ? trim($_POST['moban'])     : '';
 		$cat['smallmoban']     = !empty($_POST['smallmoban'])     ? trim($_POST['smallmoban'])     : '';
-		$cat['mmoban']     = !empty($_POST['mmoban'])     ? trim($_POST['mmoban'])     : '';
-		$cat['msmallmoban']     = !empty($_POST['msmallmoban'])     ? trim($_POST['msmallmoban'])     : '';
     $cat['cat_name']     = !empty($_POST['cat_name'])     ? trim($_POST['cat_name'])     : '';
     $cat['show_in_nav']  = !empty($_POST['show_in_nav'])  ? intval($_POST['show_in_nav']): 0;
     $cat['style']        = !empty($_POST['style'])        ? trim($_POST['style'])        : '';
@@ -273,7 +271,6 @@ elseif($_REQUEST['act'] == 'add_category')
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'update')
 {
-
     /* È¨ÏÞ¼ì²é */
     admin_priv('goods_cat_add');
 
@@ -288,8 +285,6 @@ if ($_REQUEST['act'] == 'update')
     $cat['cat_name']     = !empty($_POST['cat_name'])     ? trim($_POST['cat_name'])     : '';
 	$cat['moban']     = !empty($_POST['moban'])     ? trim($_POST['moban'])     : '';
 		$cat['smallmoban']     = !empty($_POST['smallmoban'])     ? trim($_POST['smallmoban'])     : '';
-		$cat['mmoban']     = !empty($_POST['mmoban'])     ? trim($_POST['mmoban'])     : '';
-		$cat['msmallmoban']     = !empty($_POST['msmallmoban'])     ? trim($_POST['msmallmoban'])     : '';
     $cat['is_show']      = !empty($_POST['is_show'])      ? intval($_POST['is_show'])    : 0;
     $cat['show_in_nav']  = !empty($_POST['show_in_nav'])  ? intval($_POST['show_in_nav']): 0;
     $cat['style']        = !empty($_POST['style'])        ? trim($_POST['style'])        : '';

@@ -261,11 +261,11 @@ class cls_template
             $this->_current_file = $filename;
             $source = $this->fetch_str(file_get_contents($filename));
 
-           if (file_put_contents($name, $source, LOCK_EX) === false)
+           /* if (file_put_contents($name, $source, LOCK_EX) === false)
             {
                 trigger_error('can\'t write:' . $name);
             }
-			
+			*/
 
             $source = $this->_eval($source);
         }
@@ -1111,7 +1111,7 @@ $tag_arr = explode(' ', $tag);  $tag_sel = array_shift($tag_arr);
 
 
 			/* 代码增加 By  www.ecsolve.com */
-//$source = preg_replace('/<head>/i', "<head>\r\n<base href=\"http://". $_SERVER['HTTP_HOST'] ."/\" />",  $source);
+$source = preg_replace('/<head>/i', "<head>\r\n<base href=\"http://". $_SERVER['HTTP_HOST'] ."/\" />",  $source);
 
             /* 修正css路径 */
             $source = preg_replace('/(<link\shref=["|\'])(?:\.\/|\.\.\/)?(css\/)?([a-z0-9A-Z_]+\.css["|\']\srel=["|\']stylesheet["|\']\stype=["|\']text\/css["|\'])/i','\1' . $tmp_dir . '\2\3', $source);

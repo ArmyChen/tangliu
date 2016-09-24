@@ -161,8 +161,7 @@ if (!defined('INIT_NO_SMARTY'))
     $smarty = new cls_template;
 
 
-$weburl = $ecs-> get_domain().'/';
-$cfg_value=$weburl.'m/';
+$weburl = $ecs-> get_domain().'/m/';
 $weburl =empty($cfg_value)? $weburl:$cfg_value;
 
 
@@ -212,7 +211,7 @@ $template=$_CFG['template'];
 					 $smarty->assign('tnumber', $tnumber);
 				   $smarty->assign('ecsolve_root', '');
 
-	 $smarty->assign('site_url', $ecs-> get_domain());
+
 
 
 
@@ -315,12 +314,6 @@ if (!defined('INIT_NO_USERS'))
     }
 }
 
-
-
-
-
-
-
 if ((DEBUG_MODE & 1) == 1)
 {
     error_reporting(E_ALL);
@@ -343,19 +336,5 @@ else
 {
     ob_start();
 }
-//新增绑定上下级关系结束
-/*20141208甜心100独家开发新增*/
-/* 检查是否是微信浏览器访问 */
-function is_wechat_browser(){
-    $user_agent = $_SERVER['HTTP_USER_AGENT'];
-    if (strpos($user_agent, 'MicroMessenger') === false){
-      //echo '非微信浏览器禁止浏览';
-      return false;
-    } else {
-      //echo '微信浏览器，允许访问';
-      //preg_match('/.*?(MicroMessenger\/([0-9.]+))\s*/', $user_agent, $matches);
-      //echo '<br>你的微信版本号为:'.$matches[2];
-      return true;
-    }
-}
+
 ?>

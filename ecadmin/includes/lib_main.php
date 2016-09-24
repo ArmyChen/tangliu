@@ -351,8 +351,8 @@ function create_html_bdeditor1($input_name, $input_value = '')
     UE.getEditor("'.$input_name.'",{
     theme:"default", //皮肤
     lang:"zh-cn",    //语言
-    initialFrameWidth:720,  //初始化编辑器宽度,默认650
-    initialFrameHeight:180  //初始化编辑器高度,默认180
+    initialFrameWidth:1000,  //初始化编辑器宽度,默认650
+    initialFrameHeight:300  //初始化编辑器高度,默认180
     });
     </script>';
     $smarty->assign('FCKeditor1', $HTML);
@@ -369,8 +369,8 @@ function create_html_bdeditor2($input_name, $input_value = '')
     UE.getEditor("'.$input_name.'",{
     theme:"default", //皮肤
     lang:"zh-cn",    //语言
-    initialFrameWidth:720,  //初始化编辑器宽度,默认650
-    initialFrameHeight:180  //初始化编辑器高度,默认180
+    initialFrameWidth:640,  //初始化编辑器宽度,默认650
+    initialFrameHeight:300  //初始化编辑器高度,默认180
     });
     </script>';
     $smarty->assign('FCKeditor2', $HTML);

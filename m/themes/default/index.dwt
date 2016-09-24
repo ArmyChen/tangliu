@@ -1,198 +1,294 @@
 <?php
-$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(4));  
-$GLOBALS['smarty']->assign('time_list',     get_time_list()); 
-$GLOBALS['smarty']->assign('index_ad_sm',index_ad_sy_diy(7));  
-$GLOBALS['smarty']->assign('index_ad_dsm',index_ad_sy_diy(6));  
-$GLOBALS['smarty']->assign('index_ad_leimu',index_ad_sy_diy(8));  
-$GLOBALS['smarty']->assign('index_news_list',index_get_all_cat_articles(114));  
-$GLOBALS['smarty']->assign('index_news_cat',get_article_cat(114)); 
-?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="apple-touch-fullscreen" content="YES">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="format-detection" content="telephone=no">
-<title>{$page_title}</title>
-<meta name="Keywords" content="{$Keywords}">
-<meta name="Description" content="{$Description}">
-<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css">
-<style>
-.bigm{padding:0 6px;}
 
-</style>
-<script type="text/javascript">
-window.onload = function()
-{
-  
-}
-var compare_no_goods = "{$lang.compare_no_goods}";
-var btn_buy = "加入";
-var is_cancel = "取消";
-var select_spe = "请选择商品属性";
-</script>
+$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(4)); //首页广告调用或者循环广告
+$GLOBALS['smarty']->assign('article_cat_fgzx', get_article_cat(134)); 
+$GLOBALS['smarty']->assign('article_list_fgzx', index_get_all_cat_articles(134)); 
+$GLOBALS['smarty']->assign('article_cat_yfzx', get_article_cat(120)); 
+$GLOBALS['smarty']->assign('article_list_yfzx', index_get_all_cat_articles(120)); 
+$GLOBALS['smarty']->assign('article_cat_rdxw', get_article_cat(130)); 
+$GLOBALS['smarty']->assign('article_cat_mthz', get_article_cat(131)); 
+$GLOBALS['smarty']->assign('article_list_mthz', index_get_all_cat_articles(131)); 
+$GLOBALS['smarty']->assign('article_cat_ppzx', get_article_cat(132)); 
+$GLOBALS['smarty']->assign('article_list_ppzx', index_get_all_cat_articles(132)); 
+$GLOBALS['smarty']->assign('article_cat_zxzx', get_article_cat(133)); 
+$GLOBALS['smarty']->assign('article_list_zxzx', index_get_all_cat_articles(133)); 
+$GLOBALS['smarty']->assign('article_tlq',     get_article(28993)); 
+$GLOBALS['smarty']->assign('article_sjfw',     get_article(28992)); 
+$GLOBALS['smarty']->assign('article_xfkt',     get_article(28991)); 
+$GLOBALS['smarty']->assign('article_tzss',     get_article(28990)); 
+ ?>
+
+
+
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>{$page_title}</title>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+     <link rel="stylesheet" href="{$ecsolve_path}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{$ecsolve_path}/css/common.css">
+    <link rel="stylesheet" href="{$ecsolve_path}/css/style.css">
+    <script type="text/javascript" src="{$ecsolve_path}/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="{$ecsolve_path}/js/TouchSlide.1.1.js"></script>
+    <script type="text/javascript" src="{$ecsolve_path}/js/global.js"></script>
 </head>
+
 <body>
-<div id="top">
-<div class="header hfix hm_on" id="hometop">
-<a class="logo" href="tel:4006707220"></a>
-<!--<a href="#/fenlei.html" class="h_t h_fl">分类</a>-->
-<form action="search.php" class="t_se" onsubmit="return se(this)"><input class="t_sl" id="t_sl" name="keyword" placeholder="搜索商品" type="search"><input class="t_sr" value="" type="submit"></form>
-<a href="#/chaxun.php" class="h_t h_wl">物流</a>
+
+<!-- 头部 -->
+<div class="m-header">
+    <div class="m-brand">
+        <a href="{$weburl}"><img src="{$ecsolve_path}/images/logo.png" alt=""></a>
+    </div>
+    <div class="m-search-box">
+        <em class="left"></em>
+        <em class="right"></em>
+        <i class="icon icon-search"></i>
+        <input type="text" placeholder="搜索产品名称">
+    </div>
+    <div class="m-meun">
+        <div class="nor"><i class="icon icon-meun"></i></div>
+        <div class="hor">
+            <ul>
+	    {foreach name=nav_middle_list from=$navigator_list.middle item=nav key=key name=nav}
+                <li>
+                    <a href="{if $nav.durl} {$nav.durl}{else}{$nav.url}{/if}">{$nav.name}</a>
+                </li>
+               {/foreach}
+            </ul>
+        </div>
+    </div>
 </div>
-<div class="sebg hid" id="sebg">
-<div class="lr10 lh35 ov"><em class="left">热门搜索</em><a href="javascript:;" onclick="gx()" class="right">关闭</a></div>
-
-
-  
-   {foreach from=$searchkeywords item=val}
-   <a href="{$weburl}/k-{$val|escape:url}.html"  class="hw" ><em class="red">{$val}</em></a>
-   
-   {/foreach}
-
-
-
+<!-- /头部 -->
+<!-- banner star -->
+<div class="m-banner" id="bannerSilde">
+    <div class="hd">
+        <ul>
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="bd">
+        <ul>
+	   <!--{foreach from=$index_ad item=ad  name=index_ads key=key }-->	  
+            <li>
+                <a href="{$ad.url}"><img src="{$weburl}{$ad.file_url}" alt=""></a>
+            </li>
+            <!--{/foreach}-->      
+        </ul>
+    </div>
 </div>
+<!-- banner end -->
+<!-- preject type -->
+<div class="m-preject-type mt10">
+    <div class="m-headline-h2">
+        <em></em>
+        <h2>项目分类</h2>
+    </div>
+    <div class="bd">
+        <ul class="cf">
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.jpg" alt="">
+                    <p>天花</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.1.jpg" alt="">
+                    <p>地面</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.2.jpg" alt="">
+                    <p>墙面</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.3.jpg" alt="">
+                    <p>隔断</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.4.jpg" alt="">
+                    <p>天花</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.5.jpg" alt="">
+                    <p>地面</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.6.jpg" alt="">
+                    <p>墙面</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.7.jpg" alt="">
+                    <p>隔断</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.8.jpg" alt="">
+                    <p>天花</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.9.jpg" alt="">
+                    <p>地面</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.10.jpg" alt="">
+                    <p>墙面</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{$ecsolve_path}/images/demo01.11.jpg" alt="">
+                    <p>隔断</p>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
-<div class="page load">
-<div class="slider" id="slider">
-<ul style="width: 3200px; height: 200px; transform: translate3d(-1920px, 0px, 0px); transition-duration: 300ms;" class="sul">
-
-
-
-<!--{foreach from=$index_ad_sm item=ad  name=index_ads key=key }-->
- <li style="width: 640px;"><a href="{$ad.url}"><img src="{$ad.file_url}" width="100%"></a></li>
-  <!--{/foreach}-->
-
-
-
-
-
-
-</ul>
-
+<!-- /preject type -->
+<!-- 主题服务 -->
+<div class="m-themes-service mt10">
+    <div class="m-headline-h2">
+        <em></em>
+        <h2>主题服务</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            <li>
+                <a href="#">
+                    <em class="icon icon-themes01"></em>
+                    <p>讨论区</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <em class="icon icon-themes02"></em>
+                    <p>设计服务</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <em class="icon icon-themes03"></em>
+                    <p>消防空调</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <em class="icon icon-themes04"></em>
+                    <p>图纸送审报建</p>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
-
-<div class="bgw pt10">
-
-
-<!--{foreach from=$index_ad_leimu item=ad  name=index_ads key=key }-->
-
- <a href="{$ad.url}" class="da"><img src="{$weburl}/{$ad.file_url}" class="dam"><p>{$ad.title}</p></a>
-  <!--{/foreach}-->
-
-
-
-<div class="clear"></div>
+<!-- /主题服务 -->
+<!-- 风格中心 -->
+<div class="m-style-center mt10">
+    <div class="m-headline-h2">
+        <em></em>
+        <h2>{$article_cat_fgzx.cat_name}</h2>
+    </div>
+    <div class="bd">
+        <ul class="cf">
+           <!-- {foreach from=$article_list_fgzx item=article name=article} --> 
+            <li>
+                <a href="{$article.url}">
+                    <img src="{$article.file_url}" alt="">
+                    <p>{$article.title}</p>
+                </a>
+            </li>
+	    {/foreach}
+        </ul>
+    </div>
+    <div class="m-more-product mt10">
+        <a href="{$article_cat_fgzx.url}">更多风格</a>
+    </div>
 </div>
-
-
-<!--
-<div class="bgw mt10">
-<a href="#/loot.php" class="left lotm"><div class="hoot"><p class="alL">omysky 探花Chaser10频防水深阴仿真按摩器</p><img src="{$ecsolve_path}/images/5230_thumb_P220_1389930293705.jpg" class="limg"><p><b class="xj">¥128.00</b><del class="pl10">¥205.40</del></p></div><img src="{$ecsolve_path}/images/thr1.png" width="100%"></a>
-<div class="dhr left">
-<a href="#/hot.html" class="lotm2 left"><img src="{$ecsolve_path}/images/thr2.png" width="100%"></a>
-<a href="#/new.html" class="lotm3 left"><img src="{$ecsolve_path}/images/thr31.png" width="100%"></a>
-<a href="#/need.php" class="lotm3 left"><img src="{$ecsolve_path}/images/thr5.png" width="100%"></a>
+<!-- /风格中心 -->
+<!-- 研发中心 -->
+<div class="m-development-center mt10">
+    <div class="m-headline-h2">
+        <em></em>
+        <h2>{$article_cat_yfzx.cat_name}</h2>
+    </div>
+    <div class="bd">
+        <ul class="cf">
+            <!-- {foreach from=$article_list_yfzx item=article name=article} --> 
+            <li>
+                <a href="{$article.url}">
+                    <img src="{$article.file_url}" alt="">
+                    <p>{$article.title}</p>
+                </a>
+            </li>
+	    {/foreach}
+        </ul>
+    </div>
+    <div class="m-more-product mt10">
+        <a href="{$article_cat_yfzx.url}">更多风格</a>
+    </div>
 </div>
+<!-- /研发中心 -->
+<!-- 热点资讯 -->
+<div class="m-hot-info mt10">
+    <div class="m-headline-h2">
+        <em></em>
+        <h2>{$article_cat_rdxw.cat_name}</h2>
+    </div>
+    <div class="bd">
+        <ul class="cf">
+            <li>
+                <a href="{$article_cat_mthz.url}">
+                    <p>{$article_cat_mthz.cat_name}</p>
+                    <img src="{$ecsolve_path}/images/demo04.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="{$article_cat_ppzx.url}">
+                    <p>{$article_cat_ppzx.cat_name}</p>
+                    <img src="{$ecsolve_path}/images/demo04.1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="{$article_cat_zxzx.url}">
+                    <p>{$article_cat_zxzx.cat_name}</p>
+                    <img src="{$ecsolve_path}/images/demo04.2.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
--->
-
-
-
-<!--{foreach from=get_categories_tree_index() item=cat name=cat_tree}-->
-
-<div class="bgw mt10">
-<h2 class="t"><a class="brl" href="{$cat.url}">{$cat.name|escape:html}</a><a class="more right" href="{$cat.url}"></a></h2>
-<div style="background-color:#1c1c1c" class="hpre ov">
-<!--{foreach from=$cat.adlist item=ad name=ad}-->
-<a  href="{$ad.url}"><img width="100%" src="{$ad.ad_code}"></a>
-<!--{/foreach}-->
+<!-- /热点资讯 -->
+<!-- 底部 -->
+<div class="m-fixed-footer">
+    <ul>
+        <li><a href="#"><span><i class="icon icon-footer01"></i></span><p>首页</p></a></li>
+        <li><a href="#"><span><i class="icon icon-footer02"></i></span><p>分类</p></a></li>
+        <li><a href="#"><span><i class="icon icon-footer03"></i><em>9</em></span><p>工程预算</p></a></li>
+        <li><a href="#"><span><i class="icon icon-footer04"></i></span><p>会员中心</p></a></li>
+    </ul>
 </div>
-</div>
-
-<div class="m_z ov">
-<!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
-<a class="red fB" href="{$child.url}">{$child.name|escape:html}</a>
- <!--{/foreach}-->
-<a href="{$cat.url}">更多&gt;</a>
-</div>
- <!--{/foreach}-->
-
-
-
-
- 
-  
-
-
-
-
-
-
-<div class="bgw">
-<h2 class="t"><a class="brl" href="hot.html">精品推荐</a><a class="more right" href="{$weburl}/search.php?intro=hot"></a></h2>
-<div class="gd bigm">
-<!--{foreach from=$goods_hot key=key item=goods name=name}-->
- {if $smarty.foreach.name.iteration < 13 }
-<a class="ga" href="{$goods.url}"><div class="pm"><img class="gm" src="{$goods.thumb}"><h3 class="gt">{$goods.name|escape:html}</h3><p class="lp"><em class="xj">{$goods.shop_price}</em><em class="s_s"></em></p></div></a>
-{/if}
-{/foreach}
-</div>
-</div>
-
-
-
-
-
-</div>
-
-<!--
-<div style="position:fixed;left:0;bottom:0;width:100%;height:4.2rem;padding-top:0.4rem;z-index:90;border-top:1px solid #e0e0e0;background-color:#fcfcfc;color:#000;line-height:1.8rem;" id="weix">
-<div class="page" style="position:relative;">
-<img src="{$ecsolve_path}/images/hwx3.png" style="width:4rem;height:4rem;float:left;margin:0 0.6rem 0 1rem;">
-<p>您的专属私密情趣顾问（尊享1对1服务）</p>
-<p>婷婷微信：<em style="background-color:#d80d0d;color:#fff;padding:0 5px;">aaagcd</em> ←长按可以复制</p>
-<a href="javascript:;" onclick="document.getElementById('weix').className='hid'" style="position:absolute;color:#fff;width:2rem;background-color:#999;border-radius:100%;height:2rem;display:block;right:0.3rem;top:-0.2rem;text-align:center;line-height:2rem">X</a>
-</div></div>
--->
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-
-
-<script type="text/javascript" src="{$ecsolve_path}/js/app.js"></script><script type="text/javascript" src="{$ecsolve_path}/js/vganswip.js"></script>
-<script>
-var a_on=true;
-var hometop=$("#hometop");
-$("#slider").vganswiper({bi:0.3125});
-$("#t_sl").focus(function(){
-var w=$(this).attr("placeholder");
-var v=$(this).val();
-if(v==w){
-$(this).val("");
-}
-$("#sebg").show();
-}).blur(function(){
-setTimeout(gx,500);
-});
-function gx(){
-$("#sebg").hide();
-}
-window.onscroll=function(){
-	var sTop=document.documentElement.scrollTop+document.body.scrollTop;
-	if(sTop>100){
-	if(a_on){
-		hometop.addClass("hm_on");
-		a_on=false;
-		}
-	}else{
-		if(!a_on){
-		hometop.removeClass("hm_on");
-		a_on=true;
-		}
-	}
-}
-lazyload({defObj:"#lazy"});
-</script>
-
-</body></html>
+<!-- /底部 -->
+<!--include "../php/footer.html0"-->

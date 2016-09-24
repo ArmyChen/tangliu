@@ -10,6 +10,8 @@ if ((DEBUG_MODE & 2) != 2)
 
 
 
+
+
 /*------------------------------------------------------ */
 //-- Shopex系统地址转换
 /*------------------------------------------------------ */
@@ -87,9 +89,6 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     $smarty->assign('helps',           get_shop_help());       // 网店帮助
     $smarty->assign('top_goods',       get_top10());           // 销售排行
  $smarty->assign('now_time',  gmtime()); 
-  $smarty->assign('menushow',  '1'); 
-
-
     $smarty->assign('best_goods',      get_recommend_goods('best'));    // 推荐商品
     $smarty->assign('new_goods',       get_recommend_goods('new'));     // 最新商品
     $smarty->assign('hot_goods',       get_recommend_goods('hot'));     // 热点文章
@@ -103,12 +102,6 @@ $smarty->assign('goods_hot', get_goods_hot()); // 特价商品(推荐)
     $smarty->assign('rand_comment', get_rand_comment_index(0,8)); // 
 	    $smarty->assign('index_new_goods', get_cat_recommend_goods_index('new',0,20)); // 
 
-
-
-
-
-
-
     $smarty->assign('brand_list',      get_brands());
     $smarty->assign('promotion_info',  get_promotion_info()); // 增加一个动态显示所有促销信息的标签栏
 
@@ -117,8 +110,14 @@ $smarty->assign('goods_hot', get_goods_hot()); // 特价商品(推荐)
     $smarty->assign('group_buy_goods', index_get_group_buy());      // 团购商品
     $smarty->assign('auction_list',    index_get_auction());        // 拍卖活动
     $smarty->assign('shop_notice',     $_CFG['shop_notice']);       // 商店公告
-    $smarty->assign('tdk',    send_seo_set(2));      
-  
+    $smarty->assign('tdk',    send_seo_set(2));    
+	
+   $db -> query("update ".$ecs->table('shop_config')." set value=value + 1 where code = 'tongji'");
+
+
+   $tongji = $db->getOne("SELECT value FROM " . $ecs->table('shop_config') . " where code = 'tongji' ");
+
+   $smarty->assign('tongji', $tongji);
 //$smarty->assign('demoarticles',    csv_article_list());  // 发货查询
 //$csv_article_list=csv_article_list();
 //var_dump($csv_article_list);

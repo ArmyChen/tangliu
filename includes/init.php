@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 
 
@@ -73,7 +73,7 @@ require(ROOT_PATH . 'includes/lib_goods.php');
 require(ROOT_PATH . 'includes/lib_shops.php');
 require(ROOT_PATH . 'includes/lib_article.php');
 require(ROOT_PATH . 'includes/lib_ecmoban.php');;
-require(ROOT_PATH . 'themes/default/init.php');
+
 /* 对用户传入的变量进行转义操作。*/
 if (!get_magic_quotes_gpc())
 {
@@ -335,45 +335,17 @@ if ((DEBUG_MODE & 4) == 4)
 
 
 
+/* 判断是否支持 Gzip 模式 */
+if (!defined('INIT_NO_SMARTY') && gzip_enabled())
+{
+    ob_start('ob_gzhandler');
+}
+else
+{
+    ob_start();
+}
 
 
-if (is_mobile())
-    {    
-		
-		    header('Location:http://m.7wg.com/'); 
-    }
-	else
-	{
-		ecs_header("http://www.7wg.com/");
 
 
-	
-	}
-function is_mobile() { 
-    $user_agent = $_SERVER['HTTP_USER_AGENT']; 
-    $mobile_agents = array("240x320","acer","acoon","acs-","abacho","ahong","airness","alcatel","amoi", 
-    "android","anywhereyougo.com","applewebkit/525","applewebkit/532","asus","audio", 
-    "au-mic","avantogo","becker","benq","bilbo","bird","blackberry","blazer","bleu", 
-    "cdm-","compal","coolpad","danger","dbtel","dopod","elaine","eric","etouch","fly ", 
-    "fly_","fly-","go.web","goodaccess","gradiente","grundig","haier","hedy","hitachi", 
-    "htc","huawei","hutchison","inno","ipad","ipaq","iphone","ipod","jbrowser","kddi", 
-    "kgt","kwc","lenovo","lg ","lg2","lg3","lg4","lg5","lg7","lg8","lg9","lg-","lge-","lge9","longcos","maemo", 
-    "mercator","meridian","micromax","midp","mini","mitsu","mmm","mmp","mobi","mot-", 
-    "moto","nec-","netfront","newgen","nexian","nf-browser","nintendo","nitro","nokia", 
-    "nook","novarra","obigo","palm","panasonic","pantech","philips","phone","pg-", 
-    "playstation","pocket","pt-","qc-","qtek","rover","sagem","sama","samu","sanyo", 
-    "samsung","sch-","scooter","sec-","sendo","sgh-","sharp","siemens","sie-","softbank", 
-    "sony","spice","sprint","spv","symbian","tablet","talkabout","tcl-","teleca","telit", 
-    "tianyu","tim-","toshiba","tsm","up.browser","utec","utstar","verykool","virgin", 
-    "vk-","voda","voxtel","vx","wap","wellco","wig browser","wii","windows ce", 
-    "wireless","xda","xde","zte"); 
-    $is_mobile = false; 
-    foreach ($mobile_agents as $device) { 
-        if (stristr($user_agent, $device)) { 
-            $is_mobile = true; 
-            break; 
-        } 
-    } 
-    return $is_mobile; 
-} 
 ?>

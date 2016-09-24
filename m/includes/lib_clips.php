@@ -449,7 +449,7 @@ function get_surplus_info($surplus_id)
 function get_online_payment_list($include_balance = true)
 {
  $sql = 'SELECT pay_id, pay_code, pay_name, pay_fee, pay_desc, pay_config, is_cod, pay_order ' .
-            'FROM ' . $GLOBALS['ecs']->table('touch_payment') .
+            'FROM ' . $GLOBALS['ecs']->table('payment') .
             " WHERE enabled = 1 AND is_cod <> 1";
     if (!$include_balance)
     {
@@ -587,7 +587,7 @@ function get_user_default($user_id)
     }
 
     $info['last_time'] = local_date($GLOBALS['_CFG']['time_format'], $last_time);
-    $info['surplus']   = $row['user_money'];
+    $info['surplus']   = price_format($row['user_money'], false);
     $info['bonus']     = sprintf($GLOBALS['_LANG']['user_bonus_info'], $user_bonus['bonus_count'], price_format($user_bonus['bonus_value'], false));
 
     $sql = "SELECT COUNT(*) FROM " .$GLOBALS['ecs']->table('order_info').

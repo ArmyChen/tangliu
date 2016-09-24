@@ -8,6 +8,31 @@ $(function(){
 		$(this).find(".mask").animate({
 			"bottom":"0"	
 		},700);
+
+//下一张
+// next      
+$(this).find('.ck-next').on('click', function(){
+var show = $(".flashBanner .mask .smalldiv.show").index();
+if (show >= $(".flashBanner .mask .smalldiv").length-1)
+					show = 0;
+				else
+					show ++;
+changeImg(show);
+});
+//上一张
+// pre
+$(this).find('.ck-prev').on('click', function(){
+var show = $(".flashBanner .mask .smalldiv.show").index();
+if (show >= $(".flashBanner .mask .smalldiv").length-0)
+					show = 1;
+				else
+					show --;
+changeImg(show);
+});
+
+
+
+
 		$(".flashBanner").hover(function(){
 			clearInterval(timer);	
 		},function(){
@@ -18,7 +43,7 @@ $(function(){
 				else
 					show ++;
 				changeImg(show);
-			},9000);
+			},3000);
 		});
 		function changeImg (index)
 		{
@@ -33,6 +58,13 @@ $(function(){
 
 
 		}
+
+
+
+
+
+
+
 		timer = setInterval(function(){
 			var show = $(".flashBanner .mask .smalldiv.show").index();
 			if (show >= $(".flashBanner .mask .smalldiv").length-1)
@@ -40,6 +72,6 @@ $(function(){
 			else
 				show ++;
 			changeImg(show);
-		},9000);
+		},3000);
 	});
 });

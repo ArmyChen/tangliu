@@ -1,6 +1,6 @@
 <?php
 if($_GET['code']){
-    $wxch_config = $db -> getRow("SELECT * FROM `site_weixin_config` WHERE `id` = 1");
+    $wxch_config = $db -> getRow("SELECT * FROM `site_config` WHERE `id` = 1");
     $appid = $wxch_config['appid'];
     $appsecret = $wxch_config['appsecret'];
     $code = !empty($_GET['code']) ? $_GET['code'] : '';
@@ -10,11 +10,11 @@ if($_GET['code']){
     if(strlen($ret_oa -> openid) == 28){
         $thistable = $ecs -> prefix . 'users';
         $openid = $ret_oa -> openid;
-        $w_openid = $db -> getOne("SELECT `wxid` FROM `site_weixin_user` WHERE `wxid` = '$openid'");
+        $w_openid = $db -> getOne("SELECT `wxid` FROM `site_user` WHERE `wxid` = '$openid'");
         $time = time();
         if(empty($w_openid)){
             if(!empty($openid)){
-                $db -> query("INSERT INTO `site_weixin_user` ( `wxid` , `dateline`) VALUES ('$openid','$time') ");
+                $db -> query("INSERT INTO `site_user` ( `wxid` , `dateline`) VALUES ('$openid','$time') ");
             }
         }
         $wxch_user_name_sql = "SELECT `user_name` FROM `$thistable` WHERE `site_bd`='ok' AND `wxid` = '$openid'";
@@ -38,7 +38,7 @@ if($_GET['code']){
             $ret_sns_json = curl_get_contents($sns_url);
             $ret_sns = json_decode($ret_sns_json);
             if($openid == $ret_sns -> openid){
-                $w_sql = "UPDATE  `site_weixin_user` SET  `nickname` =  '$ret_sns->nickname',`sex` =  '$ret_sns->sex',`city` =  '$ret_sns->city',`country` = '$ret_sns->country',`headimgurl` =  '$ret_sns->headimgurl' WHERE `wxid` = '$openid';";
+                $w_sql = "UPDATE  `site_user` SET  `nickname` =  '$ret_sns->nickname',`sex` =  '$ret_sns->sex',`city` =  '$ret_sns->city',`country` = '$ret_sns->country',`headimgurl` =  '$ret_sns->headimgurl' WHERE `wxid` = '$openid';";
                 $db -> query($w_sql);
             }
         }
@@ -64,7 +64,7 @@ if($_GET['code']){
 }elseif(!$_SESSION['user_id']){
     if (strpos($_SERVER["HTTP_USER_AGENT"], "MicroMessenger")){
         if($_SESSION['wxoauth'] != 'true'){
-            $wxch_config = $db -> getRow("SELECT * FROM `site_weixin_config` WHERE `id` = 1");
+            $wxch_config = $db -> getRow("SELECT * FROM `site_config` WHERE `id` = 1");
             $appid = $wxch_config['appid'];
             $appsecret = $wxch_config['appsecret'];
             $_SESSION['wxoauth'] = 'false';

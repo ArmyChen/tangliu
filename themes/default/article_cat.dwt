@@ -1,173 +1,261 @@
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{$page_title}</title>
 <meta name="Keywords" content="{$keywords}" />
 <meta name="Description" content="{$description}" />
-<title>{$page_title}</title>
-<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/gtcommon.css">
-<link href="{$ecsolve_path}/style/help.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css">
-<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/left.css">
-
+<meta name="author" content="www.ecsolve.com">
+<meta name="copyright" content="{$shop_name}">
+<meta name="robots" content="All">
+<link rel="shortcut icon" href="">
+<link rel="stylesheet" href="{$ecsolve_path}/css/common.css">
+<link rel="stylesheet" href="{$ecsolve_path}/css/style.css">
+<link rel="stylesheet" href="{$ecsolve_path}/css/base.css">
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/css/serviceList.css">
 </head>
+<script src="{$ecsolve_path}/js/jquery-1.11.0.min.js"></script> 
+<script src="{$ecsolve_path}/js/superSlide.2.1.js"></script> 
 <body>
-<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
-<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
-<script type="text/javascript" src="{$ecsolve_path}/js/index_com.js"></script>
-
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-
-
-
-
-<div id="content">
-<div class="main_route">
-<div class="route">
-
-<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
-  </div>
-  </div>
- </div>
-
-
-
-
-
-<div id="forhelp">
-
-
-
-<div class="r_c_l">
-<div class="content_left left" style="border-bottom:1px solid #ddd;">      
-<script language="javascript">
-function shut_top_cat(){
-	var icon=$("#top_cat_img").attr("src"); 
-	var icon_on="themes/aizhigu/images/button_on.jpg";
-	var icon_off="themes/aizhigu/images/button_off.jpg";
-	if(icon==icon_on){
-		$("#top_cat_img").attr("src",icon_off);
-		$("#top_cat_child").show();
-	}
-	if(icon==icon_off){
-		$("#top_cat_img").attr("src",icon_on);
-		$("#top_cat_child").hide();
-	}	
-}
-function shut_other_cat(key){
-	var icon=$("#other_cat_img_"+key).attr("src");
-	var icon_on="themes/aizhigu/images/button_on.jpg";
-	var icon_off="themes/aizhigu/images/button_off.jpg";
-	if(icon==icon_on){
-		$("#other_cat_img_"+key).attr("src",icon_off);
-		$("#other_cat_child_"+key).show();
-	}
-	if(icon==icon_off){
-		$("#other_cat_img_"+key).attr("src",icon_on);
-		$("#other_cat_child_"+key).hide();
-	}	
-}				
-</script>
-<!--{foreach from=$article_categories item=cat  name=get_categories_tree}-->
-<div class="maintitle font14 colccl bold"><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
-
-        <!--{foreach from=$cat.children item=child name=child}-->
-		  <div onclick="shut_top_cat();" class="maincontent font14 bold"><a href="{$child.url}">{$child.name|escape:html}</a><span class="font14 col999 boldnone"></span>
-            <div class="button_off"><img  id="top_cat_img"  src="images/button_off.jpg" width="16" height="16" /></div>
-          </div>
-          <div class="classify" id="top_cat_child">
-            <ul>
-              <!--{foreach from=$child.cat_id item=childs name=childs}-->
-              <li><a {if $childs.id eq $category}class='selected'{/if}  href="{$childs.url}">{$childs.name|escape:html}<span class="col999"></span></a></li>
-              <!--{/foreach}-->
-            </ul>
-          </div>
-	   <!--{/foreach}-->	
-          <!--{/foreach}-->
- 
- </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="Y_right">
- 
-    <ul class="daren_list">
-    	<!-- {foreach from=$artciles_list item=article} -->
-	<li> 
-	{if $article.url}
-		<a target="_blank" href="{$article.url}"><img src="{$article.pic}" style="border:1px solid #ddd;"></a>
-		{/if}
-        <div>
-          <p>作者：{$shop_name}</p>
-          <dl>
-            <dt><a target="_blank" href="{$article.url}">{$article.title|escape:html}</a></dt>
-            <dd>   {$article.content|escape:"html"|truncate:200:”…”:true|strip_taps:'<p>'}</dd>
-          </dl>
+<div class="container">
+	<div class="login">
+    	<div class="login-box auto">
+        	<div class="fl f0">
+                <a href="">风水设计</a>
+                <a href="">商务合作</a>
+                <a href="">投诉建议</a>
+                <a class="city" href="javascript:void(0);">当前城市:</a>
+                <a class="now-city" href="">广州</a>
+            </div>
+            <div class="fr f0">
+                <a href="">登陆</a>
+                <a href="">商城入口</a>
+            </div>
         </div>
-        <span class="Y_liul">浏览{$article.click_count}次</span> <a target="_blank" href="{$article.url}" class="Y_movet">阅读全文&gt;&gt;</a> 
-	</li>
+    </div>
+	<div class="container-box auto">
+    	<div class="header">
+        	<div class="logo fl">
+        		<a href='{$weburl}'><img class="vm" src="{$ecsolve_path}/images/logo.png" alt="" /></a>
+            </div>
+            <div class='nav fl'>
+                <ul class='clear'>
+                    <li>
+                    	<a href=''>新手入站</a>
+                        <div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                    	<a href=''>工程预算</a>
+                    	<div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>222</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>222</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>222</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>222</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                    	<a href=''>研发中心</a>
+                    	<div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>333</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>333</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>333</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>333</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                    	<a href=''>工程质量</a>
+                    	<div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>444</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>444</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>444</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>444</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                    	<a href=''>服务中心</a>
+                    	<div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <form class='fr f0'>
+            	<input class='text dib vm f14' type="text" placeholder="玻璃隔断"/>
+                <input class='button dib vm f14 cp' type="button" />
+            </form>
+        </div>
+        <div class='aside'>
+        	
+                <div class='kf-btn cp'>
+                    <p class=''></p>
+                </div>
+                <div class='goods-btn cp'>
+                    <p class='cf'>工程预算</p>
+                    <span class='dib num cf tc'>0</span>
+                </div>
+                <div class='ewm-top rel'>
+                    <div class='ewm-btn'></div>
+                    <div class='ewm abs tc'><img src="{$ecsolve_path}/images/footer-ewm.jpg" alt="" /><p>唐流微信</p></div>
+                    <p class='top-btn abs b0 l0 cp'></p>
+                </div>
+                <div class='aside-main'>
+                    <form action="" method="">
+                        <div class='product-box' id="product-box">
+                            
+                        </div>
+                        <div class='product-total tc'>
+                            <p class='tl'><span class='total'>¥<b class='fwn'>0</b></span></p>
+                            <a class='count dib' href='#gcysb'>计算报价>></a>
+                        </div>
+                    </form>
+                </div>
+         
+        </div>
 
-      <!-- {/foreach} -->
-
-
-
-	    
-        
-        
-    </ul>
-    <!--达人评测 start--> 
-    
-<div style="  display:inline-block; margin-bottom:20px;">
-     <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
-</div>
-    <!--分页 end--> 
-  </div>
+ </div>
  
-  <div class="clear"></div>
+ <div style="clear: both;"></div>
+<div class="xm-service-box">
+    <!-- 服务支持面包屑 -->
+<div class="containers">
+    <div class="breadcrumbs">
+        <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+                
+    </div>
+</div>    <div class="containers clearfix">
+        <div class="row">
+            <!-- 左侧菜单列表 -->
+<div class="span4">
+    <div class="xm-service-sidebar">
+        <div class="content">
+            <div class="xm-sidebar-content">
+                <div class="nav-list" id="serviceMenuList">
+                	<!-- {foreach from=$articlecatsabout  item=da_cat name=da_cat} -->
+                    <h3>{$da_cat.cat_name}</h3>
+                   
+					<ul class="uc-nav-list">
+                    <!-- {foreach from=$da_cat.cat_fenlei_cat  item=cat name=cat } -->                                                    
+                     <li {if $cat.id eq $cat_id } class="cur" {else}{/if}><a  href="{$cat.cat_url}">{$cat.cat_name}</a></li>
+    
+                        <!-- {/foreach} -->                                                
+                    
+                     <!-- {foreach from=$da_cat.cat_fenlei  item=article name=article } -->                                             
+                     <li {if $article.id eq $nowid } class="cur" {else}{/if}><a  href="{$article.url}">{$article.title}</a></li>
+    
+                        <!-- {/foreach} -->                                                    
+                                                                            
+                                            					    
+					</ul>
+					 {/foreach}
+					
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</div>            <div class="span16">
+                <div class="content" id="serviceListCon">
+                    <div class="service-right">
+                        <div class="news">
+		<ul>
+			<!-- {foreach from=$artciles_list item=article name=article } -->
+			<li {if $smarty.foreach.article.first}style="margin-top: 0;"{/if}
+				 {if $smarty.foreach.article.last}style="border: none;"{/if}>
+				<div class="slt"><a href="{$article.url}"><img src="{$article.file_url}"></a></div>
+				<div class="tit"><p><a href="{$article.url}">{$article.title}</a></p><span>{$article.add_time}</span></div>
+				<div class="spc">{$article.spcdesc|truncate:100:"....":true}</div>
+			</li>
+			{/foreach}
+		</ul>
+		
+		<div class="pags"><!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem --></div>
+	</div>
+   <div style="clear: both;"></div>                                              
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+ <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 
+	
+	
+	
 
-
-
-
-
-
-
-
-
-<div class="scroll_div" onclick="$(window).scrollTop(0)" id="scroll_div" style="left: 1331px; display: block;"></div>
-
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-<script type="text/javascript">
-var lazyload_effect = ( $.browser.msie &&　$.browser.version　< 8 )?"show":"fadeIn";
-$(document).ready(function(){
-var $imgOriginal = $("img[original]");
-//360图片不显示问题
-if($.browser.msie){
-$imgOriginal.each(function(){
-$(this).attr('src',$(this).attr('original'));
-});
-}else{
-$imgOriginal.lazyload({threshold:200,effect: lazyload_effect});
-}
-});
-</script>
-</body>
+		
+		
+	</body>
 </html>

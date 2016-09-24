@@ -223,7 +223,6 @@ function &init_users()
     include_once(ROOT_PATH . 'includes/modules/integrates/' . $GLOBALS['_CFG']['integrate_code'] . '.php');
     $cfg = unserialize($GLOBALS['_CFG']['integrate_config']);
     $cls = new $GLOBALS['_CFG']['integrate_code']($cfg);
-	
 
     return $cls;
 }
@@ -577,8 +576,7 @@ function load_config()
 {
     $arr = array();
 
-   // $data = read_static_cache('shop_config');
-    $data = false;
+    $data = read_static_cache('shop_config');
     if ($data === false)
     {
         $sql = 'SELECT code, value FROM ' . $GLOBALS['ecs']->table('shop_config') . ' WHERE parent_id > 0';
@@ -1598,21 +1596,10 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
                     /* 代码修改_start  By www.ecshop120.com */
 					$define_url=$GLOBALS['db']->getOne("select define_url from ". $GLOBALS['ecs']->table("category") 
 ." where cat_id='$cid' limit 0,1");
-                    $uri = $define_url ? 'c-'.trim($define_url) : 'c-'.$cid;
+                    $uri = $define_url ? 'cat-'.trim($define_url) : 'cat-'.$cid;
                     
 					
-               if (!empty($bid))
-                    {
-                         $uri .= '-b'.$bid;
-                    }
-                 if (isset($price_min))
-                    {
-                        $uri .= '-min'.$price_min;
-                    }
-                    if (isset($price_max))
-                    {
-                        $uri .= '-max'.$price_max;
-                    }
+                  
                     if (isset($filter_attr))
                     {
                         $uri .= '-attr' . $filter_attr;
@@ -1621,49 +1608,20 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
                     {
                         $uri .= '-' . $page;
                     }
-                    if (!empty($sort))
-                    {
-                        $uri .= '-' . $sort;
-                    }
-                    if (!empty($order))
-                    {
-                        $uri .= '-' . $order;
-                    } 
-                    
                     
                 }
                 else
                 {
                     $uri = 'category.php?id=' . $cid;
-                    if (!empty($bid))
-                    {
-                        $uri .= '&amp;brand=' . $bid;
-                    }
-                    if (isset($price_min))
-                    {
-                        $uri .= '&amp;price_min=' . $price_min;
-                    }
-                    if (isset($price_max))
-                    {
-                        $uri .= '&amp;price_max=' . $price_max;
-                    }
                     if (!empty($filter_attr))
                     {
                         $uri .='&amp;filter_attr=' . $filter_attr;
                     }
-
                     if (!empty($page))
                     {
                         $uri .= '&amp;page=' . $page;
                     }
-                    if (!empty($sort))
-                    {
-                        $uri .= '&amp;sort=' . $sort;
-                    }
-                    if (!empty($order))
-                    {
-                        $uri .= '&amp;order=' . $order;
-                    }
+                    
                 }
             }
 
@@ -1742,7 +1700,15 @@ case 'suppliers':
             }
              else
             {
-                 $uri = $rewrite ?  'g-'.$gid: 'goods.php?id=' . $gid;
+                /* 代码修改_start By www.ecshop120.com */
+				$sql="select  c.cat_id, c.define_url , g.define_url AS goods_url from ". $GLOBALS['ecs']->table('goods') 
+."	AS g left join " . $GLOBALS['ecs']->table('category') . " AS c on g.cat_id=c.cat_id where g.goods_id='$gid' limit 0,1";
+				$cat_array = $GLOBALS['db']->getRow($sql);
+				$define_url_cat = $cat_array['define_url'] ? 'cat-'.$cat_array['define_url'].'/' :'cat-'.$cat_array
+['cat_id'].'/';
+				$define_url_goods = $cat_array['goods_url'] ? $cat_array['goods_url'] : $gid ;
+                $uri = $rewrite ?  ($define_url_cat . $define_url_goods) : ('goods.php?id=' . $gid);
+				/* 代码修改_end By www.ecshop120.com */
             }
             break;
         case 'brand':
@@ -1815,7 +1781,7 @@ case 'suppliers':
                 {
                     /* 代码修改_start  By www.ecshop120.com */
 					$define_url_article_cat=$GLOBALS['db']->getOne("select define_url from ". $GLOBALS['ecs']->table("article_cat") ." where cat_id='$acid' limit 0,1");
-                    $uri = $define_url_article_cat ? 'w-'. trim($define_url_article_cat) : 'w-' . $acid;
+                    $uri = $define_url_article_cat ? ''. trim($define_url_article_cat) : '' . $acid;
 					/* 代码修改_end  By www.ecshop120.com */
                     if (!empty($page))
                     {
@@ -1873,10 +1839,14 @@ case 'suppliers':
             }
             else
             {
-             
-
- $uri = $rewrite ? 'a-' . $aid: 'article.php?id=' . $aid;
-
+                /* 代码修改_start By www.ecshop120.com */
+				$sql="select ac.cat_id, ac.define_url from ". $GLOBALS['ecs']->table('article') ."	AS a left join " 
+. $GLOBALS['ecs']->table('article_cat') . " AS ac on a.cat_id=ac.cat_id where a.article_id='$aid' limit 0,1";
+				$cat_array = $GLOBALS['db']->getRow($sql);
+				$define_url_artcat = $cat_array['define_url'] ? ''.$cat_array['define_url'].'/' : ''.
+$cat_array['cat_id'].'/';
+                $uri = $rewrite ?  $define_url_artcat .  $aid : 'article.php?id=' . $aid;
+				/* 代码修改_end By www.ecshop120.com */
             }
 
             break;
@@ -2009,10 +1979,12 @@ case 'suppliers':
         $uri = urlencode($uri);
     }
 
-$weburl = get_domain().'/';
-$cfg_value=$weburl.'m/';
+$ecs = new ECS($db_name, $prefix);
+$weburl = $ecs-> get_domain().'/m/';
 $weburl =empty($cfg_value)? $weburl:$cfg_value;
-   return $weburl.$uri.$turl;
+$turl=isset($_SESSION['ok'])?'?t='.$_SESSION['ok']:'';
+$turl='';
+return $weburl.$uri.$turl;
 }
 
 /**
@@ -2517,12 +2489,10 @@ function exception_handler($errno, $errstr, $errfile, $errline)
  */
 function get_image_path($goods_id, $image='', $thumb=false, $call='goods', $del=false)
 {$weburl = 'http://'.$_SERVER['SERVER_NAME'].'/';
-
-$cfg_value='http://www.7wg.com/';
     $url = empty($image) ? $GLOBALS['_CFG']['no_picture'] : $image;
   
 	
-	return (strpos($url, 'http://') === false && strpos($url, 'https://') === false) ? $cfg_value.$url : $url;
+	return (strpos($url, 'http://') === false && strpos($url, 'https://') === false) ? $weburl.$url : $url;
 }
 
 /**
@@ -3114,52 +3084,6 @@ if (!function_exists('array_combine')) {
 }
 
 
-function get_domain()
-    {
-        /* 协议 */
-        $protocol = http();
 
-        /* 域名或IP地址 */
-        if (isset($_SERVER['HTTP_X_FORWARDED_HOST']))
-        {
-            $host = $_SERVER['HTTP_X_FORWARDED_HOST'];
-        }
-        elseif (isset($_SERVER['HTTP_HOST']))
-        {
-            $host = $_SERVER['HTTP_HOST'];
-        }
-        else
-        {
-            /* 端口 */
-            if (isset($_SERVER['SERVER_PORT']))
-            {
-                $port = ':' . $_SERVER['SERVER_PORT'];
 
-                if ((':80' == $port && 'http://' == $protocol) || (':443' == $port && 'https://' == $protocol))
-                {
-                    $port = '';
-                }
-            }
-            else
-            {
-                $port = '';
-            }
-
-            if (isset($_SERVER['SERVER_NAME']))
-            {
-                $host = $_SERVER['SERVER_NAME'] . $port;
-            }
-            elseif (isset($_SERVER['SERVER_ADDR']))
-            {
-                $host = $_SERVER['SERVER_ADDR'] . $port;
-            }
-        }
-
-        return $protocol . $host;
-    }
-
- function http()
-    {
-        return (isset($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) != 'off')) ? 'https://' : 'http://';
-    }
 ?>

@@ -256,47 +256,6 @@ elseif($_REQUEST['act'] == 'config')
 	}
 }
 //微信信息设置
-
-
-
-
-
-elseif($_REQUEST['act'] == 'bonus') 
-{
-	$wxch_lang['ur_here'] = '关注送红包设置';
-	if($_POST) 
-	{
-		$type_id = $_POST['bonus'];
-		$sql = "UPDATE site_coupon SET `type_id`='$type_id'";
-		$ret = $db->query($sql);
-		$link[] = array('href' =>'wxch-ent.php?act=bonus', 'text' => '关注送红包');
-		if($ret)
-		{
-			sys_msg('设置成功',0,$link);
-		}
-		else
-		{
-			sys_msg('设置失败，请重新设置',0,$link);
-		}
-	}
-	else 
-	{
-		$thistable = $ecs->prefix.'bonus_type';
-		$sql = "SELECT * FROM  `$thistable` WHERE `send_type` = 3";
-		$w_data = $db->getAll($sql);
-		$ret = $db->getRow("SELECT `type_id` FROM site_coupon WHERE `id` = 1");
-		$type_id = $ret['type_id'];
-		$smarty->assign('w_data',$w_data);
-		$smarty->assign('type_id',$type_id);
-		$smarty->assign('form_act','bonus');
-		$smarty->assign('wxch_lang',$wxch_lang);
-		$smarty->display('wxch_bonus.html');
-	}
-}
-
-
-
-
 //微信信息回复
 elseif($_REQUEST['act'] == 'regmsg') 
 {	

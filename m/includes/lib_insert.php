@@ -135,6 +135,23 @@ function insert_index_history()
  */
 function insert_cart_info()
 {
+    $sql = 'SELECT c.*,g.goods_name,g.goods_thumb,g.goods_id,c.goods_number,c.goods_price' .
+           ' FROM ' . $GLOBALS['ecs']->table('cart') ." AS c ".
+					 " LEFT JOIN ".$GLOBALS['ecs']->table('goods')." AS g ON g.goods_id=c.goods_id ".
+           " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . CART_GENERAL_GOODS . "'";
+    $row = $GLOBALS['db']->GetAll($sql);
+		$arr = array();
+		foreach($row AS $k=>$v)
+		{
+				$arr[$k]['goods_thumb']  =get_image_path($v['goods_id'], $v['goods_thumb'], true);
+        $arr[$k]['short_name']   = $GLOBALS['_CFG']['goods_name_length'] > 0 ?
+                                               sub_str($v['goods_name'], $GLOBALS['_CFG']['goods_name_length']) : $v['goods_name'];
+				$arr[$k]['url']          = build_uri('goods', array('gid' => $v['goods_id']), $v['goods_name']);
+				$arr[$k]['goods_number'] = $v['goods_number'];
+				$arr[$k]['goods_name']   = $v['goods_name'];
+				$arr[$k]['goods_price']  = price_format($v['goods_price']);
+				$arr[$k]['rec_id']       = $v['rec_id'];
+		}		
     $sql = 'SELECT SUM(goods_number) AS number, SUM(goods_price * goods_number) AS amount' .
            ' FROM ' . $GLOBALS['ecs']->table('cart') .
            " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . CART_GENERAL_GOODS . "'";
@@ -150,12 +167,15 @@ function insert_cart_info()
         $number = 0;
         $amount = 0;
     }
-
-    $str = sprintf($GLOBALS['_LANG']['cart_info'], $number, price_format($amount, false));
-
-    return '<a href="flow.php" title="' . $GLOBALS['_LANG']['view_cart'] . '">' . $str . '</a>';
+	$GLOBALS['smarty']->assign('number',$number);
+	$GLOBALS['smarty']->assign('amount',$amount);
+	
+    $GLOBALS['smarty']->assign('str',sprintf($GLOBALS['_LANG']['cart_info'], $number, price_format($amount, false)));
+	$GLOBALS['smarty']->assign('goods',$arr);
+		
+    $output = $GLOBALS['smarty']->fetch('library/cart_info.lbi');
+    return $output;
 }
-
 
 /**
  * 调用购物车加减返回信息
@@ -588,14 +608,4 @@ function insert_kefushow($arr)
 	
 }
 
-/**
-* 调用购物车商品数目
-*/
-function insert_cart_info_number()
-{
-    $sql = 'SELECT SUM(goods_number) AS number FROM ' . $GLOBALS['ecs']->table('cart') .
-           " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . CART_GENERAL_GOODS . "'";
-    $number = $GLOBALS['db']->getOne($sql);
-    return intval($number);
-}
 ?>

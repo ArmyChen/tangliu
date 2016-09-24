@@ -19,6 +19,7 @@ if ((DEBUG_MODE & 2) != 2)
 if (isset($_REQUEST['id']))
 {
     $cat_id = intval($_REQUEST['id']);
+
 }
 elseif (isset($_REQUEST['category']))
 {
@@ -89,20 +90,8 @@ $default_display_type = $_CFG['show_order_type'] == '0' ? 'list' : ($_CFG['show_
 $default_sort_order_method = $_CFG['sort_order_method'] == '0' ? 'DESC' : 'ASC';
 $default_sort_order_type   = $_CFG['sort_order_type'] == '0' ? 'goods_id' : ($_CFG['sort_order_type'] == '1' ? 'shop_price' : 'last_update');
 
-
-$sort = (isset($_REQUEST['sort']) && in_array(trim(strtolower($_REQUEST['sort'])), array('goods_id', 'shop_price', 'last_update', 'salesnum','click_count'))) ? trim($_REQUEST['sort']) : $default_sort_order_type;
-
+$sort  = (isset($_REQUEST['sort'])  && in_array(trim(strtolower($_REQUEST['sort'])), array('goods_id', 'shop_price', 'last_update'))) ? trim($_REQUEST['sort'])  : $default_sort_order_type;
 $order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])), array('ASC', 'DESC')))                              ? trim($_REQUEST['order']) : $default_sort_order_method;
-
-
-	
-
-
-	
-
-
-
-
 $display  = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'grid', 'text'))) ? trim($_REQUEST['display'])  : (isset($_COOKIE['ECS']['display']) ? $_COOKIE['ECS']['display'] : $default_display_type);
 $display  = in_array($display, array('list', 'grid', 'text')) ? $display : 'text';
 setcookie('ECS[display]', $display, gmtime() + 86400 * 7);
@@ -410,10 +399,7 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
 
     $smarty->assign('categories',       get_categories_tree(52)); // 分类树
-	$smarty->assign('categoriespd',       get_categories_tree_cats($cat_id)); // 分类树
-	$smarty->assign('categoriesauto',   get_child_tree($catlist[count($catlist)-1])); // 分类树
-	
-	
+	$smarty->assign('categoriesauto',       get_child_tree($cat_id)); // 分类树
 	$smarty->assign('categorieschild', get_child_tree($cattest_id));//阿能
     $smarty->assign('cat_id',     $cat_id);   //当前id
 //获取父级分类
@@ -435,9 +421,6 @@ if (count($catlist)>=2)
 
 
 $smarty->assign('ad_gywm',     get_pcat_ad(119,$current_cat_pr_id));   //文章列表_关于我们  
-
-
-$smarty->assign('adlist',     get_pcat_ad(126,$cat_id));   //文章列表_关于我们 
 
     $smarty->assign('helps',            get_shop_help());              // 网店帮助
     $smarty->assign('top_goods',        get_top10());                  // 销售排行
@@ -506,20 +489,7 @@ $smarty->assign('adlist',     get_pcat_ad(126,$cat_id));   //文章列表_关于
     assign_dynamic('category'); // 动态内容
 }
 
-
-
-$moban=$db->getOne("select moban from ". $ecs->table('category') ." where cat_id='$cat_id'  limit 0,1");
-
-if (!empty($moban))
-{
-   $smarty->display($moban.'.dwt', $cache_id);
-}
-else
-{ 
-
-  $smarty->display('category.dwt', $cache_id);
-
-}
+$smarty->display('category.dwt', $cache_id);
 
 /*------------------------------------------------------ */
 //-- PRIVATE FUNCTION
@@ -740,72 +710,5 @@ function get_parent_grade($cat_id)
 
 }
 
-function get_categories_tree_cats($cat_id)
-{
-  
-        $parent_id = $cat_id;
-    
 
-    /*
-     判断当前分类中全是是否是底级分类，
-     如果是取出底级分类上级分类，
-     如果不是取当前分类及其下的子分类
-    */
-    $sql = 'SELECT count(*) FROM ' . $GLOBALS['ecs']->table('category') . " WHERE parent_id = '$parent_id' AND is_show = 1 ";
-    if ($GLOBALS['db']->getOne($sql) || $parent_id == 0)
-    {
-        /* 获取当前分类及其子分类 */
-        $sql = 'SELECT cat_id,cat_name ,parent_id,is_show ' .
-                'FROM ' . $GLOBALS['ecs']->table('category') .
-                "WHERE parent_id = '$parent_id' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC";
-
-        $res = $GLOBALS['db']->getAll($sql);
-
-        foreach ($res AS $row)
-        {
-            if ($row['is_show'])
-            {
-
-
-   /*获得分类下商品总数 */
-                $children = get_children($row['cat_id']);
-                $sql = 'SELECT count(*)' . "FROM " . $GLOBALS['ecs']->table('goods') . ' AS g '.
-                'WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND '.
-                 'g.is_delete = 0 AND (' . $children . 'OR ' . get_extension_goods($children) . ') ';
-                $cat_goods_num=$GLOBALS['db']->getOne($sql);
-                $cat_arr[$row['cat_id']]['goods_num']   = $cat_goods_num == '' ? 0 : $cat_goods_num;
-
-
-
-
-                $cat_arr[$row['cat_id']]['id']   = $row['cat_id'];
-                $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
-                $cat_arr[$row['cat_id']]['url']  = build_uri('category', array('cid' => $row['cat_id']), $row['cat_name']);
-
-
-
-
-
-
-                if (isset($row['cat_id']) != NULL)
-                {
-
-$cat_arr[$row['cat_id']]['catgoodslist']=get_cat_goods_recommend('new',$row['cat_id'],20); //
-$cat_arr[$row['cat_id']]['adlist']=get_pcat_ad('125',$row['cat_id']); //
-
-
-
-
-                    $cat_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id']);
-                }
-
-				    $cat_arr[$row['cat_id']]['catinfopar'] = index_tag_key_par($row['cat_id']);
-            }
-        }
-    }
-    if(isset($cat_arr))
-    {
-        return $cat_arr;
-    }
-}
 ?>

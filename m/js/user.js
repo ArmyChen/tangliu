@@ -595,7 +595,7 @@ function submitSurplus()
   var frm            = document.forms['formSurplus'];
   var surplus_type   = frm.elements['surplus_type'].value;
   var surplus_amount = frm.elements['amount'].value;
-  //var process_notic  = frm.elements['user_note'].value;
+  var process_notic  = frm.elements['user_note'].value;
   var payment_id     = 0;
   var msg = '';
 
@@ -612,10 +612,10 @@ function submitSurplus()
     }
   }
 
-  //if (process_notic.length == 0)
-  //{
-  //  msg += process_desc + "\n";
-  //}
+  if (process_notic.length == 0)
+  {
+    msg += process_desc + "\n";
+  }
 
   if (msg.length > 0)
   {

@@ -462,28 +462,7 @@ elseif ($_REQUEST['act'] == 'update')
    sys_msg($_LANG['edit'] .' '.$_POST['ad_name'].' '. $_LANG['attradd_succed'], 0, $href);
 
 }
-/*------------------------------------------------------ */
-//-- 编辑广告名称
-/*------------------------------------------------------ */
-elseif ($_REQUEST['act'] == 'edit_sortnumber')
-{
-    check_authz_json('ad_manage');
 
-    $id      = intval($_POST['id']);
-    $sortnumber = json_str_iconv(trim($_POST['val']));
-
-   
-        if ($exc->edit("sortnumber = '$sortnumber'", $id))
-        {
-            admin_log($sortnumber,'edit','ads');
-            make_json_result(stripslashes($sortnumber));
-        }
-        else
-        {
-            make_json_error($db->error());
-        }
-   
-}
 /*------------------------------------------------------ */
 //--生成广告的JS代码
 /*------------------------------------------------------ */

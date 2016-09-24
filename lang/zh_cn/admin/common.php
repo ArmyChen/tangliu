@@ -124,13 +124,13 @@ $_LANG['is_pc'] = '电脑端';
 $_LANG['is_mobile'] = '移动端';
 //版本的权限语言识别********************
 $_LANG['banben1'] = '版本1';
-$_LANG['banben2'] = '版本2';
+//$_LANG['banben2'] = '版本2';
 $_LANG['banben3'] = '版本3';
 //个性的权限语言识别********************
 $_LANG['special'] = '特别';
 
 //设置是否启动
-$_LANG['weixinset'] = '微信开启设置';
+//$_LANG['weixinset'] = '微信开启设置';
 $_LANG['productset'] = '产品系统开启设置';
 
 
@@ -141,12 +141,12 @@ $_LANG['goods_add'] = '商品添加/编辑';
 $_LANG['goods_remove_back'] = '商品删除/恢复';
 $_LANG['goods_cat_add'] = '商品分类添加/编辑';
 $_LANG['goods_cat_drop'] = '商品分类转移/删除';
-//$_LANG['goods_attr_manage'] = '商品属性管理';
+$_LANG['goods_attr_manage'] = '商品属性管理';
 //$_LANG['goods_brand_manage'] = '商品品牌管理';
 if(@$_LANG['banben2'])
 {
 $_LANG['goods_comment_priv'] = '商品评价管理';
-//$_LANG['goods_type_manage'] = '商品类型';
+$_LANG['goods_type_manage'] = '商品类型';
 }
 //商品管理，及文章分类管理菜单子项显示---------
 $_LANG['sgoods'] = '商品管理';
@@ -158,7 +158,6 @@ if(@$_LANG['banben2'])
 {
 $_LANG['mgoods_type_manage'] = '商品类型';
 $_LANG['mgoods_comment_manage'] = '商品评价';
-$_LANG['mgoods_brand_manage'] = '商品品牌';
 }
 $_LANG['mgoods_trash'] = '商品回收站';
 //商品管理，及文章分类管理菜单子项显示
@@ -169,7 +168,6 @@ $modules['sgoods']['mgoodscat_add']   = 'category.php?act=add';
 if(@$_LANG['banben2'])
 {
 $modules['sgoods']['mgoods_type_manage']       = 'goods_type.php?act=manage';
-$modules['sgoods']['mgoods_brand_manage']       = 'brand.php?act=list';
 $modules['sgoods']['mgoods_comment_manage']   = 'comment_manage.php?act=list';
 }
 $modules['sgoods']['mgoods_trash']      = 'goods.php?act=trash';        // 商品回收站
@@ -208,9 +206,9 @@ $_LANG['ad_position_mobile'] = '移动端广告位置';
 $_LANG['ad_list_mobile'] = '移动端广告列表';
 }
 //广告设置管理，及广告分类管理菜单子项显示---------
-$_LANG['sbanner'] = '广告';
 if(@$_LANG['is_pc'])
 {
+$_LANG['sbanner'] = '广告';
 $_LANG['mad_position_pc'] = '电脑端广告位';
 $_LANG['mad_position_pc_add'] = '添加电脑端广告位';
 $_LANG['mad_list_pc'] = '电脑端广告列表';
@@ -248,12 +246,12 @@ $_LANG['unreply_msg'] = '会员留言管理';
 //会员管理，及广告分类管理菜单子项显示---------
 $_LANG['susers'] = '会员';
 $_LANG['musers_list'] = '会员列表';
-//$_LANG['musers_add'] = '会员添加';
-//$_LANG['munreply_msg'] = '会员留言';
+$_LANG['musers_add'] = '会员添加';
+$_LANG['munreply_msg'] = '会员留言';
 //会员管理，及广告分类管理菜单子项显示
 $modules['susers']['musers_list']             = 'users.php?act=list';
-//$modules['susers']['musers_add']     = 'users.php?act=add';
-//$modules['susers']['munreply_msg']            = 'user_rank.php?act=list';
+$modules['susers']['musers_add']     = 'users.php?act=add';
+$modules['susers']['munreply_msg']            = 'user_rank.php?act=list';
 }
 //会员管理结束
 
@@ -268,11 +266,9 @@ $_LANG['order_query'] = '订单查询';
 $_LANG['sorder'] = '订单';
 $_LANG['morder_list'] = '订单列表';
 $_LANG['morder_query'] = '订单查询';
-$_LANG['morder_fahuo'] = '发货单列表';
 //订单管理，及广告分类管理菜单子项显示
 $modules['sorder']['morder_list']             = 'order.php?act=list';
 $modules['sorder']['morder_query']     = 'order.php?act=order_query';
-$modules['sorder']['morder_fahuo']     = 'order.php?act=delivery_list';
 }
 //订单管理结束
 
@@ -286,33 +282,31 @@ if(@$_LANG['weixinset'])
 $_LANG['weixin_wxconfig'] = '微信接口';
 $_LANG['weixin_menu'] = '微信菜单';
 $_LANG['weixin_config'] = '微信信息配置';
-//$_LANG['weixin_keywords_gz'] = '关注微信自动回复';
-//$_LANG['weixin_keywords'] = '微信关键词回复';
+$_LANG['weixin_keywords_gz'] = '关注微信自动回复';
+$_LANG['weixin_keywords'] = '微信关键词回复';
 $_LANG['weixin_users_list'] = '微信粉丝管理';
 $_LANG['weixin_oauth'] = '微信授权管理';
 //微信管理菜单子项显示---------
 $_LANG['sweixin'] = '微信';
 $_LANG['mweixin_wxconfig'] = '微信接口';
 $_LANG['mweixin_menu'] = '微信菜单';
-//$_LANG['mweixin_config'] = '微信信息配置';
+$_LANG['mweixin_config'] = '微信信息配置';
 $_LANG['mweixin_keywords_gz'] = '关注微信自动回复';
-$_LANG['mweixin_keywords_bonus'] = '关注送优惠券';
 $_LANG['mweixin_keywords'] = '微信关键词回复';
 $_LANG['mweixin_users_list'] = '微信粉丝管理';
 $_LANG['mweixin_oauth'] = '微信授权管理';
 //微信管理菜单子项显示
 $modules['sweixin']['mweixin_wxconfig'] = 'wxch-ent.php?act=wxconfig';
 $modules['sweixin']['mweixin_menu'] = 'wxch-ent.php?act=menu';
-//$modules['sweixin']['mweixin_config'] = 'wxch-ent.php?act=config';
-//$modules['sweixin']['mweixin_keywords_gz'] = 'wxch-ent.php?act=regmsg';
-//$modules['sweixin']['mweixin_keywords_bonus'] = 'wxch-ent.php?act=bonus';
-//$modules['sweixin']['mweixin_keywords'] = 'wxch-ent.php?act=keywords';
+$modules['sweixin']['mweixin_config'] = 'wxch-ent.php?act=config';
+$modules['sweixin']['mweixin_keywords_gz'] = 'wxch-ent.php?act=regmsg';
+$modules['sweixin']['mweixin_keywords'] = 'wxch-ent.php?act=keywords';
 $modules['sweixin']['mweixin_users_list'] = 'wxch_users.php?act=list';
 $modules['sweixin']['mweixin_oauth'] = 'wxch-ent.php?act=oauth';
 //微信管理结束
 }
 
-/*
+
 //权限管理开始
 //权限管理部分的权限语言识别********************
 $_LANG['admin_add'] = '管理员添加/编辑';
@@ -324,18 +318,18 @@ $_LANG['admin_logs'] = '操作日志管理';
 $_LANG['sadmin'] = '权限管理';
 $_LANG['madmin_list'] = '管理员列表';
 $_LANG['madmin_add'] = '添加管理员';
-$_LANG['madmin_role'] = '角色列表';
-$_LANG['madmin_role_add'] = '添加角色';
+//$_LANG['madmin_role'] = '角色列表';
+//$_LANG['madmin_role_add'] = '添加角色';
 $_LANG['madmin_logs'] = '日志管理';
 
 //权限管理，及广告分类管理菜单子项显示
 $modules['sadmin']['madmin_list'] = 'privilege.php?act=list';
 $modules['sadmin']['madmin_add'] = 'privilege.php?act=add';
-$modules['sadmin']['madmin_role'] = 'role.php?act=list';
-$modules['sadmin']['madmin_role_add'] = 'role.php?act=add';
+//$modules['sadmin']['madmin_role'] = 'role.php?act=list';
+//$modules['sadmin']['madmin_role_add'] = 'role.php?act=add';
 $modules['sadmin']['madmin_logs'] = 'admin_logs.php?act=list';
 //权限管理结束
-*/
+
 
 //系统设置开始
 //系统设置管理部分的权限语言识别********************
@@ -359,82 +353,75 @@ $_LANG['captcha_manage'] = '全站式验证码管理';
 }
 if(@$_LANG['is_pc'])
 {
-$_LANG['flink_list_pc'] = '电脑端友情链接';
+//$_LANG['flink_list_pc'] = '电脑端友情链接';
 }
 if(@$_LANG['is_mobile'])
 {
-$_LANG['flink_list_mobile'] = '移动端友情链接';
+//$_LANG['flink_list_mobile'] = '移动端友情链接';
 }
 //系统设置管理，及文章分类管理菜单子项显示---------
 $_LANG['ssystem'] = '系统设置';
 $_LANG['mshop_config'] = '全站式系统设置';
-$_LANG['mcomment_manage'] = '网站留言管理';
+//$_LANG['mcomment_manage'] = '网站留言管理';
 //$_LANG['mkefu_manage'] = '网站客服管理';
-//$_LANG['bonus_manage'] = '网站红包管理';
-//$_LANG['tehui_manage'] = '网站特惠管理';
-//if(@$_LANG['is_mobile'])
-//{
+if(@$_LANG['is_mobile'])
+{
 $_LANG['mnavigator_mobile'] ='移动端菜单管理';
 $_LANG['mnavigator_mobile_add'] = '添加移动端菜单';
-//}
-//if(@$_LANG['is_pc'])
-//{
+}
+if(@$_LANG['is_pc'])
+{
 $_LANG['mnavigator_pc'] = '电脑端菜单管理';
-$_LANG['mnavigator_pc_add'] = '添加电脑端菜单';
-//}
-//if(@$_LANG['banben2'])
-//{
+$_LANG['mnavigator_pc_add'] = '添加移动端菜单';
+}
+if(@$_LANG['banben2'])
+{
 $_LANG['mpayment_list_mobile'] = '移动端支付方式';
 $_LANG['mpayment_list_pc'] = '电脑端支付方式';
 $_LANG['mshipping_list'] = '全站式配送方式';
 $_LANG['marea_list'] = '全站式地区列表';
-$_LANG['topic_list'] = '专题活动管理';
-//$_LANG['mreg_fields'] = '全站式会员注册项';
-//$_LANG['mcaptcha_manage'] = '全站式验证码管理';
-//}
-//if(@$_LANG['is_pc'])
-//{
-//$_LANG['mflink_list_pc'] = '电脑端友情链接';
-//$_LANG['mflink_list_pc_add'] = '添加电脑端友情链接';
-//}
-//if(@$_LANG['is_mobile'])
-///{
-//$_LANG['mflink_list_mobile'] = '移动端友情链接';
-//$_LANG['mflink_list_mobile_add'] = '添加移动端友情链接';
-//}
+$_LANG['mreg_fields'] = '全站式会员注册项';
+$_LANG['mcaptcha_manage'] = '全站式验证码管理';
+}
+if(@$_LANG['is_pc'])
+{
+$_LANG['mflink_list_pc'] = '电脑端友情链接';
+$_LANG['mflink_list_pc_add'] = '添加电脑端友情链接';
+}
+if(@$_LANG['is_mobile'])
+{
+$_LANG['mflink_list_mobile'] = '移动端友情链接';
+$_LANG['mflink_list_mobile_add'] = '添加移动端友情链接';
+}
 //系统设置管理，及文章分类管理菜单子项显示
 $modules['ssystem']['mshop_config']             = 'shop_config.php?act=list_edit';
-//if(@$_LANG['is_mobile'])
-//{
+if(@$_LANG['is_mobile'])
+{
 $modules['ssystem']['mnavigator_mobile']     = 'navigator.php?act=list';
-//}
-//if(@$_LANG['is_pc'])
-//{
+}
+if(@$_LANG['is_pc'])
+{
 $modules['ssystem']['mnavigator_pc']            = 'navigator_pc.php?act=list';
-//}
-//if(@$_LANG['banben2'])
-//{
+}
+if(@$_LANG['banben2'])
+{
 $modules['ssystem']['mpayment_list_mobile']         = 'payment.php?act=list';
 $modules['ssystem']['mpayment_list_pc']       = 'payment_pc.php?act=list';
 $modules['ssystem']['mshipping_list']       = 'shipping.php?act=list';
 $modules['ssystem']['marea_list']       = 'area_manage.php?act=list';
-$modules['ssystem']['topic_list']       = 'topic.php?act=list';
-//$modules['ssystem']['mreg_fields']       = 'reg_fields.php?act=list';
-//$modules['ssystem']['mcaptcha_manage']       = 'captcha_manage.php?act=main';
-//}
-//if(@$_LANG['is_pc'])
-//{
+$modules['ssystem']['mreg_fields']       = 'reg_fields.php?act=list';
+$modules['ssystem']['mcaptcha_manage']       = 'captcha_manage.php?act=main';
+}
+if(@$_LANG['is_pc'])
+{
 //$modules['ssystem']['mflink_list_pc']       = 'friend_link_pc.php?act=list';
-//}
-//if(@$_LANG['is_mobile'])
-//{
+}
+if(@$_LANG['is_mobile'])
+{
 //$modules['ssystem']['mflink_list_mobile']       = 'friend_link.php?act=list';
-//}
-$modules['ssystem']['mcomment_manage']             = 'comment_manage.php?act=list';
+}
+//$modules['ssystem']['mcomment_manage']             = 'comment_manage.php?act=list';
 //$modules['ssystem']['mkefu_manage']             = 'kefu.php?act=main';
-//$modules['ssystem']['bonus_manage']             = 'bonus.php?act=list';
-//$modules['ssystem']['tehui_manage']             = 'tehui.php??act=main';
 //系统设置结束
-
 
 ?>

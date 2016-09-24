@@ -333,14 +333,14 @@ function handle_gallery_image($goods_id, $image_files, $image_descs, $image_urls
                 $thumb_url = $img_original;
             }
             // 如果服务器支持GD 则添加水印
-            if ($proc_thumb && gd_version() > 0)
+            if ($proc_thumb && gd_version_tianxin100() > 0)
             {
                 $pos        = strpos(basename($img_original), '.');
                 $newname    = dirname($img_original) . '/' . $GLOBALS['image']->random_filename() . substr(basename($img_original), $pos);
-                copy(ROOT_PATH . $img_original, ROOT_PATH . $newname);
+                copy(WEB_PATH . $img_original, WEB_PATH . $newname);
                 $img_url    = $newname;
 
-                $GLOBALS['image']->add_watermark(ROOT_PATH.$img_url,'',$GLOBALS['_CFG']['watermark'], $GLOBALS['_CFG']['watermark_place'], $GLOBALS['_CFG']['watermark_alpha']);
+                $GLOBALS['image']->add_watermark(WEB_PATH.$img_url,'',$GLOBALS['_CFG']['watermark'], $GLOBALS['_CFG']['watermark_place'], $GLOBALS['_CFG']['watermark_alpha']);
             }
 
             /* 重新格式化图片名称 */
@@ -354,15 +354,15 @@ function handle_gallery_image($goods_id, $image_files, $image_descs, $image_urls
             if ($proc_thumb && !$GLOBALS['_CFG']['retain_original_img'] && !empty($img_original))
             {
                 $GLOBALS['db']->query("UPDATE " . $GLOBALS['ecs']->table('goods_gallery') . " SET img_original='' WHERE `goods_id`='{$goods_id}'");
-                @unlink(ROOT_PATH . $img_original);
+                @unlink(WEB_PATH . $img_original);
             }
         }
-        elseif (!empty($image_urls[$key]) && ($image_urls[$key] != $GLOBALS['_LANG']['img_file']) && ($image_urls[$key] != 'http://') && copy(trim($image_urls[$key]), ROOT_PATH . 'temp/' . basename($image_urls[$key])))
+        elseif (!empty($image_urls[$key]) && ($image_urls[$key] != $GLOBALS['_LANG']['img_file']) && ($image_urls[$key] != 'http://') && copy(trim($image_urls[$key]), WEB_PATH . 'temp/' . basename($image_urls[$key])))
         {
             $image_url = trim($image_urls[$key]);
 
             //定义原图路径
-            $down_img = ROOT_PATH . 'temp/' . basename($image_url);
+            $down_img = WEB_PATH . 'temp/' . basename($image_url);
 
             // 生成缩略图
             if ($proc_thumb)
@@ -1264,19 +1264,19 @@ function reformat_image_name($type, $goods_id, $source_img, $position='')
         $dir = IMAGE_DIR;
     }
     $sub_dir = date('Ym', gmtime());
-    if (!make_dir(ROOT_PATH.$dir.'/'.$sub_dir))
+    if (!make_dir(WEB_PATH.$dir.'/'.$sub_dir))
     {
         return false;
     }
-    if (!make_dir(ROOT_PATH.$dir.'/'.$sub_dir.'/source_img'))
+    if (!make_dir(WEB_PATH.$dir.'/'.$sub_dir.'/source_img'))
     {
         return false;
     }
-    if (!make_dir(ROOT_PATH.$dir.'/'.$sub_dir.'/goods_img'))
+    if (!make_dir(WEB_PATH.$dir.'/'.$sub_dir.'/goods_img'))
     {
         return false;
     }
-    if (!make_dir(ROOT_PATH.$dir.'/'.$sub_dir.'/thumb_img'))
+    if (!make_dir(WEB_PATH.$dir.'/'.$sub_dir.'/thumb_img'))
     {
         return false;
     }
@@ -1297,21 +1297,21 @@ function reformat_image_name($type, $goods_id, $source_img, $position='')
     }
     if ($position == 'source')
     {
-        if (move_image_file(ROOT_PATH.$source_img, ROOT_PATH.$dir.'/'.$sub_dir.'/source_img/'.$img_name.$img_ext))
+        if (move_image_file(WEB_PATH.$source_img, WEB_PATH.$dir.'/'.$sub_dir.'/source_img/'.$img_name.$img_ext))
         {
             return $dir.'/'.$sub_dir.'/source_img/'.$img_name.$img_ext;
         }
     }
     elseif ($position == 'thumb')
     {
-        if (move_image_file(ROOT_PATH.$source_img, ROOT_PATH.$dir.'/'.$sub_dir.'/thumb_img/'.$img_name.$img_ext))
+        if (move_image_file(WEB_PATH.$source_img, WEB_PATH.$dir.'/'.$sub_dir.'/thumb_img/'.$img_name.$img_ext))
         {
             return $dir.'/'.$sub_dir.'/thumb_img/'.$img_name.$img_ext;
         }
     }
     else
     {
-        if (move_image_file(ROOT_PATH.$source_img, ROOT_PATH.$dir.'/'.$sub_dir.'/goods_img/'.$img_name.$img_ext))
+        if (move_image_file(WEB_PATH.$source_img, WEB_PATH.$dir.'/'.$sub_dir.'/goods_img/'.$img_name.$img_ext))
         {
             return $dir.'/'.$sub_dir.'/goods_img/'.$img_name.$img_ext;
         }

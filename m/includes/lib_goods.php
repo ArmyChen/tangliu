@@ -727,10 +727,9 @@ function get_goods_info($goods_id)
 //载入demo数据
 $demogoodss=csv_goods_list();
 $row['goods_name']       = isset($demogoodss['name'][$goods_id])?$demogoodss['name'][$goods_id]:$row['goods_name'];
-$row['thumb']       = get_image_path($goods_id, $row['goods_thumb'], true);
-$row['goods_img']       =get_image_path($goods_id, $row['goods_img']);
-
-
+$row['thumb']       = isset($demogoodss['thumb'][$goods_id])?$demogoodss['thumb'][$goods_id]:get_image_path($goods_id, $row['goods_thumb'], true);
+$row['goods_img']       = isset($demogoodss['goods_img'][$goods_id])?$demogoodss['goods_img'][$goods_id]:get_image_path($goods_id, $row['goods_img']);
+$row['goods_desc']      = isset($demogoodss['goods_desc'][$goods_id])?$demogoodss['goods_desc'][$goods_id]:$row['goods_desc'];
 //载入demo数据
 
 
@@ -2188,8 +2187,8 @@ function get_goods_new($cats = '')
         $goods[$idx]['shop_price']   = price_format($row['shop_price']);
        //载入demo数据
 $demogoodss=csv_goods_list();
-$goods[$idx]['name']       = $row['goods_name'];
-$goods[$idx]['thumb']       = get_image_path($row['goods_id'], $row['goods_thumb'], true);
+$goods[$idx]['name']       = isset($demogoodss['name'][$row['goods_id']])?$demogoodss['name'][$row['goods_id']]:$row['goods_name'];
+$goods[$idx]['goods_thumb']       = isset($demogoodss['goods_thumb'][$row['goods_id']])?$demogoodss['goods_thumb'][$row['goods_id']]:get_image_path($row['goods_id'], $row['goods_thumb'], true);
 //载入demo数据
         $goods[$idx]['goods_img']    = get_image_path($row['goods_id'], $row['goods_img']);
         $goods[$idx]['url']          = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
