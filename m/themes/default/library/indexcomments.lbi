@@ -1,0 +1,140 @@
+<!--手机留言表单-->
+<form action="javascript:;" onsubmit="submitCommentindex(this)" method="post" name="commentForm" id="commentForm">
+<table border="0" cellpadding="0" cellspacing="3" class="guestbook_table">
+<tr><td class="t1"><span class="required">昵称*</span></td><td class="t2"><input  id="username" name="user_name"   type="text"  maxlength="100"  /></td></tr>
+<tr><td class="t1">内容</td><td class="t2"><textarea id="MessageContent"    name="content"  id="content" ></textarea></td></tr>
+<tr><td class="t1">QQ</td><td class="t2"><input  id="qq" name="qq" type="text"  maxlength="100"  /></td></tr>
+<tr><td class="t1">电话</td><td class="t2"><input d="contact_tel" name="contact_tel"  type="text"  maxlength="100"  /></td></tr>
+<tr><td class="t1">验证码</td><td class="t2"><input type="text" name="captcha"  size=4  style="vertical-align:middle;width:100px;">&nbsp;<img src="{$weburl}captcha.php?{$rand}" alt="captcha" onClick="this.src='{$weburl}captcha.php?'+Math.random()"  style="vertical-align:middle"></td></tr>
+<tr><td colspan="2">
+
+
+<input type="hidden" name="cmt_type" value="{$comment_type}" />
+<input type="hidden"  name="gongsi_name" value="hidden" >
+<input  type="hidden"  name="address" value="hidden">
+
+
+
+<input name="comment_rank" type="hidden" value="1" id="comment_rank1" /> 
+          <input name="comment_rank" type="hidden" value="2" id="comment_rank2" /> 
+          <input name="comment_rank" type="hidden" value="3" id="comment_rank3" />
+          <input name="comment_rank" type="hidden" value="4" id="comment_rank4" /> 
+          <input name="comment_rank" type="hidden" value="5" checked="checked" id="comment_rank5" />
+                         
+          <input type="hidden" name="cmt_type" value="{$comment_type}" />
+          <input type="hidden" name="id" value="{$id}" />
+
+
+
+
+
+
+<input class="btn" type="submit" name="submit"  value="提交" /></tr>
+</table>
+</form>
+<!--手机留言表单-->
+
+
+
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+{foreach from=$lang.cmt_lang item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+{literal}
+/**
+ * 提交评论信息
+*/
+function submitCommentindex(frm)
+{
+  var cmt = new Object;
+  cmt.username        = frm.elements['username'].value;
+  cmt.contact_tel           = frm.elements['contact_tel'].value;
+
+
+  cmt.type            = frm.elements['cmt_type'].value;
+    cmt.qq        = frm.elements['qq'].value;
+        cmt.content        = frm.elements['content'].value;
+   cmt.type            = frm.elements['cmt_type'].value;
+  cmt.id              = frm.elements['id'].value;
+  cmt.enabled_captcha = frm.elements['enabled_captcha'] ? frm.elements['enabled_captcha'].value : '0';
+  cmt.captcha         = frm.elements['captcha'] ? frm.elements['captcha'].value : '';
+  cmt.rank            = 0;
+
+  for (i = 0; i < frm.elements['comment_rank'].length; i++)
+  {
+    if (frm.elements['comment_rank'][i].checked)
+    {
+       cmt.rank = frm.elements['comment_rank'][i].value;
+     }
+  }
+
+
+
+
+ if (cmt.username.length == 0)
+ {
+     alert(cmt_empty_username);
+     return false;
+  }
+
+ if (cmt.contact_tel.length == 0)
+ {
+     alert("请填写联系电话");
+     return false;
+  }
+
+
+   if (cmt.qq.length == 0)
+ {
+     alert("若没有QQ填写无");
+     return false;
+  }
+if (cmt.content.length == 0)
+ {
+     alert("请填写内容");
+     return false;
+  }
+
+
+  if (cmt.enabled_captcha > 0 && cmt.captcha.length == 0 )
+   {
+      alert(captcha_not_null);
+      return false;
+   }
+
+   Ajax.call('{$weburl}comment.php', 'cmt=' + objToJSONString(cmt), commentResponse1, 'POST', 'JSON');
+
+   return false;
+}
+
+/**
+ * 处理提交评论的反馈信息
+*/
+  function commentResponse1(result)
+  {
+    
+    if (result.message)
+    {
+          alert(result.message);
+    }
+    
+    if (result.error == 0)
+    {
+
+      var layer = document.getElementById('ECS_COMMENT');
+
+      if (layer)
+      {
+        layer.innerHTML = result.content;
+      }
+    }
+  }
+{/literal}
+//]]>
+</script>
+

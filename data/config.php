@@ -6,10 +6,10 @@ $db_host   = "localhost";
 $db_name   = "webts2";
 
 // database username
-$db_user   = "webts2";
+$db_user   = "root";
 
 // database password
-$db_pass   = "eudqk3jp";
+$db_pass   = "root";
 
 // table prefix
 $prefix    = "site_";

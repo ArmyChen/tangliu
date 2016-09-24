@@ -1,0 +1,32 @@
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+
+<div class="header">
+	<div class="hongf_sdf"></div>
+	<div class="nav_ioiuy">
+		<ul>
+			{foreach name=nav_middle_list from=$navigator_list.middle item=nav key=key name=nav}
+			<li><a href="{if $nav.durl} {$nav.durl}{else}{$nav.url}{/if}">{$nav.name}</a></li>
+			 <!-- {/foreach} -->
+		</ul>
+	</div>
+	<div class="logo"><a href="{$weburl}"><img src="{$ecsolve_path}/img/logo.png"></a></div>
+</div>
+
+<div class="lxfs">
+	<div class="tel"><a href="tel:{$service_phone}"><img src="{$ecsolve_path}/img/tel.png"></a></div>
+	<div class="yx"><a href="mailto:{$service_email}"><img src="{$ecsolve_path}/img/yx.png"></a></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
