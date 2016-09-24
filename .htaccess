@@ -14,7 +14,7 @@ RewriteEngine On
 RewriteRule ^(admin|ecadmin|mobile|js|data|system)/(.*)$	$1/$2 [QSA,L]
 
 
-# ÉÌÆ·ÀàµÄÒª·ÅÔÚÇ°Ãæ£¬Òª²»»á¸úÉÌÆ·µÄ³åÍ»
+# ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ç°ï¿½æ£¬Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ä³ï¿½Í»
 
 RewriteRule ^cat-([0-9a-zA-Z_]+)-attr([^-]*)-([0-9]+)-(.+)-([a-zA-Z]+)[\/]*$  category\.php\?defurl=$1&filter_attr=$2&page=$3 [QSA,L]
 RewriteRule ^cat-([0-9a-zA-Z_]+)-attr([^-]*)[\/]*$                            category\.php\?defurl=$1&filter_attr=$2 [QSA,L]
@@ -22,12 +22,12 @@ RewriteRule ^cat-([0-9a-zA-Z_]+)-([0-9]+)-(.+)-([a-zA-Z]+)[\/]*$                
 RewriteRule ^cat-([0-9a-zA-Z_]+)[\/]*$                                                                          category\.php\?defurl=$1  [QSA,L]
 RewriteRule ^cat-(?:[0-9a-zA-Z_]+)/([0-9]+)(.*)\.html$                                goods\.php\?id=$1   [QSA,L]
 
-# ÎÄÕÂÀàµÄÒª·ÅÔÚÇ°Ãæ£¬Òª²»»á¸úÉÌÆ·µÄ³åÍ»
-RewriteRule ^([0-9a-zA-Z_]+)-([0-9]+)-(.+)-([a-zA-Z]+)[\/]*$  article_cat\.php\?defurl=$1&page=$2&sort=$3&order=$4  [QSA,L]
-RewriteRule ^([0-9a-zA-Z_]+)-([0-9]+)-(.+)[\/]*$              article_cat\.php\?defurl=$1&page=$2&keywords=$3 [QSA,L]
-RewriteRule ^([0-9a-zA-Z_]+)-([0-9]+)[\/]*$                   article_cat\.php\?defurl=$1&page=$2   [QSA,L]
-RewriteRule ^([0-9a-zA-Z_]+)[\/]*$                            article_cat\.php\?defurl=$1   [QSA,L]
-RewriteRule ^(?:[0-9a-zA-Z_]+)/([0-9]+)(.*)\.html$                                article\.php\?id=$1   [QSA,L]
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ç°ï¿½æ£¬Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ä³ï¿½Í»
+RewriteRule ^a-([0-9a-zA-Z_]+)-([0-9]+)-(.+)-([a-zA-Z]+)[\/]*$  article_cat\.php\?defurl=$1&page=$2&sort=$3&order=$4  [QSA,L]
+RewriteRule ^a-([0-9a-zA-Z_]+)-([0-9]+)-(.+)[\/]*$              article_cat\.php\?defurl=$1&page=$2&keywords=$3 [QSA,L]
+RewriteRule ^a-([0-9a-zA-Z_]+)-([0-9]+)[\/]*$                   article_cat\.php\?defurl=$1&page=$2   [QSA,L]
+RewriteRule ^a-([0-9a-zA-Z_]+)[\/]*$                            article_cat\.php\?defurl=$1   [QSA,L]
+RewriteRule ^a-(?:[0-9a-zA-Z_]+)/([0-9]+)(.*)\.html$                                article\.php\?id=$1   [QSA,L]
 
 
 

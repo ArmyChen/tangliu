@@ -1,7 +1,7 @@
 <?php
-
-$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(118)); //首页广告调用或者循环广告
-$GLOBALS['smarty']->assign('article_cat_fgzx', get_article_cat(134)); 
+//首页广告调用或者循环广告
+$GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(118));
+$GLOBALS['smarty']->assign('article_cat_fgzx', get_article_cat(134));
 $GLOBALS['smarty']->assign('article_list_fgzx', index_get_all_cat_articles(134)); 
 $GLOBALS['smarty']->assign('article_cat_yfzx', get_article_cat(120)); 
 $GLOBALS['smarty']->assign('article_list_yfzx', index_get_all_cat_articles(120)); 
@@ -15,8 +15,11 @@ $GLOBALS['smarty']->assign('article_list_zxzx', index_get_all_cat_articles(133))
 $GLOBALS['smarty']->assign('article_tlq',     get_article(28993)); 
 $GLOBALS['smarty']->assign('article_sjfw',     get_article(28992)); 
 $GLOBALS['smarty']->assign('article_xfkt',     get_article(28991)); 
-$GLOBALS['smarty']->assign('article_tzss',     get_article(28990)); 
- ?>
+$GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
+
+?>
+
+
 
 <!doctype html>
 <html>
@@ -38,6 +41,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
 <script src="{$ecsolve_path}/js/jquery-1.11.0.min.js"></script> 
 <script src="{$ecsolve_path}/js/superSlide.2.1.js"></script> 
 <body>
+
 <div class="container">
 	<div class="login">
     	<div class="login-box auto">
@@ -203,7 +207,51 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
     	<div class='banner-box clear rel'>
         	<div class='banner-nav fl'>
             	<ul>
-                	<li class='sub-box'>
+                    <!-- {foreach from=get_categories_tree(27) item=cat} -->
+                    <li class='sub-box'>
+                        <p class='sub'>{$cat.name}</p>
+                        <div class='product-box f0'>
+                            <!-- {foreach from=assign_cat_goods($cat.id,10) item=end}-->
+                                        <div class='product' id="{$cat.id}">
+                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td class='lm'><span>天花</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
+                                        <td class='xh'>101</td>
+                                        <td class='xmmc'><span>平顶天花101</span><a class='opt' href='javascript:void(0);'>选择</td>
+                                        <td class='dw'>m<sup>2</sup></td>
+                                        <td class='sl'><input class='sl_input' type='number' value="1" ></td>
+                                        <td class='xhgg'>
+                                            <div class="select-box">
+                                                <div class="select clear">
+                                                    <span class="text_left">8厘石膏板</span>
+                                                    <span class="arrow_right"></span>
+                                                </div>
+                                                <ul class="select-list">
+                                                    <li value="72">8厘石膏板</li>
+                                                    <li value="56">6厘石膏板</li>
+                                                    <li value="42">4厘石膏板</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td class='rgdj'>65</td>
+                                        <td class='cldj'>55.00</td>
+                                        <td class='zhdj'></td>
+                                        <td class='hjje'><span>¥</span><p>-</p></td>
+                                        <td class='bz rel'><span>轻轻钢龙骨+石膏板+阻燃夹板造型111</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">轻轻钢龙骨+石膏板+阻燃夹板造型111</div></div></td>
+                                        <td class='khbz'><input type="text" /></td>
+                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- {/foreach} -->
+
+
+                        </div>
+                    </li>
+                    <!-- {/foreach} -->
+
+                    <!--
+                    <li class='sub-box'>
                     	<p class='sub'>天花</p>
                         <div class='product-box f0'>
                         	<div class='product'>
@@ -218,7 +266,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -249,7 +297,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -280,7 +328,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -311,7 +359,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -342,7 +390,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -379,7 +427,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -410,7 +458,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -441,7 +489,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -472,7 +520,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -509,7 +557,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -540,7 +588,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -571,7 +619,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                             <div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span> 
+                                                     <span class="arrow_right"></span>
                                                  </div>
                                                  <ul class="select-list">
                                                      <li value="72">8厘石膏板</li>
@@ -601,14 +649,14 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                     <li class='sub-box'><p class='sub'>强电弱电</p></li>
                     <li class='sub-box'><p class='sub'>卫生间</p></li>
                     <li class='sub-box'><p class='sub'>软装</p></li>
-                    <li class='sub-box'><p class='sub'>配件辅料</p></li>
+                    <li class='sub-box'><p class='sub'>配件辅料</p></li>-->
                 </ul>
             </div>
             <div class='banner fl'>
             	<div class='bd'>
                 	<ul>
                 	   <!--{foreach from=$index_ad item=ad  name=index_ads key=key }-->	  	
-                    	<li><a href='{$ad.file_url}'><img src="{$ad.file_url}" alt="{$ad.title}" /></a></li>
+                    	<li><a href='{$ad.file_url}' target="_blank"><img src="{$ad.file_url}" alt="{$ad.title}" /></a></li>
                          <!--{/foreach}-->     
                     </ul>
                 </div>
