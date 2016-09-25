@@ -42,8 +42,11 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
 <script type="text/javascript" src="{$weburl}/js/transport.js"></script>
 <script type="text/javascript" src="{$weburl}/js/utils.js"></script>
 <script src="{$ecsolve_path}/js/superSlide.2.1.js"></script>
-<body>
 
+<body>
+{insert_scripts files='transport.js'}
+<div class="cart" id="ECS_CARTINFO">
+    {insert name='cart_info'}
 <div class="container">
 	<div class="login">
     	<div class="login-box auto">
