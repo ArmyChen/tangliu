@@ -1,0 +1,88 @@
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+		<div class="header">
+			<div class="logo"><a href="{$weburl}"><img src="{$ecsolve_path}/img/logo.png"></a></div>
+			<div class="nav">
+				<ul>
+					{foreach name=nav_middle_list from=$navigator_list.middle item=nav key=key name=nav}
+					<li class="dddt" {if $smarty.foreach.nav.last}style="border: none !important;"{/if}><a href="{if $nav.durl} {$nav.durl}{else}{$nav.url}{/if}">{$nav.name}</a>
+						<div class="xiala nshow">
+							
+	     <?php
+     $subcates_article = get_article_urlok($GLOBALS['smarty']->_var['nav']['url']);
+     if($subcates_article!=false)
+     {
+     if(count($subcates_article)>0)
+     {                            
+     if($subcates_article)
+     {                        
+     $i = 1;
+     echo "";
+     foreach($subcates_article as $catearticle) 
+     {
+     if($i % 2 == 0)
+     {
+
+     }
+     else
+     {
+     }
+
+  if($catearticle['children'])
+     {
+     foreach($catearticle['children'] as $subcatearticle)
+     {
+    if($subcatearticle['name'])
+     {
+        echo "<div class='navlist'><a href='".$subcatearticle['url']."'>".$subcatearticle['name']."</a></div>";
+	}
+     }
+     }
+     } } 
+     }
+     }
+     ?>						
+							<?php
+    $subcates_article_cat = get_article_cat_urlok($GLOBALS['smarty']->_var['nav']['url']);
+     if($subcates_article_cat!=false)
+     {
+     if(count($subcates_article_cat)>0)
+     {                            
+     if($subcates_article_cat)
+     {                        
+     $i = 1;
+
+     foreach($subcates_article_cat as $catearticlecat) 
+     {
+     if($i % 2 == 0)
+     {
+
+     }
+     else
+     {
+     }
+    echo "<div class='navlist'><a href='".$catearticlecat['url']."'>".$catearticlecat['name']."</a></div>";
+                      
+     }
+     }
+     }
+     }
+     ?>
+
+
+							
+							
+						</div>
+					</li>
+					{/foreach}
+					
+				</ul>
+			</div>
+		</div>
+		
+		
+	<div class="cl"></div>	
+
+

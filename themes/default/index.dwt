@@ -35,11 +35,13 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
 <meta name="copyright" content="{$shop_name}">
 <meta name="robots" content="All">
 <link rel="shortcut icon" href="">
-<link rel="stylesheet" href="{$ecsolve_path}/css/common.css">
-<link rel="stylesheet" href="{$ecsolve_path}/css/style.css">
 </head>
-<script src="{$ecsolve_path}/js/jquery-1.11.0.min.js"></script> 
-<script src="{$ecsolve_path}/js/superSlide.2.1.js"></script> 
+<script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
+<script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
+<script type="text/javascript" src="{$weburl}/js/common.js"></script>
+<script type="text/javascript" src="{$weburl}/js/transport.js"></script>
+<script type="text/javascript" src="{$weburl}/js/utils.js"></script>
+<script src="{$ecsolve_path}/js/superSlide.2.1.js"></script>
 <body>
 
 <div class="container">
@@ -59,124 +61,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
         </div>
     </div>
 	<div class="container-box auto">
-    	<div class="header">
-        	<div class="logo fl">
-        		<a href='{$weburl}'><img class="vm" src="{$ecsolve_path}/images/logo.png" alt="" /></a>
-            </div>
-            <div class='nav fl'>
-                <ul class='clear'>
-                    <li>
-                    	<a href=''>新手入站</a>
-                        <div class='sub-nav tc'>
-                        	<dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>如何自主设计空间</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>如何自主设计空间</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>如何自主设计空间</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>如何自主设计空间</p></a>
-                            </dl>
-                        </div>
-                    </li>
-                    <li>
-                    	<a href=''>工程预算</a>
-                    	<div class='sub-nav tc'>
-                        	<dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>222</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>222</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>222</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>222</p></a>
-                            </dl>
-                        </div>
-                    </li>
-                    <li>
-                    	<a href=''>研发中心</a>
-                    	<div class='sub-nav tc'>
-                        	<dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>333</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>333</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>333</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>333</p></a>
-                            </dl>
-                        </div>
-                    </li>
-                    <li>
-                    	<a href=''>工程质量</a>
-                    	<div class='sub-nav tc'>
-                        	<dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>444</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>444</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>444</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>444</p></a>
-                            </dl>
-                        </div>
-                    </li>
-                    <li>
-                    	<a href=''>服务中心</a>
-                    	<div class='sub-nav tc'>
-                        	<dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>如何自主设计空间</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>如何自主设计空间</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
-                                <a href=''><p>如何自主设计空间</p></a>
-                            </dl>
-                            <dl>
-                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
-                                <a href=''><p>如何自主设计空间</p></a>
-                            </dl>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <form class='fr f0'>
-            	<input class='text dib vm f14' type="text" placeholder="玻璃隔断"/>
-                <input class='button dib vm f14 cp' type="button" />
-            </form>
-        </div>
+        <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
         <div class='aside'>
         	
                 <div class='kf-btn cp'>
@@ -207,17 +92,18 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
     	<div class='banner-box clear rel'>
         	<div class='banner-nav fl'>
             	<ul>
-                    <!-- {foreach from=get_categories_tree(27) item=cat} -->
+                   <?foreach(get_categories_tree(27) as $item){ ?>
                     <li class='sub-box'>
-                        <p class='sub'>{$cat.name}</p>
+                        <p class='sub'><?echo $item['name'];?></p>
                         <div class='product-box f0'>
-                            <!-- {foreach from=assign_cat_goods($cat.id,10) item=end}-->
-                                        <div class='product' id="{$cat.id}">
+                            <?foreach(get_cat_id_goods_list($item['id'],10) as $key => $goods){ ?>
+                            {*<?var_dump($goods);?>*}
+                                        <div class='product' id="<?echo $goods['id']?>">
                                 <table width='100%' border="0" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td class='lm'><span>天花</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>101</td>
-                                        <td class='xmmc'><span>平顶天花101</span><a class='opt' href='javascript:void(0);'>选择</td>
+                                        <td class='lm'><span><?echo $goods['name']?></span><img src="{$ecsolve_path}/<?echo $goods['goods_img']?>" alt="" /></td>
+                                        <td class='xh'><?echo $goods['id']?></td>
+                                        <td class='xmmc'><span><?echo $goods['name']?></span><a class='opt' href='javascript:void(0);'>选择</td>
                                         <td class='dw'>m<sup>2</sup></td>
                                         <td class='sl'><input class='sl_input' type='number' value="1" ></td>
                                         <td class='xhgg'>
@@ -233,22 +119,22 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                                 </ul>
                                             </div>
                                         </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
+                                        <td class='rgdj'><?echo $goods['shop_price']?></td>
+                                        <td class='cldj'><?echo $goods['market_price']?></td>
                                         <td class='zhdj'></td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>轻轻钢龙骨+石膏板+阻燃夹板造型111</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">轻轻钢龙骨+石膏板+阻燃夹板造型111</div></div></td>
+                                        <td class='hjje'><span>¥</span><p><?echo $goods['shop_price']?></p></td>
+                                        <td class='bz rel'><span><?echo $goods['brief']?></span><div class="tip"><div class="tip-horn"></div><div class="tip-text"><?echo $goods['brief']?></div></div></td>
                                         <td class='khbz'><input type="text" /></td>
                                         <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
                                     </tr>
                                 </table>
                             </div>
-                            <!-- {/foreach} -->
+                            <?}?>
 
 
                         </div>
                     </li>
-                    <!-- {/foreach} -->
+                    <?}?>
 
                     <!--
                     <li class='sub-box'>

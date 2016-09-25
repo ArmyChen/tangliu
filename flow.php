@@ -78,7 +78,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
     $goods = $json->decode($_POST['goods']);
 
 	//czneng json触发	
- 
+
     /* 检查：如果商品有规格，而post的数据没有规格，把商品的规格属性通过JSON传到前台 */
     if (empty($goods->spec) AND empty($goods->quick))
     {
@@ -118,24 +118,23 @@ if ($_REQUEST['step'] == 'add_to_cart')
 
             die($json->encode($result));
         }
-			//czneng json触发	
-		else
-	
-		{
-		
+			//czneng json触发
+//		else
+//
+//		{
+//
+//
+//            $result['goods_id'] = $goods->goods_id;
+//            $result['parent'] = $goods->parent;
+//            $result['message'] = $spe_array;
+//		 die($json->encode($result));
+//		}
+			//czneng json触发
 
-            $result['goods_id'] = $goods->goods_id;
-            $result['parent'] = $goods->parent;
-            $result['message'] = $spe_array;
-		 die($json->encode($result));
-		}
-			//czneng json触发	
-		
     }
 	
 
-	//czneng json触发	
- 
+	//czneng json触发
 
     /* 更新：如果是一步购物，先清空购物车 */
     if ($_CFG['one_step_buy'] == '1')
@@ -183,7 +182,9 @@ if ($_REQUEST['step'] == 'add_to_cart')
         }
     }
 
-    $result['confirm_type'] = !empty($_CFG['cart_confirm']) ? $_CFG['cart_confirm'] : 2;
+    //$result['confirm_type'] = !empty($_CFG['cart_confirm']) ? $_CFG['cart_confirm'] : 2;
+    $result['confirm_type'] = 3;//不处理任何事情
+
     die($json->encode($result));
 }
 elseif ($_REQUEST['step'] == 'link_buy')

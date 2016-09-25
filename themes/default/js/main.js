@@ -337,7 +337,8 @@ $(function(){
 		var nav_xh=$(this).closest('tr').find('.xh').text();			//点击的商品导航商品的序号
 		var arr=[];
 		$(this).addClass('on');
-		
+		// 添加到购物车
+		addToCart(nav_xh);
 		/*添加到表格里*/
 		$('.gcysb .sub-table').each(function() {
 			var now_add_table=$(this);									

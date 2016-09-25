@@ -6,8 +6,8 @@
 <meta name="Description" content="{$description}" />
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>{$page_title}</title>
-<link href="{$ecsolve_path}/style/style.css" rel="stylesheet" type="text/css" />
-<link href="{$ecsolve_path}/style/gtcommon.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{$ecsolve_path}/css/common.css">
+    <link rel="stylesheet" href="{$ecsolve_path}/css/style.css">
 <link href="{$ecsolve_path}/style/register.css" rel="stylesheet" type="text/css" />
 {* 包含脚本文件 *}
 <script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
@@ -74,14 +74,14 @@
         <table width="360" border="0" cellpadding="0" cellspacing="0" style="margin-left:10px">
                 <tbody><tr>
                   <td height="30" colspan="4">
-		  
-		  
-		  
-		
-		  
-		  
-		  
-		  
+
+
+
+
+
+
+
+
 		  <!--
 		  使用合作网站账号登录：<a href="{$weburl}/user.php?act=oath&type=qq"><img src="{$ecsolve_path}/images/qq_login.gif"/></a>-->
 </td>
@@ -91,7 +91,7 @@
 </td>
                 </tr>
               </tbody></table>
-		
+
       </div>
       <div class="clear"></div>
     </div>
@@ -145,7 +145,7 @@
 
             <!-- {else} -->
             <tr>
-              <td align="right" 
+              <td align="right"
               <!-- {if $field.is_need} -->
               id="extend_field{$field.id}i"
               <!--{/if}-->
@@ -160,7 +160,7 @@
             </tr>
             <!-- {/if} -->
             <!-- {/foreach} -->
-          
+
 
 
 
@@ -191,7 +191,7 @@
         <input type="submit" tabindex="4" value="" class="register_button" id="btnSubmit" name="Submit" >
 </td>
                 <td style="padding-left:5px;" class="blue"></td>
-              </tr>      
+              </tr>
 
 
 
@@ -212,9 +212,9 @@
       <div>
         <table width="360" border="0" cellpadding="0" cellspacing="0" style="margin-left:10px">
                 <tbody><tr>
-                  <td height="30" colspan="4">已经商城账号？<span class="blue"><a href="{$weburl}/user.php?act=login">立即登录</a></span> 
+                  <td height="30" colspan="4">已经商城账号？<span class="blue"><a href="{$weburl}/user.php?act=login">立即登录</a></span>
 		  <!--<br>使用合作网站账号登录：<a href="{$weburl}/user.php?act=oath&type=qq"><img src="{$ecsolve_path}/images/qq_login.gif"/></a>-->
-		
+
 </td>
                                    <td>
 </td>                  <td>
@@ -222,7 +222,7 @@
 </td>
                 </tr>
               </tbody></table>
-		
+
       </div>
       <div class="clear"></div>
     </div>
@@ -282,7 +282,7 @@
       </form>
     </dd>
   </dl>
-</div>	
+</div>
 
 
 <!--{/if}-->
@@ -313,7 +313,7 @@
             <input type="hidden" name="uid" value="{$uid}" />
             <input type="hidden" name="code" value="{$code}" />
             <input type="submit" name="submit" value="{$lang.confirm_submit}" /></td>
-       
+
         </tr>
       </table>
       <br />

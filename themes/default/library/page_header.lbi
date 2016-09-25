@@ -1,88 +1,121 @@
-<script type="text/javascript">
-var process_request = "{$lang.process_request}";
-</script>
+<link rel="stylesheet" href="{$ecsolve_path}/css/common.css">
+<link rel="stylesheet" href="{$ecsolve_path}/css/style.css">
 
-		<div class="header">
-			<div class="logo"><a href="{$weburl}"><img src="{$ecsolve_path}/img/logo.png"></a></div>
-			<div class="nav">
-				<ul>
-					{foreach name=nav_middle_list from=$navigator_list.middle item=nav key=key name=nav}
-					<li class="dddt" {if $smarty.foreach.nav.last}style="border: none !important;"{/if}><a href="{if $nav.durl} {$nav.durl}{else}{$nav.url}{/if}">{$nav.name}</a>
-						<div class="xiala nshow">
-							
-	     <?php
-     $subcates_article = get_article_urlok($GLOBALS['smarty']->_var['nav']['url']);
-     if($subcates_article!=false)
-     {
-     if(count($subcates_article)>0)
-     {                            
-     if($subcates_article)
-     {                        
-     $i = 1;
-     echo "";
-     foreach($subcates_article as $catearticle) 
-     {
-     if($i % 2 == 0)
-     {
-
-     }
-     else
-     {
-     }
-
-  if($catearticle['children'])
-     {
-     foreach($catearticle['children'] as $subcatearticle)
-     {
-    if($subcatearticle['name'])
-     {
-        echo "<div class='navlist'><a href='".$subcatearticle['url']."'>".$subcatearticle['name']."</a></div>";
-	}
-     }
-     }
-     } } 
-     }
-     }
-     ?>						
-							<?php
-    $subcates_article_cat = get_article_cat_urlok($GLOBALS['smarty']->_var['nav']['url']);
-     if($subcates_article_cat!=false)
-     {
-     if(count($subcates_article_cat)>0)
-     {                            
-     if($subcates_article_cat)
-     {                        
-     $i = 1;
-
-     foreach($subcates_article_cat as $catearticlecat) 
-     {
-     if($i % 2 == 0)
-     {
-
-     }
-     else
-     {
-     }
-    echo "<div class='navlist'><a href='".$catearticlecat['url']."'>".$catearticlecat['name']."</a></div>";
-                      
-     }
-     }
-     }
-     }
-     ?>
-
-
-							
-							
-						</div>
-					</li>
-					{/foreach}
-					
-				</ul>
-			</div>
-		</div>
-		
-		
-	<div class="cl"></div>	
-
-
+	<div class="header">
+        	<div class="logo fl">
+        		<a href='{$weburl}'><img class="vm" src="{$ecsolve_path}/images/logo.png" alt="" /></a>
+            </div>
+            <div class='nav fl'>
+                <ul class='clear'>
+                    <li>
+                    	<a href=''>新手入站</a>
+                        <div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                    	<a href=''>工程预算</a>
+                    	<div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>222</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>222</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>222</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>222</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                    	<a href=''>研发中心</a>
+                    	<div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>333</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>333</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>333</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>333</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                    	<a href=''>工程质量</a>
+                    	<div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>444</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>444</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>444</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>444</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                    	<a href=''>服务中心</a>
+                    	<div class='sub-nav tc'>
+                        	<dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list1.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                            <dl>
+                            	<a href=''><img src="{$ecsolve_path}/images/temp/nav-list2.jpg" alt="" /></a>
+                                <a href=''><p>如何自主设计空间</p></a>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <form class='fr f0'>
+            	<input class='text dib vm f14' type="text" placeholder="玻璃隔断"/>
+                <input class='button dib vm f14 cp' type="button" />
+            </form>
+        </div>
