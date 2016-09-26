@@ -937,6 +937,40 @@ function cart_goods($type = CART_GENERAL_GOODS)
 }
 
 /**
+ * add 20160926
+ * 根据分类id取得购物车商品
+ * @param   int     $type   类型：默认普通商品
+ * @return  array   购物车商品数组
+ */
+function cart_goods_id($cat_id = 0 ,$type = CART_GENERAL_GOODS)
+{
+    $sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, g.goods_thumb, c.goods_sn, c.goods_number, " .
+            "c.market_price, c.goods_price, c.goods_attr, c.is_real, c.extension_code, c.parent_id, c.is_gift, c.is_shipping, " .
+            "c.goods_price * c.goods_number AS subtotal " .
+            "FROM " . $GLOBALS['ecs']->table('cart') .
+			" AS c LEFT JOIN ".$GLOBALS['ecs']->table('goods').
+            " AS g ON c.goods_id = g.goods_id WHERE c.cat_id=".$cat_id." and session_id = '" . SESS_ID . "' " .
+            "AND rec_type = '$type'";
+
+    $arr = $GLOBALS['db']->getAll($sql);
+
+    /* 格式化价格及礼包商品 */
+    foreach ($arr as $key => $value)
+    {
+        $arr[$key]['formated_market_price'] = price_format($value['market_price'], false);
+        $arr[$key]['formated_goods_price']  = price_format($value['goods_price'], false);
+        $arr[$key]['formated_subtotal']     = price_format($value['subtotal'], false);
+
+        if ($value['extension_code'] == 'package_buy')
+        {
+            $arr[$key]['package_goods_list'] = get_package_goods($value['goods_id']);
+        }
+    }
+
+    return $arr;
+}
+
+/**
  * 取得购物车总金额
  * @params  boolean $include_gift   是否包括赠品
  * @param   int     $type           类型：默认普通商品
@@ -1062,13 +1096,13 @@ function cart_weight_price($type = CART_GENERAL_GOODS)
  * @param   integer $parent     基本件
  * @return  boolean
  */
-function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0)
+function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0,$cat_id)
 {
     $GLOBALS['err']->clean();
     $_parent_id = $parent;
 
     /* 取得商品信息 */
-    $sql = "SELECT g.goods_name, g.goods_sn, g.is_on_sale, g.is_real, ".
+    $sql = "SELECT g.goods_name, g.goods_sn, g.is_on_sale, g.is_real,g.cat_id, ".
                 "g.market_price, g.shop_price AS org_price, g.promote_price, g.promote_start_date, ".
                 "g.promote_end_date, g.goods_weight, g.integral, g.extension_code, ".
                 "g.goods_number, g.is_alone_sale, g.is_shipping,".
@@ -1078,6 +1112,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0)
                     "ON mp.goods_id = g.goods_id AND mp.user_rank = '$_SESSION[user_rank]' ".
             " WHERE g.goods_id = '$goods_id'" .
             " AND g.is_delete = 0";
+    
     $goods = $GLOBALS['db']->getRow($sql);
 
     if (empty($goods))
@@ -1170,6 +1205,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0)
         'goods_id'      => $goods_id,
         'goods_sn'      => addslashes($goods['goods_sn']),
         'product_id'    => $product_info['product_id'],
+        'cat_id'       => !empty($cat_id)?$cat_id:$goods['cat_id'],
         'goods_name'    => addslashes($goods['goods_name']),
         'market_price'  => $goods['market_price'],
         'goods_attr'    => addslashes($goods_attr),
@@ -1280,32 +1316,42 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0)
 
         if($row) //如果购物车已经有此物品，则更新
         {
-            $num += $row['goods_number'];
-            if(is_spec($spec) && !empty($prod) )
-            {
-             $goods_storage=$product_info['product_number'];
-            }
-            else
-            {
-                $goods_storage=$goods['goods_number'];
-            }
-            if ($GLOBALS['_CFG']['use_storage'] == 0 || $num <= $goods_storage)
-            {
-                $goods_price = get_final_price($goods_id, $num, true, $spec);
-                $sql = "UPDATE " . $GLOBALS['ecs']->table('cart') . " SET goods_number = '$num'" .
-                       " , goods_price = '$goods_price'".
-                       " WHERE session_id = '" .SESS_ID. "' AND goods_id = '$goods_id' ".
-                       " AND parent_id = 0 AND goods_attr = '" .get_goods_attr_info($spec). "' " .
-                       " AND extension_code <> 'package_buy' " .
-                       "AND rec_type = 'CART_GENERAL_GOODS' AND group_id=''";
-                $GLOBALS['db']->query($sql);
-            }
-            else
-            {
-               $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['shortage'], $num), ERR_OUT_OF_STOCK);
+           
+            if($goods_id == 0){
+                    $goods_price = get_final_price($goods_id, $num, true, $spec);
+                    $parent['goods_price']  = max($goods_price, 0);
+                    $parent['goods_number'] = $num;
+                    $parent['parent_id']    = 0;
+                    $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('cart'), $parent, 'INSERT');
+            }else{
+                    $num += $row['goods_number'];
+                    if(is_spec($spec) && !empty($prod) )
+                    {
+                    $goods_storage=$product_info['product_number'];
+                    }
+                    else
+                    {
+                        $goods_storage=$goods['goods_number'];
+                    }
+                    if ($GLOBALS['_CFG']['use_storage'] == 0 || $num <= $goods_storage)
+                    {
+                        $goods_price = get_final_price($goods_id, $num, true, $spec);
+                        $sql = "UPDATE " . $GLOBALS['ecs']->table('cart') . " SET goods_number = '$num'" .
+                            " , goods_price = '$goods_price'".
+                            " WHERE session_id = '" .SESS_ID. "' AND goods_id = '$goods_id' ".
+                            " AND parent_id = 0 AND goods_attr = '" .get_goods_attr_info($spec). "' " .
+                            " AND extension_code <> 'package_buy' " .
+                            "AND rec_type = 'CART_GENERAL_GOODS' AND group_id=''";
+                        $GLOBALS['db']->query($sql);
+                    }
+                    else
+                    {
+                    $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['shortage'], $num), ERR_OUT_OF_STOCK);
 
-                return false;
+                        return false;
+                    }
             }
+            
         }
         else //购物车没有此物品，则插入
         {

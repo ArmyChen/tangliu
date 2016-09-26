@@ -35,6 +35,15 @@ $(function(){
 		$('body').stop().animate({ scrollTop:gcysb_top },500);
 	})
 	/*点击计算价格后移动到工程预算表 end*/
+
+	$(document).find('.add').css('display','table-row');	//显示自定义添加按钮
+	table_add();
+	table_dele();
+	table_price();
+	table_tr_dele();
+
+	table_price();
+	aside_price();
 })
 
 
@@ -137,7 +146,337 @@ $(function(){
 	}
 	/*解决IE8不支持arr.indexOf方法  end*/
 	
-	//制保留2位小数，如：2，会在2后面补上00.即2.00    
+	
+		
+	
+	var json={};
+	$('.banner-nav .opt').click(function(){
+		var _this=$(this);
+		var nav_btn=$(this);											//点击的商品的按钮
+		var nav_tr=$(this).closest('tr');								//点击的商品的tr
+		var nav_lm=$(this).closest('.sub-box').find('.sub').text();		//点击的商品导航的类目
+		var nav_xh=$(this).closest('tr').find('.xh').text();			//点击的商品导航商品的序号
+		var arr=[];
+		$(this).addClass('on');
+		// 添加到购物车
+		addToCart(nav_xh);
+		/*添加到表格里*/
+		$('.gcysb .sub-table').each(function() {
+			var now_add_table=$(this);									
+            var tab_lm=$(this).find('.lm:eq(0) span').text();			//表格每个小table的第一个tr的类目
+			if(tab_lm==nav_lm){
+				
+				/*判断是否添加到表格中*/
+				var sub_table_this_tr=$(this).find('tr');
+				var tr_num = sub_table_this_tr.length;
+				
+				sub_table_this_tr.each(function() {
+                    var sub_table_tr_xh=$(this).find('.xh').text();
+					arr.push(sub_table_tr_xh);
+                });
+				
+				var num=arr.indexOf(nav_xh);							//判断表格里的序号有没有商品序号
+				if(num==-1){
+					$(this).find('.default').css('display','none');		//隐藏默认的tr
+					var default_lm=$(this).find('.default .lm').clone();
+					$(this).find('.add').css('display','table-row');	//显示自定义添加按钮
+					
+					var oProduct=nav_tr.closest('.product').clone();	//点击的商品的product
+					$('.aside-main .product-box').append(oProduct);		//添加到侧边栏	
+					
+					var product_num =$('.aside-main .product-box .product').length;		//统计侧边栏有多少商品
+					$('.aside .goods-btn .num').text(product_num);
+					
+					
+					var this_num=$(this).find('tr').length;
+					nav_tr=nav_tr.clone(true);
+					if(this_num>2){
+						nav_tr.find('.lm').remove();
+					}else{
+						nav_tr.find('.lm').remove();
+						nav_tr.prepend(default_lm);
+					}
+					
+					$(this).find('.add').before(nav_tr);				//添加到表格
+					
+					aside_price();						/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价(传入的参数是当个tr)*/
+					
+					table_price();						/*计算表格的综合单价  合计金额  某类目小计金额 总价(传入的参数是当个tr)*/
+					
+					table_tr_dele(now_add_table);		//现实表格删除tr
+			
+					change_lm(now_add_table);			//调整表格最前方的类目
+					
+				}else{
+					/*再次点击导航时,删除表格里重复的*/
+					_this.removeClass('on');
+					var now_table=$(this);								
+					var all_tr=$(this).find('tr');						
+					var all_tr_num=$(this).find('tr').length		
+					all_tr.each(function() {						
+                        var all_tr_xh=$(this).find('.xh').text();	
+						if(all_tr_xh==nav_xh){						
+							if(all_tr_num<=3){						
+								now_table.find('.default').css('display','table-row');
+								now_table.find('.add').css('display','none');
+							}else{
+								if($(this).find('.lm').length>0){		
+									var now_lm=$(this).find('.lm').clone();
+									$(this).next('tr').prepend(now_lm);
+								}
+							}
+							
+							$(this).remove();
+							all_tr_num=now_table.find('tr').length
+							
+							if(all_tr_num>=3){
+								var all_tr_num2=all_tr_num-2;
+								now_table.find('tr:eq(1)').find('.lm').attr('rowspan',all_tr_num2);
+							}
+							return false;
+						}
+                    });
+					/*再次点击导航时,删除表格里重复的*/
+					
+					/*同时删除侧边栏的*/
+					$('.aside-main .product').each(function(index, element) {		//每一个侧边栏里面的商品
+                        var all_xh = $(this).find('.xh').text();					//全部侧边栏里的序号的值
+						if(all_xh==nav_xh){											//某一个序号等于点击商品的序号
+							$(this).closest('.product').remove();
+							
+						}
+                    });
+					/*同时删除侧边栏的  end*/
+					
+					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
+					
+					aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
+					
+					var product_num =$('.aside-main .product-box .product').length;		//统计侧边栏有多少商品
+					$('.aside .goods-btn .num').text(product_num);
+					
+				}
+				/*判断是否添加到表格中 end*/
+
+				
+				table_change();
+				
+				side_change();
+				
+				table_add();
+				
+				/*实现自定义添加的人工单价修改*/
+				$('.rgdj input').change(function(){
+					
+					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
+
+				})
+				
+				/*实现自定义添加的材料单价修改*/
+				$('.cldj input').change(function(){
+					
+					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
+					
+				})
+				
+				
+				table_jisuan();
+				
+				
+
+				table_dele();
+				
+				
+			}
+			
+        })
+		/*添加到表格里 end*/
+	})
+	
+	
+	
+})
+/*选择产品添加到表格  end*/
+
+/* 查看工期表 */
+var time_limit = $('#time_limit');
+$('#viewTimeLimit,#time_limit').click(
+	function(){
+		$(time_limit).toggle(0)
+	}
+);
+
+/* 备注查看更多*/
+$('.bz').mouseover(function(){ $(this).find('.tip').show(0);
+}).mouseout(function(){$(this).find('.tip').hide(0);});
+/* 查看工期表 end*/
+
+function table_change(){
+	/*表格数量框的改变*/
+	$('.gcysb .sl_input').unbind('change');
+	$('.gcysb .sl_input').change(function(){
+		var now_xh_table=$(this).closest('tr').find('.xh').text();
+		var oSl=$(this).val();
+		var now_tr=$(this).closest('tr');
+		
+		table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
+		
+		
+		/*表格数量的改变同步到侧边栏*/
+		array=[];
+		$('.aside-main .product').each(function(index) {
+			var aside_xh=$(this).find('.xh').text();
+			if(now_xh_table==aside_xh){
+				$(this).find('.sl_input').val(oSl);
+			}
+		})
+		
+		aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
+		
+
+	})
+	/*表格数量框的改变  end*/
+}
+
+function side_change(){
+	/*侧边栏数量框的改变*/
+	$('.aside .sl_input').unbind('change');
+	$('.aside .sl_input').change(function(){
+		var now_xh_aside=$(this).closest('tr').find('.xh').text();
+		var oSl=$(this).val();
+		var now_tr=$(this).closest('tr');
+		
+		
+		aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
+
+
+		/*侧边栏数量的改变同步到侧边栏*/
+		array=[];
+		$('.gcysb .sub-table tr').each(function(index) {
+			var aside_xh=$(this).find('.xh').text();
+			if(now_xh_aside==aside_xh){
+				$(this).find('.sl_input').val(oSl);
+			}
+		})
+		
+		table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
+		
+		
+	})
+	/*侧边栏数量框的改变  end*/
+}
+
+/*选择下拉列表的时候换材料单价*/
+function table_jisuan(){
+	$('.select-list li').unbind('click');
+	$('.select-list li').click(function(){
+		$(this).parent().parent().find('.text_left').text(($(this).text()));
+		/*替换表格的材料单价和计算表格的总价*/
+		var new_cldj=$(this).val();
+		var new_cldj00=toDecimal2(new_cldj);
+		$(this).closest('tr').find('.cldj').text(new_cldj00);
+		
+		table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
+		
+		
+		/*替换侧边栏的材料单价和计算表格的总价*/
+		var now_xh = $(this).closest('tr').find('.xh').text();
+		$('.aside-main .product').each(function(index, element) {
+			var all_xh=$(this).find('.xh').text();
+			if(now_xh==all_xh){
+				$(this).find('.cldj').text(new_cldj00);
+			}
+		});
+		aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
+	}) 
+}
+
+function table_add(){
+	
+	/*实现自定义添加*/
+	$('.sub-table .add .add-btn').unbind('click');
+	$('.sub-table .add .add-btn').click(function(){
+
+		var zdyAdd=$('.table-box>tbody>.zdyAdd').clone(true);			//zdyAdd的模板
+		var now_table=$(this).closest('table');							//现在的table
+		
+		var all_tr_len=now_table.find('tr').length+1;
+		
+		addToCart(0,0,$(this).attr("data-cat"));
+
+		 $(this).closest('.add').before(zdyAdd);
+		 table_tr_dele(now_table);
+		if(all_tr_len>=3){
+			var tr_num=all_tr_len-2;
+			now_table.find('tr:eq(0)').find('.lm').attr('rowspan',tr_num +1);
+		}
+		table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
+		
+	})
+	/*实现自定义添加  end*/
+}
+
+
+function table_dele(){
+	/*实现侧边栏的删除*/
+	$('#product-box .product .close').unbind('click');
+	$('#product-box .product .close').click(function(index) {
+		var array=[];
+		$(this).closest('.product').remove();
+		var now_tr=$(this).closest('tr');
+		var now_xh=$(this).closest('table').find('.xh').text();
+		
+		/*同时删除表格对应的那个*/
+		$('.gcysb .sub-table tr').each(function(index) {
+			
+			array.push($(this).find('.xh').text());
+			var num=array.indexOf(now_xh);
+			
+			if(num!=-1){
+				var now_table=$(this).closest('.sub-table');
+				var all_tr_len=now_table.find('tr').length;
+				
+				if(all_tr_len<=3){
+					now_table.find('.default').css('display','table-row');
+					now_table.find('.add').css('display','none');
+
+				}else{
+					if($(this).find('.lm').length>0){
+						var now_lm=$(this).find('.lm').clone();
+						$(this).next('tr').prepend(now_lm);
+					}
+				}				
+				$(this).remove();
+				
+				
+				aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
+				
+				
+				table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
+				
+				
+				change_lm(now_table);	//调整表格最前方的类目
+				
+				var product_num =$('.aside-main .product-box .product').length;		//统计侧边栏有多少商品
+				$('.aside .goods-btn .num').text(product_num);
+				
+				return false;
+			}
+		})
+		
+		
+		/*侧边栏删除时导航的颜色变回绿色*/
+		$('.banner-box .product').each(function() {
+			var all_xh=$(this).find('.xh').text();
+			if(now_xh==all_xh){
+				$(this).find('.opt').removeClass('on');
+			}
+		});
+	})
+	/*实现侧边栏的删除 end*/
+}
+
+//制保留2位小数，如：2，会在2后面补上00.即2.00    
     function toDecimal2(x) {    
         var f = parseFloat(x);    
         if (isNaN(f)) {    
@@ -178,13 +517,17 @@ $(function(){
 			var all_tr_len=now_table.find('tr').length;
 			if(all_tr_len<=3){
 				now_table.find('.default').css('display','table-row');
-				now_table.find('.add').css('display','none');
+				//now_table.find('.add').css('display','none');
 			}else{
 				if(now_tr.find('.lm').length>0){
 					var now_lm=now_tr.find('.lm').clone();
 					now_tr.next('tr').prepend(now_lm);
 				}
 			}
+			
+			var tr_num=all_tr_len-1;
+			now_table.find('tr:eq(0)').find('.lm').attr('rowspan',tr_num - 1);
+
 			now_tr.remove();
 
 			/*表格删除时导航的颜色变回绿色*/
@@ -314,6 +657,7 @@ $(function(){
 		zongji.text(xiaoji);
 		/*计算侧边栏总价  end*/
 		
+		
 		if(xiaoji==0){
 			$('.zongjia').css('display','none');
 			//$('.aside-main').css('display','none');
@@ -323,311 +667,11 @@ $(function(){
 			$('.aside-main').css('display','block');
 			$('.book-box').css('display','block');
 		}
+
+		$('.zongjia').css('display','block');
+			$('.aside-main').css('display','block');
+			$('.book-box').css('display','block');
+			
 		return false;
 	}
 	/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价  end*/
-		
-	
-	var json={};
-	$('.banner-nav .opt').click(function(){
-		var _this=$(this);
-		var nav_btn=$(this);											//点击的商品的按钮
-		var nav_tr=$(this).closest('tr');								//点击的商品的tr
-		var nav_lm=$(this).closest('.sub-box').find('.sub').text();		//点击的商品导航的类目
-		var nav_xh=$(this).closest('tr').find('.xh').text();			//点击的商品导航商品的序号
-		var arr=[];
-		$(this).addClass('on');
-		// 添加到购物车
-		addToCart(nav_xh);
-		/*添加到表格里*/
-		$('.gcysb .sub-table').each(function() {
-			var now_add_table=$(this);									
-            var tab_lm=$(this).find('.lm:eq(0) span').text();			//表格每个小table的第一个tr的类目
-			if(tab_lm==nav_lm){
-				
-				/*判断是否添加到表格中*/
-				var sub_table_this_tr=$(this).find('tr');
-				var tr_num = sub_table_this_tr.length;
-				
-				sub_table_this_tr.each(function() {
-                    var sub_table_tr_xh=$(this).find('.xh').text();
-					arr.push(sub_table_tr_xh);
-                });
-				
-				var num=arr.indexOf(nav_xh);							//判断表格里的序号有没有商品序号
-				if(num==-1){
-					$(this).find('.default').css('display','none');		//隐藏默认的tr
-					var default_lm=$(this).find('.default .lm').clone();
-					$(this).find('.add').css('display','table-row');	//显示自定义添加按钮
-					
-					var oProduct=nav_tr.closest('.product').clone();	//点击的商品的product
-					$('.aside-main .product-box').append(oProduct);		//添加到侧边栏	
-					
-					var product_num =$('.aside-main .product-box .product').length;		//统计侧边栏有多少商品
-					$('.aside .goods-btn .num').text(product_num);
-					
-					
-					var this_num=$(this).find('tr').length;
-					nav_tr=nav_tr.clone(true);
-					if(this_num>2){
-						nav_tr.find('.lm').remove();
-					}else{
-						nav_tr.find('.lm').remove();
-						nav_tr.prepend(default_lm);
-					}
-					
-					$(this).find('.add').before(nav_tr);				//添加到表格
-					
-					aside_price();						/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价(传入的参数是当个tr)*/
-					
-					table_price();						/*计算表格的综合单价  合计金额  某类目小计金额 总价(传入的参数是当个tr)*/
-					
-					table_tr_dele(now_add_table);		//现实表格删除tr
-			
-					change_lm(now_add_table);			//调整表格最前方的类目
-					
-				}else{
-					/*再次点击导航时,删除表格里重复的*/
-					_this.removeClass('on');
-					var now_table=$(this);								
-					var all_tr=$(this).find('tr');						
-					var all_tr_num=$(this).find('tr').length		
-					all_tr.each(function() {						
-                        var all_tr_xh=$(this).find('.xh').text();	
-						if(all_tr_xh==nav_xh){						
-							if(all_tr_num<=3){						
-								now_table.find('.default').css('display','table-row');
-								now_table.find('.add').css('display','none');
-							}else{
-								if($(this).find('.lm').length>0){		
-									var now_lm=$(this).find('.lm').clone();
-									$(this).next('tr').prepend(now_lm);
-								}
-							}
-							
-							$(this).remove();
-							all_tr_num=now_table.find('tr').length
-							
-							if(all_tr_num>=3){
-								var all_tr_num2=all_tr_num-2;
-								now_table.find('tr:eq(1)').find('.lm').attr('rowspan',all_tr_num2);
-							}
-							return false;
-						}
-                    });
-					/*再次点击导航时,删除表格里重复的*/
-					
-					/*同时删除侧边栏的*/
-					$('.aside-main .product').each(function(index, element) {		//每一个侧边栏里面的商品
-                        var all_xh = $(this).find('.xh').text();					//全部侧边栏里的序号的值
-						if(all_xh==nav_xh){											//某一个序号等于点击商品的序号
-							$(this).closest('.product').remove();
-							
-						}
-                    });
-					/*同时删除侧边栏的  end*/
-					
-					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
-					
-					aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
-					
-					var product_num =$('.aside-main .product-box .product').length;		//统计侧边栏有多少商品
-					$('.aside .goods-btn .num').text(product_num);
-					
-				}
-				/*判断是否添加到表格中 end*/
-
-				
-				/*表格数量框的改变*/
-				$('.gcysb .sl_input').unbind('change');
-				$('.gcysb .sl_input').change(function(){
-					var now_xh_table=$(this).closest('tr').find('.xh').text();
-					var oSl=$(this).val();
-					var now_tr=$(this).closest('tr');
-					
-					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
-					
-					
-					/*表格数量的改变同步到侧边栏*/
-					array=[];
-					$('.aside-main .product').each(function(index) {
-						var aside_xh=$(this).find('.xh').text();
-						if(now_xh_table==aside_xh){
-							$(this).find('.sl_input').val(oSl);
-						}
-					})
-					
-					aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
-					
-
-				})
-				/*表格数量框的改变  end*/
-				
-				/*侧边栏数量框的改变*/
-				$('.aside .sl_input').unbind('change');
-				$('.aside .sl_input').change(function(){
-					var now_xh_aside=$(this).closest('tr').find('.xh').text();
-					var oSl=$(this).val();
-					var now_tr=$(this).closest('tr');
-					
-					
-					aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
-
-
-					/*侧边栏数量的改变同步到侧边栏*/
-					array=[];
-					$('.gcysb .sub-table tr').each(function(index) {
-						var aside_xh=$(this).find('.xh').text();
-						if(now_xh_aside==aside_xh){
-							$(this).find('.sl_input').val(oSl);
-						}
-					})
-					
-					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
-					
-					
-				})
-				/*侧边栏数量框的改变  end*/
-				
-				/*实现自定义添加*/
-				$('.sub-table .add .add-btn').unbind('click');
-				$('.sub-table .add .add-btn').click(function(){
-			
-					var zdyAdd=$('.table-box>tbody>.zdyAdd').clone(true);			//zdyAdd的模板
-					var now_table=$(this).closest('table');							//现在的table
-					
-					var all_tr_len=now_table.find('tr').length+1;
-					if(all_tr_len>=3){
-						var tr_num=all_tr_len-2;
-						now_table.find('tr:eq(1)').find('.lm').attr('rowspan',tr_num);
-					}
-			
-					$(this).closest('.add').before(zdyAdd);
-					table_tr_dele(now_table);
-					
-					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
-				
-				})
-				/*实现自定义添加  end*/
-				
-				/*实现自定义添加的人工单价修改*/
-				$('.rgdj input').change(function(){
-					
-					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
-
-				})
-				
-				/*实现自定义添加的材料单价修改*/
-				$('.cldj input').change(function(){
-					
-					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
-					
-				})
-				
-				/*选择下拉列表的时候换材料单价*/
-				$('.select-list li').unbind('click');
-				$('.select-list li').click(function(){
-					$(this).parent().parent().find('.text_left').text(($(this).text()));
-					/*替换表格的材料单价和计算表格的总价*/
-					var new_cldj=$(this).val();
-					var new_cldj00=toDecimal2(new_cldj);
-					$(this).closest('tr').find('.cldj').text(new_cldj00);
-					
-					table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
-					
-					
-					/*替换侧边栏的材料单价和计算表格的总价*/
-					var now_xh = $(this).closest('tr').find('.xh').text();
-					$('.aside-main .product').each(function(index, element) {
-                        var all_xh=$(this).find('.xh').text();
-						if(now_xh==all_xh){
-							$(this).find('.cldj').text(new_cldj00);
-						}
-                    });
-					aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
-				}) 
-				
-				
-
-				/*实现侧边栏的删除*/
-				$('#product-box .product .close').unbind('click');
-				$('#product-box .product .close').click(function(index) {
-					var array=[];
-					$(this).closest('.product').remove();
-					var now_tr=$(this).closest('tr');
-					var now_xh=$(this).closest('table').find('.xh').text();
-					
-					/*同时删除表格对应的那个*/
-					$('.gcysb .sub-table tr').each(function(index) {
-						
-						array.push($(this).find('.xh').text());
-						var num=array.indexOf(now_xh);
-						
-						if(num!=-1){
-							var now_table=$(this).closest('.sub-table');
-							var all_tr_len=now_table.find('tr').length;
-							
-							if(all_tr_len<=3){
-								now_table.find('.default').css('display','table-row');
-								now_table.find('.add').css('display','none');
-
-							}else{
-								if($(this).find('.lm').length>0){
-									var now_lm=$(this).find('.lm').clone();
-									$(this).next('tr').prepend(now_lm);
-								}
-							}				
-							$(this).remove();
-							
-							
-							aside_price();			/*计算侧边栏的综合单价  合计金额  某类目小计金额 总价*/
-							
-							
-							table_price();			/*计算表格的综合单价  合计金额  某类目小计金额 总价*/
-							
-							
-							change_lm(now_table);	//调整表格最前方的类目
-							
-							var product_num =$('.aside-main .product-box .product').length;		//统计侧边栏有多少商品
-							$('.aside .goods-btn .num').text(product_num);
-							
-							return false;
-						}
-					})
-					
-					
-					/*侧边栏删除时导航的颜色变回绿色*/
-					$('.banner-box .product').each(function() {
-                        var all_xh=$(this).find('.xh').text();
-						if(now_xh==all_xh){
-							$(this).find('.opt').removeClass('on');
-						}
-                    });
-				})
-				/*实现侧边栏的删除 end*/
-				
-				
-			}
-			
-        })
-		/*添加到表格里 end*/
-	})
-	
-	
-	
-})
-/*选择产品添加到表格  end*/
-
-/* 查看工期表 */
-var time_limit = $('#time_limit');
-$('#viewTimeLimit,#time_limit').click(
-	function(){
-		$(time_limit).toggle(0)
-	}
-);
-
-/* 备注查看更多*/
-$('.bz').mouseover(function(){ $(this).find('.tip').show(0);
-}).mouseout(function(){$(this).find('.tip').hide(0);});
-/* 查看工期表 end*/
-

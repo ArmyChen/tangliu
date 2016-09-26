@@ -3,7 +3,7 @@
 /* *
  * 添加商品到购物车 
  */
-function addToCart(goodsId, parentId)
+function addToCart(goodsId, parentId,catId)
 {
   var goods        = new Object();
   var spec_arr     = new Array();
@@ -28,10 +28,12 @@ function addToCart(goodsId, parentId)
   goods.quick    = quick;
   goods.spec     = spec_arr;
   goods.goods_id = goodsId;
+  goods.cat_id = catId;
   goods.number   = number;
   goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
 
-  Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
+  // Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
+   Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), null, 'POST', 'JSON');
 }
 
 /**

@@ -16,6 +16,9 @@ tr,td{ padding:0;}
 .container-box{ width:1200px; padding-bottom:62px;}
 #ascrail2000>div{ position:fixed !important; }
 
+.rgdj input[type="text"] {
+    text-align: center;
+}
 /*主页公共标题*/
 .zy-tit{ position:relative; padding:46px 0 10px 0; margin-bottom:38px; border-bottom:1px dashed #d5d5d5; color:#acce22;}
 .zy-tit .tit{ color:#acce22;}

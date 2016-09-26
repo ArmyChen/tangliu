@@ -152,7 +152,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
     else
     {
         // 更新：添加到购物车
-        if (addto_cart($goods->goods_id, $goods->number, $goods->spec, $goods->parent))
+        if (addto_cart($goods->goods_id, $goods->number, $goods->spec, $goods->parent , $goods->cat_id))
         {
             if ($_CFG['cart_confirm'] > 2)
             {
@@ -183,7 +183,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
     }
 
     //$result['confirm_type'] = !empty($_CFG['cart_confirm']) ? $_CFG['cart_confirm'] : 2;
-    $result['confirm_type'] = 3;//不处理任何事情
+    $result['confirm_type'] = -1;//不处理任何事情
 
     die($json->encode($result));
 }
@@ -1846,7 +1846,7 @@ elseif ($_REQUEST['step'] == 'done')
 
 	
 $sql = "update " .$GLOBALS['ecs']->table('goods') . " AS a, ".$GLOBALS['ecs']->table('cart') . " AS b ".
- "set a.salesnum= a.salesnum + b.goods_number".
+ "set a.sales_count= a.sales_count + b.goods_number and a.sales_volume= a.sales_volume + b.goods_number".
  " WHERE a.goods_id=b.goods_id AND b.session_id = '".SESS_ID."' AND b.rec_type = '$flow_type'";
 
 	

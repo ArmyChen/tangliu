@@ -1,4 +1,5 @@
 <?php
+require_once("/includes/lib_order.php");
 //首页广告调用或者循环广告
 $GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(118));
 $GLOBALS['smarty']->assign('article_cat_fgzx', get_article_cat(134));
@@ -17,6 +18,7 @@ $GLOBALS['smarty']->assign('article_sjfw',     get_article(28992));
 $GLOBALS['smarty']->assign('article_xfkt',     get_article(28991)); 
 $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
 
+$cart = cart_goods();
 ?>
 
 
@@ -44,9 +46,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
 <script src="{$ecsolve_path}/js/superSlide.2.1.js"></script>
 
 <body>
-{insert_scripts files='transport.js'}
-<div class="cart" id="ECS_CARTINFO">
-    {insert name='cart_info'}
+
 <div class="container">
 	<div class="login">
     	<div class="login-box auto">
@@ -72,7 +72,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                 </div>
                 <div class='goods-btn cp'>
                     <p class='cf'>工程预算</p>
-                    <span class='dib num cf tc'>0</span>
+                    <span class='dib num cf tc'><?echo count($cart);?></span>
                 </div>
                 <div class='ewm-top rel'>
                     <div class='ewm-btn'></div>
@@ -82,7 +82,40 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                 <div class='aside-main'>
                     <form action="" method="">
                         <div class='product-box' id="product-box">
-                            
+                           <?foreach($cart as $key => $goods){ ?>
+                           
+                                        <div class='product' id="<?echo $goods['goods_id']?>">
+                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td class='lm'><span><?echo $goods['goods_name']?></span><img src="{$ecsolve_path}/<?echo $goods['goods_img']?>" alt="" /></td>
+                                        <td class='xh'><?echo $goods['goods_id']?></td>
+                                        <td class='xmmc'><span><?echo $goods['goods_name']?></span><a class='opt' href='javascript:void(0);'>选择</td>
+                                        <td class='dw'>m<sup>2</sup></td>
+                                        <td class='sl'><input class='sl_input' type='number' value="1" ></td>
+                                        <td class='xhgg'>
+                                            <div class="select-box">
+                                                <div class="select clear">
+                                                    <span class="text_left">8厘石膏板</span>
+                                                    <span class="arrow_right"></span>
+                                                </div>
+                                                <ul class="select-list">
+                                                    <li value="72">8厘石膏板</li>
+                                                    <li value="56">6厘石膏板</li>
+                                                    <li value="42">4厘石膏板</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td class='rgdj'><?echo $goods['shop_price']?></td>
+                                        <td class='cldj'><?echo $goods['market_price']?></td>
+                                        <td class='zhdj'></td>
+                                        <td class='hjje'><span>¥</span><p><?echo $goods['shop_price']?></p></td>
+                                        <td class='bz rel'><span><?echo $goods['brief']?></span><div class="tip"><div class="tip-horn"></div><div class="tip-text"><?echo $goods['brief']?></div></div></td>
+                                        <td class='khbz'><input type="text" /></td>
+                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <?}?>
                         </div>
                         <div class='product-total tc'>
                             <p class='tl'><span class='total'>¥<b class='fwn'>0</b></span></p>
@@ -100,7 +133,7 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                         <p class='sub'><?echo $item['name'];?></p>
                         <div class='product-box f0'>
                             <?foreach(get_cat_id_goods_list($item['id'],10) as $key => $goods){ ?>
-                            {*<?var_dump($goods);?>*}
+                           
                                         <div class='product' id="<?echo $goods['id']?>">
                                 <table width='100%' border="0" cellpadding="0" cellspacing="0">
                                     <tr>
@@ -613,10 +646,13 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                 </tr>
             	<tr>
                 	<td colspan="14">
-                    	<!---------------------------------天花-------------------------------->
-                        <table class='sub-table thgc rel' cellpadding="0" cellspacing="0">
-                        	<tr class='default'>
-                                <td class='lm'><span>天花</span><img src="{$ecsolve_path}/images/temp/thgc-lm-bg.jpg" alt="" /></td>
+                   <?foreach(get_categories_tree(27) as $item0){ ?>
+                    <?$rs = cart_goods_id($item0["id"]);?>
+                    <!-------------------------------- <?echo $item0["name"];?> -------------------------------->
+                    <table class='sub-table thgc rel' cellpadding="0" cellspacing="0">
+                    <?if(empty($rs)){?>
+                        <tr class='default'>
+                            <td class='lm'><span><?echo $item0["name"];?></span><img src="{$ecsolve_path}/images/temp/thgc-lm-bg.jpg" alt="" /></td>
                                 <td class='xh'></td>
                                 <td class='xmmc'></td>
                                 <td class='dw'></td>
@@ -629,101 +665,38 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
                                 <td class='bz'></td>
                                 <td class='khbz'></td>
                                 <td class='cz'></td>
-                            </tr>
-                           
-                            <tr class='add'>
-                            	<td colspan="14"><a class='add-btn' href='javascript:void(0);'>自定义项目添加</a><p>小计：<span class='sub-total'>￥<b class='fwn'>0</b></span></p></td>
-                            </tr>
-                        </table>
-                        <!---------------------------------地面-------------------------------->
-                        <table class='sub-table dmgc rel' cellpadding="0" cellspacing="0">
-                        	<tr class='default'>
-                                <td class='lm'><span>地面</span><img src="{$ecsolve_path}/images/temp/dmgc-lm-bg.jpg" alt="" /></td>
-                                <td class='xh'></td>
-                                <td class='xmmc'></td>
-                                <td class='dw'></td>
-                                <td class='sl'></td>
-                                <td class='xhgg'></td>
-                                <td class='rgdj'></td>
-                                <td class='cldj'></td>
-                                <td class='zhdj'></td>
-                                <td class='hjje'><p>-</p></td>
-                                <td class='bz'></td>
-                                <td class='khbz'></td>
-                                <td class='cz'></td>
-                            </tr>
-                            <tr class='add'>
-                            	<td colspan="14"><a class='add-btn' href='javascript:void(0);'>自定义项目添加</a><p>小计：<span class='sub-total'>￥<b class='fwn'>0</b></span></p></td>
-                            </tr>
-                        </table>
-                        <!---------------------------------墙面-------------------------------->
-                        <table class='sub-table qmgc rel' cellpadding="0" cellspacing="0">
-                        	<tr class='default'>
-                                <td class='lm'><span>墙面</span><img src="{$ecsolve_path}/images/temp/qmgc-lm-bg.jpg" alt="" /></td>
-                                <td class='xh'></td>
-                                <td class='xmmc'></td>
-                                <td class='dw'></td>
-                                <td class='sl'></td>
-                                <td class='xhgg'></td>
-                                <td class='rgdj'></td>
-                                <td class='cldj'></td>
-                                <td class='zhdj'></td>
-                                <td class='hjje'><p>-</p></td>
-                                <td class='bz'></td>
-                                <td class='khbz'></td>
-                                <td class='cz'></td>
-                            </tr>
-                            <tr class='add'>
-                            	<td colspan="14"><a class='add-btn' href='javascript:void(0);'>自定义项目添加</a><p>小计：<span class='sub-total'>￥<b class='fwn'>0</b></span></p></td>
-                            </tr>
-                        </table>
-                        <!---------------------------------隔断-------------------------------->
-                        <table class='sub-table gdgc rel' cellpadding="0" cellspacing="0">
-                        	<tr class='default'>
-                                <td class='lm'><span>隔断</span><img src="{$ecsolve_path}/images/temp/gdgc-lm-bg.jpg" alt="" /></td>
-                                <td class='xh'></td>
-                                <td class='xmmc'></td>
-                                <td class='dw'></td>
-                                <td class='sl'></td>
-                                <td class='xhgg'></td>
-                                <td class='rgdj'></td>
-                                <td class='cldj'></td>
-                                <td class='zhdj'></td>
-                                <td class='hjje'><p>-</p></td>
-                                <td class='bz'></td>
-                                <td class='khbz'></td>
-                                <td class='cz'></td>
-                            </tr>
-                            <tr class='add'>
-                            	<td colspan="14"><a class='add-btn' href='javascript:void(0);'>自定义项目添加</a><p>小计：<span class='sub-total'>￥<b class='fwn'>0</b></span></p></td>
-                            </tr>
-                        </table>
-                        <!---------------------------------灶具-------------------------------->
-                        <table class='sub-table zj rel' cellpadding="0" cellspacing="0">
-                        	<tr class='default'>
-                                <td class='lm'><span>灶具</span><img src="{$ecsolve_path}/images/temp/zjgc-lm-bg.jpg" alt="" /></td>
-                                <td class='xh'></td>
-                                <td class='xmmc'></td>
-                                <td class='dw'></td>
-                                <td class='sl'></td>
-                                <td class='xhgg'></td>
-                                <td class='rgdj'></td>
-                                <td class='cldj'></td>
-                                <td class='zhdj'></td>
-                                <td class='hjje'><p>-</p></td>
-                                <td class='bz'></td>
-                                <td class='khbz'></td>
-                                <td class='cz'></td>
-                            </tr>
-                            <tr class='add'>
-                            	<td colspan="14"><a class='add-btn' href='javascript:void(0);'>自定义项目添加</a><p>小计：<span class='sub-total'>￥<b class='fwn'>0</b></span></p></td>
-                            </tr>
-                        </table>
+                        </tr>
+                    <?}else{?>
+                    <?foreach($rs as $key => $item){?>
+                        <tr class='<?if($key == 0){?>default<?}else{?>zdyAdd<?}?>'>
+                            <?if($key == 0){?>
+                                <td class='lm' rowspan="<?echo count($rs);?>">天花</span><img src="<?echo $item["goods_thumb"]?>" alt="" /></td>
+                            <?}?>
+                            <td class='xh'><?echo $item["goods_id"]?></td>
+                            <td class='xmmc'><input type="text" value="<?echo $item["goods_name"]?>" /></td>
+                            <td class="dw">m<sup>2</sup></td>
+                            <td class='sl'><input type="text" value="<?echo $item["goods_number"]?>" /></td>
+                            <td class='xhgg'><input type="text" value="<?echo $item["goods_attr"]?>" /></td>
+                            <td class='rgdj'><input type="text" value="<?echo $item["goods_price"]?>" /></td>
+                            <td class='cldj'><input type="text" value="<?echo $item["goods_price"]?>" /></td>
+                            <td class='zhdj'><?echo $item["goods_price"]?></td>
+                            <td class='hjje'><p><?echo $item["goods_price"]?></p></td>
+                            <td class='bz'><input type="text"></td>
+                            <td class='khbz'><input type="text"></td>
+                            <td class='cz'><a href="javascript:void(0);" class="close dib"></a></td>
+                        </tr>
+                    <?}}?>
+                        <tr class='add'>
+                            <td colspan="14"><a class='add-btn' href='javascript:void(0);' data-cat='<?echo $item0["id"];?>'>自定义项目添加</a><p>小计：<span class='sub-total'>￥<b class='fwn'>0</b></span></p></td>
+                        </tr>
+                    </table>
+
+                    <?}?>
                     </td>
                 </tr>
             </table>
             <div class='zongjia'><p>工程总预算：<span>¥<b class='fwn'>0</b>元</span><br><a href='javascrip:void(0);' id="viewTimeLimit">查看工期表</a></p></div>
-            <div class='book-box tc'><a class='book dib' href=''>预约下单</a>
+            <div class='book-box tc'><a class='book dib' href='/flow.php'>预约下单</a>
             								<div class="select-box">
                                                  <div class="select clear">
                                                      <span class="text_left">现代</span>
