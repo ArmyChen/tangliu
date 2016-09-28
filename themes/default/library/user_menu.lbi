@@ -27,7 +27,7 @@
         
       </dd>
     </dl>
-    <dl>
+    <dl style="display:none">
       <dt>会员信息</dt>
       <dd>
         <div class="item {if $action eq 'message_list'} curr{/if}"><a href="user.php?act=message_list">{$lang.label_message}</a></div>
@@ -61,7 +61,7 @@
     <dl>
       <dt>帐户中心</dt>
       <dd>
-        <div class="item {if $action eq 'default'} curr{/if}"><a href="user.php?act=default">{$lang.label_welcome}</a></div>
+        <!--<div class="item {if $action eq 'default'} curr{/if}"><a href="user.php?act=default">{$lang.label_welcome}</a></div>-->
         <div class="item {if $action eq 'profile'} curr{/if}"><a href="user.php?act=profile">{$lang.label_profile}</a></div>
 		<div class="item"><a href="user.php?act=logout" style="color:#a60201">安全退出</a></div>
       </dd>

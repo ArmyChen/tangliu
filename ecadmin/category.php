@@ -1,15 +1,15 @@
 <?php
 define('IN_ECS', true);
 require(dirname(__FILE__) . '/includes/init.php');
-/***ÐÂÔö¼ÓµÄ¿ªÊ¼***/
+/***ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ¿ï¿½Ê¼***/
 include_once(ROOT_PATH . 'includes/cls_image.php');
 $image = new cls_image($_CFG['bgcolor']);
-/***ÐÂÔö¼ÓµÄ½áÊø***/
+/***ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ½ï¿½ï¿½ï¿½***/
 
 $exc = new exchange($ecs->table("category"), $db, 'cat_id', 'cat_name');
 
 
-/* act²Ù×÷ÏîµÄ³õÊ¼»¯ */
+/* actï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½ */
 if (empty($_REQUEST['act']))
 {
     $_REQUEST['act'] = 'list';
@@ -20,27 +20,27 @@ else
 }
 
 /*------------------------------------------------------ */
-//-- ÉÌÆ··ÖÀàÁÐ±í
+//-- ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'list')
 {
-    /* »ñÈ¡·ÖÀàÁÐ±í */
+    /* ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ */
     $cat_list = cat_list(0, 0, false);
 
-    /* Ä£°å¸³Öµ */
+    /* Ä£ï¿½å¸³Öµ */
     $smarty->assign('ur_here',      $_LANG['mgoodscat_list']);
     $smarty->assign('action_link',  array('href' => 'category.php?act=add', 'text' => $_LANG['mgoodscat_add']));
     $smarty->assign('full_page',    1);
 
     $smarty->assign('cat_info',     $cat_list);
 
-    /* ÁÐ±íÒ³Ãæ */
+    /* ï¿½Ð±ï¿½Ò³ï¿½ï¿½ */
     assign_query_info();
     $smarty->display('category_list.htm');
 }
 
 /*------------------------------------------------------ */
-//-- ÅÅÐò¡¢·ÖÒ³¡¢²éÑ¯
+//-- ï¿½ï¿½ï¿½ò¡¢·ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ñ¯
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'query')
 {
@@ -50,21 +50,21 @@ elseif ($_REQUEST['act'] == 'query')
     make_json_result($smarty->fetch('category_list.htm'));
 }
 /*------------------------------------------------------ */
-//-- Ìí¼ÓÉÌÆ··ÖÀà
+//-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'add')
 {
-    /* È¨ÏÞ¼ì²é */
+    /* È¨ï¿½Þ¼ï¿½ï¿½ï¿½ */
     admin_priv('goods_cat_add');
 
 
 
-    /* Ä£°å¸³Öµ */
+    /* Ä£ï¿½å¸³Öµ */
     $smarty->assign('ur_here',      $_LANG['mgoodscat_add']);
     $smarty->assign('action_link',  array('href' => 'category.php?act=list', 'text' => $_LANG['mgoodscat_list']));
 
-    $smarty->assign('goods_type_list',  goods_type_list(0)); // È¡µÃÉÌÆ·ÀàÐÍ
-    $smarty->assign('attr_list',        get_attr_list()); // È¡µÃÉÌÆ·ÊôÐÔ
+    $smarty->assign('goods_type_list',  goods_type_list(0)); // È¡ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+    $smarty->assign('attr_list',        get_attr_list()); // È¡ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
     $smarty->assign('is_pc',            $_LANG['is_pc']);
     $smarty->assign('is_mobile',        $_LANG['is_mobile']);
 		$smarty->assign('banben2',        $_LANG['banben2']);
@@ -74,24 +74,25 @@ if ($_REQUEST['act'] == 'add')
 
 
 
-    /* ÏÔÊ¾Ò³Ãæ */
+    /* ï¿½ï¿½Ê¾Ò³ï¿½ï¿½ */
     assign_query_info();
     $smarty->display('category_info.htm');
 }
 
 /*------------------------------------------------------ */
-//-- ÉÌÆ··ÖÀàÌí¼ÓÊ±µÄ´¦Àí
+//-- ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä´ï¿½ï¿½ï¿½
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'insert')
 {
-    /* È¨ÏÞ¼ì²é */
+    /* È¨ï¿½Þ¼ï¿½ï¿½ï¿½ */
     admin_priv('goods_cat_add');
 
-    /* ³õÊ¼»¯±äÁ¿ */
+    /* ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     $cat['cat_id']       = !empty($_POST['cat_id'])       ? intval($_POST['cat_id'])     : 0;
     $cat['parent_id']    = !empty($_POST['parent_id'])    ? intval($_POST['parent_id'])  : 0;
     $cat['sort_order']   = !empty($_POST['sort_order'])   ? intval($_POST['sort_order']) : 0;
     $cat['keywords']     = !empty($_POST['keywords'])     ? trim($_POST['keywords'])     : '';
+    $cat['cat_image']     = !empty($_POST['cat_image'])     ? trim($_POST['cat_image'])     : '';
     $cat['cat_desc']     = !empty($_POST['cat_desc'])     ? $_POST['cat_desc']           : '';
     $cat['measure_unit'] = !empty($_POST['measure_unit']) ? trim($_POST['measure_unit']) : '';
 	$cat['moban']     = !empty($_POST['moban'])     ? trim($_POST['moban'])     : '';
@@ -105,29 +106,29 @@ if ($_REQUEST['act'] == 'insert')
 
     $cat['cat_recommend']  = !empty($_POST['cat_recommend'])  ? $_POST['cat_recommend'] : array();
 
-	/*  Ôö¼ÓÒ»ÐÐ´úÂë By www.ecshop120.com */
+	/*  ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ð´ï¿½ï¿½ï¿½ By www.ecshop120.com */
 	$cat['title_define']  = !empty($_POST['title_define'])  ? $_POST['title_define'] : '';
 
-	/* Ôö¼Ó´úÂë_start  By  www.ecshop120.com */
+	/* ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½_start  By  www.ecshop120.com */
 	$cat['define_url']  = !empty($_POST['define_url'])  ? $_POST['define_url'] : '';
 	$exist_define_url=$db->getOne("select count(*) from ". $ecs->table('category') ." where define_url='$cat[define_url]' ");
     if ($exist_define_url)
     {
            $link[] = array('text' => $_LANG['go_back'], 'href' => 'javascript:history.back(-1)');
-           sys_msg('ÒÑ¾­´æÔÚÏàÍ¬µÄ×Ô¶¨ÒåURL', 0, $link);
+           sys_msg('ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½URL', 0, $link);
      }
-	 /* Ôö¼Ó´úÂë_end  By  www.ecshop120.com */
+	 /* ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½_end  By  www.ecshop120.com */
 
     if (cat_exists($cat['cat_name'], $cat['parent_id']))
     {
-        /* Í¬¼¶±ðÏÂ²»ÄÜÓÐÖØ¸´µÄ·ÖÀàÃû³Æ */
+        /* Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
        $link[] = array('text' => $_LANG['go_back'], 'href' => 'javascript:history.back(-1)');
        sys_msg($_LANG['catname_exist'], 0, $link);
     }
 
     if($cat['grade'] > 10 || $cat['grade'] < 0)
     {
-        /* ¼Û¸ñÇø¼äÊý³¬¹ý·¶Î§ */
+        /* ï¿½Û¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ */
        $link[] = array('text' => $_LANG['go_back'], 'href' => 'javascript:history.back(-1)');
        sys_msg($_LANG['grade_error'], 0, $link);
     }
@@ -138,12 +139,12 @@ if ($_REQUEST['act'] == 'insert')
 
 
 
-/*´¦ÀíÍ¼Æ¬*/
+/*ï¿½ï¿½ï¿½ï¿½Í¼Æ¬*/
 $img_name = basename($image->upload_image($_FILES['thumb'],'catthumb'));
 if($img_name) $cat['thumb'] = $img_name;
 
 
-    /* Èë¿âµÄ²Ù×÷ */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ */
     if ($db->autoExecute($ecs->table('category'), $cat) !== false)
     {
         $cat_id = $db->insert_id();
@@ -151,7 +152,7 @@ if($img_name) $cat['thumb'] = $img_name;
         {
             $vieworder = $db->getOne("SELECT max(vieworder) FROM ". $ecs->table('nav') . " WHERE type = 'middle'");
             $vieworder += 2;
-            //ÏÔÊ¾ÔÚ×Ô¶¨Òåµ¼º½À¸ÖÐ
+            //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½åµ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             $sql = "INSERT INTO " . $ecs->table('nav') .
                 " (name,ctype,cid,ifshow,vieworder,opennew,url,type)".
                 " VALUES('" . $cat['cat_name'] . "', 'c', '".$db->insert_id()."','1','$vieworder','0', '" . build_uri('category', array('cid'=> $cat_id), $cat['cat_name']) . "','middle')";
@@ -159,10 +160,10 @@ if($img_name) $cat['thumb'] = $img_name;
         }
         insert_cat_recommend($cat['cat_recommend'], $cat_id);
 
-        admin_log($_POST['cat_name'], 'add', 'category');   // ¼ÇÂ¼¹ÜÀíÔ±²Ù×÷
-        clear_cache_files();    // Çå³ý»º´æ
+        admin_log($_POST['cat_name'], 'add', 'category');   // ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+        clear_cache_files();    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        /*Ìí¼ÓÁ´½Ó*/
+        /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
         $link[0]['text'] = $_LANG['continue_add'];
         $link[0]['href'] = 'category.php?act=add';
 
@@ -174,24 +175,24 @@ if($img_name) $cat['thumb'] = $img_name;
  }
 
 /*------------------------------------------------------ */
-//-- ±à¼­ÉÌÆ··ÖÀàÐÅÏ¢
+//-- ï¿½à¼­ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'edit')
 {
-    admin_priv('goods_cat_add');   // È¨ÏÞ¼ì²é
+    admin_priv('goods_cat_add');   // È¨ï¿½Þ¼ï¿½ï¿½ï¿½
     $cat_id = intval($_REQUEST['cat_id']);
-    $cat_info = get_cat_info($cat_id);  // ²éÑ¯·ÖÀàÐÅÏ¢Êý¾Ý
+    $cat_info = get_cat_info($cat_id);  // ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
     $attr_list = get_attr_list();
     $filter_attr_list = array();
 
     if ($cat_info['filter_attr'])
     {
-        $filter_attr = explode(",", $cat_info['filter_attr']);  //°Ñ¶à¸öÉ¸Ñ¡ÊôÐÔ·Åµ½Êý×éÖÐ
+        $filter_attr = explode(",", $cat_info['filter_attr']);  //ï¿½Ñ¶ï¿½ï¿½ï¿½É¸Ñ¡ï¿½ï¿½ï¿½Ô·Åµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         foreach ($filter_attr AS $k => $v)
         {
             $attr_cat_id = $db->getOne("SELECT cat_id FROM " . $ecs->table('attribute') . " WHERE attr_id = '" . intval($v) . "'");
-            $filter_attr_list[$k]['goods_type_list'] = goods_type_list($attr_cat_id);  //È¡µÃÃ¿¸öÊôÐÔµÄÉÌÆ·ÀàÐÍ
+            $filter_attr_list[$k]['goods_type_list'] = goods_type_list($attr_cat_id);  //È¡ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
             $filter_attr_list[$k]['filter_attr'] = $v;
             $attr_option = array();
 
@@ -210,13 +211,13 @@ if ($_REQUEST['act'] == 'edit')
         $attr_cat_id = 0;
     }
 
-    /* Ä£°å¸³Öµ */
-    $smarty->assign('attr_list',        $attr_list); // È¡µÃÉÌÆ·ÊôÐÔ
+    /* Ä£ï¿½å¸³Öµ */
+    $smarty->assign('attr_list',        $attr_list); // È¡ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
     $smarty->assign('attr_cat_id',      $attr_cat_id);
     $smarty->assign('ur_here',     $_LANG['category_edit']);
     $smarty->assign('action_link', array('text' => $_LANG['mgoodscat_list'], 'href' => 'category.php?act=list'));
 
-    //·ÖÀàÊÇ·ñ´æÔÚÊ×Ò³ÍÆ¼ö
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½Æ¼ï¿½
     $res = $db->getAll("SELECT recommend_type FROM " . $ecs->table("cat_recommend") . " WHERE cat_id=" . $cat_id);
     if (!empty($res))
     {
@@ -234,9 +235,9 @@ if ($_REQUEST['act'] == 'edit')
     $smarty->assign('is_mobile',        $_LANG['is_mobile']);
 	$smarty->assign('banben2',        $_LANG['banben2']);
     $smarty->assign('cat_select',  cat_list(0, $cat_info['parent_id'], true));
-    $smarty->assign('goods_type_list',  goods_type_list(0)); // È¡µÃÉÌÆ·ÀàÐÍ
+    $smarty->assign('goods_type_list',  goods_type_list(0)); // È¡ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 
-    /* ÏÔÊ¾Ò³Ãæ */
+    /* ï¿½ï¿½Ê¾Ò³ï¿½ï¿½ */
     assign_query_info();
     $smarty->display('category_info.htm');
 }
@@ -260,26 +261,27 @@ elseif($_REQUEST['act'] == 'add_category')
 
         $arr = array("parent_id"=>$parent_id, "id"=>$category_id, "cat"=>$category);
 
-        clear_cache_files();    // Çå³ý»º´æ
+        clear_cache_files();    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         make_json_result($arr);
     }
 }
 
 /*------------------------------------------------------ */
-//-- ±à¼­ÉÌÆ··ÖÀàÐÅÏ¢
+//-- ï¿½à¼­ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'update')
 {
-    /* È¨ÏÞ¼ì²é */
+    /* È¨ï¿½Þ¼ï¿½ï¿½ï¿½ */
     admin_priv('goods_cat_add');
 
-    /* ³õÊ¼»¯±äÁ¿ */
+    /* ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     $cat_id              = !empty($_POST['cat_id'])       ? intval($_POST['cat_id'])     : 0;
     $old_cat_name        = $_POST['old_cat_name'];
     $cat['parent_id']    = !empty($_POST['parent_id'])    ? intval($_POST['parent_id'])  : 0;
     $cat['sort_order']   = !empty($_POST['sort_order'])   ? intval($_POST['sort_order']) : 0;
     $cat['keywords']     = !empty($_POST['keywords'])     ? trim($_POST['keywords'])     : '';
+    $cat['cat_image']     = !empty($_POST['cat_image'])     ? trim($_POST['cat_image'])     : '';
     $cat['cat_desc']     = !empty($_POST['cat_desc'])     ? $_POST['cat_desc']           : '';
     $cat['measure_unit'] = !empty($_POST['measure_unit']) ? trim($_POST['measure_unit']) : '';
     $cat['cat_name']     = !empty($_POST['cat_name'])     ? trim($_POST['cat_name'])     : '';
@@ -293,10 +295,10 @@ if ($_REQUEST['act'] == 'update')
     $cat['cat_recommend']  = !empty($_POST['cat_recommend'])  ? $_POST['cat_recommend'] : array();
 
 
-	/* Ôö¼ÓÒ»ÐÐ´úÂë By www.ecshop120.com */
+	/* ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ð´ï¿½ï¿½ï¿½ By www.ecshop120.com */
 	$cat['title_define']  = !empty($_POST['title_define'])  ? $_POST['title_define'] : '';
 
-	/* Ôö¼Ó´úÂë_start By  www.ecshop120.com */
+	/* ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½_start By  www.ecshop120.com */
 	$old_define_url        = $_POST['old_define_url'];
 	$cat['define_url']  = !empty($_POST['define_url'])  ? $_POST['define_url']: '';
 	if ($cat['define_url'] != $old_define_url)
@@ -305,12 +307,12 @@ if ($_REQUEST['act'] == 'update')
         if ($exist_define_url)
         {
            $link[] = array('text' => $_LANG['go_back'], 'href' => 'javascript:history.back(-1)');
-           sys_msg('ÒÑ¾­´æÔÚÏàÍ¬µÄ×Ô¶¨ÒåURL', 0, $link);
+           sys_msg('ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½URL', 0, $link);
         }
     }
-	/* Ôö¼Ó´úÂë_end By  www.ecshop120.com */
+	/* ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½_end By  www.ecshop120.com */
 
-    /* ÅÐ¶Ï·ÖÀàÃûÊÇ·ñÖØ¸´ */
+    /* ï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ø¸ï¿½ */
 
     if ($cat['cat_name'] != $old_cat_name)
     {
@@ -321,24 +323,24 @@ if ($_REQUEST['act'] == 'update')
         }
     }
 
-    /* ÅÐ¶ÏÉÏ¼¶Ä¿Â¼ÊÇ·ñºÏ·¨ */
-    $children = array_keys(cat_list($cat_id, 0, false));     // »ñµÃµ±Ç°·ÖÀàµÄËùÓÐÏÂ¼¶·ÖÀà
+    /* ï¿½Ð¶ï¿½ï¿½Ï¼ï¿½Ä¿Â¼ï¿½Ç·ï¿½ï¿½Ï·ï¿½ */
+    $children = array_keys(cat_list($cat_id, 0, false));     // ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
     if (in_array($cat['parent_id'], $children))
     {
-        /* Ñ¡¶¨µÄ¸¸ÀàÊÇµ±Ç°·ÖÀà»òµ±Ç°·ÖÀàµÄÏÂ¼¶·ÖÀà */
+        /* Ñ¡ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Çµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ */
        $link[] = array('text' => $_LANG['go_back'], 'href' => 'javascript:history.back(-1)');
        sys_msg($_LANG["is_leaf_error"], 0, $link);
     }
 
     if($cat['grade'] > 10 || $cat['grade'] < 0)
     {
-        /* ¼Û¸ñÇø¼äÊý³¬¹ý·¶Î§ */
+        /* ï¿½Û¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ */
        $link[] = array('text' => $_LANG['go_back'], 'href' => 'javascript:history.back(-1)');
        sys_msg($_LANG['grade_error'], 0, $link);
     }
 
     $dat = $db->getRow("SELECT cat_name, show_in_nav FROM ". $ecs->table('category') . " WHERE cat_id = '$cat_id'");
-/* ´¦ÀíÍ¼Æ¬ */
+/* ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ */
 $img_name = basename($image->upload_image($_FILES['thumb'],'catthumb'));
 if($img_name) $cat['thumb'] = $img_name;
 
@@ -346,20 +348,20 @@ if($img_name) $cat['thumb'] = $img_name;
     {
         if($cat['cat_name'] != $dat['cat_name'])
         {
-            //Èç¹û·ÖÀàÃû³Æ·¢ÉúÁË¸Ä±ä
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Ë¸Ä±ï¿½
             $sql = "UPDATE " . $ecs->table('nav') . " SET name = '" . $cat['cat_name'] . "' WHERE ctype = 'c' AND cid = '" . $cat_id . "' AND type = 'middle'";
             $db->query($sql);
         }
         if($cat['show_in_nav'] != $dat['show_in_nav'])
         {
-            //ÊÇ·ñÏÔÊ¾ÓÚµ¼º½À¸·¢ÉúÁË±ä»¯
+            //ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë±ä»¯
             if($cat['show_in_nav'] == 1)
             {
-                //ÏÔÊ¾
+                //ï¿½ï¿½Ê¾
                 $nid = $db->getOne("SELECT id FROM ". $ecs->table('nav') . " WHERE ctype = 'c' AND cid = '" . $cat_id . "' AND type = 'middle'");
                 if(empty($nid))
                 {
-                    //²»´æÔÚ
+                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     $vieworder = $db->getOne("SELECT max(vieworder) FROM ". $ecs->table('nav') . " WHERE type = 'middle'");
                     $vieworder += 2;
                     $uri = build_uri('category', array('cid'=> $cat_id), $cat['cat_name']);
@@ -374,18 +376,18 @@ if($img_name) $cat['thumb'] = $img_name;
             }
             else
             {
-                //È¥³ý
+                //È¥ï¿½ï¿½
                 $db->query("UPDATE " . $ecs->table('nav') . " SET ifshow = 0 WHERE ctype = 'c' AND cid = '" . $cat_id . "' AND type = 'middle'");
             }
         }
 
-        //¸üÐÂÊ×Ò³ÍÆ¼ö
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½Æ¼ï¿½
         insert_cat_recommend($cat['cat_recommend'], $cat_id);
-        /* ¸üÐÂ·ÖÀàÐÅÏ¢³É¹¦ */
-        clear_cache_files(); // Çå³ý»º´æ
-        admin_log($_POST['cat_name'], 'edit', 'category'); // ¼ÇÂ¼¹ÜÀíÔ±²Ù×÷
+        /* ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½É¹ï¿½ */
+        clear_cache_files(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        admin_log($_POST['cat_name'], 'edit', 'category'); // ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
 
-        /* ÌáÊ¾ÐÅÏ¢ */
+        /* ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢ */
         $link[] = array('text' => $_LANG['back_list'], 'href' => 'category.php?act=list');
         sys_msg($_LANG['catedit_succed'], 0, $link);
     }
@@ -394,14 +396,14 @@ if($img_name) $cat['thumb'] = $img_name;
 
 
 /*------------------------------------------------------ */
-//-- É¾³ýÆ·ÅÆÍ¼Æ¬
+//-- É¾ï¿½ï¿½Æ·ï¿½ï¿½Í¼Æ¬
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'drop_thumb')
 {
-/* È¨ÏÞÅÐ¶Ï */
+/* È¨ï¿½ï¿½ï¿½Ð¶ï¿½ */
 admin_priv('goods_cat_add');
 $cat_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-/* È¡µÃlogoÃû³Æ */
+/* È¡ï¿½ï¿½logoï¿½ï¿½ï¿½ï¿½ */
 $sql = "SELECT thumb FROM " .$ecs->table('category'). " WHERE cat_id = '$cat_id'";
 $thumb_name = $db->getOne($sql);
 if (!empty($thumb_name))
@@ -410,8 +412,8 @@ if (!empty($thumb_name))
 $sql = "UPDATE " .$ecs->table('category'). " SET thumb = '' WHERE cat_id = '$cat_id'";
 $db->query($sql);
 }
-$link= array(array('text' => '±à¼­ÉÌÆ··ÖÀà', 'href' => 'category.php?act=edit&cat_id=' . $cat_id), array('text' =>'ÉÌÆ··ÖÀàÁÐ±í', 'href' => 'category.php?act=list'));
-sys_msg('É¾³ýÉÌÆ··ÖÀàÐ¡Í¼³É¹¦', 0, $link);
+$link= array(array('text' => 'ï¿½à¼­ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½', 'href' => 'category.php?act=edit&cat_id=' . $cat_id), array('text' =>'ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½', 'href' => 'category.php?act=list'));
+sys_msg('É¾ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Ð¡Í¼ï¿½É¹ï¿½', 0, $link);
 }
 
 
@@ -422,61 +424,61 @@ sys_msg('É¾³ýÉÌÆ··ÖÀàÐ¡Í¼³É¹¦', 0, $link);
 
 
 /*------------------------------------------------------ */
-//-- ÅúÁ¿×ªÒÆÉÌÆ··ÖÀàÒ³Ãæ
+//-- ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'move')
 {
-    /* È¨ÏÞ¼ì²é */
+    /* È¨ï¿½Þ¼ï¿½ï¿½ï¿½ */
     admin_priv('goods_cat_add');
 
     $cat_id = !empty($_REQUEST['cat_id']) ? intval($_REQUEST['cat_id']) : 0;
 
-    /* Ä£°å¸³Öµ */
+    /* Ä£ï¿½å¸³Öµ */
     $smarty->assign('ur_here',     $_LANG['move_goods']);
     $smarty->assign('action_link', array('href' => 'category.php?act=list', 'text' => $_LANG['mgoodscat_list']));
 
     $smarty->assign('cat_select', cat_list(0, $cat_id, true));
     $smarty->assign('form_act',   'move_cat');
 
-    /* ÏÔÊ¾Ò³Ãæ */
+    /* ï¿½ï¿½Ê¾Ò³ï¿½ï¿½ */
     assign_query_info();
     $smarty->display('category_move.htm');
 }
 
 /*------------------------------------------------------ */
-//-- ´¦ÀíÅúÁ¿×ªÒÆÉÌÆ··ÖÀàµÄ´¦Àí³ÌÐò
+//-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'move_cat')
 {
-    /* È¨ÏÞ¼ì²é */
+    /* È¨ï¿½Þ¼ï¿½ï¿½ï¿½ */
     admin_priv('goods_cat_add');
 
     $cat_id        = !empty($_POST['cat_id'])        ? intval($_POST['cat_id'])        : 0;
     $target_cat_id = !empty($_POST['target_cat_id']) ? intval($_POST['target_cat_id']) : 0;
 
-    /* ÉÌÆ··ÖÀà²»ÔÊÐíÎª¿Õ */
+    /* ï¿½ï¿½Æ·ï¿½ï¿½ï¿½à²»ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ */
     if ($cat_id == 0 || $target_cat_id == 0)
     {
         $link[] = array('text' => $_LANG['go_back'], 'href' => 'category.php?act=move');
         sys_msg($_LANG['cat_move_empty'], 0, $link);
     }
 
-    /* ¸üÐÂÉÌÆ··ÖÀà */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ */
     $sql = "UPDATE " .$ecs->table('goods'). " SET cat_id = '$target_cat_id' ".
            "WHERE cat_id = '$cat_id'";
     if ($db->query($sql))
     {
-        /* Çå³ý»º´æ */
+        /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
         clear_cache_files();
 
-        /* ÌáÊ¾ÐÅÏ¢ */
+        /* ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢ */
         $link[] = array('text' => $_LANG['go_back'], 'href' => 'category.php?act=list');
         sys_msg($_LANG['move_cat_success'], 0, $link);
     }
 }
 
 /*------------------------------------------------------ */
-//-- ±à¼­ÅÅÐòÐòºÅ
+//-- ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /*------------------------------------------------------ */
 
 if ($_REQUEST['act'] == 'edit_sort_order')
@@ -488,7 +490,7 @@ if ($_REQUEST['act'] == 'edit_sort_order')
 
     if (cat_update($id, array('sort_order' => $val)))
     {
-        clear_cache_files(); // Çå³ý»º´æ
+        clear_cache_files(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         make_json_result($val);
     }
     else
@@ -498,7 +500,7 @@ if ($_REQUEST['act'] == 'edit_sort_order')
 }
 
 /*------------------------------------------------------ */
-//-- ±à¼­ÊýÁ¿µ¥Î»
+//-- ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
 /*------------------------------------------------------ */
 
 if ($_REQUEST['act'] == 'edit_measure_unit')
@@ -510,7 +512,7 @@ if ($_REQUEST['act'] == 'edit_measure_unit')
 
     if (cat_update($id, array('measure_unit' => $val)))
     {
-        clear_cache_files(); // Çå³ý»º´æ
+        clear_cache_files(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         make_json_result($val);
     }
     else
@@ -520,7 +522,7 @@ if ($_REQUEST['act'] == 'edit_measure_unit')
 }
 
 /*------------------------------------------------------ */
-//-- ±à¼­ÅÅÐòÐòºÅ
+//-- ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /*------------------------------------------------------ */
 
 if ($_REQUEST['act'] == 'edit_grade')
@@ -532,13 +534,13 @@ if ($_REQUEST['act'] == 'edit_grade')
 
     if($val > 10 || $val < 0)
     {
-        /* ¼Û¸ñÇø¼äÊý³¬¹ý·¶Î§ */
+        /* ï¿½Û¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ */
         make_json_error($_LANG['grade_error']);
     }
 
     if (cat_update($id, array('grade' => $val)))
     {
-        clear_cache_files(); // Çå³ý»º´æ
+        clear_cache_files(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         make_json_result($val);
     }
     else
@@ -548,7 +550,7 @@ if ($_REQUEST['act'] == 'edit_grade')
 }
 
 /*------------------------------------------------------ */
-//-- ÇÐ»»ÊÇ·ñÏÔÊ¾ÔÚµ¼º½À¸
+//-- ï¿½Ð»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½
 /*------------------------------------------------------ */
 
 if ($_REQUEST['act'] == 'toggle_show_in_nav')
@@ -562,18 +564,18 @@ if ($_REQUEST['act'] == 'toggle_show_in_nav')
     {
         if($val == 1)
         {
-            //ÏÔÊ¾
+            //ï¿½ï¿½Ê¾
             $vieworder = $db->getOne("SELECT max(vieworder) FROM ". $ecs->table('nav') . " WHERE type = 'middle'");
             $vieworder += 2;
             $catname = $db->getOne("SELECT cat_name FROM ". $ecs->table('category') . " WHERE cat_id = '$id'");
-            //ÏÔÊ¾ÔÚ×Ô¶¨Òåµ¼º½À¸ÖÐ
+            //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½åµ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             $_CFG['rewrite'] = 0;
             $uri = build_uri('category', array('cid'=> $id), $catname);
 
             $nid = $db->getOne("SELECT id FROM ". $ecs->table('nav') . " WHERE ctype = 'c' AND cid = '" . $id . "' AND type = 'middle'");
             if(empty($nid))
             {
-                //²»´æÔÚ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 $sql = "INSERT INTO " . $ecs->table('nav') . " (name,ctype,cid,ifshow,vieworder,opennew,url,type) VALUES('" . $catname . "', 'c', '$id','1','$vieworder','0', '" . $uri . "','middle')";
             }
             else
@@ -584,7 +586,7 @@ if ($_REQUEST['act'] == 'toggle_show_in_nav')
         }
         else
         {
-            //È¥³ý
+            //È¥ï¿½ï¿½
             $db->query("UPDATE " . $ecs->table('nav') . "SET ifshow = 0 WHERE ctype = 'c' AND cid = '" . $id . "' AND type = 'middle'");
         }
         clear_cache_files();
@@ -597,7 +599,7 @@ if ($_REQUEST['act'] == 'toggle_show_in_nav')
 }
 
 /*------------------------------------------------------ */
-//-- ÇÐ»»ÊÇ·ñÏÔÊ¾
+//-- ï¿½Ð»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾
 /*------------------------------------------------------ */
 
 if ($_REQUEST['act'] == 'toggle_is_show')
@@ -619,26 +621,26 @@ if ($_REQUEST['act'] == 'toggle_is_show')
 }
 
 /*------------------------------------------------------ */
-//-- É¾³ýÉÌÆ··ÖÀà
+//-- É¾ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'remove')
 {
     check_authz_json('goods_cat_drop');
 
-    /* ³õÊ¼»¯·ÖÀàID²¢È¡µÃ·ÖÀàÃû³Æ */
+    /* ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½È¡ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     $cat_id   = intval($_GET['id']);
     $cat_name = $db->getOne('SELECT cat_name FROM ' .$ecs->table('category'). " WHERE cat_id='$cat_id'");
 
-    /* µ±Ç°·ÖÀàÏÂÊÇ·ñÓÐ×Ó·ÖÀà */
+    /* ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ */
     $cat_count = $db->getOne('SELECT COUNT(*) FROM ' .$ecs->table('category'). " WHERE parent_id='$cat_id'");
 
-    /* µ±Ç°·ÖÀàÏÂÊÇ·ñ´æÔÚÉÌÆ· */
+    /* ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ· */
     $goods_count = $db->getOne('SELECT COUNT(*) FROM ' .$ecs->table('goods'). " WHERE cat_id='$cat_id'");
 
-    /* Èç¹û²»´æÔÚÏÂ¼¶×Ó·ÖÀàºÍÉÌÆ·£¬ÔòÉ¾³ýÖ® */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ö® */
     if ($cat_count == 0 && $goods_count == 0)
     {
-        /* É¾³ý·ÖÀà */
+        /* É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
         $sql = 'DELETE FROM ' .$ecs->table('category'). " WHERE cat_id = '$cat_id'";
         if ($db->query($sql))
         {
@@ -663,11 +665,11 @@ if ($_REQUEST['act'] == 'remove')
 /*------------------------------------------------------ */
 //
 ///**
-// * ¼ì²é·ÖÀàÊÇ·ñÒÑ¾­´æÔÚ
+// * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
 // *
-// * @param   string      $cat_name       ·ÖÀàÃû³Æ
-// * @param   integer     $parent_cat     ÉÏ¼¶·ÖÀà
-// * @param   integer     $exclude        ÅÅ³ýµÄ·ÖÀàID
+// * @param   string      $cat_name       ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// * @param   integer     $parent_cat     ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½
+// * @param   integer     $exclude        ï¿½Å³ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ID
 // *
 // * @return  boolean
 // */
@@ -679,9 +681,9 @@ if ($_REQUEST['act'] == 'remove')
 //}
 
 /**
- * »ñµÃÉÌÆ··ÖÀàµÄËùÓÐÐÅÏ¢
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
  *
- * @param   integer     $cat_id     Ö¸¶¨µÄ·ÖÀàID
+ * @param   integer     $cat_id     Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ID
  *
  * @return  mix
  */
@@ -692,7 +694,7 @@ function get_cat_info($cat_id)
 }
 
 /**
- * Ìí¼ÓÉÌÆ··ÖÀà
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
  *
  * @param   integer $cat_id
  * @param   array   $args
@@ -711,7 +713,7 @@ function cat_update($cat_id, $args)
 
 
 /**
- * »ñÈ¡ÊôÐÔÁÐ±í
+ * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
  *
  * @access  public
  * @param
@@ -739,20 +741,20 @@ function get_attr_list()
 }
 
 /**
- * ²åÈëÊ×Ò³ÍÆ¼öÀ©Õ¹·ÖÀà
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½Æ¼ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½
  *
  * @access  public
- * @param   array   $recommend_type ÍÆ¼öÀàÐÍ
- * @param   integer $cat_id     ·ÖÀàID
+ * @param   array   $recommend_type ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param   integer $cat_id     ï¿½ï¿½ï¿½ï¿½ID
  *
  * @return void
  */
 function insert_cat_recommend($recommend_type, $cat_id)
 {
-    //¼ì²é·ÖÀàÊÇ·ñÎªÊ×Ò³ÍÆ¼ö
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½Ò³ï¿½Æ¼ï¿½
     if (!empty($recommend_type))
     {
-        //È¡µÃÖ®Ç°µÄ·ÖÀà
+        //È¡ï¿½ï¿½Ö®Ç°ï¿½Ä·ï¿½ï¿½ï¿½
         $recommend_res = $GLOBALS['db']->getAll("SELECT recommend_type FROM " . $GLOBALS['ecs']->table("cat_recommend") . " WHERE cat_id=" . $cat_id);
         if (empty($recommend_res))
         {

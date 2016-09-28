@@ -1,6 +1,5 @@
 <?php
 define('IN_ECS', true);
-define('DEBUG_MODE',0);
 
 require(dirname(__FILE__) . '/includes/init.php');
 require(dirname(__FILE__) . '/common.php');

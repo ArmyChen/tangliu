@@ -36,7 +36,7 @@ if ($_REQUEST['act'] == 'list_edit')
         }
     }
     @closedir($dir);
-
+    
     $smarty->assign('lang_list',    $lang_list);
     $smarty->assign('ur_here',      $_LANG['mshop_config']);
     $smarty->assign('group_list',   get_settings(null, array('5')));
@@ -339,6 +339,7 @@ function get_settings($groups=null, $excludes=null)
     /* 取出全部数据：分组和变量 */
     $sql = "SELECT * FROM " . $ecs->table('shop_config') .
             " WHERE type<>'hidden' $config_groups $excludes_groups ORDER BY parent_id, sort_order, id";
+    
     $item_list = $db->getAll($sql);
 
     /* 整理数据 */

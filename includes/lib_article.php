@@ -125,7 +125,7 @@ function get_article_count($cat_id ,$requirement='')
 
 function index_get_all_cat_articles($cat_id,$type=0, $page = 1, $size = 20 ,$requirement='')
 {
- 
+
 	  //取出所有非0的文章
     if ($cat_id == '-1')
     {

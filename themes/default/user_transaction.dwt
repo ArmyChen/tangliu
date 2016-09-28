@@ -306,26 +306,13 @@ delete Object.prototype.toJSONString;
                 <!-- {elseif $order.extension_code eq "exchange_goods"} -->
                 <a href="./exchange.php?act=view&id={$order.extension_id}" class="f6"><strong>{$lang.order_is_exchange}</strong></a>
                 <!--{/if}-->
-                <a href="user.php?act=message_list&order_id={$order.order_id}" class="f6">[{$lang.business_message}]</a> </td>
+                </td>
             </tr>
             <tr>
               <td align="right" bgcolor="#ffffff">{$lang.detail_order_status}：</td>
               <td align="left" bgcolor="#ffffff">{$order.order_status}&nbsp;&nbsp;&nbsp;&nbsp;{$order.confirm_time}</td>
             </tr>
-            <tr>
-              <td align="right" bgcolor="#ffffff">{$lang.detail_pay_status}：</td>
-              <td align="left" bgcolor="#ffffff">{$order.pay_status}&nbsp;&nbsp;&nbsp;&nbsp;{if $order.order_amount gt 0}{$order.pay_online}{/if}{$order.pay_time}</td>
-            </tr>
-            <tr>
-              <td align="right" bgcolor="#ffffff">{$lang.detail_shipping_status}：</td>
-              <td align="left" bgcolor="#ffffff">{$order.shipping_status}&nbsp;&nbsp;&nbsp;&nbsp;{$order.shipping_time}</td>
-            </tr>
-            <!-- {if $order.invoice_no}-->
-            <tr>
-              <td align="right" bgcolor="#ffffff">{$lang.consignment}：</td>
-              <td align="left" bgcolor="#ffffff"><span id="invoice_no">{$order.invoice_no}</span></td>
-            </tr>
-            <!--{/if}-->
+          
 </table>
 	<br/>
 
@@ -390,7 +377,7 @@ delete Object.prototype.toJSONString;
             <!-- {foreach from=$goods_list item=goods} -->
             <tr>
               <td bgcolor="#ffffff"><!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
-                <a href="goods.php?id={$goods.goods_id}" target="_blank" class="f6">{$goods.goods_name}</a>
+                {$goods.goods_name}
                 <!-- {if $goods.parent_id > 0} -->
                 <span style="color:#FF0000">（{$lang.accessories}）</span>
                 <!-- {elseif $goods.is_gift} -->
@@ -570,30 +557,7 @@ delete Object.prototype.toJSONString;
           </table>
           <!-- {/if} -->
           <div class="blank"></div>
-          <h5><span>{$lang.payment}</span></h5>
-          <div class="blank"></div>
-          <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
-            <tr>
-              <td bgcolor="#ffffff"> {$lang.select_payment}: {$order.pay_name}。{$lang.order_amount}: <strong>{$order.formated_order_amount}</strong><br />
-                {$order.pay_desc} </td>
-            </tr>
-            <tr>
-              <td bgcolor="#ffffff" align="right"><!--{if $payment_list}-->
-                <form name="payment" method="post" action="user.php">
-                  {$lang.change_payment}:
-                  <select name="pay_id">
-                    <!--{foreach from=$payment_list item=payment}-->
-                    <option value="{$payment.pay_id}"> {$payment.pay_name}({$lang.pay_fee}:{$payment.format_pay_fee}) </option>
-                    <!--{/foreach}-->
-                  </select>
-                  <input type="hidden" name="act" value="act_edit_payment" />
-                  <input type="hidden" name="order_id" value="{$order.order_id}" />
-                  <input type="submit" name="Submit" class="submit" value="{$lang.button_submit}" />
-                </form>
-                <!--{/if}-->
-              </td>
-            </tr>
-          </table>
+         
           <div class="blank"></div>
 	         <h5><span>{$lang.other_info}</span></h5>
           <div class="blank"></div>
@@ -604,10 +568,7 @@ delete Object.prototype.toJSONString;
               <td colspan="3" width="85%" align="left" bgcolor="#ffffff"><span id="shipping_name">{$order.shipping_name}</span></td>
             </tr>
             <!-- {/if} -->
-            <tr>
-              <td width="15%" align="right" bgcolor="#ffffff">{$lang.payment}：</td>
-              <td colspan="3" align="left" bgcolor="#ffffff">{$order.pay_name}</td>
-            </tr>
+            
             <!--{if $order.insure_fee > 0}-->
             <!--{/if}-->
             <!-- {if $order.pack_name} 是否使用包装 -->

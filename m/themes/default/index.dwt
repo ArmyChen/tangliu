@@ -93,78 +93,14 @@ $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
     </div>
     <div class="bd">
         <ul class="cf">
+             <?foreach(get_categories_tree(27) as $item){ ?>
             <li>
                 <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.jpg" alt="">
-                    <p>天花</p>
+                    <img src="{$ecsolve_path}{if $cat_info.cat_image neq ''}{$cat_info.cat_image}{else}/images/demo01.9.jpg{/if}" alt="">
+                    <p><?echo $item['name'];?></p>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.1.jpg" alt="">
-                    <p>地面</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.2.jpg" alt="">
-                    <p>墙面</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.3.jpg" alt="">
-                    <p>隔断</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.4.jpg" alt="">
-                    <p>天花</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.5.jpg" alt="">
-                    <p>地面</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.6.jpg" alt="">
-                    <p>墙面</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.7.jpg" alt="">
-                    <p>隔断</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.8.jpg" alt="">
-                    <p>天花</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.9.jpg" alt="">
-                    <p>地面</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.10.jpg" alt="">
-                    <p>墙面</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="{$ecsolve_path}/images/demo01.11.jpg" alt="">
-                    <p>隔断</p>
-                </a>
-            </li>
+            <?}?>
         </ul>
     </div>
 </div>

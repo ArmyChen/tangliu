@@ -111,7 +111,16 @@
   </table>
 </div>
 <!--购物车结算按钮和继续购物按钮-->
-<div class="shopcart_btns" id="show_jiesuan" ><a class="jiesuan " style="color:ffffff;"  href="flow.php?step=checkout" title="去结算" >去结算 ></a><a class="returnshop" href="./" style=" color:#999999;"> 继续购物</a> </div>
+<div class="shopcart_btns" id="show_jiesuan" >
+  
+<?if($_SESSION['user_id'] > 0){?>
+  <a class="jiesuan " style="color:ffffff;"  href="flow.php?step=checkout" title="下订单" >下订单 ></a>
+  <?}else{?>
+   <a class="jiesuan " style="color:ffffff;"  href="user.php" title="请登录" >请登录 ></a>
+  <?}?>
+  <a class="returnshop" href="./" style=" color:#999999;"> 继续购物</a> 
+</div>
+
 <script language="javascript">
 function switch_index(index){
 	for(var i = 1; i < 4; i ++){
@@ -823,7 +832,7 @@ function sel(obj)
   }
 </script>
 		  <!--网师傅-->
-	       <div class="mc" style="width:95%;">
+	       <div class="mc" style="width:95%;display:none">
 		    <dd >
 			    <ul class="xuanze">使用第三方支付平台支付>></ul>
 				<ul class="list-bank">
@@ -959,12 +968,12 @@ function sel(obj)
     <div class="online_paylt">
       <p class="auccess_txt"> <img src="images/shopcart/already_cio.jpg" /> <span>订单提交成功！</span>  </p>
       <div class="clear"></div>
-      <p class="auccess_txtb"> <span class="styelgs">{$lang.order_amount}：</span> <em><b>{$total.amount_formated}</b></em> <span class="sgray">支付方式：{$order.pay_name}</span> </p>
+      <p class="auccess_txtb"> <span class="styelgs">{$lang.order_amount}：</span> <em><b>{$total.amount_formated}</b></em> </p>
       <div class="clear"></div>
 	  <!-- {if $pay_online} -->
-      <p class="auccess_txtb">{$pay_online}</p>
+      <!--<p class="auccess_txtb">{$pay_online}</p>-->
 	  <!-- {/if} -->
-      <p class="huodaogd"> <a href="user.php" class="membersgd">会员中心</a> <a href="/" class="buycontinue">返回继续购物&gt;&gt;</a> </p>
+      <p class="huodaogd"> <a href="/user.php?act=order_list" class="membersgd">查看订单</a> <a href="/" class="buycontinue">返回继续购物&gt;&gt;</a> </p>
       <div class="clear"></div>
     </div>
     
@@ -980,16 +989,6 @@ function sel(obj)
           <th width="118">订单总价：</th>
           <td width="620" class="price_red"><em></em>{$total.amount_formated}</td>
         </tr>
-        <tr>
-          <th width="118">支付类型：</th>
-          <td width="620">{$order.pay_name}</td>
-        </tr>
-		<!--{if $order.shipping_name}-->
-        <tr>
-          <th width="118">配送方式：</th>
-          <td width="620">{$order.shipping_name}</td>
-        </tr>
-		<!--{/if}-->
       </table>
     </div>
   </div>
@@ -1001,11 +1000,11 @@ function sel(obj)
         <p class="kefusdg"><a href="#" target="_blank"><img src="images/shopcart/qq_ico.jpg" />客服在线咨询</a></p>
         <p class="kefusdg"><img src="images/shopcart/telse_ico.jpg" /><span>{$service_phone}</span></p>
       </div>
-      <div class="online_payrt02">
+      <!--<div class="online_payrt02">
         <p class="gysy">支付安全保障</p>
         <p class="blstxt">安全支付系统采用SSL加密</p>
         <p class="imgsgd"><img src="images/shopcart/secure.jpg" /></p>
-      </div>
+      </div>-->
      
       <div class="clear"></div>
     </div>

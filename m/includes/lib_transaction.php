@@ -328,7 +328,8 @@ function get_user_orders($user_id, $num = 10, $start = 0)
         }
 
         $row['shipping_status'] = ($row['shipping_status'] == SS_SHIPPED_ING) ? SS_PREPARING : $row['shipping_status'];
-        $row['order_status'] = $GLOBALS['_LANG']['os'][$row['order_status']] . ',' . $GLOBALS['_LANG']['ps'][$row['pay_status']] . ',' . $GLOBALS['_LANG']['ss'][$row['shipping_status']];
+        //$row['order_status'] = $GLOBALS['_LANG']['os'][$row['order_status']] . ',' . $GLOBALS['_LANG']['ps'][$row['pay_status']] . ',' . $GLOBALS['_LANG']['ss'][$row['shipping_status']];
+        $row['order_status'] = $GLOBALS['_LANG']['os'][$row['order_status']] .  ',' . $GLOBALS['_LANG']['ss'][$row['shipping_status']];
 
         $arr[] = array('order_id'       => $row['order_id'],
                        'order_sn'       => $row['order_sn'],
