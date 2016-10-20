@@ -34,6 +34,84 @@ function addToCart(goodsId, parentId,catId)
 
   // Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
    Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), null, 'POST', 'JSON');
+    
+}
+/* *
+ * 添加商品到购物车 
+ */
+function addToCartCommon(goodsId, spec, parentId,catId)
+{
+  var goods        = new Object();
+  var spec_arr     = new Array();
+  var fittings_arr = new Array();
+  var number       = 1;
+  var formBuy      = document.forms['ECS_FORMBUY'];
+  var quick		   = 0;
+
+  // 检查是否有商品规格 
+  if (formBuy)
+  {
+    spec_arr = getSelectedAttributes(formBuy);
+
+    if (formBuy.elements['number'])
+    {
+      number = formBuy.elements['number'].value;
+    }
+
+	quick = 1;
+  }
+
+  goods.quick    = quick;
+  goods.spec     = spec;
+  goods.goods_id = goodsId;
+  goods.cat_id = catId;
+  goods.number   = number;
+  goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
+
+  // Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
+   Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), null, 'POST', 'JSON');
+    
+}
+/* *
+ * 添加商品到购物车
+ * 自定义项目 
+ */
+function addToCartTable(goodsId, parentId,catId,zdyAdd)
+{
+  var goods        = new Object();
+  var spec_arr     = new Array();
+  var fittings_arr = new Array();
+  var number       = 1;
+  var formBuy      = document.forms['ECS_FORMBUY'];
+  var quick		   = 0;
+
+  // 检查是否有商品规格 
+  if (formBuy)
+  {
+    spec_arr = getSelectedAttributes(formBuy);
+
+    if (formBuy.elements['number'])
+    {
+      number = formBuy.elements['number'].value;
+    }
+
+	quick = 1;
+  }
+
+  goods.quick    = quick;
+  goods.spec     = spec_arr;
+  goods.goods_id = goodsId;
+  goods.cat_id = catId;
+  
+  goods.number   = number;
+  goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
+  
+  // Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), addToCartResponse, 'POST', 'JSON');
+  Ajax.call('flow.php?step=add_to_cart', 'goods=' + goods.toJSONString(), function addToCartResp(result){
+     zdyAdd.attr("data-rec-id",result);
+     zdyAdd.find(".xh").html(result);
+  }, 'POST', 'JSON');
+  
 }
 
 /**

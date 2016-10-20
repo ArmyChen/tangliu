@@ -18,7 +18,7 @@ if (!defined('IN_ECS'))
     die('Hacking attempt');
 }
 
-error_reporting(E_ALL);
+define('DEBUG_MODE', 0);
 
 if (__FILE__ == '')
 {
@@ -34,7 +34,6 @@ define('ROOT_PATH', str_replace('api', '', str_replace('\\', '/', dirname(__FILE
 @ini_set('session.use_trans_sid', 0);
 @ini_set('session.use_cookies',   1);
 @ini_set('session.auto_start',    0);
-@ini_set('display_errors',        1);
 
 if (DIRECTORY_SEPARATOR == '\\')
 {

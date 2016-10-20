@@ -2341,7 +2341,7 @@ function get_sg_goods($cats = '')
  */
 function get_cat_id_goods_list($cat_id = '', $num = '') {
     $sql = 'Select g.goods_id, g.cat_id,c.parent_id, g.goods_name, g.goods_name_style, g.market_price, g.shop_price AS org_price, g.promote_price, ' .
-        "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price, " .
+        "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price, g.human_price,g.material_price ," .
         "promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, " .
         "g.is_best, g.is_new, g.is_hot, g.is_promote " .
         'FROM ' . $GLOBALS ['ecs']->table ( 'goods' ) . ' AS g ' .
@@ -2358,20 +2358,27 @@ function get_cat_id_goods_list($cat_id = '', $num = '') {
     foreach ( $res as $idx => $row ) {
         $goods [$idx] ['id'] = $row ['article_id'];
         $goods [$idx] ['id'] = $row ['goods_id'];
+        $goods [$idx] ['attr'] = get_goods_attr($row ['goods_id']);
+        
         $goods [$idx] ['name'] = $row ['goods_name'];
         $goods [$idx] ['brief'] = $row ['goods_brief'];
+        $goods [$idx] ['descc'] = $row ['descc'];
+        $goods [$idx] ['kehu_desc'] = $row ['kehu_desc'];
         $goods [$idx] ['brand_name'] = $row ['brand_name'];
         $goods [$idx] ['goods_style_name'] = add_style ( $row ['goods_name'], $row ['goods_name_style'] );
         $goods [$idx] ['short_name'] = $GLOBALS ['_CFG'] ['goods_name_length'] > 0 ? sub_str ( $row ['goods_name'], $GLOBALS ['_CFG'] ['goods_name_length'] ) : $row ['goods_name'];
         $goods [$idx] ['short_style_name'] = add_style ( $goods [$idx] ['short_name'], $row ['goods_name_style'] );
         $goods [$idx] ['market_price'] =  $row ['market_price'] ;
         $goods [$idx] ['shop_price'] = $row ['shop_price'];
+        $goods [$idx] ['material_price'] = $row ['material_price'];
+        $goods [$idx] ['human_price'] = $row ['human_price'];
         $goods [$idx] ['thumb'] = empty ( $row ['goods_thumb'] ) ? $GLOBALS ['_CFG'] ['no_picture'] : $row ['goods_thumb'];
         $goods [$idx] ['goods_img'] = empty ( $row ['goods_img'] ) ? $GLOBALS ['_CFG'] ['no_picture'] : $row ['goods_img'];
         $goods [$idx] ['url'] = build_uri ( 'goods', array (
             'gid' => $row ['goods_id']
         ), $row ['goods_name'] );
     }
+    // var_dump($goods);die;
     return $goods;
 }
 

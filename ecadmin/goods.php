@@ -11,6 +11,7 @@ $exc = new exchange($ecs->table('goods'), $db, 'goods_id', 'goods_name');
 //echo $_SERVER['HTTP_REFERER'];
 $web_http = explode('mobile',$_SERVER['HTTP_REFERER']);
 $smarty->assign('webhttp',$web_http[0]);
+
 /*------------------------------------------------------ */
 //-- 商品列表，商品回收站
 /*------------------------------------------------------ */
@@ -136,6 +137,8 @@ admin_priv('goods_add');; // 检查权限
             'other_cat'     => array(), // 扩展分类
             'goods_type'    => 0,       // 商品类型
             'shop_price'    => 0,
+            'human_price'    => 0,
+            'material_price'    => 0,
             'promote_price' => 0,
             'market_price'  => 0,
             'integral'      => 0,
@@ -201,6 +204,8 @@ admin_priv('goods_add');; // 检查权限
                 'other_cat'     => array(), // 扩展分类
                 'goods_type'    => 0,       // 商品类型
                 'shop_price'    => 0,
+                'human_price'    => 0,
+                'material_price'    => 0,
                 'promote_price' => 0,
                 'market_price'  => 0,
                 'integral'      => 0,
@@ -679,6 +684,8 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
 
     /* 处理商品数据 */
     $shop_price = !empty($_POST['shop_price']) ? $_POST['shop_price'] : 0;
+    $human_price = !empty($_POST['human_price']) ? $_POST['human_price'] : 0;
+    $material_price = !empty($_POST['material_price']) ? $_POST['material_price'] : 0;
     $market_price = !empty($_POST['market_price']) ? $_POST['market_price'] : 0;
     $promote_price = !empty($_POST['promote_price']) ? floatval($_POST['promote_price'] ) : 0;
     $is_promote = empty($promote_price) ? 0 : 1;
@@ -714,12 +721,12 @@ $tuijie_img = $tuijie_img_name;
         if ($code == '')
         {
             $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_style, goods_sn, " .
-                    "cat_id, brand_id, shop_price, market_price, is_promote, promote_price, " .
+                    "cat_id, brand_id, shop_price,human_price,material_price, market_price, is_promote, promote_price, " .
                     "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief, goods_spcdesc," .
                     "seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, " .
                     "is_on_sale, is_alone_sale, is_shipping, goods_desc, add_time, last_update, goods_type, rank_integral,fencheng, suppliers_id, tuijie_img)" .
                 "VALUES ('$_POST[goods_name]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
-                    "'$brand_id', '$shop_price', '$market_price', '$is_promote','$promote_price', ".
+                    "'$brand_id', '$shop_price','$human_price','$material_price', '$market_price', '$is_promote','$promote_price', ".
                     "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', ".
                     "'$_POST[keywords]', '$_POST[goods_brief]','$_POST[goods_spcdesc]', '$_POST[seller_note]', '$goods_weight', '$goods_number',".
                     " '$warn_number', '$_POST[integral]', '$give_integral', '$is_best', '$is_new', '$is_hot', '$is_on_sale', '$is_alone_sale', $is_shipping, ".
@@ -728,12 +735,12 @@ $tuijie_img = $tuijie_img_name;
         else
         {
             $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_style, goods_sn, " .
-                    "cat_id, brand_id, shop_price, market_price, is_promote, promote_price, " .
+                    "cat_id, brand_id, shop_price,human_price,material_price, market_price, is_promote, promote_price, " .
                     "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief,goods_spcdesc, " .
                     "seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, is_real, " .
                     "is_on_sale, is_alone_sale, is_shipping, goods_desc, add_time, last_update, goods_type, extension_code, rank_integral,fencheng, tuijie_img)" .
                 "VALUES ('$_POST[goods_name]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
-                    "'$brand_id', '$shop_price', '$market_price', '$is_promote','$promote_price', ".
+                    "'$brand_id', '$shop_price','$human_price','$material_price', '$market_price', '$is_promote','$promote_price', ".
                     "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', ".
                     "'$_POST[keywords]', '$_POST[goods_brief]', '$_POST[goods_spcdesc]','$_POST[seller_note]', '$goods_weight', '$goods_number',".
                     " '$warn_number', '$_POST[integral]', '$give_integral', '$is_best', '$is_new', '$is_hot', 0, '$is_on_sale', '$is_alone_sale', $is_shipping, ".
@@ -779,7 +786,7 @@ $sql = "SELECT tuijie_img" .
         }
 
 
-
+        $shop_price = $human_price + $material_price;
 
         $sql = "UPDATE " . $ecs->table('goods') . " SET " .
                 "goods_name = '$_POST[goods_name]', " .
@@ -788,6 +795,8 @@ $sql = "SELECT tuijie_img" .
                 "cat_id = '$catgory_id', " .
                 "brand_id = '$brand_id', " .
                 "shop_price = '$shop_price', " .
+                "human_price = '$human_price', " .
+                "material_price = '$material_price', " .
                 "market_price = '$market_price', " .
                 "is_promote = '$is_promote', " .
                 "promote_price = '$promote_price', " .

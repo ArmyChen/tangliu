@@ -48,6 +48,8 @@ $smarty->assign('lang',             $_LANG);
 $smarty->assign('show_marketprice', $_CFG['show_marketprice']);
 $smarty->assign('data_dir',    DATA_DIR);       // 数据目录
 
+
+  
 /*------------------------------------------------------ */
 //-- 添加商品到购物车
 /*------------------------------------------------------ */
@@ -152,7 +154,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
     else
     {
         // 更新：添加到购物车
-        if (addto_cart($goods->goods_id, $goods->number, $goods->spec, $goods->parent , $goods->cat_id))
+        if (addto_cart($goods->goods_id, $goods->number, $goods->spec, $goods->parent , $goods->cat_id,$goods->human_price,$goods->material_price))
         {
             if ($_CFG['cart_confirm'] > 2)
             {
@@ -163,6 +165,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
                 $result['message'] = $_CFG['cart_confirm'] == 1 ? $_LANG['addto_cart_success_1'] : $_LANG['addto_cart_success_2'];
             }
 
+            $result['rec_id'] = 
             $result['content'] = insert_cart_info();
             $result['one_step_buy'] = $_CFG['one_step_buy'];
         }
@@ -1677,10 +1680,10 @@ elseif ($_REQUEST['step'] == 'done')
     }
 
     /* 检查商品总额是否达到最低限购金额 */
-    if ($flow_type == CART_GENERAL_GOODS && cart_amount(true, CART_GENERAL_GOODS) < $_CFG['min_goods_amount'])
-    {
-        show_message(sprintf($_LANG['goods_amount_not_enough'], price_format($_CFG['min_goods_amount'], false)));
-    }
+    // if ($flow_type == CART_GENERAL_GOODS && cart_amount(true, CART_GENERAL_GOODS) < $_CFG['min_goods_amount'])
+    // {
+    //     show_message(sprintf($_LANG['goods_amount_not_enough'], price_format($_CFG['min_goods_amount'], false)));
+    // }
 
     /* 收货人信息 */
     foreach ($consignee as $key => $value)
@@ -1716,13 +1719,13 @@ elseif ($_REQUEST['step'] == 'done')
     $order['insure_fee']   = $total['shipping_insure'];
 
     /* 支付方式 */
-    if ($order['pay_id'] > 0)
-    {
-        $payment = payment_info($order['pay_id']);
-        $order['pay_name'] = addslashes($payment['pay_name']);
-    }
-    $order['pay_fee'] = $total['pay_fee'];
-    $order['cod_fee'] = $total['cod_fee'];
+    // if ($order['pay_id'] > 0)
+    // {
+    //     $payment = payment_info($order['pay_id']);
+    //     $order['pay_name'] = addslashes($payment['pay_name']);
+    // }
+    // $order['pay_fee'] = $total['pay_fee'];
+    // $order['cod_fee'] = $total['cod_fee'];
 
     /* 商品包装 */
     if ($order['pack_id'] > 0)
@@ -1743,23 +1746,23 @@ elseif ($_REQUEST['step'] == 'done')
     $order['order_amount']  = number_format($total['amount'], 2, '.', '');
 
     /* 如果全部使用余额支付，检查余额是否足够 */
-    if ($payment['pay_code'] == 'balance' && $order['order_amount'] > 0)
-    {
-        if($order['surplus'] >0) //余额支付里如果输入了一个金额
-        {
-            $order['order_amount'] = $order['order_amount'] + $order['surplus'];
-            $order['surplus'] = 0;
-        }
-        if ($order['order_amount'] > ($user_info['user_money'] + $user_info['credit_line']))
-        {
-            show_message($_LANG['balance_not_enough']);
-        }
-        else
-        {
-            $order['surplus'] = $order['order_amount'];
-            $order['order_amount'] = 0;
-        }
-    }
+    // if ($payment['pay_code'] == 'balance' && $order['order_amount'] > 0)
+    // {
+    //     if($order['surplus'] >0) //余额支付里如果输入了一个金额
+    //     {
+    //         $order['order_amount'] = $order['order_amount'] + $order['surplus'];
+    //         $order['surplus'] = 0;
+    //     }
+    //     if ($order['order_amount'] > ($user_info['user_money'] + $user_info['credit_line']))
+    //     {
+    //         show_message($_LANG['balance_not_enough']);
+    //     }
+    //     else
+    //     {
+    //         $order['surplus'] = $order['order_amount'];
+    //         $order['order_amount'] = 0;
+    //     }
+    // }
 
     /* 如果订单金额为0（使用余额或积分或红包支付），修改订单状态为已确认、已付款 */
     if ($order['order_amount'] <= 0)
@@ -1773,7 +1776,7 @@ elseif ($_REQUEST['step'] == 'done')
 
     $order['integral_money']   = $total['integral_money'];
     $order['integral']         = $total['integral'];
-
+    $order['ship_note']        = $_REQUEST['ship_note'];
     if ($order['extension_code'] == 'exchange_goods')
     {
         $order['integral_money']   = 0;
@@ -1889,7 +1892,7 @@ $db->query($sql);
 
     /* 给商家发邮件 */
     /* 增加是否给客服发送邮件选项 */
-    if ($_CFG['send_service_email'] && $_CFG['service_email'] != '')
+   if (!empty($_CFG['send_service_email']) && !empty($_CFG['service_email']))
     {
         $tpl = get_mail_template('remind_of_new_order');
         $smarty->assign('order', $order);
@@ -1899,6 +1902,18 @@ $db->query($sql);
         $content = $smarty->fetch('str:' . $tpl['template_content']);
         send_mail($_CFG['shop_name'], $_CFG['service_email'], $tpl['template_subject'], $content, $tpl['is_html']);
     }
+
+    if (!empty($_SESSION["email"]))
+    {
+        $tpl = get_mail_template('order_confirm');
+        $smarty->assign('order', $order);
+        $smarty->assign('goods_list', $cart_goods);
+        $smarty->assign('shop_name', $_CFG['shop_name']);
+        $smarty->assign('send_date', date($_CFG['time_format']));
+        $content = $smarty->fetch('str:' . $tpl['template_content']);
+        send_mail($_CFG['shop_name'], $_SESSION["email"], $tpl['template_subject'], $content, $tpl['is_html']);
+    }
+
 
     /* 如果需要，发短信 */
     if ($_CFG['sms_order_placed'] == '1' && $_CFG['sms_shop_mobile'] != '')
@@ -1969,20 +1984,20 @@ $db->query($sql);
     $order['log_id'] = insert_pay_log($new_order_id, $order['order_amount'], PAY_ORDER);
 
     /* 取得支付信息，生成支付代码 */
-    if ($order['order_amount'] > 0)
-    {
-        $payment = payment_info($order['pay_id']);
+    // if ($order['order_amount'] > 0)
+    // {
+    //     $payment = payment_info($order['pay_id']);
 
-        include_once('includes/modules/payment/' . $payment['pay_code'] . '.php');
+    //     include_once('includes/modules/payment/' . $payment['pay_code'] . '.php');
 
-        $pay_obj    = new $payment['pay_code'];
+    //     $pay_obj    = new $payment['pay_code'];
 
-        $pay_online = $pay_obj->get_code($order, unserialize_config($payment['pay_config']));
+    //     $pay_online = $pay_obj->get_code($order, unserialize_config($payment['pay_config']));
 
-        $order['pay_desc'] = $payment['pay_desc'];
+    //     $order['pay_desc'] = $payment['pay_desc'];
 
-        $smarty->assign('pay_online', $pay_online);
-    }
+    //     $smarty->assign('pay_online', $pay_online);
+    // }
     if(!empty($order['shipping_name']))
     {
         $order['shipping_name']=trim(stripcslashes($order['shipping_name']));

@@ -910,7 +910,7 @@ function get_order_sn()
  */
 function cart_goods($type = CART_GENERAL_GOODS)
 {
-    $sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, g.goods_thumb, c.goods_sn, c.goods_number, " .
+    $sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, g.goods_img as goods_thumb, c.goods_sn, c.goods_number, " .
             "c.market_price, c.goods_price, c.goods_attr, c.is_real, c.extension_code, c.parent_id, c.is_gift, c.is_shipping, " .
             "c.goods_price * c.goods_number AS subtotal " .
             "FROM " . $GLOBALS['ecs']->table('cart') .

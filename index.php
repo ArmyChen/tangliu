@@ -8,6 +8,80 @@ if ((DEBUG_MODE & 2) != 2)
     $smarty->caching = true;
 }
 
+//首页登录
+if ($_REQUEST['step'] == 'login')
+{
+
+    include_once('languages/'. $_CFG['lang']. '/user.php');
+
+    /*
+     * 用户登录注册
+     */
+    
+    include_once('includes/lib_passport.php');
+    if (!empty($_REQUEST['act']) && $_REQUEST['act'] == 'signin')
+    {
+        
+        if ($user->login($_REQUEST['username'], $_REQUEST['password'],isset($_REQUEST['remember'])))
+        {
+            update_user_info();  //更新用户信息
+            recalculate_price(); // 重新计算购物车中的商品价格
+
+            /* 检查购物车中是否有商品 没有商品则跳转到首页 */
+            $result = array("url"=>"index.php","error"=>0);
+            echo json_encode($result);
+
+            exit;
+        }
+        else
+        {
+            $_SESSION['login_fail']++;
+            //show_message($_LANG['signin_failed'], '', 'flow.php?step=login');
+             $result = array("msg"=>"登录信息错误","error"=>1);
+             echo json_encode($result);
+        }
+    }
+    elseif (!empty($_REQUEST['act']) && $_REQUEST['act'] == 'signup')
+    {
+        if (register(trim($_REQUEST['username']), trim($_REQUEST['password']), trim($_REQUEST['email'])))
+        {
+            /* 用户注册成功 */
+            $user->login($_REQUEST['username'], $_REQUEST['password'],isset($_REQUEST['remember']));
+            update_user_info();  //更新用户信息
+            $result = array("url"=>"index.php","error"=>0);
+            echo json_encode($result);
+            exit;
+        }
+        else
+        {
+             $result = array("msg"=>"登录信息错误","error"=>1);
+             echo json_encode($result);
+        }
+    }
+    else
+    {
+        // TODO: 非法访问的处理
+       $result = array("msg"=>"登录信息错误","error"=>1);
+       echo json_encode($result);
+    }
+     exit;
+}elseif($_REQUEST['act'] == 'delete'){
+    $id = $_REQUEST['id'];
+    flow_drop_cart_goods($id); 
+    $result = array("msg"=>"删除成功","error"=>0);
+    echo json_encode($result);
+    exit;
+}elseif($_REQUEST['act'] == 'update'){
+    update_cart_goods($_REQUEST);
+}elseif($_REQUEST['act'] == 'getcart'){
+    require_once("/includes/lib_order.php");
+    $result = array();
+    foreach(get_categories_tree(27) as $item0){
+        $result[] = cart_goods_id($item0["id"]);
+    }
+    echo json_encode($result);
+    exit;
+}
 
 
 
@@ -381,7 +455,48 @@ function get_rand_comment_index($type,$count)
 }
 
 
+/**
+ * 删除购物车中的商品
+ *
+ * @access  public
+ * @param   integer $id
+ * @return  void
+ */
+function flow_drop_cart_goods($id)
+{
+    
+    /* 删除 */
+    $sql = "DELETE FROM " . $GLOBALS['ecs']->table('cart') ."
+            WHERE session_id = '" . SESS_ID . "'
+            AND rec_id IN ($id)";
+    $GLOBALS['db']->query($sql);
+    //flow_clear_cart_alone();
+}
 
+/**
+ * 更新购物车
+ *
+ * @access  public
+ * @param   integer $id
+ * @return  void
+ */
+function update_cart_goods($arr)
+{
+    
+    /* 删除 */
+    $sql = "Update " . $GLOBALS['ecs']->table('cart') ."
+            set goods_name = '".$arr["goods_name"]."'
+            , goods_number = ".$arr["goods_number"]."
+            , goods_attr = '".$arr["goods_attr"]."'
+            , goods_price = '".$arr["goods_price"]."'
+            , descc = '".$arr["descc"]."'
+            , kehu_desc = '".$arr["kehu_desc"]."'            
+            WHERE session_id = '" . SESS_ID . "'
+            AND rec_id IN (".$arr["rec_id"].")";
+    //       echo $sql;
+    $GLOBALS['db']->query($sql);
+    //flow_clear_cart_alone();
+}
 
  
 ?>

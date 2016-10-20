@@ -1,6 +1,6 @@
 <?php
 // database host
-$db_host   = "localhost";
+$db_host   = "192.168.3.193";
 
 // database name
 $db_name   = "webts2";
@@ -31,5 +31,7 @@ define('AUTH_KEY', 'this is a key');
 define('OLD_AUTH_KEY', '');
 
 define('API_TIME', '2015-08-02 19:39:27');
+
+define('DEBUG_MODE', 0);
 
 ?>

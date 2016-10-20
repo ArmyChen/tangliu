@@ -126,6 +126,7 @@ $_LANG['is_mobile'] = '移动端';
 $_LANG['banben1'] = '版本1';
 //$_LANG['banben2'] = '版本2';
 $_LANG['banben3'] = '版本3';
+$_LANG['banben4'] = '版本4';
 //个性的权限语言识别********************
 $_LANG['special'] = '特别';
 
@@ -148,6 +149,7 @@ if(@$_LANG['banben2'])
 $_LANG['goods_comment_priv'] = '商品评价管理';
 $_LANG['goods_type_manage'] = '商品类型';
 }
+$_LANG['goods_type_manage'] = '商品类型';
 //商品管理，及文章分类管理菜单子项显示---------
 $_LANG['sgoods'] = '商品管理';
 $_LANG['mgoods_list'] = '商品列表';
@@ -159,6 +161,7 @@ if(@$_LANG['banben2'])
 $_LANG['mgoods_type_manage'] = '商品类型';
 $_LANG['mgoods_comment_manage'] = '商品评价';
 }
+$_LANG['mgoods_type_manage'] = '商品类型';
 $_LANG['mgoods_trash'] = '商品回收站';
 //商品管理，及文章分类管理菜单子项显示
 $modules['sgoods']['mgoods_list']       = 'goods.php?act=list';         // 商品列表
@@ -170,6 +173,7 @@ if(@$_LANG['banben2'])
 $modules['sgoods']['mgoods_type_manage']       = 'goods_type.php?act=manage';
 $modules['sgoods']['mgoods_comment_manage']   = 'comment_manage.php?act=list';
 }
+$modules['sgoods']['mgoods_type_manage']       = 'goods_type.php?act=manage';
 $modules['sgoods']['mgoods_trash']      = 'goods.php?act=trash';        // 商品回收站
 }
 
@@ -257,7 +261,7 @@ $modules['susers']['munreply_msg']            = 'user_rank.php?act=list';
 
 
 //订单管理开始
-if(@$_LANG['banben2'])
+if(@$_LANG['banben2'] || @$_LANG['banben4'])
 {
 //订单管理部分的权限语言识别********************
 $_LANG['order_list'] = '订单列表';

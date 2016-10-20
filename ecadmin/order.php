@@ -335,6 +335,7 @@ $order['goods_amount_zhekou']  =price_format((10-$order['zhekou'])*($order['good
     $res = $db->query($sql);
     while ($row = $db->fetchRow($res))
     {
+       
         /* 虚拟商品支持 */
         if ($row['is_real'] == 0)
         {
@@ -5058,20 +5059,20 @@ elseif ($_REQUEST['act'] == 'get_goods_info')
     while ($row = $db->fetchRow($res))
     {
         /* 虚拟商品支持 */
-        if ($row['is_real'] == 0)
-        {
-            /* 取得语言项 */
-            $filename = ROOT_PATH . 'plugins/' . $row['extension_code'] . '/lang/common_' . $_CFG['lang'] . '.php';
-            if (file_exists($filename))
-            {
-                include_once($filename);
-                if (!empty($_LANG[$row['extension_code'].'_link']))
-                {
-                    $row['goods_name'] = $row['goods_name'] . sprintf($_LANG[$row['extension_code'].'_link'], $row['goods_id'], $order['order_sn']);
-                }
-            }
-        }
-
+        // if ($row['is_real'] == 0)
+        // {
+        //     /* 取得语言项 */
+        //     $filename = ROOT_PATH . 'plugins/' . $row['extension_code'] . '/lang/common_' . $_CFG['lang'] . '.php';
+        //     if (file_exists($filename))
+        //     {
+        //         include_once($filename);
+        //         if (!empty($_LANG[$row['extension_code'].'_link']))
+        //         {
+        //             $row['goods_name'] = $row['goods_name'] . sprintf($_LANG[$row['extension_code'].'_link'], $row['goods_id'], $order['order_sn']);
+        //         }
+        //     }
+        // }
+        
         $row['formated_subtotal']       = price_format($row['goods_price'] * $row['goods_number']);
         $row['formated_goods_price']    = price_format($row['goods_price']);
         $_goods_thumb = get_image_path($row['goods_id'], $row['goods_thumb'], true);
@@ -5797,19 +5798,19 @@ function get_order_goods($order)
     while ($row = $GLOBALS['db']->fetchRow($res))
     {
         // 虚拟商品支持
-        if ($row['is_real'] == 0)
-        {
-            /* 取得语言项 */
-            $filename = ROOT_PATH . 'plugins/' . $row['extension_code'] . '/lang/common_' . $GLOBALS['_CFG']['lang'] . '.php';
-            if (file_exists($filename))
-            {
-                include_once($filename);
-                if (!empty($GLOBALS['_LANG'][$row['extension_code'].'_link']))
-                {
-                    $row['goods_name'] = $row['goods_name'] . sprintf($GLOBALS['_LANG'][$row['extension_code'].'_link'], $row['goods_id'], $order['order_sn']);
-                }
-            }
-        }
+        // if ($row['is_real'] == 0)
+        // {
+        //     /* 取得语言项 */
+        //     $filename = ROOT_PATH . 'plugins/' . $row['extension_code'] . '/lang/common_' . $GLOBALS['_CFG']['lang'] . '.php';
+        //     if (file_exists($filename))
+        //     {
+        //         include_once($filename);
+        //         if (!empty($GLOBALS['_LANG'][$row['extension_code'].'_link']))
+        //         {
+        //             $row['goods_name'] = $row['goods_name'] . sprintf($GLOBALS['_LANG'][$row['extension_code'].'_link'], $row['goods_id'], $order['order_sn']);
+        //         }
+        //     }
+        // }
 
         $row['formated_subtotal']       = price_format($row['goods_price'] * $row['goods_number']);
         $row['formated_goods_price']    = price_format($row['goods_price']);

@@ -910,9 +910,9 @@ function get_order_sn()
  */
 function cart_goods($type = CART_GENERAL_GOODS)
 {
-    $sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, g.goods_thumb, c.goods_sn, c.goods_number, " .
+    $sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, g.goods_img as goods_thumb, c.goods_sn, c.goods_number, " .
             "c.market_price, c.goods_price, c.goods_attr, c.is_real, c.extension_code, c.parent_id, c.is_gift, c.is_shipping, " .
-            "c.goods_price * c.goods_number AS subtotal " .
+            "c.goods_price * c.goods_number AS subtotal,c.human_price,c.material_price " .
             "FROM " . $GLOBALS['ecs']->table('cart') .
 			" AS c LEFT JOIN ".$GLOBALS['ecs']->table('goods').
             " AS g ON c.goods_id = g.goods_id WHERE session_id = '" . SESS_ID . "' " .
@@ -944,14 +944,14 @@ function cart_goods($type = CART_GENERAL_GOODS)
  */
 function cart_goods_id($cat_id = 0 ,$type = CART_GENERAL_GOODS)
 {
-    $sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, g.goods_thumb, c.goods_sn, c.goods_number, " .
+    $sql = "SELECT c.descc,c.kehu_desc,c.cat_id,c.rec_id, c.user_id, c.goods_id, c.goods_name, g.goods_img as goods_thumb, c.goods_sn, c.goods_number, " .
             "c.market_price, c.goods_price, c.goods_attr, c.is_real, c.extension_code, c.parent_id, c.is_gift, c.is_shipping, " .
-            "c.goods_price * c.goods_number AS subtotal " .
+            "c.goods_price * c.goods_number AS subtotal,c.human_price,c.material_price " .
             "FROM " . $GLOBALS['ecs']->table('cart') .
 			" AS c LEFT JOIN ".$GLOBALS['ecs']->table('goods').
             " AS g ON c.goods_id = g.goods_id WHERE c.cat_id=".$cat_id." and session_id = '" . SESS_ID . "' " .
-            "AND rec_type = '$type'";
-
+            "AND rec_type = '$type'" . " order by rec_id asc";
+//echo $sql;die;
     $arr = $GLOBALS['db']->getAll($sql);
 
     /* 格式化价格及礼包商品 */
@@ -1096,7 +1096,7 @@ function cart_weight_price($type = CART_GENERAL_GOODS)
  * @param   integer $parent     基本件
  * @return  boolean
  */
-function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0,$cat_id)
+function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0,$cat_id,$descc = "",$kehu_desc="")
 {
     $GLOBALS['err']->clean();
     $_parent_id = $parent;
@@ -1105,7 +1105,7 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0,$cat_id)
     $sql = "SELECT g.goods_name, g.goods_sn, g.is_on_sale, g.is_real,g.cat_id, ".
                 "g.market_price, g.shop_price AS org_price, g.promote_price, g.promote_start_date, ".
                 "g.promote_end_date, g.goods_weight, g.integral, g.extension_code, ".
-                "g.goods_number, g.is_alone_sale, g.is_shipping,".
+                "g.goods_number, g.is_alone_sale, g.is_shipping,g.human_price,g.material_price ,".
                 "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price ".
             " FROM " .$GLOBALS['ecs']->table('goods'). " AS g ".
             " LEFT JOIN " . $GLOBALS['ecs']->table('member_price') . " AS mp ".
@@ -1208,15 +1208,20 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0,$cat_id)
         'cat_id'       => !empty($cat_id)?$cat_id:$goods['cat_id'],
         'goods_name'    => addslashes($goods['goods_name']),
         'market_price'  => $goods['market_price'],
-        'goods_attr'    => addslashes($goods_attr),
-        'goods_attr_id' => $goods_attr_id,
+        'human_price'  => !empty($human_price)?$human_price:$goods['human_price'],
+        'material_price'  => !empty($material_price)?$material_price:$goods['material_price'],
+        'goods_attr'    => addslashes($spec),
+        // 'goods_attr_id' => $goods_attr_id,
         'is_real'       => $goods['is_real'],
         'extension_code'=> $goods['extension_code'],
         'is_gift'       => 0,
         'is_shipping'   => $goods['is_shipping'],
-        'rec_type'      => CART_GENERAL_GOODS
+        'rec_type'      => CART_GENERAL_GOODS,
+        'descc'         => $descc,
+        'kehu_desc'     => $kehu_desc,
+        
     );
-
+// var_dump($goods);die;
     /* 如果该配件在添加为基本件的配件时，所设置的“配件价格”比原价低，即此配件在价格上提供了优惠， */
     /* 则按照该配件的优惠价格卖，但是每一个基本件只能购买一个优惠价格的“该配件”，多买的“该配件”不享 */
     /* 受此优惠 */
@@ -1322,7 +1327,9 @@ function addto_cart($goods_id, $num = 1, $spec = array(), $parent = 0,$cat_id)
                     $parent['goods_price']  = max($goods_price, 0);
                     $parent['goods_number'] = $num;
                     $parent['parent_id']    = 0;
-                    $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('cart'), $parent, 'INSERT');
+                    $parent['rec_id'] = mysql_insert_id();
+                    $return = $GLOBALS['db']->autoExecuteInsert($GLOBALS['ecs']->table('cart'), $parent, 'INSERT');
+                    echo  $return; die;
             }else{
                     $num += $row['goods_number'];
                     if(is_spec($spec) && !empty($prod) )

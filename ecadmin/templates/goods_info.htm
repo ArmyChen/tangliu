@@ -17,10 +17,10 @@
         <span class="tab-front" id="general-tab">{$lang.tab_general}</span><span
         class="tab-back" id="detail-tab">{$lang.tab_detail}</span><span
         class="tab-back" id="mix-tab">{$lang.tab_mix}</span>
-		
+		<span  class="tab-back" id="properties-tab">{$lang.tab_properties}</span>
 		{if $lang.banben2}
 		{if $goods_type_list}
-		<span  class="tab-back" id="properties-tab">{$lang.tab_properties}</span>{/if}
+		{/if}
 		<span  class="tab-back" id="gallery-tab"  >{$lang.tab_gallery}</span>
 		{/if}
 		
@@ -49,6 +49,7 @@
             <td><input type="text" name="goods_sn" value="{$goods.goods_sn|escape}" size="20" onblur="checkGoodsSn(this.value,'{$goods.goods_id}')" /><span id="goods_sn_notice"></span><br />
             <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeGoodsSN">{$lang.notice_goods_sn}</span></td>
           </tr>
+          
           <tr>
             <td class="label">{$lang.lab_goods_cat}</td>
             <td><select name="cat_id" onchange="hideCatDiv()" ><option value="0">{$lang.select_please}</option>{$cat_list}</select>
@@ -108,10 +109,20 @@
       </select></td>
           </tr>
          {/if}
-          <tr>
+          <!--<tr>
             <td class="label">{$lang.lab_shop_price}</td>
             <td><input type="text" name="shop_price" value="{$goods.shop_price}" size="20" onblur="priceSetted()"/>
             <input type="button" value="{$lang.compute_by_mp}" onclick="marketPriceSetted()" />
+            {$lang.require_field}</td>
+          </tr>-->
+           <tr>
+            <td class="label">人力单价</td>
+            <td><input type="text" name="human_price" value="{$goods.human_price}" size="20"/>
+            {$lang.require_field}</td>
+          </tr>
+          <tr>
+            <td class="label">材料单价</td>
+            <td><input type="text" name="material_price" value="{$goods.material_price}" size="20"/>
             {$lang.require_field}</td>
           </tr>
 		  	  {if $lang.banben2}
@@ -161,12 +172,12 @@
             <td><input type="text" name="fencheng" value="{$goods.fencheng}" size="20" />
             <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="rankIntegral">该商品出售后，需要用于分成的金额</span></td>
           </tr>
-          <tr>
+          <!--<tr>
             <td class="label">{$lang.lab_market_price}</td>
             <td><input type="text" name="market_price" value="{$goods.market_price}" size="20" />
               <input type="button" value="{$lang.integral_market_price}" onclick="integral_market_price()" />
             </td>
-          </tr>
+          </tr>-->
           <tr style="display:none;">
             <td class="banben2"><a href="javascript:showNotice('giveIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_give_integral}</td>
             <td><input type="text" name="give_integral" value="{$goods.give_integral}" size="20" />

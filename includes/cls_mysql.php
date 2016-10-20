@@ -913,6 +913,37 @@ class cls_mysql
 
         array_unique($this->mysql_disable_cache_tables);
     }
+
+     function autoExecuteInsert($table, $field_values, $mode = 'INSERT', $where = '', $querymode = '')
+    {
+        $field_names = $this->getCol('DESC ' . $table);
+
+        $sql = '';
+        $fields = $values = array();
+        foreach ($field_names AS $value)
+        {
+            if (array_key_exists($value, $field_values) == true)
+            {
+                $fields[] = $value;
+                $values[] = "'" . $field_values[$value] . "'";
+            }
+        }
+
+        if (!empty($fields))
+        {
+            $sql = 'INSERT INTO ' . $table . ' (' . implode(', ', $fields) . ') VALUES (' . implode(', ', $values) . ')';
+        }
+
+        if ($sql)
+        {
+            mysql_query($sql);
+            return mysql_insert_id();
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
 ?>
