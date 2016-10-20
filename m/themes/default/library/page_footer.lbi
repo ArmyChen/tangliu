@@ -5,7 +5,7 @@
 		<p>电话：{$service_phone}</p>
 		<p>传真：(86)20-83274545</p>
 	</div>
-	<div class="ewm"><img src="{$ecsolve_path}/img/ewm.png"  alt="" title=""></div>
+	<!--<div class="ewm"><img src="{$ecsolve_path}/img/ewm.png"  alt="" title=""></div>-->
 </div>
 
 

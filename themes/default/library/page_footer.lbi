@@ -70,3 +70,192 @@ $GLOBALS['smarty']->assign('article_list_about', index_get_all_cat_articles(123)
 </div>
 
 <script src="{$ecsolve_path}/js/main.js"></script>
+<div id="login_module" style="position: fixed;display:none;
+	_position:absolute;
+	z-index:10001;
+	top: 50%;
+	left: 50%;
+	margin: -141px 0 0 -201px;
+	width: 420px;
+	height:300px;
+	border:1px solid #CCC;
+	line-height: 300px;
+	text-align:center;
+	font-size: 14px;
+	background-color:#F4F4F4;
+	overflow:hidden;">
+     <form method="post" name="loginForm" id="loginForm" onsubmit="return checkLoginForm(this)">
+         <div class="row1">
+            登录窗口<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+        </div>
+<div class="row">
+            用户名: <span class="inputBox">
+                <input id="txtName" type="text" placeholder="<?php echo $this->_var['lang']['username']; ?>/<?php echo $this->_var['lang']['mobile']; ?>/<?php echo $this->_var['lang']['email']; ?>" name="username" >
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn">*</a>
+        </div>
+        <div class="row">
+            密&nbsp;码: <span class="inputBox">
+              <input id="txtPwd" name="password"  placeholder="<?php echo $this->_var['lang']['label_password']; ?>" type="password">
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+        </div>
+        <div class="row">
+           <input type="button" name="login" class="c-btn3" value="登陆" id="loginbtn" />
+        </div>
+             
+          </form>
+
+   
+        
+</div>
+<div id="register_module" style="position: fixed;display:none;
+	_position:absolute;
+	z-index:10001;
+	top: 50%;
+	left: 50%;
+	margin: -141px 0 0 -201px;
+	width: 420px;
+	height:300px;
+	border:1px solid #CCC;
+	line-height: 300px;
+	text-align:center;
+	font-size: 14px;
+	background-color:#F4F4F4;
+	overflow:hidden;">
+         <form method="post" name="loginForm" id="loginForm" onsubmit="return checkLoginForm(this)">
+         <div class="row1">
+            用户注册<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+        </div>
+<div class="row">
+            用户名: <span class="inputBox">
+                <input id="txtName2" type="text" placeholder="<?php echo $this->_var['lang']['username']; ?>/<?php echo $this->_var['lang']['mobile']; ?>/<?php echo $this->_var['lang']['email']; ?>" name="username" >
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn">*</a>
+        </div>
+        <div class="row">
+            密&nbsp;码: <span class="inputBox">
+              <input id="txtPwd2" name="password"  placeholder="<?php echo $this->_var['lang']['label_password']; ?>" type="password">
+            </span><a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+        </div>
+        <div class="row">
+           <input type="button" name="login" class="c-btn3" value="注册" id="registerbtn" />
+        </div>
+             
+          </form>
+
+   
+        
+</div>
+<style type="text/css">
+	@charset "utf-8";
+.mask{margin:0;padding:0;border:none;width:100%;height:100%;background:#333;opacity:0.6;filter:alpha(opacity=60);z-index:9999;position:fixed;top:0;left:0;display:none;}
+#LoginBox{position:absolute;left:460px;top:150px;background:white;width:426px;height:282px;border:3px solid #444;border-radius:7px;z-index:10000;display:none;}
+.row1{background:#f7f7f7;padding:0px 20px;line-height:50px;height:50px;font-weight:bold;color:#666;font-size:20px;}
+.row{height:77px;line-height:77px;padding:0px 30px;font-family:华文楷体;font-size:x-large;}
+.close_btn{font-family:arial;font-size:30px;font-weight:700;color:#999;text-decoration:none;float:right;padding-right:4px;}
+.inputBox{border:1px solid #c3c3c3;padding:1px 3px 6px 3px;border-radius:5px;margin-left:5px;}
+.inputBox input{border:none}
+#txtName{height:27px;width:230px;border:none;}
+#txtPwd{height:27px;width:230px;border:none;}
+#loginbtn{color:White;background:#4490f7;text-decoration:none;padding:10px 95px;margin-left:87px;margin-top:40px;border-radius:5px;opacity:0.8;filter:alpha(opacity=80);}
+#registerbtn{color:White;background:#4490f7;text-decoration:none;padding:10px 95px;margin-left:87px;margin-top:40px;border-radius:5px;opacity:0.8;filter:alpha(opacity=80);}
+#example{position:fixed;left:390px;top:30px;color:White;background:#4490f7;text-decoration:none;padding:10px 95px;margin-left:87px;margin-top:40px;border-radius:5px;opacity:0.6;filter:alpha(opacity=60);}
+.warning{float:right;color:Red;text-decoration:none;font-size:20px;font-weight:bold;margin-right:20px;display:none;}
+</style>
+<div class=" " id="mengban"> </div>
+
+<script type="text/javascript">
+        function login_module(){//点击登录时，调用的函数
+            var mengban=document.getElementById("mengban");
+            mengban.className="mengban";
+           $("#login_module").show();
+           $("#mengban").show();
+        }
+        function close_login(){//关闭弹窗时，调用的函数
+            var mengban=document.getElementById("mengban");
+            mengban.className=" ";
+            $("#login_module").hide();
+            $("#register_module").hide();
+        }
+        function register_module(){//注册时，调用的函数
+            var mengban=document.getElementById("mengban");
+            mengban.className="mengban";
+            $("#register_module").show();
+             $("#mengban").show();
+        }
+
+		
+		//文本框不允许为空---按钮触发
+        
+		$("#loginbtn").click(function(){
+            var txtName = $("#txtName").val();
+			var txtPwd = $("#txtPwd").val();
+			 $.ajax ({
+                url:"index.php?act=signin&step=login&username="+txtName+"&password"+txtPwd,
+                data:"",
+                dataType:"json",
+                success:function(e){
+                    if(e == null){
+                        alert("登录信息错误");
+                    }
+                   
+                    if(e.error == 0){
+                        location.href=e.url;
+                    }else{
+                         alert(e.msg);
+                    }
+                   
+                }
+            });
+
+            
+        });
+        $("#registerbtn").click(function(){
+            var txtName = $("#txtName2").val();
+			var txtPwd = $("#txtPwd2").val();
+			 $.ajax ({
+                url:"index.php?act=signup&step=login&username="+txtName+"&password"+txtPwd,
+                data:"",
+                dataType:"json",
+                success:function(e){
+                    if(e == null){
+                        alert("注册信息错误");
+                    }
+                   
+                    if(e.error == 0){
+                        alert("注册成功");
+                        location.href=e.url;
+                    }else{
+                         alert(e.msg);
+                    }
+                   
+                }
+            });
+        });
+
+        $(".close_btn").click(function(){
+            $("#login_module").hide();
+            $("#register_module").hide();
+             $("#mengban").hide();
+        });
+		//关闭
+		$(".close_btn").hover(function () {
+             $(this).css({ color: 'black' }) 
+        }, function () {
+            $(this).css({ color: '#999' }) 
+        });
+        
+        
+         function checkLoginForm(frm) {
+          if (Utils.isEmpty(frm.elements['username'].value)) {
+            alert(username_not_null);
+            return false;
+          }
+
+          if (Utils.isEmpty(frm.elements['password'].value)) {
+            alert(password_not_null);
+            return false;
+          }
+
+          return true;
+        }
+
+</script>

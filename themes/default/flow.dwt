@@ -19,9 +19,13 @@
 <script type="text/javascript" src="{$weburl}/js/common.js"></script>
 <script type="text/javascript" src="{$weburl}/js/utils.js"></script>
 <script type="text/javascript" src="{$weburl}/js/shopping_flow.js"></script>
+<script>
+    $(function(){
+      localStorage.clear();
+    })
+</script>
 </head>
-<body>
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<body onunload="window.opener.back()">
 <div class="blank5"></div>
 <div class="block">
   <!-- {if $step eq "cart"} -->
@@ -494,7 +498,7 @@ function trim(str){ //删除左右两端的空格
 function checkOrderForm(frm)
 {
   var paymentSelected = false;
-  var shippingSelected = false;
+  var shippingSelected = true;
 
 //增加_start By jianhualiucheng
   var consigneeinput=false;
@@ -579,11 +583,11 @@ function checkOrderForm(frm)
 
   
 
-  if ( ! paymentSelected)
-  {
-    alert('请选择一个支付方式！');
-    return false;
-  }
+  // if ( ! paymentSelected)
+  // {
+  //   alert('请选择一个支付方式！');
+  //   return false;
+  // }
   
   if ( ! shippingSelected)
   {
@@ -628,18 +632,20 @@ function checkOrderForm(frm)
       }
     }
   }
+  // frm.action = frm.action + '?step=done';
+  localStorage.setItem("flag",true);
   frm.action = frm.action + '?step=done';
   return true;
 }
 
         </script>
-  <div class="shopcart_step" style="margin-bottom:15px">
+  <!--<div class="shopcart_step" style="margin-bottom:15px">
 		  <ul>
 			<li><b>1</b>我的购物车</li>
 			<li class="current step1"><b>2</b>填写核对订单信息</li>
 			<li class="last"><b>3</b>成功提交订单</li>
 		  </ul>
-		</div>
+		</div>-->
   
 
   <link href="{$ecsolve_path}/style/step2.css" rel="stylesheet" type="text/css" />
@@ -762,10 +768,10 @@ function checkOrderForm(frm)
 
 
   <!--快递方式-->
-    <div class="order_title">
+    <div class="order_title" style="display:none">
       <h2>选择快递方式</h2>
     </div>
-    <div class="mail_style">
+    <div class="mail_style" style="display:none">
 	
 	  <table width="100%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#fff" id="shippingTable" style="border:0px solid #eee;background-color:#FFFFFF">
         <tr>
@@ -775,7 +781,7 @@ function checkOrderForm(frm)
                 <!-- {foreach from=$shipping_list name=shipping_list item=shipping} 循环配送方式 -->
                 <tr>
                   <td width="15%" height=25  style=" font-weight:bold">
-<input name="shipping" type="radio" value="{$shipping.shipping_id}"  supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" />
+<input name="shipping" checked="checked" type="radio" value="{$shipping.shipping_id}"  supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" />
                     {$shipping.shipping_name} </td>
                   <td style="color: #999999">({$shipping.shipping_desc}) {$shipping.format_shipping_fee}</td>
                 </tr>
@@ -801,7 +807,7 @@ function checkOrderForm(frm)
 
 
 
-    <div class="order_title">
+    <div class="order_title" style="display:none">
       <h2>支付方式</h2>
     </div>
     <style>
@@ -865,11 +871,11 @@ function sel(obj)
     </div>
     <div class="clear"></div>
   
-<div class="order_title">
+<div class="order_title" style="display:none">
       <h2>您希望的送货时间是：</h2>
     </div>
 
-    <div class="mail_day"> 
+    <div class="mail_day" style="display:none"> 
     
     
 
@@ -935,7 +941,7 @@ function sel(obj)
     <!--备注和提交区域-->
     <div class="order_bottom">
       <div class="order_bottoml"><span>备注：</span>
-        <textarea name="postscript" cols="" rows="" class="pay_textarea" id="postscript" placeholder="您还有什么要叮嘱的，尽管告诉我们的客服~">{$order.postscript|escape}</textarea>
+        <textarea name="postscript" cols="" rows="" class="pay_textarea" id="postscript" placeholder="您还有什么要叮嘱的，尽管告诉我们的客服~"><?echo $_REQUEST['ship_note'];?></textarea>
       </div>
       <div class="order_bottomr">
 	    <!-- #BeginLibraryItem "/Library/flow_order_total.lbi" --><!-- #EndLibraryItem -->
@@ -953,6 +959,11 @@ function sel(obj)
   
   <!-- {/if} -->
   <!-- {if $step eq "done"} -->
+  <script>
+      $(function(){
+        window.close();
+      })
+  </script>
   <div class="shopcart_step" style="margin-bottom:15px">
 		  <ul>
 			<li><b>1</b>我的购物车</li>
@@ -1176,7 +1187,7 @@ function sel(obj)
   <!-- {/if} -->
 </div>
 <div class="blank5"></div>
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
 </body>
 <script type="text/javascript">
 var process_request = "{$lang.process_request}";

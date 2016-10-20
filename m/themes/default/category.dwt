@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>{$page_title}</title>
+<meta name="Keywords" content="{$Keywords}">
+<meta name="Description" content="{$Description}">
+<link rel="stylesheet" type="text/css" href="{$ecsolve_path}/style/style.css">
+<style>
+@media only screen and (min-width:640px){.bigm .ga{width:33.33%;}}
+.ltag{padding:0.5rem;background-color:#fff;overflow:hidden;border-bottom:1px solid #e5e5e5;}
+</style>
+</head>
+<body>
+<div id="top">
+<div class="header hfix" id="listpage">
+<a href="javascript:;" onclick="goback()" class="b_l"></a>
+<form action="search.php" class="t_se" onsubmit="return se(this)"><input class="t_sl" id="t_sl" name="keyword" placeholder="{$cat_name}" type="search"><input class="t_sr" value="" type="submit"></form>
+<!--<a href="javascript:;" onclick="cans()" id="qxs">取消</a>
+<a href="javascript:;" onclick="sha()" id="sha" class="b_r">筛选</a>-->
+<a href="/m/"  class="b_r">首页</a>
+</div>
+</div>
+<h1 class="hid">{$cat_name}</h1>
+<div id="c_v" class="hid">
+<div class="bgw">
+<p class="lr10"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></p>
+<p class="line"></p>
+<div class="c_vs">
+<a href="javascript:;" class="ca ka"><b>分类:</b></a>
+
+<!--{foreach from=$categoriesauto item=cat name=cat}-->
+	<a  class="ca{if $cat.id eq $category} caon{/if}" href="{$cat.url}">{$cat.name|escape:html}</a>
+                 <!--{/foreach}-->
+
+
+</div>
+</div>
+</div>
+
+<div class="pageauto load" id="lazy">
+
+
+<div class="gd load" id="glist" >
+
+
+
+<!--{foreach from=$goods_list item=goods}-->
+    <!-- {if $goods.goods_id} -->
+<a href="{$goods.url}" class="ga"><div class="pm"><img src="{$goods.goods_thumb}" class="gm">
+<h3 class="gt">{$goods.goods_name}<!--<em class="i_hot">热销</em>-->
+<!--<em class="i_video">视频</em>-->
+</h3>
+<p class=""><em class="">人力单价:{$goods.human_price}</em>
+<p class=""><em class="">材料单价:{$goods.material_price}</em>
+<p class="lp"><em class="xj">价格:{$goods.shop_price}</em>
+
+<!--<i class="gray">包邮</i><em class="s_s">销售:21823</em></p><p class="gb">销售:21823<em class="ea">|</em>评论:392</p>-->
+
+</div></a>
+<!-- {/if} -->
+			<!--{/foreach}-->
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="bfx">
+<em class="yem" id="yem">1/{$max_page}</em><a href="javascript:;" onclick="gotop()" class="ftop"></a></div>
+<div id="pgl" class="hid"><p onclick="gxl()" class="gbr">收起</p>
+ 
+</div>
+
+<div class="pd10 bgw mt10"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+<div class="ltag ov">
+
+<!--{foreach from=$categoriesauto item=cat name=cat}-->
+			<a href="{$cat.url}"  {if $cat.id eq $category} class='tag lmon'
+                  <!-- {/if} -->{$cat.name|escape:html}</a>
+                <!--{/foreach}-->
+
+</div>
+
+</div>
+
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="{$ecsolve_path}/js/app.js"></script><script>
+var jian=100;
+var page="1";
+var total="{$max_page}";
+//var nurl="man/feijibei/t-o-p2.html?is_ajax=1&p=";
+if(location.href.indexOf('?') < 0){
+    var nurl = "?page=";
+}else{
+    var nurl = location.href + "&page=";
+}
+
+lazyload({defObj:"#glist"});
+</script>
+<script type="text/javascript" src="{$ecsolve_path}/js/list.js"></script>
+
+</body></html>

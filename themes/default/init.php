@@ -239,6 +239,11 @@ function get_cat_promote_goods_100($id)
 	return get_cat_recommend_goods('promote', $id, 100);
 }
 
+function get_cat_promote_goods_10($id)
+{
+	return get_cat_recommend_goods('promote', $id, 10);
+}
+
 function get_cat_best_goods($id)
 {
 	return get_cat_recommend_goods('best', $id, 18);

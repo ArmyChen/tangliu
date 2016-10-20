@@ -3,22 +3,24 @@ require_once("/includes/lib_order.php");
 //首页广告调用或者循环广告
 $GLOBALS['smarty']->assign('index_ad',index_ad_sy_diy(118));
 $GLOBALS['smarty']->assign('article_cat_fgzx', get_article_cat(134));
-$GLOBALS['smarty']->assign('article_list_fgzx', index_get_all_cat_articles(134)); 
-$GLOBALS['smarty']->assign('article_cat_yfzx', get_article_cat(120)); 
-$GLOBALS['smarty']->assign('article_list_yfzx', index_get_all_cat_articles(120)); 
-$GLOBALS['smarty']->assign('article_cat_rdxw', get_article_cat(130)); 
-$GLOBALS['smarty']->assign('article_cat_mthz', get_article_cat(131)); 
-$GLOBALS['smarty']->assign('article_list_mthz', index_get_all_cat_articles(131)); 
-$GLOBALS['smarty']->assign('article_cat_ppzx', get_article_cat(132)); 
-$GLOBALS['smarty']->assign('article_list_ppzx', index_get_all_cat_articles(132)); 
-$GLOBALS['smarty']->assign('article_cat_zxzx', get_article_cat(1133)); 
-$GLOBALS['smarty']->assign('article_list_zxzx', index_get_all_cat_articles(133)); 
-$GLOBALS['smarty']->assign('article_tlq',     get_article(28993)); 
-$GLOBALS['smarty']->assign('article_sjfw',     get_article(28992)); 
-$GLOBALS['smarty']->assign('article_xfkt',     get_article(28991)); 
+$GLOBALS['smarty']->assign('article_list_fgzx', index_get_all_cat_articles(134));
+$GLOBALS['smarty']->assign('article_cat_yfzx', get_article_cat(120));
+$GLOBALS['smarty']->assign('article_list_yfzx', index_get_all_cat_articles(120));
+$GLOBALS['smarty']->assign('article_cat_rdxw', get_article_cat(130));
+$GLOBALS['smarty']->assign('article_cat_mthz', get_article_cat(131));
+$GLOBALS['smarty']->assign('article_list_mthz', index_get_all_cat_articles(131));
+$GLOBALS['smarty']->assign('article_cat_ppzx', get_article_cat(132));
+$GLOBALS['smarty']->assign('article_list_ppzx', index_get_all_cat_articles(132));
+$GLOBALS['smarty']->assign('article_cat_zxzx', get_article_cat(1133));
+$GLOBALS['smarty']->assign('article_list_zxzx', index_get_all_cat_articles(133));
+$GLOBALS['smarty']->assign('article_tlq',     get_article(28993));
+$GLOBALS['smarty']->assign('article_sjfw',     get_article(28992));
+$GLOBALS['smarty']->assign('article_xfkt',     get_article(28991));
 $GLOBALS['smarty']->assign('article_tzss',     get_article(28990));
 
 $cart = cart_goods();
+//var_dump($cart);
+
 ?>
 
 
@@ -26,17 +28,17 @@ $cart = cart_goods();
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{$page_title}</title>
-<meta name="Keywords" content="{$keywords}" />
-<meta name="Description" content="{$description}" />
-<meta name="author" content="www.ecsolve.com">
-<meta name="copyright" content="{$shop_name}">
-<meta name="robots" content="All">
-<link rel="shortcut icon" href="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$page_title}</title>
+    <meta name="Keywords" content="{$keywords}" />
+    <meta name="Description" content="{$description}" />
+    <meta name="author" content="www.ecsolve.com">
+    <meta name="copyright" content="{$shop_name}">
+    <meta name="robots" content="All">
+    <link rel="shortcut icon" href="">
 </head>
 <script type="text/javascript" src="{$ecsolve_path}/js/jquery.js"></script>
 <script type="text/javascript" src="{$ecsolve_path}/js/hd_cache.js"></script>
@@ -46,11 +48,11 @@ $cart = cart_goods();
 <script src="{$ecsolve_path}/js/superSlide.2.1.js"></script>
 
 <body>
-
+<input type="hidden" value="<?echo $_SESSION['user_id']?>" id="user_id" />
 <div class="container">
-	<div class="login">
-    	<div class="login-box auto">
-        	<div class="fl f0">
+    <div class="login">
+        <div class="login-box auto">
+            <div class="fl f0">
                 <a href="">风水设计</a>
                 <a href="">商务合作</a>
                 <a href="">投诉建议</a>
@@ -58,110 +60,125 @@ $cart = cart_goods();
                 <a class="now-city" href="">广州</a>
             </div>
             <div class="fr f0">
-                <a href="">登陆</a>
+                <?if(empty($_SESSION['user_id'])) {?>
+                <a href="javascript:login_module()">登陆</a>
+                <a href="javascript:register_module()">注册</a>
+                <?}else{?>
+                <a href="user.php"><?echo $_SESSION['user_name'];?></a>
+                <?}?>
                 <a href="">商城入口</a>
             </div>
         </div>
     </div>
-	<div class="container-box auto">
+    <div class="container-box auto">
         <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
         <div class='aside'>
-        	
-                <div class='kf-btn cp'>
+
+            <a href="/user.php"><div class='kf-btn cp' >
                     <p class=''></p>
-                </div>
-                <div class='goods-btn cp'>
-                    <p class='cf'>工程预算</p>
-                    <span class='dib num cf tc'><?echo count($cart);?></span>
-                </div>
-                <div class='ewm-top rel'>
-                    <div class='ewm-btn'></div>
-                    <div class='ewm abs tc'><img src="{$ecsolve_path}/images/footer-ewm.jpg" alt="" /><p>唐流微信</p></div>
-                    <p class='top-btn abs b0 l0 cp'></p>
-                </div>
-                <div class='aside-main'>
-                    <form action="" method="">
-                        <div class='product-box' id="product-box">
-                           <?foreach($cart as $key => $goods){ ?>
-                           
-                                        <div class='product' id="<?echo $goods['goods_id']?>">
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span><?echo $goods['goods_name']?></span><img src="{$ecsolve_path}/<?echo $goods['goods_img']?>" alt="" /></td>
-                                        <td class='xh'><?echo $goods['goods_id']?></td>
-                                        <td class='xmmc'><span><?echo $goods['goods_name']?></span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1" ></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                <div class="select clear">
-                                                    <span class="text_left">8厘石膏板</span>
-                                                    <span class="arrow_right"></span>
-                                                </div>
-                                                <ul class="select-list">
-                                                    <li value="72">8厘石膏板</li>
-                                                    <li value="56">6厘石膏板</li>
-                                                    <li value="42">4厘石膏板</li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'><?echo $goods['shop_price']?></td>
-                                        <td class='cldj'><?echo $goods['market_price']?></td>
-                                        <td class='zhdj'></td>
-                                        <td class='hjje'><span>¥</span><p><?echo $goods['shop_price']?></p></td>
-                                        <td class='bz rel'><span><?echo $goods['brief']?></span><div class="tip"><div class="tip-horn"></div><div class="tip-text"><?echo $goods['brief']?></div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <?}?>
+                </div></a>
+            <div class='goods-btn cp'>
+                <p class='cf'>工程预算</p>
+                <span class='dib num cf tc' id="sideCount"><?echo count($cart);?></span>
+            </div>
+            <div class='ewm-top rel'>
+                <div class='ewm-btn'></div>
+                <div class='ewm abs tc'><img src="{$ecsolve_path}/images/footer-ewm.jpg" alt="" /><p>唐流微信</p></div>
+                <p class='top-btn abs b0 l0 cp'></p>
+            </div>
+            <div class='aside-main'>
+                <form action="" method="">
+                    <div class='product-box' id="product-box">
+                        {*右侧购物车table*}
+                        <?foreach($cart as $key => $goods){ ?>
+                        <div class='product' id="<?echo $goods['goods_id']?>">
+                            <table width='100%' border="0" cellpadding="0" cellspacing="0">
+                                {*这里与左侧一样*}
+
+                                <tr data-rec-id='<?echo $goods["rec_id"];?>'>
+                                    <td class='lm'><span><?echo $goods['goods_name']?></span><img width="80" src="<?echo $goods['goods_thumb']?>" alt="" width="80" /></td>
+                                    <td class='xh'>
+                                        <?if($goods["goods_id"] != 0){
+                                            echo $goods["goods_id"];
+                                        }else{
+                                            echo $goods["rec_id"];
+                                        }?>
+                                    </td>
+                                    <td class='rec_id' style="display:none"><?echo $goods["rec_id"]?></td>
+                                    <td class='xmmc'><span><?echo $goods['goods_name']?></span><a class='opt' href='javascript:void(0);'>选择</td>
+                                    <td class='dw'>m<sup>2</sup></td>
+                                    <td class='sl'><input class='sl_input' type='text' value="<?echo $goods['goods_number']?>" width="100" ></td>
+                                    <td class='xhgg'><?echo $goods['goods_attr']?></td>
+                                    <td class='rgdj'><?echo $goods['human_price']?></td>
+                                    <td class='cldj'><?echo $goods['material_price']?></td>
+                                    <td class='zhdj'><?echo $goods['goods_price']?></td>
+                                    <td class='hjje'><span>¥</span><p><?echo $goods['goods_price']*$goods['goods_number']?></p></td>
+                                    <td class='bz rel'><span><?echo $goods['descc']?></span><div class="tip"><div class="tip-horn"></div><div class="tip-text"><?echo $goods['descc']?></div></div></td>
+                                    <td class='khbz'><input type="text" value="<?echo $goods['kehu_desc']?>"/></td>
+                                    <td class='cz'><a href='javascript:delete_cart(<?echo $goods["rec_id"]?>);' class='close dib'></a></td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class='product-total tc'>
-                            <p class='tl'><span class='total'>¥<b class='fwn'>0</b></span></p>
-                            <a class='count dib' href='#gcysb'>计算报价>></a>
-                        </div>
-                    </form>
-                </div>
-         
+                        <?}?>
+                    </div>
+                    <div class='product-total tc'>
+                        <p class='tl'><span class='total'>¥<b class='fwn'>0</b></span></p>
+                        <a class='count dib' href='javascript:gotoflow()'>计算报价>></a>
+                    </div>
+                </form>
+            </div>
+
         </div>
-    	<div class='banner-box clear rel'>
-        	<div class='banner-nav fl'>
-            	<ul>
-                   <?foreach(get_categories_tree(27) as $item){ ?>
+        <div class='banner-box clear rel'>
+            <div class='banner-nav fl'>
+                <ul>
+                    {*左侧菜单table*}
+                    <?foreach(get_categories_tree(27) as $item){ ?>
                     <li class='sub-box'>
                         <p class='sub'><?echo $item['name'];?></p>
                         <div class='product-box f0'>
-                            <?foreach(get_cat_id_goods_list($item['id'],10) as $key => $goods){ ?>
-                           
-                                        <div class='product' id="<?echo $goods['id']?>">
+                            <?foreach(get_cat_id_goods_list($item['id'],10) as $key => $goods){  ?>
+
+                            <div class='product' id="<?echo $goods['id']?>">
                                 <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span><?echo $goods['name']?></span><img src="{$ecsolve_path}/<?echo $goods['goods_img']?>" alt="" /></td>
-                                        <td class='xh'><?echo $goods['id']?></td>
-                                        <td class='xmmc'><span><?echo $goods['name']?></span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1" ></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                <div class="select clear">
-                                                    <span class="text_left">8厘石膏板</span>
-                                                    <span class="arrow_right"></span>
-                                                </div>
-                                                <ul class="select-list">
-                                                    <li value="72">8厘石膏板</li>
-                                                    <li value="56">6厘石膏板</li>
-                                                    <li value="42">4厘石膏板</li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'><?echo $goods['shop_price']?></td>
-                                        <td class='cldj'><?echo $goods['market_price']?></td>
-                                        <td class='zhdj'></td>
-                                        <td class='hjje'><span>¥</span><p><?echo $goods['shop_price']?></p></td>
-                                        <td class='bz rel'><span><?echo $goods['brief']?></span><div class="tip"><div class="tip-horn"></div><div class="tip-text"><?echo $goods['brief']?></div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
+                                    <tr data-rec-id="<?echo $item["rec_id"]?>">
+                                    <td class='lm'><span><?echo $item['name'];?></span><img width="80" src="<?echo $goods['goods_img']?>" alt="" /></td>
+                                    <td class='xh'> <td class='xh'>
+                                        <?if($item["goods_id"] != 0){
+                                            echo $item["goods_id"];
+                                        }else{
+                                            echo $item["rec_id"];
+                                        }?>
+                                    </td>
+                                    <td class='xmmc'><span><?echo $goods['name']?></span><a class='opt<?foreach($cart as $k => $v){if($v["goods_name"] == $goods["name"]){echo " on";}}?>' href='javascript:void(0);'>选择</td>
+                                    <td class='dw'>m<sup>2</sup></td>
+                                    <td class='sl'><input class='sl_input' type='number' value="1" ></td>
+                                    <td class='xhgg'>
+
+                                        <?if(!empty($goods['attr'])){?>
+                                        <div class="select-box">
+                                        <div class="select clear">
+                                        <span class="text_left"><?echo $goods['attr'][1]['goods_attr_list'][1]?></span>
+                                        <span class="arrow_right"></span>
+                                        </div>
+                                        <ul class="select-list">
+                                        <?foreach($goods['attr'][1]['goods_attr_list'] as $key=>$item){?>
+                                        <li value="<?echo $item['id']?>"><?echo $goods['attr'][1]['goods_attr_list'][$key]?></li>
+                                        <?}?>
+                                        </ul>
+                                        <input type='hidden' value=""  />
+                                        </div>
+                                        <?}else{?>
+                                        <input type='text' value="" />
+                                        <?}?>
+                                    </td>
+                                    <td class='rgdj'><?echo $goods['human_price']?></td>
+                                    <td class='cldj'><?echo $goods['material_price']?></td>
+                                    <td class='zhdj'><?echo $goods['shop_price']?></td>
+                                    <td class='hjje'><span>¥</span><p><?echo $goods['shop_price']*$goods["goods_number"]?></p></td>
+                                    <td class='bz rel'><span><?echo $goods['descc']?></span><div class="tip"><div class="tip-horn"></div><div class="tip-text"><?echo $goods['descc']?></div></div></td>
+                                    <td class='khbz'><input type="text" value="<?echo $goods['kehu_desc']?>"/></td>
+                                    <td class='cz'><a href='javascript:deleteByGid(<?echo $goods['id']?>);' class='close dib'></a></td>
                                     </tr>
                                 </table>
                             </div>
@@ -172,419 +189,19 @@ $cart = cart_goods();
                     </li>
                     <?}?>
 
-                    <!--
-                    <li class='sub-box'>
-                    	<p class='sub'>天花</p>
-                        <div class='product-box f0'>
-                        	<div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>天花</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>101</td>
-                                        <td class='xmmc'><span>平顶天花101</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1" ></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'></td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>轻轻钢龙骨+石膏板+阻燃夹板造型111</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">轻轻钢龙骨+石膏板+阻燃夹板造型111</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>天花</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>102</td>
-                                        <td class='xmmc'><span>造型天花102</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>55</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>0</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>轻轻钢龙骨+石膏板+阻燃夹板造型111</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">轻轻钢龙骨+石膏板+阻燃夹板造型111</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>天花</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>103</td>
-                                        <td class='xmmc'><span>吊顶天花103</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>轻钢龙骨+石膏板+阻燃夹板造型</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">轻钢龙骨+石膏板+阻燃夹板造型</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>天花</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>104</td>
-                                        <td class='xmmc'><span>金冠天花104</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>轻钢龙骨+石膏板+阻燃夹板造型</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">轻钢龙骨+石膏板+阻燃夹板造型</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>天花</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>105</td>
-                                        <td class='xmmc'><span>吸音天花105</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>轻钢龙骨+石膏板+阻燃夹板造型</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">轻钢龙骨+石膏板+阻燃夹板造型</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product-box-bg'></div>
-                        </div>
-                    </li>
-                    <li class='sub-box'>
-                    	<p class='sub'>地面</p>
-                        <div class='product-box f0'>
-                        	<div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>地面</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>201</td>
-                                        <td class='xmmc'><span>竹地板201</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>201轻钢龙骨+石膏板</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">201轻钢龙骨+石膏板</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>地面</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>202</td>
-                                        <td class='xmmc'><span>木地板202</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>202轻钢龙骨+石膏板</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">201轻钢龙骨+石膏板</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>地面</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>203</td>
-                                        <td class='xmmc'><span>大理石地板303</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>203轻钢龙骨+石膏板</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">203轻钢龙骨+石膏板</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>地面</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>204</td>
-                                        <td class='xmmc'><span>地面204</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>204轻钢龙骨+石膏板</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">204轻钢龙骨+石膏板</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product-box-bg'></div>
-                        </div>
-                    </li>
-                    <li class='sub-box'>
-                    	<p class='sub'>墙面</p>
-                        <div class='product-box f0'>
-                        	<div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>墙面</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>301</td>
-                                        <td class='xmmc'><span>室内透光墙301</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>301轻钢龙骨+石膏板</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">301轻钢龙骨+石膏板</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>墙面</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>302</td>
-                                        <td class='xmmc'><span>仿木纹板302</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>202轻钢龙骨+石膏板</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">202轻钢龙骨+石膏板</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product'>
-                                <table width='100%' border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td class='lm'><span>墙面</span><img src="{$ecsolve_path}/images/temp/sub-nav.jpg" alt="" /></td>
-                                        <td class='xh'>303</td>
-                                        <td class='xmmc'><span>砂岩板303</span><a class='opt' href='javascript:void(0);'>选择</td>
-                                        <td class='dw'>m<sup>2</sup></td>
-                                        <td class='sl'><input class='sl_input' type='number' value="1"></td>
-                                        <td class='xhgg'>
-                                            <div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">8厘石膏板</span>
-                                                     <span class="arrow_right"></span>
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li value="72">8厘石膏板</li>
-                                                     <li value="56">6厘石膏板</li>
-                                                     <li value="42">4厘石膏板</li>
-                                                 </ul>
-                                            </div>
-                                        </td>
-                                        <td class='rgdj'>65</td>
-                                        <td class='cldj'>55.00</td>
-                                        <td class='zhdj'>120</td>
-                                        <td class='hjje'><span>¥</span><p>-</p></td>
-                                        <td class='bz rel'><span>303轻钢龙骨+石膏板</span><div class="tip"><div class="tip-horn"></div><div class="tip-text">303轻钢龙骨+石膏板</div></div></td>
-                                        <td class='khbz'><input type="text" /></td>
-                                        <td class='cz'><a href='javascript:void(0);' class='close dib'></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class='product-box-bg'></div>
-                        </div>
-                    </li>
-                    <li class='sub-box'><p class='sub'>隔断</p></li>
-                    <li class='sub-box'><p class='sub'>前台</p></li>
-                    <li class='sub-box'><p class='sub'>办公家私</p></li>
-                    <li class='sub-box'><p class='sub'>门</p></li>
-                    <li class='sub-box'><p class='sub'>灯具</p></li>
-                    <li class='sub-box'><p class='sub'>强电弱电</p></li>
-                    <li class='sub-box'><p class='sub'>卫生间</p></li>
-                    <li class='sub-box'><p class='sub'>软装</p></li>
-                    <li class='sub-box'><p class='sub'>配件辅料</p></li>-->
                 </ul>
             </div>
             <div class='banner fl'>
-            	<div class='bd'>
-                	<ul>
-                	   <!--{foreach from=$index_ad item=ad  name=index_ads key=key }-->	  	
-                    	<li><a href='{$ad.file_url}' target="_blank"><img src="{$ad.file_url}" alt="{$ad.title}" /></a></li>
-                         <!--{/foreach}-->     
+                <div class='bd'>
+                    <ul>
+                        <!--{foreach from=$index_ad item=ad  name=index_ads key=key }-->
+                        <li><a href='{$ad.file_url}' target="_blank"><img src="{$ad.file_url}" alt="{$ad.title}" /></a></li>
+                        <!--{/foreach}-->
                     </ul>
                 </div>
                 <div class='hd'>
-                	<ul>
-                    	<li></li>
+                    <ul>
+                        <li></li>
                         <li></li>
                         <li></li>
                     </ul>
@@ -601,9 +218,9 @@ $cart = cart_goods();
             </ul>
         </div>
         <div class='fgzx'>
-        	<h1 class='zy-tit fwn f28'><a class='tit' href='javascript:void(0);'>{$article_cat_fgzx.cat_name}</a><a class='prev dib' href='javascript:void(0);'></a><a class='next dib' href='javascript:void(0);'></a></h1>
+            <h1 class='zy-tit fwn f28'><a class='tit' href='javascript:void(0);'>{$article_cat_fgzx.cat_name}</a><a class='prev dib' href='javascript:void(0);'></a><a class='next dib' href='javascript:void(0);'></a></h1>
             <ul class='clear'>
-            	<!-- {foreach from=$article_list_fgzx item=article name=article} -->
+                <!-- {foreach from=$article_list_fgzx item=article name=article} -->
                 <li>
                     <img src="{$article.file_url}" alt="" />
                     <a href='{$article.url}'>{$article.title}<span></span></a>
@@ -613,9 +230,9 @@ $cart = cart_goods();
         </div>
         <script>jQuery(".fgzx").slide({mainCell:"ul", autoPage:true, effect:"left", autoPlay:false, vis:5, delayTime:500})</script>
         <div class='gcysb'>
-        	<h1 class='zy-tit fwn f28'><a class='tit' href='javascript:void(0);'>工程预算表</a><a class='more f16' href=''>更多选购>></a></h1>
+            <h1 class='zy-tit fwn f28'><a class='tit' href='javascript:void(0);'>工程预算表</a><a class='more f16' href=''>更多选购>></a></h1>
             <table class='table-box' cellpadding="0" cellspacing="0">
-            	<tr class='table-tit'>
+                <tr class='table-tit'>
                     <td class='lm'>类目</td>
                     <td class='xh'>序号</td>
                     <td class='xmmc'>项目名称</td>
@@ -630,7 +247,7 @@ $cart = cart_goods();
                     <td class='khbz'>客户备注</td>
                     <td class='cz'>操作</td>
                 </tr>
-               	<tr class='zdyAdd'>
+                <tr class='zdyAdd'>
                     <td class='xh'></td>
                     <td class='xmmc'><input type='text'/></td>
                     <td class='dw'>m<sup>2</sup></td>
@@ -644,78 +261,100 @@ $cart = cart_goods();
                     <td class='khbz'><input type='text'/></td>
                     <td class='cz'><a href='javascript:void(0);' class='close dib'></td>
                 </tr>
-            	<tr>
-                	<td colspan="14">
-                   <?foreach(get_categories_tree(27) as $item0){ ?>
-                    <?$rs = cart_goods_id($item0["id"]);?>
-                    <!-------------------------------- <?echo $item0["name"];?> -------------------------------->
-                    <table class='sub-table thgc rel' cellpadding="0" cellspacing="0">
-                    <?if(empty($rs)){?>
-                        <tr class='default'>
-                            <td class='lm'><span><?echo $item0["name"];?></span><img src="{$ecsolve_path}/images/temp/thgc-lm-bg.jpg" alt="" /></td>
-                                <td class='xh'></td>
-                                <td class='xmmc'></td>
-                                <td class='dw'></td>
-                                <td class='sl'></td>
-                                <td class='xhgg'></td>
-                                <td class='rgdj'></td>
-                                <td class='cldj'></td>
-                                <td class='zhdj'></td>
-                                <td class='hjje'><p>-</p></td>
-                                <td class='bz'></td>
-                                <td class='khbz'></td>
-                                <td class='cz'></td>
-                        </tr>
-                    <?}else{?>
-                    <?foreach($rs as $key => $item){?>
-                        <tr class='<?if($key == 0){?>default<?}else{?>zdyAdd<?}?>'>
-                            <?if($key == 0){?>
-                                <td class='lm' rowspan="<?echo count($rs);?>">天花</span><img src="<?echo $item["goods_thumb"]?>" alt="" /></td>
-                            <?}?>
-                            <td class='xh'><?echo $item["goods_id"]?></td>
-                            <td class='xmmc'><input type="text" value="<?echo $item["goods_name"]?>" /></td>
-                            <td class="dw">m<sup>2</sup></td>
-                            <td class='sl'><input type="text" value="<?echo $item["goods_number"]?>" /></td>
-                            <td class='xhgg'><input type="text" value="<?echo $item["goods_attr"]?>" /></td>
-                            <td class='rgdj'><input type="text" value="<?echo $item["goods_price"]?>" /></td>
-                            <td class='cldj'><input type="text" value="<?echo $item["goods_price"]?>" /></td>
-                            <td class='zhdj'><?echo $item["goods_price"]?></td>
-                            <td class='hjje'><p><?echo $item["goods_price"]?></p></td>
-                            <td class='bz'><input type="text"></td>
-                            <td class='khbz'><input type="text"></td>
-                            <td class='cz'><a href="javascript:void(0);" class="close dib"></a></td>
-                        </tr>
-                    <?}}?>
-                        <tr class='add'>
-                            <td colspan="14"><a class='add-btn' href='javascript:void(0);' data-cat='<?echo $item0["id"];?>'>自定义项目添加</a><p>小计：<span class='sub-total'>￥<b class='fwn'>0</b></span></p></td>
-                        </tr>
-                    </table>
+                <tr>
+                    <td colspan="14">
+                        <?foreach(get_categories_tree(27) as $item0){ ?>
+                        <?$rs = cart_goods_id($item0["id"]);?>
+                        <!-------------------------------- <?echo $item0["name"];?> -------------------------------->
+                        <table class='sub-table thgc rel' cellpadding="0" cellspacing="0">
 
-                    <?}?>
+                            <tr class='default'  <?if(!empty($rs)){echo 'style="display:none"';}?>>
+                            <td class='lm'><span><?echo $item0["name"];?></span><img src="{$ecsolve_path}/images/temp/thgc-lm-bg.jpg" alt="" /></td>
+                            <td class='xh'></td>
+                            <td class='xmmc'></td>
+                            <td class='dw'></td>
+                            <td class='sl'></td>
+                            <td class='xhgg'></td>
+                            <td class='rgdj'></td>
+                            <td class='cldj'></td>
+                            <td class='zhdj'></td>
+                            <td class='hjje'><p>-</p></td>
+                            <td class='bz'></td>
+                            <td class='khbz'></td>
+                            <td class='cz'></td>
+                            </tr>
+
+                            <?foreach($rs as $key => $item){?>
+                            <tr class='<?if($key == 0){?>default<?}else{?>zdyAdd<?}?> cart_table' data-rec-id="<?echo $item["rec_id"]?>">
+                            <?if($key == 0){?>
+                            <td class='lm' rowspan="<?echo count($rs);?>"><span><?echo $item0["name"]?></span><img src="<?echo $item["goods_thumb"]?>" alt="" width="100%" height="100%" /></td>
+                            <?}?>
+                            <td class='xh'>
+                            <?if($item["goods_id"] != 0){
+                            echo $item["goods_id"];
+                            }else{
+                            echo $item["rec_id"];
+                            }?>
+                            </td>
+                            <td class='rec_id' style="display:none"><?echo $item["rec_id"]?></td>
+                            <td class='xmmc'>
+                                <?if($item["goods_id"] == 0){?><input type="text" value="<?echo $item["goods_name"]?>" />   <?}else{ echo $item["goods_name"];}?>
+                            </td>
+                            <td class="dw">m<sup>2</sup></td>
+                            <td class='sl'><input type='number' value="<?echo $item["goods_number"]?>" class="sl_input" /></td>
+                            <td class='xhgg'>
+
+                                <?if($item["goods_id"] == 0){?><input type="text" value="<?echo $item["goods_attr"]?>" />   <?}else{ echo $item["goods_attr"];}?>
+                            </td>
+                            <td class='rgdj'>
+                                <?if($item["goods_id"] == 0){?> <input type="text" value="<?echo $item["human_price"]?>" />  <?}else{ echo $item["human_price"];}?>
+
+                            </td>
+                            <td class='cldj'>
+                                <?if($item["goods_id"] == 0){?> <input type="text" value="<?echo $item["material_price"]?>" />  <?}else{ echo $item["material_price"];}?>
+                                <!--<input type="text" value="<?echo $item["material_price"]?>" />-->
+                            </td>
+                            <td class='zhdj'><?echo $item["goods_price"]?></td>
+                            <td class='hjje'><p><?echo $item["goods_price"]*$item["goods_number"]?></p></td>
+                            <td class='bz rel'> <?if($item["goods_id"] == 0){?><input type="text" value="<?echo $item["descc"]?>" />   <?}else{ echo $item["descc"];}?></td>
+                            <td class='khbz'><input type="text" value="<?echo $item["kehu_desc"]?>"></td>
+                            <td class='cz'><a href="javascript:delete_cart(<?echo $item["rec_id"]?>);" class="close dib"></a></td>
+                            </tr>
+
+
+                            <?}?>
+
+                            <tr class='add' <?if(empty($rs)){echo 'style="display:none !important"';}else{echo 'style="display:table-row !important"';}?>>
+                            <td colspan="14"><a class='add-btn' href='javascript:void(0);' data-cat='<?echo $item0["id"];?>'>自定义项目添加</a><p>小计：<span class='sub-total'>￥<b class='fwn'>0</b></span></p></td>
+                            </tr>
+
+                        </table>
+
+                        <?}?>
                     </td>
                 </tr>
             </table>
             <div class='zongjia'><p>工程总预算：<span>¥<b class='fwn'>0</b>元</span><br><a href='javascrip:void(0);' id="viewTimeLimit">查看工期表</a></p></div>
-            <div class='book-box tc'><a class='book dib' href='/flow.php'>预约下单</a>
-            								<div class="select-box">
-                                                 <div class="select clear">
-                                                     <span class="text_left">现代</span>
-                                                     <span class="arrow_right"></span> 
-                                                 </div>
-                                                 <ul class="select-list">
-                                                     <li>现代</li>
-                                                     <li>古典</li>
-                                                     <li>欧美</li>
-                                                 </ul>
-                                            </div></div>
+            <div class='book-box tc'><a class='book dib' href='javascript:gotoflow();' id="orderbook" name="orderbook">预约下单</a>
+                <div class="select-box">
+                    <div class="select clear">
+                        <span class="text_left flowbook">现代</span>
+                        <span class="arrow_right"></span>
+                    </div>
+                    <ul class="select-list">
+                        <li>现代</li>
+                        <li>古典</li>
+                        <li>欧美</li>
+                    </ul>
+                </div></div>
             <div id="time_limit" class="popup"><div class="bg-transparent"></div><img src="{$ecsolve_path}/images/temp/gqd.jpg"><span></span></div>
         </div>
         <div class='yfzx'>
-        	<h1 class='zy-tit fwn f28'><a class='tit' href='javascript:void(0);'>{$article_cat_yfzx.cat_name}</a><a class='prev dib' href='javascript:void(0);'></a><a class='next dib' href='javascript:void(0);'></a></h1>
+            <h1 class='zy-tit fwn f28'><a class='tit' href='javascript:void(0);'>{$article_cat_yfzx.cat_name}</a><a class='prev dib' href='javascript:void(0);'></a><a class='next dib' href='javascript:void(0);'></a></h1>
             <ul class='clear'>
-            	<!-- {foreach from=$article_list_yfzx item=article name=article} -->
-            	<li>
-                	<img src="{$article.file_url}" alt="{$article.title}" />
+                <!-- {foreach from=$article_list_yfzx item=article name=article} -->
+                <li>
+                    <img src="{$article.file_url}" alt="{$article.title}" />
                     <a href='{$article.url}'>{$article.title}<span></span></a>
                 </li>
                 <!--{/foreach}-->
@@ -723,62 +362,60 @@ $cart = cart_goods();
         </div>
         <script>jQuery(".yfzx").slide({mainCell: "ul", autoPage: true, effect: "left", autoPlay: true, vis:4, delayTime: 500})</script>
         <div class='rdxw'>
-        	<h1 class='zy-tit fwn f28'><a class='tit' href='javascript:void(0);'>{$article_cat_rdxw.cat_name}</a><a class='more f16' href='{$article_cat_rdxw.url}'>更多>></a></h1>
+            <h1 class='zy-tit fwn f28'><a class='tit' href='javascript:void(0);'>{$article_cat_rdxw.cat_name}</a><a class='more f16' href='{$article_cat_rdxw.url}'>更多>></a></h1>
             <ul class='clear'>
-	            <li>
-                	<a href='{$article_cat_mthz.url}'><h2 class='f14'>{$article_cat_mthz.cat_name}</h2></a>
-                	<!-- {foreach from=$article_list_mthz item=article name=article} -->
-                       <!-- 显示数量控制开始--> 
-                         {if $smarty.foreach.article.iteration< 2}
-                    <a class='img-box dib' href='{$article.url}'><img src="{$article.file_url}" alt="{$article.title}" /></a>
-                    <a href='{$article.url}'><p>{$article.title|truncate:17:"...":true}</p></a><br>
+                <li>
+                    <a href='{$article_cat_mthz.url}'><h2 class='f14'>{$article_cat_mthz.cat_name}</h2></a>
+                    <!-- {foreach from=$article_list_mthz item=article name=article} -->
+                    <!-- 显示数量控制开始-->
+                    {if $smarty.foreach.article.iteration< 2}
+                        <a class='img-box dib' href='{$article.url}'><img src="{$article.file_url}" alt="{$article.title}" /></a>
+                        <a href='{$article.url}'><p>{$article.title|truncate:17:"...":true}</p></a><br>
                     {/if}
-                       <!--{/foreach}-->
-                       <!-- {foreach from=$article_list_mthz item=article name=article} -->
-                       <!-- 显示数量控制开始--> 
-                         {if $smarty.foreach.article.iteration > 1 and $smarty.foreach.article.iteration< 5}
-                    <a href='{$article.url}'><span>{$article.title|truncate:17:"...":true}</span></a><br>
+                    <!--{/foreach}-->
+                    <!-- {foreach from=$article_list_mthz item=article name=article} -->
+                    <!-- 显示数量控制开始-->
+                    {if $smarty.foreach.article.iteration > 1 and $smarty.foreach.article.iteration< 5}
+                        <a href='{$article.url}'><span>{$article.title|truncate:17:"...":true}</span></a><br>
                     {/if}
-                       <!--{/foreach}-->
+                    <!--{/foreach}-->
                 </li>
-   	        	<li>
-                	<a href='{$article_cat_ppzx.url}'><h2 class='f14'>{$article_cat_ppzx.cat_name}</h2></a>
-                	<!-- {foreach from=$article_list_ppzx item=article name=article} -->
-                       <!-- 显示数量控制开始--> 
-                         {if $smarty.foreach.article.iteration< 2}
-                    <a class='img-box dib' href='{$article.url}'><img src="{$article.file_url}" alt="{$article.title}" /></a>
-                    <a href='{$article.url}'><p>{$article.title|truncate:17:"...":true}</p></a><br>
+                <li>
+                    <a href='{$article_cat_ppzx.url}'><h2 class='f14'>{$article_cat_ppzx.cat_name}</h2></a>
+                    <!-- {foreach from=$article_list_ppzx item=article name=article} -->
+                    <!-- 显示数量控制开始-->
+                    {if $smarty.foreach.article.iteration< 2}
+                        <a class='img-box dib' href='{$article.url}'><img src="{$article.file_url}" alt="{$article.title}" /></a>
+                        <a href='{$article.url}'><p>{$article.title|truncate:17:"...":true}</p></a><br>
                     {/if}
-                       <!--{/foreach}-->
-                       <!-- {foreach from=$article_list_ppzx item=article name=article} -->
-                       <!-- 显示数量控制开始--> 
-                         {if $smarty.foreach.article.iteration > 1 and $smarty.foreach.article.iteration< 5}
-                    <a href='{$article.url}'><span>{$article.title|truncate:17:"...":true}</span></a><br>
+                    <!--{/foreach}-->
+                    <!-- {foreach from=$article_list_ppzx item=article name=article} -->
+                    <!-- 显示数量控制开始-->
+                    {if $smarty.foreach.article.iteration > 1 and $smarty.foreach.article.iteration< 5}
+                        <a href='{$article.url}'><span>{$article.title|truncate:17:"...":true}</span></a><br>
                     {/if}
-                       <!--{/foreach}-->
+                    <!--{/foreach}-->
                 </li>
-            	<li>
-                	<a href='{$article_cat_zxzx.url}'><h2 class='f14'>{$article_cat_zxzx.cat_name}</h2></a>
-                	<!-- {foreach from=$article_list_zxzx item=article name=article} -->
-                       <!-- 显示数量控制开始--> 
-                         {if $smarty.foreach.article.iteration< 2}
-                    <a class='img-box dib' href='{$article.url}'><img src="{$article.file_url}" alt="{$article.title}" /></a>
-                    <a href='{$article.url}'><p>{$article.title|truncate:17:"...":true}</p></a><br>
+                <li>
+                    <a href='{$article_cat_zxzx.url}'><h2 class='f14'>{$article_cat_zxzx.cat_name}</h2></a>
+                    <!-- {foreach from=$article_list_zxzx item=article name=article} -->
+                    <!-- 显示数量控制开始-->
+                    {if $smarty.foreach.article.iteration< 2}
+                        <a class='img-box dib' href='{$article.url}'><img src="{$article.file_url}" alt="{$article.title}" /></a>
+                        <a href='{$article.url}'><p>{$article.title|truncate:17:"...":true}</p></a><br>
                     {/if}
-                       <!--{/foreach}-->
-                       <!-- {foreach from=$article_list_zxzx item=article name=article} -->
-                       <!-- 显示数量控制开始--> 
-                         {if $smarty.foreach.article.iteration > 1 and $smarty.foreach.article.iteration< 5}
-                    <a href='{$article.url}'><span>{$article.title|truncate:17:"...":true}</span></a><br>
+                    <!--{/foreach}-->
+                    <!-- {foreach from=$article_list_zxzx item=article name=article} -->
+                    <!-- 显示数量控制开始-->
+                    {if $smarty.foreach.article.iteration > 1 and $smarty.foreach.article.iteration< 5}
+                        <a href='{$article.url}'><span>{$article.title|truncate:17:"...":true}</span></a><br>
                     {/if}
-                       <!--{/foreach}-->
+                    <!--{/foreach}-->
                 </li>
             </ul>
         </div>
     </div>
- <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 
-
-
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 </body>
 </html>

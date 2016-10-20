@@ -1053,7 +1053,7 @@ function submit_div(goods_id, parentId)
   var sel_obj = document.getElementsByTagName('select');
   while (sel_obj[i])
   {
-    sel_obj[i].style.visibility = "";
+    sel_obj[i].style.visibility = ""; 
     i++;
   }
 
